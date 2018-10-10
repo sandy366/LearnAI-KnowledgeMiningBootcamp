@@ -26,7 +26,7 @@ Content-Type: application/json
 ```
 You will probably see something similar to the image below - no information for the images we have.
 
-![](./media/no-images-info.PNG)
+![](./media/no-images-info.png)
 
 
 ## How can we fix it?

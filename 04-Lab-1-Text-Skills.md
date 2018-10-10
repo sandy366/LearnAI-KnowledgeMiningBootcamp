@@ -49,7 +49,7 @@ Send the request. The web test tool should return a status code of 201 confirmin
 
 Since this is your first request, check the Azure portal to confirm the data source was created in Azure Search. On the search service dashboard page, verify the Data Sources tile has a new item. You might need to wait a few minutes for the portal page to refresh. 
 
-  ![Data sources tile in the portal](./media/data-source.PNG "Data sources tile in the portal")
+  ![Data sources tile in the portal](./media/data-source.png "Data sources tile in the portal")
 
 If you got a 403 or 404 error, check the request construction: `api-version=2017-11-11-Preview` should be on the endpoint, `api-key` should be in the Header after `Content-Type`, and its value must be valid for a search service. You can reuse the header for the remaining steps in this lab.
 

@@ -7,7 +7,7 @@ In this section, we'll set the stage for the rest of the course. We'll start by 
 ### Azure Search
 Developers are constantly looking for PaaS services in Azure to achieve better and faster results in the applications they build. While search is key to many types of applications, few people are subject matter experts. From an infrastructure standpoint, it needs to have high availability, durability and scalability. From a functionality standpoint, it needs to have ranking, language support, and geospatial capabilities. Users have come to expect instant results, auto-complete as they type, highlighting hits within the results, great ranking, and the ability to understand what they are looking for, even if they spell it incorrectly or include extra words.
 
-![](./media/AzureSearch.PNG)
+![](./media/AzureSearch.png)
 
 
 The example above illustrates some of the components users are expecting in their search experience. [Azure Search](https://docs.microsoft.com/en-us/azure/search/search-what-is-azure-search) can accomplish these user experience features, along with giving you [monitoring and reporting](https://docs.microsoft.com/en-us/azure/search/search-traffic-analytics), [simple scoring](https://docs.microsoft.com/en-us/rest/api/searchservice/add-scoring-profiles-to-a-search-index), and tools for [prototyping](https://docs.microsoft.com/en-us/azure/search/search-import-data-portal) and [inspection](https://docs.microsoft.com/en-us/azure/search/search-explorer).  
