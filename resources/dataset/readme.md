@@ -1,6 +1,6 @@
 # LearnAI Team - Knowledge Mining Dataset
 
-This is the dataset we will for the trainining. It was created with this ideas in mind:
+This is the dataset we will for the trainining. It was created with these objectives:
 
 + Public Microsoft documents and images
 + Multiple languages

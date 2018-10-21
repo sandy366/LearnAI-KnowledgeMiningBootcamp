@@ -29,11 +29,24 @@ In this lab, we will create an Azure Search service and a storage account. We re
 
   ![Endpoint and key information in the portal](./resources/images/create-search-collect-info.png "Endpoint and key information in the portal")
 
-## Step 2 - Create the Azure Blob service and upload the data
+## Step 2 - Create the Azure Blob service and upload the dataset
 
 The enrichment pipeline pulls from Azure data sources. Source data must originate from a supported data source type of an [Azure Search indexer](https://docs.microsoft.com/en-us/azure/search/search-indexer-overview). For this exercise, we use blob storage to showcase multiple content types.
 
-1. [Download the sample data](https://1drv.ms/f/s!AsUn_SC4PosUkqZqDqS24ubRlk3eXw). The sample data consists of a small file set of different types. 
+The dataset used in this training was selected to support the labs of the bootcamp. It was created with these objectives:
+
++ Public Microsoft documents and images
++ Multiple languages
++ Multiple formats
++ Multiple challenges for the Bootcamp
+
+1. [Download the sample data](https://1drv.ms/f/s!AsUn_SC4PosUkqZqDqS24ubRlk3eXw). An alternative for this download is to clone this training repository:
+
++ Download and install [git](https://git-scm.com/), if necessary. 
++ Open the Git CMD application
++ Create a folder and on the command prompt navigate to it.
++ type the comand `git clone https://github.com/Azure/LearnAI-KnowledgeMiningBootcamp` . This will download all of the files in the repo, including the dataset. 
+
 
 1. Sign up for Azure Blob storage, create a storage account, log in to Storage Explorer, and create a container named `basicdemo`  in the same region as your Azure Search service created in the step above, **to avoid latency between the search service and the files**.
 You should use a general purpose account and LRS replication. For production environments, you may need to use another replication type. If you haven't done this before, you can refer to the [Azure Storage Explorer Quickstart](https://azure.microsoft.com/en-us/features/storage-explorer) for instructions on all the steps.
