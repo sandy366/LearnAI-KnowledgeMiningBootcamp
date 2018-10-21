@@ -30,10 +30,10 @@ In this course you will learn
 
 
 #### Architecture
-![Architecture](./media/KMArchitecture.png)
+![Architecture](./resources/images/KMArchitecture.png)
 
 #### Technologies Covered
-![Technology](./media/KMTechnologyMap.png)
+![Technology](./resources/images/KMTechnologyMap.png)
 
 #### Industry application
 

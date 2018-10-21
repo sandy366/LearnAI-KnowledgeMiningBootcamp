@@ -8,7 +8,7 @@ In this lab, we will create an Azure Search service and a storage account. We re
 
 1. Click **Create a resource**, search for Azure Search, and click **Create**. See [Create an Azure Search service in the portal](https://docs.microsoft.com/en-us/azure/search/search-create-service-portal) if you are setting up a search service for the first time.
 
-  ![Dashboard portal](./media/create-service-full-portal.png "Create Azure Search service in the portal")
+  ![Dashboard portal](./resources/images/create-service-full-portal.png "Create Azure Search service in the portal")
 
 3. For Resource group, create a resource group to contain all the resources you create in this tutorial. This makes it easier to clean up the resources after you have finished the tutorial.
 
@@ -23,11 +23,11 @@ In this lab, we will create an Azure Search service and a storage account. We re
 
 6. Pin the service to the dashboard for fast access to service information.
 
-  ![Service definition page in the portal](./media/create-search-service.png "Service definition page in the portal")
+  ![Service definition page in the portal](./resources/images/create-search-service.png "Service definition page in the portal")
 
 7. After the service is created, collect the following information: **URL** from the Overview page, and **api-key** (either primary or secondary) from the Keys page. You will need them in the following labs.
 
-  ![Endpoint and key information in the portal](./media/create-search-collect-info.png "Endpoint and key information in the portal")
+  ![Endpoint and key information in the portal](./resources/images/create-search-collect-info.png "Endpoint and key information in the portal")
 
 ## Step 2 - Create the Azure Blob service and upload the data
 
