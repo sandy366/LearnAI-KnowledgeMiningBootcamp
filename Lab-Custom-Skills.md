@@ -349,7 +349,7 @@ Check the image below to see how Azure Search returns the metadata about your da
 
 
 ## Finished Solution
-If you could not make it, [here](10-Finished-Solution-Lab-3.md) is the challenge solution. You just need to follow the steps.
+If you could not make it, [here](./resources/Finished-Solutions/Finished-Solution-Lab-3.md) is the challenge solution. You just need to follow the steps.
 
 
 ## Next Step
