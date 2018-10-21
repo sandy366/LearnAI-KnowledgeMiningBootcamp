@@ -1,85 +1,107 @@
-# Knowledge Mining Bootcamp - Applying AI to Business Documents using Cognitive Search
+# LearnAI: Build an Enterprise Knowledge Mining Solution using the Microsoft AI Platform
+### Build an enterprise scale intelligent search solution for searching business documents using Microsoft Azure and Cognitive Search
 
-## Welcome 
-Knowledge Mining is the process of discovering actionable information from large sets of unstructured data, like text or images. It uses Artificial Intelligence to derive patterns and hidden information that exist in data. It can be used to guarantee compliance, enrich searches, or automate processes, among other business processes. [Coginite Search](http://aka.ms/cognitivesearch), Microsoft's technology for Knowledge Mining, creates searchable information out of non-searchable content by attaching AI algorithms to an indexing pipeline.
+#### About this Course
+In this course, you will learn to build an enterprise search solution by applying knowledge mining approach to search an organization’s business documents like Microsoft Office, PDFs and images using Azure search and Cognitive search skillsets and expose the results via a Bot interface.
 
-This two days training will focus on hands-on activities that develop proficiency with Cognitive Search, an Azure Search AI-oriented capability announced at [Microsoft Build 2018](https://www.microsoft.com/en-us/build). These labs assume an introductory to intermediate knowledge of [Visual Studio](https://www.visualstudio.com/vs/community/), the [Azure Portal](https://portal.azure.com), [Azure Functions](https://azure.microsoft.com/en-us/services/functions/) and [Azure Search](https://azure.microsoft.com/en-us/services/search/). If you are not at that skill level, we have prerequisite materials below that you **need** to complete prior to beginning this training.
+You will learn to perform entity recognition, image analysis, text translation and indexed search on enterprise business documents using Microsoft Cognitive Services and Azure Search. This approach can be used with almost any Azure service to augment a customer’s scenario involving intelligent search. 
 
-## Goals
-We will focus on hands-on activities to learn how to create a Cognitive Search solution for all types of business documents. The documents include pdfs, docs, ppts and images, as well as documents with multiple languages. 
-In this training, you will create a data flow that uses cognitive skills to enrich your business documents. These enrichments will become part of an Azure Search index. 
+While this course focusses on Azure and Cognitive search capabilities, a depth course on building Bots and integrating various cognitive services is available here - [Building Intelligent Agents and Apps](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp).
 
-At the end of this workshop, you should have learned:
+In this course you will learn
 
-+ **What** Cognitive Search is 
-+ **How** to implement this Cognitive Search Solution
-+ **Why** to use this solution with demos, POCs and other business scenarios
+1. Fundamentals of Azure Search and its capabilities.
 
+1. Understand Microsoft Cognitive Search and its key scenarios for using them.
 
-## Prerequisites
-Since this is an AI training on top of Microsoft Azure Services, before we start you need:
+1. Build an enriched data pipeline for search using predefined and custom skillsets:
 
-+ **If if you don't have prior experience:**
-1. **To Read:** [Visual Studio](https://docs.microsoft.com/en-us/visualstudio/ide/visual-studio-ide) tutorial
-1. **To Read:** [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview) quick introduction 
-1. **To Read:** [Azure Search](https://docs.microsoft.com/en-us/azure/search/search-what-is-azure-search) overview
-1. **To Read:** [Using Postman](https://docs.microsoft.com/en-us/azure/search/search-fiddler) tutorial
-1. **To Watch:** [MVA: C# Fundamentals](https://mva.microsoft.com/en-us/training-courses/c-fundamentals-for-absolute-beginners-16169?l=Lvld4EQIC_2706218949) short videos
+    a. Text skills like entity recognition, language detection, text manipulation and key phrase extraction.
+    
+    b. Image skills like OCR.
+    
+    c. Language skills like text translation.
+    
+    d. Content moderation skills to block documents with incompliant content.
+    
+1. Use the enriched data pipeline for a knowledge mining solution on business documents within an enterprise.
 
-+ **Mandatory**
-1. **To Create:** You need a Microsoft Azure account to create the services we use in our solution. You can create a [free account](https://azure.microsoft.com/en-us/free/), use your [MSDN account](https://azure.microsoft.com/en-us/pricing/member-offers/credit-for-visual-studio-subscribers/) or use any other subscription where you have permission to create services.
-1. **To Install:** [Visual Studio 2017](https://www.visualstudio.com/vs/) version version 15.5 or later, including the Azure development workload.
-1. **To Install:** [Postman](https://www.getpostman.com/). To call the labs APIs.
-
-## Agenda
-Since you have finished the prerequisites, let's start the training. You just need to follow the workshop structure presented below.
-
-+ [Introduction](01-Introduction.md) - 1 hour - Motivation, context, key concepts
-+ [Solution Architecture](02-Solution-Architecture.md) - 1 hour - Diagram, use cases, deployment options and costs
-+ [Environment Creation](03-Environment-Creation.md) - 1 hour - Using the Azure Portal, we will create the services we need fo the workshop
-+ [Lab 1](04-Lab-1-Text-Skills.md) - 2 hours - Create a Cognitive Search Enrichment Process: **Text** Skills
-+ [Lab 2](05-Lab-2-Image-Skills.md) - 1 hour - Create a Cognitive Search Skillset: **Image** Skills
-+ [Lab 3](06-Lab-3-Custom-Skills.md) - 2 hours - Create a Cognitive Search Skillset with **Custom** Skills
-+ [Final Case](07-Final-Case.md) - 0.5 hour - Brainstorm - Create a Cognitive Search Solution
-+ [Q&A, Feedback and Survey](08-QA-Feedback-Survey.md) - 0.5 hour
+1. Expose the knowledge mining solution using a bot interface for document search and consumption.
 
 
-## Workshop clean up
-If you don't want to keep the solution up and running for future use, you should get rid of the environment after the course. Assuming that you created all services in the same resource group, the fastest way to clean up is by deleting it. This will permanently remove the Azure Search service, the Azure Function app and Azure Blob service (including the services and any stored content that you created for this workshop). In the portal, the resource group name is on the Overview page of each service.
+#### Architecture
+![Architecture](./media/KMArchitecture.png)
 
+#### Technologies Covered
+![Technology](./media/KMTechnologyMap.png)
 
-## Useful Links
-+ [Microsoft AI School](https://aischool.microsoft.com/learning-paths)
-+ [Microsoft AI Platform](https://www.microsoft.com/en-us/ai)
-+ [Microsoft AI Principles](https://www.microsoft.com/en-us/AI/our-approach-to-ai)
-+ [Microsoft AI Ethics](https://aka.ms/ai-ethics)
-+ [Microsoft AI Customer Cases](https://www.microsoft.com/en-us/ai/customer-stories)
-+ [Microsoft AI Lab](https://www.ailab.microsoft.com/) **-> Released May, 2018**
-+ [Microsoft AI TV](https://aka.ms/AzureTV) **-> Released May, 2018**
-+ [Microsoft AI Analytics School](https://learnanalytics.microsoft.com/) 
-+ [Microsoft Research Open Data](https://msropendata.com/)
-+ [Cognitive Search Official Demo - JFK Files](https://jfk-demo.azurewebsites.net/)
-+ [Cognitive Search Official Code - JFK Files](https://github.com/Microsoft/AzureSearch_JFK_Files)
-+ [Cognitive Search Business Documents Demo - Wolters Kluwer](https://wolterskluwereap.azurewebsites.net/)
-+ [Cognitive Search Business Oil & Gas Demo - Exxon Mobile](http://seismicsearch.azurewebsites.net/)
-+ [Cognitive Search Business Healthcare Demo - CTakes](http://webmedsearch.azurewebsites.net/)
-+ [Cognitive Services Enrichment Pipeline Demo](https://text-analytics-demo-dev.azurewebsites.net/)
+#### Industry application
 
+Intelligent search is relevant to many major industries. Some are listed below.
 
+1.	Retail and health care industries employ chatbots with advanced multi-language support capabilities to service their customers.
 
+2.	Retail, Housing and Automotive industries for sales/listing.
 
-## Contributing
+3.	Entertainment industry uses search for relevant/contextual on-demand streaming.
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.microsoft.com.
+#### Pre-requisites
 
-When you submit a pull request, a CLA-bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
+1.	Fundamental working knowledge of Azure Portal, Functions and Azure Search.
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+2.	Familiarity with Visual Studio.
 
+3.	Familiarity with Azure Bots and Microsoft Bot Framework v4.
+
+If you do not have any familiarity with the above pre-requisites, please find below links
+1. *To Read (10 minutes):* [Visual Studio Tutorial](https://docs.microsoft.com/en-us/visualstudio/ide/visual-studio-ide)
+1. *To Read (4 minutes):* [Azure Functions Overview](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview)  
+1. *To Read (10 minutes):* [Azure Search Overview](https://docs.microsoft.com/en-us/azure/search/search-what-is-azure-search) 
+1. *To Read (7 minutes):* [Postman Tutorial](https://docs.microsoft.com/en-us/azure/search/search-fiddler) 
+1. *To Do (30 minutes):* [C# Quickstart](https://docs.microsoft.com/en-us/dotnet/csharp/quick-starts/) 
+
+#### Pre-Setup before you attend the class Mandatory
+1. *To Create:* You need a Microsoft Azure account to create the services we use in our solution. You can create a [free account](https://azure.microsoft.com/en-us/free/), use your [MSDN account](https://azure.microsoft.com/en-us/pricing/member-offers/credit-for-visual-studio-subscribers/) or use any other subscription where you have permission to create services.
+1. *To Install:* [Visual Studio 2017](https://www.visualstudio.com/vs/) version version 15.5 or later, *including the Azure development workload*.
+1. *To Install:* [Postman](https://www.getpostman.com/). To call the labs APIs.
+
+#### Course Details
+
+Primary Audience: Azure AI Developers, Architects.
+Secondary Audience:  Any professional interested in learning AI.
+
+#### Level
+
+This content is designed as an intermediate to advanced level course for AI developers and/or architects.
+
+#### Type
+This course, in its full form, is designed to be taught in-person but you can also use the materials in a self-paced fashion. There are assignments and multiple reference links throughout the materials that support the concepts and skills you will learn.
+
+#### Length
+
+Full Course classroom training:  16 hours
+
+#### Related LearnAI Courses
+
+[Building Intelligent Agents and Apps](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp)
+
+#### Course Modules
+
+1.	Introduction – Overview of Azure Search, Cognitive Search, Scenarios and industry specific applications.
+
+2.	Fundamentals of Azure Search.
+
+3.	Architecture – Solution Architecture for building enterprise search solution.
+
+4.	Cognitive Search Skillset – Applying text skills.
+
+5.	Cognitive Search Skillset – Applying image skills.
+
+6.	Cognitive Search Skillset – Applying Language skills.
+
+7.	Cognitive Search Skillset – Applying Moderation skills.
+
+8.	Build and Integrate a Bot with Cognitive Search API.
+
+9.	Group Hands-on Lab to practice skills acquired.
 
