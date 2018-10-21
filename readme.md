@@ -87,21 +87,27 @@ Full Course classroom training:  16 hours
 
 #### Course Modules
 
-1.	[Introduction](./01-Introduction.md) – Presentation overview of Azure Search, Cognitive Search, business scenarios and industry specific applications.
+1. [Introduction](./Introduction.md) – Presentation overview of Azure Search, Cognitive Search, business scenarios and industry specific applications.
 
-2.	Fundamentals of Azure Search.
+1. [Architecture](./Solution-Architecture.md)] – Solution Architecture for building enterprise search solution.
 
-3.	Architecture – Solution Architecture for building enterprise search solution.
+1. [Environment Creation](./Environment-Creation.md) - Azure Services used in this workshop
 
-4.	Cognitive Search Skillset – Applying text skills.
+1. Lab - Fundamentals of Azure Search
 
-5.	Cognitive Search Skillset – Applying image skills.
+1. [Lab ](./Lab-Text-Skills.md) - Cognitive Search – Applying text skills
 
-6.	Cognitive Search Skillset – Applying Language skills.
+1. [Lab](./Lab-Image-Skills.md) - Cognitive Search – Applying image skills
 
-7.	Cognitive Search Skillset – Applying Moderation skills.
+1. [Lab](./Lab-Custom-Skills.md) - Cognitive Search – Applying Language skills
 
-8.	Build and Integrate a Bot with Cognitive Search API.
+1. Lab - Cognitive Search – Applying Moderation skills
 
-9.	Group Hands-on Lab to practice skills acquired.
+1. Lab - Build and Integrate a Bot with Cognitive Search API
+
+1. [Lab](./Lab-Final-Case.md) - Group Design Session
+
+#### Q&A and Survey
+Please help the LearnAI Team with [questions and feedback](./QA-Feedback-Survey.md) about this training. 
+
 
