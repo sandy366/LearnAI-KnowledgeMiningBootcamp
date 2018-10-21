@@ -83,7 +83,9 @@ Full Course classroom training:  16 hours
 
 #### Related LearnAI Courses
 
-[Building Intelligent Agents and Apps](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp)
+[Building an Intelligent Bot with Computer Vision, LUIS and Azure Search](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp)
+[Cognitive Search Workshop](https://github.com/Azure/LearnAI-Cognitive-Search)
+[Designing and Architecting Intelligent Agents](https://azure.github.io/LearnAI-DesigningandArchitectingIntelligentAgents/)
 
 #### Course Modules
 
