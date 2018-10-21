@@ -29,9 +29,7 @@ In this lab, we will create an Azure Search service and a storage account. We re
 
   ![Endpoint and key information in the portal](./resources/images/create-search-collect-info.png "Endpoint and key information in the portal")
 
-## Step 2 - Create the Azure Blob service and upload the dataset
-
-The enrichment pipeline pulls from Azure data sources. Source data must originate from a supported data source type of an [Azure Search indexer](https://docs.microsoft.com/en-us/azure/search/search-indexer-overview). For this exercise, we use blob storage to showcase multiple content types.
+## Step 2 - Download the dataset
 
 The dataset used in this training was selected to support the labs of the bootcamp. It was created with these objectives:
 
@@ -40,12 +38,22 @@ The dataset used in this training was selected to support the labs of the bootca
 + Multiple formats
 + Multiple challenges for the Bootcamp
 
-1. [Download the sample data](https://1drv.ms/f/s!AsUn_SC4PosUkqZqDqS24ubRlk3eXw). An alternative for this download is to clone this training repository:
+There are 2 options to download the dataset:
+
+1. [Download the sample data](https://1drv.ms/f/s!AsUn_SC4PosUkqZqDqS24ubRlk3eXw) from your browser and save it in a temporary folder. If the download created a zip file, extract all of the content. We will use this folder in the next step, please remember the path for the extracted files.
+
+1.  An alternative for this download is to clone this training repository:
 
 + Download and install [git](https://git-scm.com/), if necessary. 
-+ Open the Git CMD application
-+ Create a folder and on the command prompt navigate to it.
++ Open the Git CMD application, use MS-DOS sintaxe to create a folder and navigate to it. We will use this folder in the next step, please remember the exactly path you created.
 + type the comand `git clone https://github.com/Azure/LearnAI-KnowledgeMiningBootcamp` . This will download all of the files in the repo, including the dataset. 
+
+
+
+
+## Step 3 - Create the Azure Blob service and upload the dataset
+
+The enrichment pipeline pulls from Azure data sources. Source data must originate from a supported data source type of an [Azure Search indexer](https://docs.microsoft.com/en-us/azure/search/search-indexer-overview). For this exercise, we use blob storage to showcase multiple content types.
 
 
 1. Sign up for Azure Blob storage, create a storage account, log in to Storage Explorer, and create a container named `basicdemo`  in the same region as your Azure Search service created in the step above, **to avoid latency between the search service and the files**.
