@@ -87,7 +87,7 @@ Full Course classroom training:  16 hours
 
 #### Course Modules
 
-1.	Introduction – Overview of Azure Search, Cognitive Search, Scenarios and industry specific applications.
+1.	[Introduction](./01-Introduction.md) – Presentation overview of Azure Search, Cognitive Search, business scenarios and industry specific applications.
 
 2.	Fundamentals of Azure Search.
 
