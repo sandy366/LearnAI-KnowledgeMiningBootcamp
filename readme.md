@@ -1,3 +1,7 @@
+#TO DO!!!
++ Fix the Bot usage in the Solution Architecture file
++ Add the missing labs
+
 # LearnAI: Build an Enterprise Knowledge Mining Solution using the Microsoft AI Platform
 ### Build an enterprise scale intelligent search solution for searching business documents using Microsoft Azure and Cognitive Search
 
