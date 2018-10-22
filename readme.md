@@ -1,6 +1,7 @@
 #TO DO!!!
 + Fix the Bot usage in the Solution Architecture file
 + Add the missing labs
++ Rewrite Sol Arch Begining and the connection between the labs
 
 # LearnAI: Build an Enterprise Knowledge Mining Solution using the Microsoft AI Platform
 ### Build an enterprise scale intelligent search solution for searching business documents using Microsoft Azure and Cognitive Search
@@ -99,17 +100,17 @@ Full Course classroom training:  16 hours
 
 1. [Environment Creation](./Environment-Creation.md) - Azure Services used in this workshop
 
-1. Lab - Fundamentals of Azure Search
+1. [Lab](./Lab-Azure-Search) - Indexing Business Documents with Azure Search
 
-1. [Lab ](./Lab-Text-Skills.md) - Cognitive Search – Applying text skills
+1. [Lab](./Lab-Text-Skills.md) - Cognitive Search – Applying text skills
 
 1. [Lab](./Lab-Image-Skills.md) - Cognitive Search – Applying image skills
 
 1. [Lab](./Lab-Custom-Skills.md) - Cognitive Search – Applying Language skills
 
-1. Lab - Cognitive Search – Applying Moderation skills
+1. [Lab](./Lab-Content-Moderation) - Cognitive Search – Applying Moderation skills
 
-1. Lab - Build and Integrate a Bot with Cognitive Search API
+1. [Lab](./Business-Documents-Bot.md) - Build and Integrate a Bot with Cognitive Search API
 
 1. [Lab](./Lab-Final-Case.md) - Group Design Session
 
