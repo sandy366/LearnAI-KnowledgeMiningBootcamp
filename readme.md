@@ -4,8 +4,8 @@
 + Rewrite Sol Arch Begining and the connection between the labs
 + test
 
-# LearnAI: Build an Enterprise Knowledge Mining Solution using the Microsoft AI Platform
-### Build an enterprise scale intelligent search solution for searching business documents using Microsoft Azure and Cognitive Search
+# LearnAI: Knowledge Mining Bootcamp - Enterprise Cogntive Search Solution using the Microsoft AI Platform
+### Build an enterprise scale intelligent search solution for business documents searching using Microsoft Azure Cognitive Search
 
 #### About this Course
 In this course, you will learn to build an enterprise search solution by applying knowledge mining approach to search an organization’s business documents like Microsoft Office, PDFs and images using Azure search and Cognitive search skillsets and expose the results via a Bot interface.

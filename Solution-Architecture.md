@@ -1,8 +1,8 @@
 # Solution Architecture
 
-In this workshop you will learn how to create a Cognitive Search solution for Enterprise Documents. 
+In this training you will create a solution to ingest and process business documents. The dataset is detailed below and it was choosen specially for this training. 
 
-Cognitive Search is an Azure Search feature that lets you use artificial intelligence to extract insights and structured information from business documents like pdf, ppt, docx, xls, html and more. We will create pipelines that use cognitive skills to enrich and bring structure to your data before it gets indexed. 
+You will start with the environment 
 
 This solution uses a variety of pre-built cognitive skills and extend the feature by adding some custom skills.
 
