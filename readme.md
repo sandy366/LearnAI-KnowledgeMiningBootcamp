@@ -33,8 +33,7 @@ In this course you will learn these key concepts:
 
     + Text skills like entity recognition, language detection, text manipulation and key phrase extraction
     + Image skills like OCR
-    + Language skills like text translation
-    + Content moderation skills to block documents with incompliant content.
+    + Content moderation skills to detect documents with incompliant content.
 
 1. Use the enriched data for an advanced search experience for business documents within an enterprise.
 
@@ -120,13 +119,11 @@ Full Course classroom training:  16 hours
 
 1. [Lab 4](./Lab-Image-Skills.md) - Cognitive Search – Applying image skills
 
-1. [Lab 5](./Lab-Custom-Skills.md) - Cognitive Search – Applying Language skills
+1. [Lab 5](./Lab-Custom-Skills.md) - Cognitive Search – Applying Content Moderator with **Custom skills**
 
-1. [Lab 6](./Lab-Content-Moderation) - Cognitive Search – Applying Moderation skills
+1. [Lab 6](./Business-Documents-Bot.md) - Build and Integrate a Bot with Cognitive Search API
 
-1. [Lab 7](./Business-Documents-Bot.md) - Build and Integrate a Bot with Cognitive Search API
-
-1. [Lab 8](./Lab-Final-Case.md) - Group Design Session
+1. [Lab 7](./Lab-Final-Case.md) - Group Design Session
 
 ### Q&A and Survey
 

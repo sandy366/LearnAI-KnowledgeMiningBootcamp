@@ -1,16 +1,16 @@
 # Solution Architecture
 
-In this Architecture document you will see details of the solution created trought the training labs. In this training you will create a solution to ingest and process business documents. The dataset is detailed below and it was choosen specially for this training. 
+This solution uses a variety of pre-built cognitive skills and extend the AI transformations with custom skills, based on Azure Functions. In this Architecture document you will see details of the solution created trought the training labs. There are details about the target use case, the dataset, the labs, the cost, the tools, and the interface.
 
-You will start with the environment 
-
-This solution uses a variety of pre-built cognitive skills and extend the feature by adding some custom skills.
+To fully understand this document, It is expected that you have understood all the information presented in the [introduction](./Introduction.md)) of the training: **What is Cognitive Search, How it works, Why it is relevant for any company in the world, when to use it**.
 
 ## Use Case
 
-Every company has business documents: contracts, memos, presentations, images, spreadsheets. Usually these documents lack metadata necessary to be searchable, **as you can see in the image below**. 
-Cognitive Search uses the most advanced cognitive capabilities, based on Microsoft's AI Platform, to extract and create enriched metadata about your documents, 
-vastly improving the overall search experience.
+Every company has business documents: contracts, memos, presentations, images, spreadsheets, business plans and so on. Usually these documents doesn't have the metadata necessary to be searchable, **as you can see in the image below**. Since documents don't have tags, cetegories and comments, they only can be found by name. This creates a poor search experiece, slowing down busiess process and reducing productivity.
+
+![Lack of Metadata](./resources/images/sol-arch-images/no-meta.png)
+
+Azure Cognitive Search, the Microsoft product for Knowledge Mining, uses the most advanced cognitive capabilities, based on Microsoft's Azure AI Platform, to extract and create enriched metadata about your documents, vastly improving the overall search experience. This process also allow companies to enforce complaince, detect risks and detect policies violations.
 
 Enterprises may need to search for:
 
@@ -23,30 +23,35 @@ Enterprises may need to search for:
 
 This Cognitive Search solution addresses these problems, extracting insights from multiple documents formats and languages.
 
-
-
-![Lack of Metadata](./resources/images/no-meta.png)
-
-
-
-
 > Since we are working with unstructured data, any set of files can be used. In other words, this could be a **Bring Your Own Data** solution; you can test later with any dataset you want.  
 > Some other possible uses for the labs could be:  
->  
->  + Demos: You could keep an environment ready, loaded. 
->  + POCs: You just need to upload some of the client's data and re-execute the enrichment pipeline. **You can prove the concept in front of the client, in minutes**.
->  + Production: Since we are using PaaS, it has SLA and scalability by design.
->  + Personal Use: If you have lots of documents or photos, you can use these labs to analyze them, too.
+>+ Demos: You could keep an environment ready, loaded.
+>+ POCs: You just need to upload some of the client's data and re-execute the enrichment pipeline. **You can prove the concept in front of the client, in minutes**.
+>+ Production: Since we are using PaaS, it has SLA and scalability by design.
+>+ Personal Use: If you have lots of documents or photos, you can use these labs to analyze them, too.
+
+## Labs Details
+
+In the [First Lab](./Lab-Environment-Creation.md) you will learn how to create the required environment for this training, including the business documents dataset upload into Azure Blob Storage.
+
+In the [Second Lab](./Lab-Azure-Search-Fundamentals.md) you will learn how index the business documents with "basic" Azure Search. The objective is teach how the standard features adds sophisticated search capabilities to your documents: natural language search, ranking, paging, suggestions and so on.
+
+In the [Third Lab](./Lab-Text-Skills.md) you will learn the next level of data enrichment, using Cognitive Search. It will be clear for you how AI can **extend** the metadata created, enabling an advanced search experience.
+
+In the [Fourth Lab](./Lab-Image-Skills.md) you will learn how text skills don't work for images. You will detect and fix this situation, making your images queryable too.
+
+In the [Fifth Lab](./Lab-Custom-Skills.md) you will learn how to create a custom skill using Azure Content Moderator API and Azure Functions, connection this transformation into the enrichment pipeline. You will detect documents with incompliant content.
+
+In the [Sixth Lab](./Lab-Business-Documents-Bot.md) you will learn how to use a Bot to interact with the Azure Search Index, the Business Documents Bot.
+
+In the [Seventh Lab](./Final-Case.md) you are invited to, based on what you have learned, create the architecture of a Knowledge Mining solution for another use case.
+
+## Dataset
+
+We will provide a sample dataset that contains documents with multiple languages and formats including HTML, doc, pdf, ppt, png and jpg. They were selected for a better learning experience, showcasing the technology capabilities.
 
 
-## Labs Architecture
 
-
-![](./resources/images/new-architecture.png)
-
-Please note that:
-
-1. We will provide a sample dataset. This dataset contains documents with multiple languages and formats including HTML, doc, pdf, ppt, png and jpg. They were selected for a better learning experience, showcasing most of the technology capabilities.
 2. You can upload the data to blob storage using [Azure Portal](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal) or [Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer), among other options.
 3. We will start with a few simple skills and add more complex Cognitive Skills in labs 2 and 3.
 4. We will use Azure Search query capabilities to analyze the results.
@@ -102,9 +107,6 @@ After the initial data upload to blob storage, we will use Postman for [REST API
 > + Error messages and warnings are very clear.
 > + Besides the API URL and call type, we will use GET/PUT/POST (depending on what action we are taking), and you need to use the header for Content-Type and api-key. The json commands must be placed into the "body / raw" area. If you are struggling using Postman, here's a friendly reminder to [review the resource from the prerequisites](https://docs.microsoft.com/en-us/azure/search/search-fiddler).
 
-
 ## Next step
+
 [Environment Creation](./Environment-Creation.md) or [Back to Main Menu](./readme.md)
-
-
-
