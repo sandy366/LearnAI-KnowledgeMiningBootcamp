@@ -1,11 +1,10 @@
 # Lab 1: Create a Cognitive Search Enrichment Process with **Text** Skills
 
-In this lab, you will learn the mechanics of programming data enrichment in Azure Search using *cognitive skills*. Cognitive skills are natural language processing (NLP) and image analysis operations that extract text and text representations of an image, detect language, entities, key phrases, and more. The end result is rich additional content in an Azure Search index, created by a cognitive search indexing pipeline. 
+In this lab, you will learn the mechanics of programming data enrichment in Azure Search using *cognitive skills*. Cognitive skills are natural language processing (NLP) and image analysis operations that extract text and text representations of an image, detect language, entities, key phrases, and more. The end result is rich additional content in an Azure Search index, created by a cognitive search indexing pipeline.
 
 **All the links in this lab are extra content for your learning, but you don't need them to perform the required activities.**
 
-In this lab, we will learn how to create a Cognitive Search indexing pipeline that enriches source data in route to an index. The output is a full text searchable index on Azure Search. 
-
+In this lab, we will learn how to create a Cognitive Search indexing pipeline that enriches source data in route to an index. The output is a full text searchable index on Azure Search.
 
 The list of activities we will do, using Azure Search REST APIs, is:
 
@@ -17,7 +16,6 @@ The list of activities we will do, using Azure Search REST APIs, is:
 + Check the enriched metadata
 + Query the metadata
 
-
 >TIP for Later: You can enhance the index with other Azure Search standard capabilities, such as [synonyms](https://docs.microsoft.com/en-us/azure/search/search-synonyms), [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analyzers](https://docs.microsoft.com/en-us/rest/api/searchservice/custom-analyzers-in-azure-search), and [filters](https://docs.microsoft.com/en-us/azure/search/search-filters).
 
 ## Step 1 - Create a data source
@@ -26,15 +24,18 @@ Now that your services and source files are prepared, start assembling the compo
 
 For this tutorial, we will use Postman to call Azure Search service APIs. In the request header, provide the service name you used while creating the Azure Search service, and the api-key generated for your search service. In the request body, specify the blob container name and connection string.
 
-### Sample Request
+### Data Source Sample Request
+
 ```http
 POST https://[service name].search.windows.net/datasources?api-version=2017-11-11-Preview  
 api-key: [admin key]  
 Content-Type: application/json
 ```
-#### Request Body Syntax
+
+#### Data Source Request Body Syntax
+
 ```json
-{   
+{
     "name" : "demodata",  
     "description" : "Demo files to demonstrate cognitive search capabilities.",  
     "type" : "azureblob",
@@ -45,11 +46,12 @@ Content-Type: application/json
     "container" : { "name" : "<your blob container name>" }
 }  
 ```
-Send the request. The web test tool should return a status code of 201 confirming success. 
 
-Since this is your first request, check the Azure portal to confirm the data source was created in Azure Search. On the search service dashboard page, verify the Data Sources tile has a new item. You might need to wait a few minutes for the portal page to refresh. 
+Send the request. The web test tool should return a status code of 201 confirming success.
 
-  ![Data sources tile in the portal](./resources/images/data-source.png "Data sources tile in the portal")
+Since this is your first request, check the Azure portal to confirm the data source was created in Azure Search. On the search service dashboard page, verify the Data Sources tile has a new item. You might need to wait a few minutes for the portal page to refresh.
+
+  ![Data sources tile in the portal](./resources/images/text-skills-images/data-source.png "Data sources tile in the portal")
 
 If you got a 403 or 404 error, check the request construction: `api-version=2017-11-11-Preview` should be on the endpoint, `api-key` should be in the Header after `Content-Type`, and its value must be valid for a search service. You can reuse the header for the remaining steps in this lab.
 
@@ -66,10 +68,11 @@ In this step, you define a set of enrichment steps that you want to apply to you
 
 + [Named Entity Recognition](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-named-entity-recognition) for extracting the names of organizations from content in the blob container.
 
-+ [Key Phrase Extraction](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-keyphrases) to pull out the top key phrases. 
++ [Key Phrase Extraction](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-keyphrases) to pull out the top key phrases.
 
-### Sample Request
-Before you make this REST call, remember to replace the service name and the admin key in the request below if your tool does not preserve the request header between calls. 
+### Skillset Sample Request
+
+Before you make this REST call, remember to replace the service name and the admin key in the request below if your tool does not preserve the request header between calls.
 
 This request creates a skillset. Reference the skillset name ```demoskillset``` for the rest of this lab.
 
@@ -78,10 +81,12 @@ PUT https://[servicename].search.windows.net/skillsets/demoskillset?api-version=
 api-key: [admin key]
 Content-Type: application/json
 ```
-#### Request Body Syntax
+
+#### Skillset Request Body Syntax
+
 ```json
 {
-  "description": 
+  "description":
   "Extract entities, detect language and extract key-phrases",
   "skills":
   [
@@ -116,14 +121,14 @@ Content-Type: application/json
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
-      "textSplitMode" : "pages", 
+      "textSplitMode" : "pages",
       "maximumPageLength": 4000,
       "inputs": [
       {
         "name": "text",
         "source": "/document/content"
       },
-      { 
+      {
         "name": "languageCode",
         "source": "/document/languageCode"
       }
@@ -157,7 +162,7 @@ Content-Type: application/json
 }
 ```
 
-Send the request. The web test tool should return a status code of 201 confirming success. 
+Send the request. The web test tool should return a status code of 201 confirming success.
 
 #### About the request
 
@@ -167,9 +172,9 @@ Notice how the key phrase extraction skill is applied for each page. By setting 
 
 Each skill executes on the content of the document. During processing, Azure Search cracks each document to read content from different file formats. Found text originating in the source file is placed into a generated ```content``` field, one for each document. As such, set the input as ```"/document/content"```.
 
-A graphical representation of the skillset you created is shown below. 
+A graphical representation of the skillset you created is shown below.
 
-![Understand a skillset](./resources/images/skillset.png "Understand a skillset")
+![Understand a skillset](./resources/images/text-skills-images/skillset.png "Understand a skillset")
 
 Outputs can be mapped to an index, used as input to a downstream skill, or both as is the case with language code. In the index, a language code is useful for filtering. As an input, language code is used by text analysis skills to inform the linguistic rules around word breaking.
 
@@ -185,9 +190,9 @@ This exercise uses the following fields and field types:
 |--------------|----------|-------|----------|--------------------|-------------------|
 | field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
+### Index Sample Request
 
-### Sample Request
-Before you make this REST call, remember to replace the service name and the admin key in the request below if your tool does not preserve the request header between calls. 
+Before you make this REST call, remember to replace the service name and the admin key in the request below if your tool does not preserve the request header between calls.
 
 This request creates an index. Use the index name ```demoindex``` for the rest of this tutorial.
 
@@ -196,7 +201,8 @@ PUT https://[servicename].search.windows.net/indexes/demoindex?api-version=2017-
 api-key: [api-key]
 Content-Type: application/json
 ```
-#### Request Body Syntax
+
+#### Index Request Body Syntax
 
 ```json
 {
@@ -243,10 +249,10 @@ Content-Type: application/json
   ]
 }
 ```
-Send the request. The web test tool should return a status code of 201 confirming success. 
+
+Send the request. The web test tool should return a status code of 201 confirming success.
 
 Review the request and confirm understanding. If you want to learn more about defining an index, see [Create Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).
-
 
 ## Step 4 - Create an indexer, map fields, and execute transformations
 
@@ -258,9 +264,9 @@ For cognitive search workloads having an enrichment pipeline, an indexer require
 
 **The next step takes up to 10 minutes of processing to complete.**
 
-### Sample Request
+### Indexer Sample Request
 
-Before you make this REST call, remember to replace the service name and the admin key in the request below if your tool does not preserve the request header between calls. 
+Before you make this REST call, remember to replace the service name and the admin key in the request below if your tool does not preserve the request header between calls.
 
 Also, provide the name of your indexer. You can reference it as ```demoindexer``` for the rest of this lab.
 
@@ -269,11 +275,12 @@ PUT https://[servicename].search.windows.net/indexers/demoindexer?api-version=20
 api-key: [api-key]
 Content-Type: application/json
 ```
-#### Request Body Syntax
+
+#### Indexer Request Body Syntax
 
 ```json
 {
-  "name":"demoindexer",	
+  "name":"demoindexer",
   "dataSourceName" : "demodata",
   "targetIndexName" : "demoindex",
   "skillsetName" : "demoskillset",
@@ -281,7 +288,7 @@ Content-Type: application/json
         {
           "sourceFieldName" : "metadata_storage_path",
           "targetFieldName" : "id",
-          "mappingFunction" : 
+          "mappingFunction" :
             { "name" : "base64Encode" }
         },
         {
@@ -289,35 +296,35 @@ Content-Type: application/json
           "targetFieldName" : "content"
         }
    ],
-  "outputFieldMappings" : 
+  "outputFieldMappings" :
   [
         {
-          "sourceFieldName" : "/document/organizations", 
+          "sourceFieldName" : "/document/organizations",
           "targetFieldName" : "organizations"
         },
         {
-          "sourceFieldName" : "/document/pages/*/keyPhrases/*", 
+          "sourceFieldName" : "/document/pages/*/keyPhrases/*",
           "targetFieldName" : "keyPhrases"
         },
         {
             "sourceFieldName": "/document/languageCode",
             "targetFieldName": "languageCode"
-        }      
+        }
   ],
   "parameters":
   {
-  	"maxFailedItems":-1,
-  	"maxFailedItemsPerBatch":-1,
-  	"configuration": 
+  "maxFailedItems":-1,
+  "maxFailedItemsPerBatch":-1,
+  "configuration":
     {
-    	"dataToExtract": "contentAndMetadata",
-     	"imageAction": "generateNormalizedImages"
-		}
+    "dataToExtract": "contentAndMetadata",
+    "imageAction": "generateNormalizedImages"
+}
   }
 }
 ```
 
-Send the request. The web test tool should return a status code of 201 confirming successful processing. 
+Send the request. The web test tool should return a status code of 201 confirming successful processing.
 
 Expect this step to take several minutes to complete. Even though the data set is small, analytical skills are computation-intensive. Some skills, such as image analysis, are long-running.
 
@@ -328,7 +335,7 @@ Expect this step to take several minutes to complete. Even though the data set i
 
 The script sets ```"maxFailedItems"```  to -1, which instructs the indexing engine to ignore errors during data import. This is useful because there are so few documents in the demo data source. For a larger data source, you would set the value to greater than 0.
 
-Also notice the ```"dataToExtract":"contentAndMetadata"``` statement in the configuration parameters. This statement tells the indexer to automatically extract the content from different file formats as well as metadata related to each file. 
+Also notice the ```"dataToExtract":"contentAndMetadata"``` statement in the configuration parameters. This statement tells the indexer to automatically extract the content from different file formats as well as metadata related to each file.
 
 When content is extracted, you can set ```ImageAction``` to extract text from images found in the data source. The ```"ImageAction":"generateNormalizedImages"``` tells the indexer to extract text from the images (for example, the word "stop" from a traffic Stop sign), and embed it as part of the content field. This behavior applies to both the images embedded in the documents (think of an image inside a PDF), as well as images found in the data source, for instance a JPG file.
 
@@ -374,9 +381,7 @@ Repeat for additional fields: content, language, keyphrases, and organizations i
 
 You can use GET or POST, depending on query string complexity and length. For more information, see [Query using the REST API](https://docs.microsoft.com/azure/search/search-query-rest-api).
 
-<a name="access-enriched-document"></a>
-
 ## Next Step
+
 [Image Skills Lab](./Lab-Image-Skills.md) or
 [Back to Main Menu](./readme.md)
-
