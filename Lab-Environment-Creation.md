@@ -10,7 +10,7 @@ In this lab, we will create an Azure Search service and a storage account. We re
 
   ![Dashboard portal](./resources/images/create-service-full-portal.png "Create Azure Search service in the portal")
 
-3. For Resource group, create a resource group to contain all the resources you create in this tutorial. This makes it easier to clean up the resources after you have finished the tutorial.
+1. For Resource group, create a resource group to contain all the resources you create in this tutorial. This makes it easier to clean up the resources after you have finished the tutorial.
 
 1. For Location, choose either **South Central US** or **West Europe**. Currently, the preview is available only in these regions.
 
@@ -18,14 +18,13 @@ In this lab, we will create an Azure Search service and a storage account. We re
 
   A Free service is limited to 3 indexes, 16 MB maximum blob size, and 2 minutes of indexing, which is often insufficient for exercising the full capabilities of cognitive search. To review limits for different tiers, see [Service Limits](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity).
 
-  > [!NOTE]
-  > Cognitive Search is in public preview. Skillset execution is currently available in all tiers, including free. At a later time, the pricing for this capability will be announced.
+  > Tip! Cognitive Search is in public preview. Skillset execution is currently available in all tiers, including free. At a later time, the pricing for this capability will be announced.
 
-6. Pin the service to the dashboard for fast access to service information.
+1. Pin the service to the dashboard for fast access to service information.
 
   ![Service definition page in the portal](./resources/images/create-search-service.png "Service definition page in the portal")
 
-7. After the service is created, collect the following information: **URL** from the Overview page, and **api-key** (either primary or secondary) from the Keys page. You will need them in the following labs.
+1. After the service is created, collect the following information: **URL** from the Overview page, and **api-key** (either primary or secondary) from the Keys page. You will need them in the following labs.
 
   ![Endpoint and key information in the portal](./resources/images/create-search-collect-info.png "Endpoint and key information in the portal")
 
@@ -42,24 +41,23 @@ There are 2 options to download the dataset:
 
 1. [Download the sample data](https://1drv.ms/f/s!AsUn_SC4PosUkqZqDqS24ubRlk3eXw) from your browser and save it in a temporary folder. If the download created a zip file, extract all of the content. We will use this folder in the next step, please remember the path for the extracted files.
 
-1.  An alternative for this download is to clone this training repository:
+1. An alternative for this download is to clone this training repository:
 
 + Download and install [git](https://git-scm.com/), if necessary. 
 + Open the Git CMD application, use MS-DOS sintaxe to create a folder and navigate to it. We will use this folder in the next step, please remember the exactly path you created.
-+ type the comand `git clone https://github.com/Azure/LearnAI-KnowledgeMiningBootcamp` . This will download all of the files in the repo, including the dataset. 
-
-
-
++ Type the comand `git clone https://github.com/Azure/LearnAI-KnowledgeMiningBootcamp` . This will download all of the files in the repo, including the dataset.
 
 ## Step 3 - Create the Azure Blob service and upload the dataset
 
 The enrichment pipeline pulls from Azure data sources. Source data must originate from a supported data source type of an [Azure Search indexer](https://docs.microsoft.com/en-us/azure/search/search-indexer-overview). For this exercise, we use blob storage to showcase multiple content types.
 
+ 1. Sign up for Azure Blob storage, create a storage account, log in to Storage Explorer, and create a container named `basicdemo`  in the same region as your Azure Search service created in the step above, **to avoid latency between the search service and the files**
 
-1. Sign up for Azure Blob storage, create a storage account, log in to Storage Explorer, and create a container named `basicdemo`  in the same region as your Azure Search service created in the step above, **to avoid latency between the search service and the files**.
-You should use a general purpose account and LRS replication. For production environments, you may need to use another replication type. If you haven't done this before, you can refer to the [Azure Storage Explorer Quickstart](https://azure.microsoft.com/en-us/features/storage-explorer) for instructions on all the steps.
+2. You can upload the data to blob storage using [Azure Portal](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal) or [Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer), among other options.
 
-1. Using Azure Storage Explorer, in the `basicdemo` container you created, click **Upload** to upload the sample files. You can also upload the data from the [Azure Portal](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal). 
+>Tip! You should use a general purpose account and LRS replication. For production environments, you may need to use another replication type. If you haven't done this before, you can refer to the [Azure Storage Explorer Quickstart](https://azure.microsoft.com/en-us/features/storage-explorer) for instructions on all the steps.
+
+2. Using Azure Storage Explorer, in the `basicdemo` container you created, click **Upload** to upload the sample files. You can also upload the data from the [Azure Portal](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal). 
 
 1. After sample files are loaded, get the container name and a connection string for your Blob storage. You could do that by navigating to your storage account in the Azure portal. On **Access keys**, and then copy the **Connection String**  field. We recommend storing the container name and connection string with your Azure Search URL and api-key from Step 1.
 

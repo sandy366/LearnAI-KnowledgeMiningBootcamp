@@ -1,9 +1,8 @@
 # TO DO
 
-+ Fix the Bot usage in the Solution Architecture file
-+ Add the missing labs
++ Add the new labs
 + Rewrite Sol Arch Begining and the connection between the labs
-+ Content Moderator LAB
++ Content Moderator LAB + data
 
 # LearnAI: Knowledge Mining Bootcamp - Azure Cogntive Search Solution for business documents
 
@@ -61,11 +60,8 @@ Intelligent search is relevant to many major industries. Some are listed below.
 ### Pre-requisites
 
 1. Fundamental working knowledge of Azure Portal, Azure Functions and Azure Search
-
 1. Familiarity with Visual Studio and minimun C# knowledge
-
 1. Familiarity with Azure Bots and Microsoft Bot Framework v4
-
 1. Familiarity with [Postman](https://www.getpostman.com/)
 
 If you do not have any of the above pre-requisites, please find below links
@@ -79,9 +75,10 @@ If you do not have any of the above pre-requisites, please find below links
 
 ### Pre-Setup before you attend the class Mandatory
 
-1. *To Create:* You need a Microsoft Azure account to create the services we use in our solution. You can create a [free account](https://azure.microsoft.com/en-us/free/), use your [MSDN account](https://azure.microsoft.com/en-us/pricing/member-offers/credit-for-visual-studio-subscribers/) or use any other subscription where you have permission to create services.
-1. *To Install:* [Visual Studio 2017](https://www.visualstudio.com/vs/) version version 15.5 or later, *including the Azure development workload*.
-1. *To Install:* [Postman](https://www.getpostman.com/). To call the labs APIs.
+1. *To Create:* You need a Microsoft Azure account to create the services we use in our solution. You can create a [free account](https://azure.microsoft.com/en-us/free/), use your [MSDN account](https://azure.microsoftcom/en-us/pricing/member-offers/credit-for-visual-studio-subscribers/) or use any other subscription where you have permission to create services
+1. *To Install:* [Visual Studio 2017](https://www.visualstudio.com/vs/) version version 15.5 or later, *including the Azure development workload*
+1. *To Install:* [Postman](https://www.getpostman.com/). To call the labs APIs
+1. *To install:* [Bot Framework Emulator]( [Bot Emulator](https://github.com/Microsoft/BotFramework-Emulator)
 
 ### Course Details
 
