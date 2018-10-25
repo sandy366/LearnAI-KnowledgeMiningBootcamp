@@ -2,20 +2,27 @@
 + Fix the Bot usage in the Solution Architecture file
 + Add the missing labs
 + Rewrite Sol Arch Begining and the connection between the labs
-+ test2sdsad
 
 
-# LearnAI: Knowledge Mining Bootcamp - Enterprise Cogntive Search Solution using the Microsoft AI Platform
-### Build an enterprise scale intelligent search solution for business documents searching using Microsoft Azure Cognitive Search
+# LearnAI: Knowledge Mining Bootcamp - Azure Cogntive Search Solution using Microsoft AI Platform
+### Build an intelligent search solution for business documents using Microsoft Azure Cognitive Search
 
 #### About this Course
-In this course, you will learn to build an enterprise search solution by applying knowledge mining approach to search an organization’s business documents like Microsoft Office, PDFs and images using Azure search and Cognitive search skillsets and expose the results via a Bot interface.
+In this course you will create an enterprise search solution by applying knowledge mining to business documents like contracts, memos, presentations and images. You will use Microsoft Azure AI technology to extract insights from unstructured data and expose the results in a Bot interface.
 
-You will learn to perform entity recognition, image analysis, text translation and indexed search on enterprise business documents using Microsoft Cognitive Services and Azure Search. This approach can be used with almost any Azure service to augment a customer’s scenario involving intelligent search. 
+At the end of this training you will have learned:
 
-While this course focusses on Azure and Cognitive search capabilities, a depth course on building Bots and integrating various cognitive services is available here - [Building Intelligent Agents and Apps](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp).
++ **What** Azure Cognitive Search is 
++ **How** to implement a Cognitive Search Solution
++ **Why** this technology can be useful for any company
++ **When** to use this solution for demos, POCs and other business scenarios
 
-In this course you will learn
+Jands-on labs will teach you how to use Microsoft Cognitive Services and Azure Search for entity recognition, image analysis, text translation and indexed search on enterprise business documents. This approach uses Arificial Intelligence to create an advanced search experience. 
+
+While this course focusses on Azure Cognitive Search capabilities, a depth course on building Bots and integrating various cognitive services is available here - [Building Intelligent Agents and Apps](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp).
+
+
+In this course you will see this key concepts:
 
 1. Fundamentals of Azure Search and its capabilities.
 
@@ -50,7 +57,7 @@ Intelligent search is relevant to many major industries. Some are listed below.
 
 2.	Retail, Housing and Automotive industries for sales/listing.
 
-3.	Entertainment industry uses search for relevant/contextual on-demand streaming.
+3.	Law firms and legal deparments can use this technologies to enforce complaince or improve search capabilities.
 
 #### Pre-requisites
 
@@ -74,7 +81,7 @@ If you do not have any familiarity with the above pre-requisites, please find be
 
 #### Course Details
 
-Primary Audience: Azure AI Developers, Architects.
+Primary Audience: Azure AI Developers, Solution Architects.
 Secondary Audience:  Any professional interested in learning AI.
 
 #### Level
