@@ -32,6 +32,11 @@ This Cognitive Search solution addresses these problems, extracting insights fro
 >+ Production: Since we are using PaaS, it has SLA and scalability by design.
 >+ Personal Use: If you have lots of documents or photos, you can use these labs to analyze them, too.
 
+### Architecture
+
+![Architecture](./resources/images/sol-arch-images/architecture.png)
+
+
 ## Labs Details
 
 In the [First Lab](./Lab-Environment-Creation.md) you will learn how to create the required environment for this training, including the business documents dataset upload into Azure Blob Storage.
