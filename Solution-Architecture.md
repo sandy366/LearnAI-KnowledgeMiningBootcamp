@@ -36,20 +36,19 @@ This Cognitive Search solution addresses these problems, extracting insights fro
 
 ![Architecture](./resources/images/sol-arch-images/architecture.png)
 
-
 ## Labs Details
 
 In the [First Lab](./Lab-Environment-Creation.md) you will learn how to create the required environment for this training, including the business documents dataset upload into Azure Blob Storage.
 
-In the [Second Lab](./Lab-Azure-Search-Fundamentals.md) you will learn how index the business documents with "basic" Azure Search. The objective is teach how the standard features adds sophisticated search capabilities to your documents: natural language search, ranking, paging, suggestions and so on.
+In the [Second Lab](./Lab-Azure-Search-Fundamentals.md) you will learn how index the business documents with "basic" Azure Search. The objective is teach how the standard features adds sophisticated search capabilities to your documents: natural language search, ranking, paging, suggestions and so on. This lab will use the Azure Portal only, no coding is required.
 
-In the [Third Lab](./Lab-Text-Skills.md) you will learn the next level of data enrichment, using Cognitive Search. It will be clear for you how AI can **extend** the metadata created, enabling an advanced search experience.
+In the [Third Lab](./Lab-Text-Skills.md) you will learn the next level of data enrichment, using Cognitive Search. It will be clear for you how AI can **extend** the metadata created, enabling an advanced search experience. In this lab you will do some coding with Postman.
 
-In the [Fourth Lab](./Lab-Image-Skills.md) you will learn how text skills don't work for images. You will detect and fix this situation, making your images queryable too.
+In the [Fourth Lab](./Lab-Image-Skills.md) you will learn how text skills don't work for images. You will detect and fix this situation, making your images queryable too. For this lab you will do some coding with Postman.
 
-In the [Fifth Lab](./Lab-Custom-Skills.md) you will learn how to create a custom skill using Azure Content Moderator API and Azure Functions, connection this transformation into the enrichment pipeline. You will detect documents with incompliant content.
+In the [Fifth Lab](./Lab-Custom-Skills.md) you will learn how to create a custom skill using Azure Content Moderator API and Azure Functions, connection this transformation into the enrichment pipeline. You will detect documents with incompliant content. For this lab you will do some coding with Postman and Visual Studio. The Azure Portal is also used, to create the Azure Function instance.
 
-In the [Sixth Lab](./Lab-Business-Documents-Bot.md) you will learn how to use a Bot to interact with the Azure Search Index, the Business Documents Bot.
+In the [Sixth Lab](./Lab-Business-Documents-Bot.md) you will learn how to use a Bot to interact with the Azure Search Index, the Business Documents Bot. This lab uses the Bot Emulator and Visual Studio.
 
 In the [Seventh Lab](./Final-Case.md) you are invited to, based on what you have learned, create the architecture of a Knowledge Mining solution for another use case.
 

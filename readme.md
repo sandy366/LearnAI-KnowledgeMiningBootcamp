@@ -1,7 +1,6 @@
 # TO DO
 
 + Add the new labs
-+ Rewrite Sol Arch Begining and the connection between the labs
 + Content Moderator LAB + data
 + Images sizes
 

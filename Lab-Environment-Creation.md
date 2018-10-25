@@ -8,7 +8,7 @@ In this lab, you will create an Azure Search service and a storage account. We r
 
 1. Click **Create a resource**, search for Azure Search, and click **Create**. See [Create an Azure Search service in the portal](https://docs.microsoft.com/en-us/azure/search/search-create-service-portal) if you are setting up a search service for the first time.
 
-  ![Dashboard portal](./resources/images/Env-Creat-images/create-service-full-portal.png "Create Azure Search service in the portal")
+  ![Dashboard portal](./resources/images/env-creat-images/create-service-full-portal.png "Create Azure Search service in the portal")
 
 1. For Resource group, create a resource group to contain all the resources you create in this tutorial. This makes it easier to clean up the resources after you have finished the tutorial.
 
@@ -22,11 +22,11 @@ In this lab, you will create an Azure Search service and a storage account. We r
 
 1. Pin the service to the dashboard for fast access to service information.
 
-  ![Service definition page in the portal](./resources/images/Env-Creat-images/create-search-service.png "Service definition page in the portal")
+  ![Service definition page in the portal](./resources/images/env-creat-images/create-search-service.png "Service definition page in the portal")
 
 1. After the service is created, collect the following information: **URL** from the Overview page, and **api-key** (either primary or secondary) from the Keys page. You will need them in the following labs.
 
-  ![Endpoint and key information in the portal](./resources/images/Env-Creat-images/create-search-collect-info.png "Endpoint and key information in the portal")
+  ![Endpoint and key information in the portal](./resources/images/env-creat-images/create-search-collect-info.png "Endpoint and key information in the portal")
 
 ## Step 2 - Download the dataset
 
@@ -64,5 +64,5 @@ There are other ways to specify the connection string, such as providing a share
 
 ## Next Step
 
-[Text Skills Lab](./Lab-Text-Skills.md) or
+[Azure Search Lab](./Lab-Azure-Search.md) or
 [Back to Main Menu](./readme.md)
