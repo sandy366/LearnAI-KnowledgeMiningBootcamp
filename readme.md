@@ -42,11 +42,11 @@ In this course you will learn these key concepts:
 
 ### Architecture
 
-![Architecture](./resources/images/KMArchitecture.png)
+![Architecture](./resources/images/readme-images/architecture.png)
 
 ### Technologies Covered
 
-![Technology](./resources/images/KMTechnologyMap.png)
+![Technology](./resources/images/readme-images/KMTechnologyMap.png)
 
 ### Industry application
 
@@ -112,21 +112,21 @@ Full Course classroom training:  16 hours
 
 1. [Architecture](./Solution-Architecture.md) – Solution Architecture for building enterprise search solution.
 
-1. [Environment Creation](./Environment-Creation.md) - Azure Services used in this workshop
+1. [Lab 1](./Lab-Environment-Creation.md) - Azure environment creation
 
-1. [Lab 1](./Lab-Azure-Search) - Indexing Business Documents with Azure Search
+1. [Lab 2](./Lab-Azure-Search) - Indexing Business Documents with Azure Search
 
-1. [Lab 2](./Lab-Text-Skills.md) - Cognitive Search – Applying text skills
+1. [Lab 3](./Lab-Text-Skills.md) - Cognitive Search – Applying text skills
 
-1. [Lab 3](./Lab-Image-Skills.md) - Cognitive Search – Applying image skills
+1. [Lab 4](./Lab-Image-Skills.md) - Cognitive Search – Applying image skills
 
-1. [Lab 4](./Lab-Custom-Skills.md) - Cognitive Search – Applying Language skills
+1. [Lab 5](./Lab-Custom-Skills.md) - Cognitive Search – Applying Language skills
 
-1. [Lab 5](./Lab-Content-Moderation) - Cognitive Search – Applying Moderation skills
+1. [Lab 6](./Lab-Content-Moderation) - Cognitive Search – Applying Moderation skills
 
-1. [Lab 6](./Business-Documents-Bot.md) - Build and Integrate a Bot with Cognitive Search API
+1. [Lab 7](./Business-Documents-Bot.md) - Build and Integrate a Bot with Cognitive Search API
 
-1. [Lab 7](./Lab-Final-Case.md) - Group Design Session
+1. [Lab 8](./Lab-Final-Case.md) - Group Design Session
 
 ### Q&A and Survey
 

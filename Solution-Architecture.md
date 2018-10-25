@@ -1,6 +1,6 @@
 # Solution Architecture
 
-In this training you will create a solution to ingest and process business documents. The dataset is detailed below and it was choosen specially for this training. 
+In this Architecture document you will see details of the solution created trought the training labs. In this training you will create a solution to ingest and process business documents. The dataset is detailed below and it was choosen specially for this training. 
 
 You will start with the environment 
 
