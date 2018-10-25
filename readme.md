@@ -3,6 +3,7 @@
 + Add the new labs
 + Rewrite Sol Arch Begining and the connection between the labs
 + Content Moderator LAB + data
++ Images sizes
 
 # LearnAI: Knowledge Mining Bootcamp - Azure Cogntive Search Solution for business documents
 
