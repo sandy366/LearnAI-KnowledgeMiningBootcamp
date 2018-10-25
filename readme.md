@@ -2,7 +2,8 @@
 + Fix the Bot usage in the Solution Architecture file
 + Add the missing labs
 + Rewrite Sol Arch Begining and the connection between the labs
-+ test
++ test2sdsad
+
 
 # LearnAI: Knowledge Mining Bootcamp - Enterprise Cogntive Search Solution using the Microsoft AI Platform
 ### Build an enterprise scale intelligent search solution for business documents searching using Microsoft Azure Cognitive Search
