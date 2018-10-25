@@ -3,6 +3,7 @@
 + Fix the Bot usage in the Solution Architecture file
 + Add the missing labs
 + Rewrite Sol Arch Begining and the connection between the labs
++ Content Moderator LAB
 
 # LearnAI: Knowledge Mining Bootcamp - Azure Cogntive Search Solution for business documents
 
