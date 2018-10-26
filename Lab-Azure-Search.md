@@ -33,7 +33,7 @@ Using the Azure Search service created in the previous lab, you will use the "Im
 
 ![Example of Search Requirements](./resources/images/azure-search-images/import-data.png)
 
-- Choose the **Azure Blob Storage** Data Source and name it as `lab1data`. Choose the **Content and Metadata** option, we want to index not only the files propreties but also their content. Choose the **Default** parsing mode, since the dataset also have pdfs, and connect to the storage container created in the previous lab. The **Text** option has performance advantage, but that's not what we want because on the characteristics of our dataset. You skip Blob Folder and Description. After you click the **OK** blue botton, you will wait a few seconds because Azure Search will be detecting the schema and the metadata of the dataset.
+- Choose the **Azure Blob Storage** Data Source and name it as `lab1data`. Choose the **Content and Metadata** option, we want to index not only the files propreties but also their content. Choose the **Default** parsing mode, since the dataset also have pdfs, and connect to the storage container created in the previous lab. The **Text** option has performance advantage, but that's not what we want because on the characteristics of our dataset. You skip Blob Folder and Description. After you click the **OK** blue botton, you will wait a few seconds because Azure Search will be detecting (sampling) the schema and the metadata of the dataset.
 
 ![Example of Search Requirements](./resources/images/azure-search-images/data-source.png)
 
@@ -46,8 +46,13 @@ Using the Azure Search service created in the previous lab, you will use the "Im
   - Set size, content_type, language, and title as **Filterable**, so you can filter on these fields
   - Set size, language, and title as **Sortable**. It doesn't make sense to sort for the content since it is a free text
   - Set size, storage_name, language, and title as **Facetable**, so you can use this categorization for fast searching
-  - Set all fields as **Searchable**, you want to be able to search on all of them.
-  - Click the blue **OK** button. A validation will be made.
+  - Set content, content_type, language and title as **Searchable**, you want to be able to search on all of them.
+  - Mark the **Analyzer** checkbox and set all the fields for "Standard - Lucene". But navigate trought the other language options. The Analyzer takes the terms a user enters and works to find the best matching terms in the Index. Azure Search includes analyzers that are used in technologies like Bing and Office that have deep understanding of 56 languages
+  - Click the **Suggester** checkbox and enter any suggester name you like. Choose content and title to be the fields to look for term suggestions. The Suggester feature helps the user of terms, as you can see in web search engines.
+- If your configuration looks like the image below, click the blue **OK** button. A validation will be made
+
+![Index Configuration](./resources/images/azure-search-images/index-settings.png)
+
 - Name your indexer as you want,  keep the schedule as **once** and click the blue **OK** button. The indexer is the job that connects the data source, the index and the schedule
 - Again click the blue **OK** button, and you will be redirected to the ovwerview tab, where you can see now 1 index, 1 indexer and 1 data source.
 
@@ -63,7 +68,7 @@ Using the Azure Search service created in the previous lab, you will use the "Im
 
 1. Click on the "Execution Details" to see the warning messages, you should find problems related to data truncation and unsupported content type. The first message is caused by long texts and the second is very clear on what is going on. Both problems will be addressed in the Cognitive Search labs, helping you to understand the value of this capability. 
 
-1. Let's check what else you can do in the Indexer page. Click on the "Edit" link. As you can see, there are some interesting options here.
+1. Let's check what else you can do in the Indexer page. Click on the "Edit" link. As you can see, also in the image below, there are some interesting options here.
   - You can change the target Index
   - You can schedule your Indexer again
   - You can check "Advanced Options". Click this option to see:
@@ -73,98 +78,23 @@ Using the Azure Search service created in the previous lab, you will use the "Im
 
 ![Indexer tab](./resources/images/azure-search-images/indexer-advanced.png)
 
-1. Click on the "Execution Details" to see the error messages, you should read a message related to unsupported content type. This happened because on the **Data to extract** setting, "Content and Metadata" isn't compatible with png or jpg files. 
+6. Navigate back to the **Overview Tab** and click the **Index** link, the second from the left to the right. You should see the "Document Count" and the Storage Size. The expected count is 19 and the size should be close to 657.59 KiB. As you can see, Azure Search doesn't store all of the document, but parts of it: key words, metadata, tags.
 
+## Query the Azure Search Index
 
-An index is a collection of fields from your data source that can be searched. The index is how your search service knows in what ways your data should be searched.
+At this point we can try searching the index. Let's keep on using the Azure Portal for this.
 
-- In Import data select Customize target index
+1. Click **Search Explorer** and in the Overview Tab choose your Index in the "Change Index" option. 
 
-- Enter a name for your index in the Index name field
+1. Click **Search** to search for all documents. You can use any valid simple or full Lucene query syntax to create the request. The * character is equivalent to an empty or unspecified search that returns all documents in no particular order. You should see information returned for all of the 19 documents.
 
-- Select the Retrievable attribute's checkbox under metadata_storage_name.
+1. Try searching for "Microsoft", a different result set is expected. In the resulting json, you'll see a number after `@search.score`. Scoring refers to the computation of a search score for every item returned in search results. The score is an indicator of an item's relevance in the context of the current search operation. The higher the score, the more relevant the item. In search results, items are rank ordered from high to low, based on the search scores calculated for each item.
 
-
-
---------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-## Step 2 - Create an Azure Search Index
-
-An index is a persistent store of documents and other constructs used by an Azure Search service. An index is like a database that holds your data and can accept search queries. You define the index schema to map to the structure of the documents you wish to search, similar to fields in a database. These fields can have properties that tell things such as if it is full text searchable, or if it is filterable.  You can populate content into Azure Search by programmatically [pushing content](https://docs.microsoft.com/en-us/rest/api/searchservice/addupdate-or-delete-documents) or by using the [Azure Search Indexer](https://docs.microsoft.com/en-us/azure/search/search-indexer-overview) (which can crawl common datastores for data).
-
-For this lab, we will use the [Azure Search Indexer for Cosmos DB](https://docs.microsoft.com/en-us/azure/search/search-howto-index-documentdb) to crawl the data in the Cosmos DB collection.
-
-![Import Wizard](./resources/assets/AzureSearch-ImportData.png)
-
-Within the Azure Search blade you just created, click **Import Data->Data Source->Cosmos DB**.
-
-![Import Wizard for DocDB](./resources/assets/AzureSearch-DataSource.png)
-
-Once you click this, choose a name for the Cosmos DB data source. If you completed the previous lab, `lab01.1-computer_vision`, choose the Cosmos DB account where your data resides as well as the corresponding Container and Collections. If you did not complete the previous lab, select "Or input a connection string" and find a friendly neighbor that is willing to provide their connection string. For both, the Database should be "images" and the Collection should be "metadata".
-
-Click **OK**.
-
-At this point Azure Search will connect to your Cosmos DB container and analyze a few documents to identify a default schema for your Azure Search Index. After this is complete, you can set the properties for the fields as needed by your application (e.g. you can "Customize target index").
-
->Note: You may see a warning that "_ts" fields are not valid field names. You can ignore this for our labs, but you can read more about it [here](https://docs.microsoft.com/azure/search/search-indexer-field-mappings).
->
->Note: You may notice that you are offered the option to "add congitive skills". You can ignore this for now.
-
-Update the Index name to: **images**
-
-Update the Key to: **id** (which uniquely identifies each document)
-
-Set all fields to be **Retrievable** (to allow the client to retrieve these fields when searched)
-
-Set the fields **Tags** to be **Filterable** (to allow the client to filter results based on these values)
-
-Set the fields **Tags** to be **Facetable** (to allow the client to group the results by count, for example for your search result, there were "5 pictures that had a Tag of "beach")
-
-Set the fields **Caption and Tags** to be **Searchable** (to allow the client to do full text search over the text in these fields)
-
-![Configure Azure Search Index](./resources/assets/AzureSearch-ConfigureIndex.png)
-
-At this point we will configure the Azure Search Analyzers.  At a high level, you can think of an analyzer as the thing that takes the terms a user enters and works to find the best matching terms in the Index.  Azure Search includes analyzers that are used in technologies like Bing and Office that have deep understanding of 56 languages.  
-
-Click the **Analyzer** checkbox and set the fields **Caption and Tags** to use the **English-Microsoft** [analyzer](https://docs.microsoft.com/en-us/azure/search/search-analyzers).
-
-![Language Analyzers](./resources/assets/AzureSearch-Analyzer.png)
-
-For the final Index configuration step, we will create a [**Suggester**](https://docs.microsoft.com/en-us/rest/api/searchservice/suggesters) to set the fields that will be used for type ahead, allowing the user to type parts of a word where Azure Search will look for best matches in these fields. To learn more about suggestors and how to extend your searches to support fuzzy matching, which allows you to get results based on close matches even if the user misspells a word, check out [this example](https://docs.microsoft.com/en-us/azure/search/search-query-lucene-examples#fuzzy-search-example).
-
-Click the **Suggester** checkbox and enter a Suggester Name: **sg** and choose **Tags** to be the fields to look for term suggestions
-
-![Search Suggestions](./resources/assets/AzureSearch-Suggester.png)
-
-Click **OK** to complete the configuration of the Indexer.  
-
-Next, we configure how to "Import your data". You could set at schedule for how often the Indexer should check for changes, however, for this lab we will just run it once.  
-
-Click **Advanced Options** and choose to **Base 64 Encode Keys** to ensure that the ID field only uses characters supported in the Azure Search key field.
-
-Click **OK, three times** to start the Indexer job that will start the importing of the data from the Cosmos DB database.
-
-![Configure Indexer](./resources/assets/AzureSearch-ConfigureIndexer.png)
-
-***Query the Search Index***
-
-You should see a message pop up indicating that Indexing has started.  If you wish to check the status of the Index, you can choose the "Indexers" option in the main Azure Search blade.
-
-At this point we can try searching the index.  
-
-Click **Search Explorer** and in the resulting blade choose your Index if it is not already selected.
-
-Click **Search** to search for all documents. Try searching for "water", or something else, and use **ctrl+click** to select and view the URLs. Were your results what you expected?
+1. 
 
 ![Search Explorer](./resources/assets/AzureSearch-SearchExplorer.png)
 
-In the resulting json, you'll see a number after `@search.score`. Scoring refers to the computation of a search score for every item returned in search results. The score is an indicator of an item's relevance in the context of the current search operation. The higher the score, the more relevant the item. In search results, items are rank ordered from high to low, based on the search scores calculated for each item.
+
 
 Azure Search uses default scoring to compute an initial score, but you can customize the calculation through a [scoring profile](https://docs.microsoft.com/en-us/rest/api/searchservice/add-scoring-profiles-to-a-search-index). There is an extra lab at the end of this workshop if you want to get some hands on experience with using [term boosting](https://docs.microsoft.com/en-us/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_termboost) for scoring.
 
