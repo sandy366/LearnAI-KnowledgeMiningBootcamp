@@ -10,6 +10,8 @@ In this lab, you will create an Azure Search service and a storage account. We r
 
   ![Dashboard portal](./resources/images/env-creat-images/create-service-full-portal.png "Create Azure Search service in the portal")
 
+1. For the URL, that is the service name, choose a name that you can easily remember. We will use it dozens of times in the next labs. The name of the service in the screenshots of this lab won't be available, you must create your own service name.
+
 1. For Resource group, create a resource group to contain all the resources you create in this tutorial. This makes it easier to clean up the resources after you have finished the tutorial.
 
 1. For Location, choose either **South Central US** or **West Europe**. Currently, the preview is available only in these regions
@@ -27,6 +29,9 @@ In this lab, you will create an Azure Search service and a storage account. We r
 1. After the service is created, collect the following information: **URL** from the Overview page, and **api-key** (either primary or secondary) from the Keys page. You will need them in the following labs.
 
   ![Endpoint and key information in the portal](./resources/images/env-creat-images/create-search-collect-info.png "Endpoint and key information in the portal")
+
+>Note!
+> Azure Search must have 2 replicas for read-only SLA and 3 replicas for read/write SLA. This is not addressed in this training. For more information, click [here](https://azure.microsoft.com/en-us/support/legal/sla/search/v1_0/)
 
 ## Step 2 - Download the dataset
 

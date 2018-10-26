@@ -25,7 +25,40 @@ The example above illustrates some of the components users are expecting in thei
 1. Search an index
     - When submitting search requests to Azure Search, you can use simple search options, you can [filter](https://docs.microsoft.com/en-us/azure/search/search-filters), [sort](https://docs.microsoft.com/en-us/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [project](https://docs.microsoft.com/en-us/azure/search/search-faceted-navigation), and [page over results](https://docs.microsoft.com/en-us/azure/search/search-pagination-page-layout). You have the ability to address spelling mistakes, phonetics, and Regex, and there are options for working with search and [suggest](https://docs.microsoft.com/en-us/rest/api/searchservice/suggesters). These query parameters allow you to achieve deeper control of the [full-text search experience](https://docs.microsoft.com/en-us/azure/search/search-query-overview).
 
-## Lab 1.2: Create an Azure Search Index
+## Step 1 - Importing Data
+
+The Azure Search service was created in the previous lab, so the next step is to create a data source. This will connect the service with the dataset, uploaded to the storage account.
+
+- From the Overview tab, click on the**Import Data** option and right after, click on **Connect to Data Source**
+
+![Example of Search Requirements](./resources/images/azure-search-images/import-data.png)
+
+- Choose the **Azure Blob Storage** Data Source and name it as `lab1data`. Choose the **Content and Metadata** option, we want to index not only the files propreties but also their content. Choose the **Default** parsing mode, since the dataset also had images, and connect to the storage container created in the previous lab. You skip Blob Folder and Description.
+
+![Example of Search Requirements](./resources/images/azure-search-images/data-source.png)
+
+> Note: You may notice that you are offered the option to "add congitive skills". You can ignore this for now.
+
+## Step 2 - Create the Index
+
+An index is a collection of fields from your data source that can be searched. The index is how your search service knows in what ways your data should be searched.
+
+- In Import data select Customize target index
+
+- Enter a name for your index in the Index name field
+
+- Select the Retrievable attribute's checkbox under metadata_storage_name.
+
+
+
+
+
+
+
+
+
+
+## Step 2 - Create an Azure Search Index
 
 An index is a persistent store of documents and other constructs used by an Azure Search service. An index is like a database that holds your data and can accept search queries. You define the index schema to map to the structure of the documents you wish to search, similar to fields in a database. These fields can have properties that tell things such as if it is full text searchable, or if it is filterable.  You can populate content into Azure Search by programmatically [pushing content](https://docs.microsoft.com/en-us/rest/api/searchservice/addupdate-or-delete-documents) or by using the [Azure Search Indexer](https://docs.microsoft.com/en-us/azure/search/search-indexer-overview) (which can crawl common datastores for data).
 
