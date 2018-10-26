@@ -14,7 +14,7 @@ In this lab, you will create an Azure Search service and a storage account. We r
 
 1. For Resource group, create a resource group to contain all the resources you create in this tutorial. This makes it easier to clean up the resources after you have finished the tutorial.
 
-1. For Location, choose either **South Central US** or **West Europe**. Currently, the preview is available only in these regions
+1. For Location, choose either **South Central US** or **West Europe**. Currently, the Cognitive Search API is only available in these two regions
 
 1. For Pricing tier, you can create a **Free** service to complete tutorials and quickstarts. For deeper investigation using your own data, create a [paid service](https://azure.microsoft.com/pricing/details/search/) such as **Basic** or **Standard**. For these labs, we recommend using the **Basic** tier.
 
@@ -49,7 +49,7 @@ There are 2 options to download the dataset:
 
 The enrichment pipeline pulls from Azure data sources. Source data must originate from a supported data source type of an [Azure Search indexer](https://docs.microsoft.com/en-us/azure/search/search-indexer-overview). For this exercise, we use blob storage to showcase multiple content types.
 
- 1. Create a storage account in the same region as your Azure Search service created in the step above, **to avoid latency between the search service and the files**.  Use a general purpose account and LRS replication. For production environments, you may need to use another replication type. If you haven't done this before, you can refer to the [Azure Storage Explorer Quickstart](https://azure.microsoft.com/en-us/features/storage-explorer) for instructions on all the steps.
+ 1. Create a storage account in the **same region of your Azure Search service** created in the step above, to avoid latency between the search service and the files.  Use a general purpose account and LRS replication. For production environments, you may need to use another replication type. If you haven't done this before, you can refer to the [Azure Storage Explorer Quickstart](https://azure.microsoft.com/en-us/features/storage-explorer) for instructions on all the steps.
 
  1. Within this storage account, create a container named `basicdemo`.
 

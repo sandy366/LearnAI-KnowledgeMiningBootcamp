@@ -1,6 +1,6 @@
 # Azure Search Fundamentals
 
-In this lab you will learn the basics of the Azure search service and how to ingest and index the provided dataset with the built-in tools.
+In this lab you will learn the basics of the Azure search service and how to ingest and index the provided dataset with the built-in tools. This lab will teach you on how to use the **Azure Portal** do ingest and search the business documents of the provided dataset.
 
 ## What is Azure Search
 
@@ -25,21 +25,56 @@ The example above illustrates some of the components users are expecting in thei
 1. Search an index
     - When submitting search requests to Azure Search, you can use simple search options, you can [filter](https://docs.microsoft.com/en-us/azure/search/search-filters), [sort](https://docs.microsoft.com/en-us/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [project](https://docs.microsoft.com/en-us/azure/search/search-faceted-navigation), and [page over results](https://docs.microsoft.com/en-us/azure/search/search-pagination-page-layout). You have the ability to address spelling mistakes, phonetics, and Regex, and there are options for working with search and [suggest](https://docs.microsoft.com/en-us/rest/api/searchservice/suggesters). These query parameters allow you to achieve deeper control of the [full-text search experience](https://docs.microsoft.com/en-us/azure/search/search-query-overview).
 
-## Step 1 - Importing Data
+## Step 1 - Import Data
 
-The Azure Search service was created in the previous lab, so the next step is to create a data source. This will connect the service with the dataset, uploaded to the storage account.
+Using the Azure Search service created in the previous lab, you will use the "Import Data" wizard, that helps you with all required steps to ingest and analyze your data: data source and index creatoin. 
 
 - From the Overview tab, click on the**Import Data** option and right after, click on **Connect to Data Source**
 
 ![Example of Search Requirements](./resources/images/azure-search-images/import-data.png)
 
-- Choose the **Azure Blob Storage** Data Source and name it as `lab1data`. Choose the **Content and Metadata** option, we want to index not only the files propreties but also their content. Choose the **Default** parsing mode, since the dataset also had images, and connect to the storage container created in the previous lab. You skip Blob Folder and Description.
+- Choose the **Azure Blob Storage** Data Source and name it as `lab1data`. Choose the **Content and Metadata** option, we want to index not only the files propreties but also their content. Choose the **Default** parsing mode, since the dataset also have pdfs, and connect to the storage container created in the previous lab. The **Text** option has performance advantage, but that's not what we want because on the characteristics of our dataset. You skip Blob Folder and Description. After you click the **OK** blue botton, you will wait a few seconds because Azure Search will be detecting the schema and the metadata of the dataset.
 
 ![Example of Search Requirements](./resources/images/azure-search-images/data-source.png)
 
-> Note: You may notice that you are offered the option to "add congitive skills". You can ignore this for now.
+- Don't add anything for Cognitive Search for now, we will do it in the next lab, using Postman and Azure Search APIs. Just click the blue **OK** button.
 
-## Step 2 - Create the Index
+- In the index tab, we will define the index structure and features. 
+  - Name your index as you want, but we will use this information later so you should use an easy to type name
+  - Keep `metada_storage_path` as the key. This is a unique identifier for each file of the data source. It is a good idea to use the physical path of file, since it is unique by design
+  - Set all fields to be Retrievable, to allow the application to retrieve these fields when searched. Please notice they are all string and among them we have interesting things like size, content type, language, and **specially the content**. This is the text of the documents, a great option to make search more relevant
+  - Set size, content_type, language, and title as **Filterable**, so you can filter on these fields
+  - Set size, language, and title as **Sortable**. It doesn't make sense to sort for the content since it is a free text
+  - Set size, storage_name, language, and title as **Facetable**, so you can use this categorization for fast searching
+  - Set all fields as **Searchable**, you want to be able to search on all of them.
+  - Click the blue **OK** button. A validation will be made.
+- Name your indexer as you want,  keep the schedule as **once** and click the blue **OK** button. The indexer is the job that connects the data source, the index and the schedule
+- Again click the blue **OK** button, and you will be redirected to the ovwerview tab, where you can see now 1 index, 1 indexer and 1 data source.
+
+![Overview tab](./resources/images/azure-search-images/redirect.png)
+
+## Step 2 - Check Indexer Exacution Status
+
+1. To monitor data import, click on the **Indexers** link, it is in the middle of the page and you can also see it in the middle of the image above. 
+
+1. You should see the newly created indexer in the list, with status indicating "Failed". If not, click the refresh button in the top-middle of the overview tab. You should see the newly created indexer in the list, with status indicating "in progress" or "Warning", along with the number of documents indexed, "19/19" is expected. 
+
+1. Click on the refresh button, top middle of the page, until the execution is over. The "Warning" status is expected, click on the Indexer name to see the summary. In this page you will see all of the executions this Indexer may have and its details, duration and so on.
+
+1. Click on the "Execution Details" to see the warning messages, you should find problems related to data truncation and unsupported content type. The first message is caused by long texts and the second is very clear on what is going on. Both problems will be addressed in the Cognitive Search labs, helping you to understand the value of this capability. 
+
+1. Let's check what else you can do in the Indexer page. Click on the "Edit" link. As you can see, there are some interesting options here.
+  - You can change the target Index
+  - You can schedule your Indexer again
+  - You can check "Advanced Options". Click this option to see:
+        - Base-64 Encode Keys. This is the alghoritm used encrypt the data, the default option of the Index creation. It means that the data within the Azure Search Index is protected and your app needs to decrypt it to read in "human format".
+        - You will also see optoins for max errors per execution, items per execution, execution size and so on.
+        - Please note that you can change the "Data to extract" and the "Parsing mode" options.
+
+![Indexer tab](./resources/images/azure-search-images/indexer-advanced.png)
+
+1. Click on the "Execution Details" to see the error messages, you should read a message related to unsupported content type. This happened because on the **Data to extract** setting, "Content and Metadata" isn't compatible with png or jpg files. 
+
 
 An index is a collection of fields from your data source that can be searched. The index is how your search service knows in what ways your data should be searched.
 
@@ -51,6 +86,7 @@ An index is a collection of fields from your data source that can be searched. T
 
 
 
+--------------------------------------------------------------------------------------------------------
 
 
 

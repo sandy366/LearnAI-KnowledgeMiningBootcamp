@@ -8,7 +8,7 @@ For documents in english we will replicate the original text in the output, so w
 
 ## Step 1 - Translator Text API
 
-Use this [link](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/translator-text-how-to-signup) to sign up for the Translator Text API. Keep the API key, you will use it later in this lab.
+Use this [link](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/translator-text-how-to-signup) to sign up for the Translator Text API. Keep the API key, you will use it later in this lab. **Again, use the same region of your Azure Search Service.**
 
 
 ## Step 2 - Create an Azure Function 
