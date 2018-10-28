@@ -30,7 +30,7 @@ Content-Type: application/json
 
 You will probably see something similar to the image below - no information for the images we have.
 
-![No Metadata for Images](../resources/images/image-skills/no-images-info.png)
+![No Metadata for Images](../resources/images/lab-image-skills/no-images-info.png)
 
 ## How can we fix it
 
