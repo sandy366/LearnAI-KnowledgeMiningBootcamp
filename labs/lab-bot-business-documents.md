@@ -13,4 +13,4 @@ Now that you've downloaded and open the Bot Emulator, the next thing you have to
 ## Next Step
 
 [Final Case Lab](../labs/lab-final-case.md) or
-[Back to Main Menu](../README.md)
+[Back to Read Me](../README.md)
