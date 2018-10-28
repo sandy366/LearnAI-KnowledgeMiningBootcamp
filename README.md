@@ -4,8 +4,7 @@
 
 + Add bot lab
 + Content Moderator LAB + data + finished solution
-+ Images sizes
-+ upper - lower case
++ Adjust Images sizes
 + Improve the Azure Search challenge
 
 ## Build an intelligent search solution  using Microsoft Azure AI Platform
