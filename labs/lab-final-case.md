@@ -28,4 +28,4 @@ Your group should be ready to present to the other teams. Your presentation shou
 
 ## Next Step
 
-[Back to Labs Menu](./README.md)
+[Back to Read Me](../README.md)
