@@ -43,11 +43,11 @@ In this course you will learn these key concepts:
 
 ### Architecture
 
-![Architecture](./resources/images/readme-images/architecture.png)
+![Architecture](../resources/images/readme/architecture.png)
 
 ### Technologies Covered
 
-![Technology](./resources/images/readme-images/KMTechnologyMap.png)
+![Technology](../resources/images/readme/tech-map.png)
 
 ### Industry application
 
@@ -128,4 +128,4 @@ Full Course classroom training:  16 hours
 
 ### Q&A and Survey
 
-Please help the LearnAI Team with [questions and feedback](./QA-Feedback-Survey.md) about this training.
+Please help the LearnAI Team with [questions and feedback](./q&a-feedback-survey.md) about this training.
