@@ -384,4 +384,4 @@ You can use GET or POST, depending on query string complexity and length. For mo
 ## Next Step
 
 [Image Skills Lab](./labs/lab-image-skills.md) or
-[Back to Main Menu](./README.md)
+[Back to Main Menu](././README.md)
