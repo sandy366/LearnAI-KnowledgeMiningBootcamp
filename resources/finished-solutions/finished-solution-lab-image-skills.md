@@ -1,9 +1,11 @@
-# Finished Solution for Lab 2
+# Finished Solution - Image Skills Lab
+
 Hello!
 
 Here are the body requests for the solution to Lab 2. Don't forget to adjust the URLs to use your Azure Search service name.
 
 ## Skillset
+
 ```json
 {
     "@odata.context": "https://[servicename].search.windows.net/$metadata#skillsets/$entity",
@@ -122,6 +124,7 @@ Here are the body requests for the solution to Lab 2. Don't forget to adjust the
 ```
 
 ## Index
+
 ```json
 {
     "@odata.context": "https://[servicename].search.windows.net/$metadata#indexes/$entity",
@@ -223,10 +226,12 @@ Here are the body requests for the solution to Lab 2. Don't forget to adjust the
     "charFilters": []
 }
 ```
+
 ## Indexer
+
 ```json
 {
-  "name":"rodindexer2",	
+  "name":"rodindexer2",
   "dataSourceName" : "demodata",
   "targetIndexName" : "rodindex2",
   "skillsetName" : "rodskillset2",
@@ -234,7 +239,7 @@ Here are the body requests for the solution to Lab 2. Don't forget to adjust the
         {
           "sourceFieldName" : "metadata_storage_path",
           "targetFieldName" : "id",
-          "mappingFunction" : 
+          "mappingFunction" :
             { "name" : "base64Encode" }
         },
         {
@@ -242,14 +247,14 @@ Here are the body requests for the solution to Lab 2. Don't forget to adjust the
           "targetFieldName" : "content"
         }
    ],
-  "outputFieldMappings" : 
+  "outputFieldMappings" :
   [
         {
-          "sourceFieldName" : "/document/organizations", 
+          "sourceFieldName" : "/document/organizations",
           "targetFieldName" : "organizations"
         },
         {
-          "sourceFieldName" : "/document/pages/*/keyPhrases/*", 
+          "sourceFieldName" : "/document/pages/*/keyPhrases/*",
           "targetFieldName" : "keyPhrases"
         },
         {
@@ -259,17 +264,17 @@ Here are the body requests for the solution to Lab 2. Don't forget to adjust the
          {
             "sourceFieldName": "/document/normalized_images/*/myOcrText",
             "targetFieldName": "myOcrText"
-        }    
+        }
   ],
   "parameters":
   {
-  	"maxFailedItems":-1,
-  	"maxFailedItemsPerBatch":-1,
-  	"configuration": 
+      "maxFailedItems":-1,
+      "maxFailedItemsPerBatch":-1,
+      "configuration":
     {
-    	"dataToExtract": "contentAndMetadata",
-     	"imageAction": "generateNormalizedImages"
-		}
+        "dataToExtract": "contentAndMetadata",
+         "imageAction": "generateNormalizedImages"
+        }
   }
 }
 ```
@@ -283,13 +288,13 @@ Content-Type: application/json
 ```
 
 ## Check the OCR Content extracted
+
 ```http
 GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=myOcrText&api-version=2017-11-11-Preview
 api-key: [api-key]
 Content-Type: application/json
 ```
+
 ## Next Step
-[Back to Main Menu](./readme.md)
 
-
-
+[Back to Main Menu](./README.md)

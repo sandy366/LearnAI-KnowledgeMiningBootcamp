@@ -105,8 +105,8 @@ Content-Type: application/json
 
 ## Finished Solution
 
-If you could not make it, [here](./resources/Finished-Solutions/Finished-Solution-Lab-2.md) is the challenge solution. You just need to follow the steps.
+If you could not make it, [here](./resources/finished-solutions/finished-solution-lab-image-skills) is the challenge solution. You just need to follow the steps.
 
 ## Next Step
 
-+ [Custom Skills Lab](./Labs/Lab-Custom-Skills.md) or [Back to Main Menu](./readme.md)
++ [Custom Skills Lab](./labs/lab-custom-skills.md) or [Back to Main Menu](./README.md)

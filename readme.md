@@ -3,8 +3,8 @@
 ## To do
 
 + Add bot lab
-+ Content Moderator LAB + data
-+ Images dimensions
++ Content Moderator LAB + data + finished solution
++ Images sizes
 + upper - lower case
 + Improve the Azure Search challenge
 
@@ -108,23 +108,23 @@ Full Course classroom training:  16 hours
 
 ### Course Modules
 
-1. [Introduction](./Introduction.md) – Presentation overview of Azure Search, Cognitive Search, business scenarios and industry specific applications.
+1. [Introduction](./introduction.md) – **Presentation** overview of Azure Search, Cognitive Search, business scenarios and industry specific applications.
 
-1. [Architecture](./Solution-Architecture.md) – Solution Architecture for building enterprise search solution.
+1. [Architecture](./solution-architecture.md) – **Solution Architecture** for building enterprise search solution.
 
-1. [Lab 1](./Labs/Lab-Environment-Creation.md) - Azure environment creation
+1. [Lab 1](./labs/lab-environment-creation.md) - Azure - **environment creation**
 
-1. [Lab 2](./Labs/Lab-Azure-Search) - Indexing Business Documents with Azure Search
+1. [Lab 2](./labs/lab-azure-search) - Azure Search - **Indexing Blob Storage**
 
-1. [Lab 3](./Labs/Lab-Text-Skills.md) - Cognitive Search – Applying text skills
+1. [Lab 3](./labs/lab-text-skills.md) - Cognitive Search – **text skills**
 
-1. [Lab 4](./Labs/Lab-Image-Skills.md) - Cognitive Search – Applying image skills
+1. [Lab 4](./labs/lab-image-skills.md) - Cognitive Search – **image skills**
 
-1. [Lab 5](./Labs/Lab-Custom-Skills.md) - Cognitive Search – Applying Content Moderator with **Custom skills**
+1. [Lab 5](./labs/lab-custom-skills.md) - Cognitive Search – **Custom skills**
 
-1. [Lab 6](./Labs/Lab-Business-Documents-Bot.md) - Build and Integrate a Bot with Cognitive Search API
+1. [Lab 6](./labs/lab-business-documents-Bot.md) - Build and Integrate a **Bot** with Cognitive Search API
 
-1. [Lab 7](./Labs/Lab-Final-Case.md) - Group Design Session
+1. [Lab 7](./labs/lab-final-case.md) - **Architecture Design Session**
 
 ### Q&A and Survey
 

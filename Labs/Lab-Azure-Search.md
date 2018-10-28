@@ -10,7 +10,7 @@ Developers look for PaaS services in Azure to achieve better and faster results 
 
 Search is a hard and rarely a core expertise area. From an infrastructure standpoint, it needs to have high availability, durability, scale, and operations. From a functionality standpoint, it needs to have ranking, language support, and geospatial capabilities.
 
-![Example of Search Requirements](./resources/images/azure-search-images/AzureSearch-Example.png)
+![Example of Search Requirements](./resources/images/lab-azure-search/example.png)
 
 The example above illustrates some of the components users are expecting in their search experience. [Azure Search](https://docs.microsoft.com/en-us/azure/search/search-what-is-azure-search) can accomplish these user experience features, along with giving you [monitoring and reporting](https://docs.microsoft.com/en-us/azure/search/search-traffic-analytics), [simple scoring](https://docs.microsoft.com/en-us/rest/api/searchservice/add-scoring-profiles-to-a-search-index), and tools for [prototyping](https://docs.microsoft.com/en-us/azure/search/search-import-data-portal) and [inspection](https://docs.microsoft.com/en-us/azure/search/search-explorer).
 
@@ -31,11 +31,11 @@ Using the Azure Search service created in the previous lab, you will use the "Im
 
 - From the Overview tab, click on the**Import Data** option and right after, click on **Connect to Data Source**
 
-![Example of Search Requirements](./resources/images/azure-search-images/import-data.png)
+![Example of Search Requirements](./resources/images/lab-azure-search/import-data.png)
 
 - Choose the **Azure Blob Storage** Data Source and name it as `lab1data`. Choose the **Content and Metadata** option, we want to index not only the files propreties but also their content. Choose the **Default** parsing mode, since the dataset also have pdfs, and connect to the storage container created in the previous lab. The **Text** option has performance advantage, but that's not what we want because on the characteristics of our dataset. You skip Blob Folder and Description. After you click the **OK** blue botton, you will wait a few seconds because Azure Search will be detecting (sampling) the schema and the metadata of the dataset.
 
-![Example of Search Requirements](./resources/images/azure-search-images/data-source.png)
+![Example of Search Requirements](./resources/images/lab-azure-search/data-source.png)
 
 - Don't add anything for Cognitive Search for now, we will do it in the next lab, using Postman and Azure Search APIs. Just click the blue **OK** button.
 
@@ -51,12 +51,12 @@ Using the Azure Search service created in the previous lab, you will use the "Im
   - Click the **Suggester** checkbox and enter any suggester name you like. Choose content and title to be the fields to look for term suggestions. The Suggester feature helps the user of terms, as you can see in web search engines.
 - If your configuration looks like the image below, click the blue **OK** button. A validation will be made
 
-![Index Configuration](./resources/images/azure-search-images/index-settings.png)
+![Index Configuration](./resources/images/lab-azure-search/index-settings.png)
 
 - Name your indexer as you want,  keep the schedule as **once** and click the blue **OK** button. The indexer is the job that connects the data source, the index and the schedule
 - Again click the blue **OK** button, and you will be redirected to the ovwerview tab, where you can see now 1 index, 1 indexer and 1 data source.
 
-![Overview tab](./resources/images/azure-search-images/redirect.png)
+![Overview tab](./resources/images/lab-azure-search/redirect.png)
 
 ## Step 2 - Check Indexer Exacution Status
 
@@ -77,7 +77,7 @@ Using the Azure Search service created in the previous lab, you will use the "Im
   - You will also see optoins for max errors per execution, items per execution, execution size and so on.
   - Note that you can change the "Data to extract" and the "Parsing mode" options.
 
-    ![Indexer tab](./resources/images/azure-search-images/indexer-advanced.png)
+    ![Indexer tab](./resources/images/lab-azure-search/indexer-advanced.png)
 
 ## Query the Azure Search Index
 
@@ -93,7 +93,7 @@ At this point we can try searching the index. Let's keep on using the Azure Port
 
 1. You will probably see results like the image below. Scroll down until you see all meta information available.
 
-![Search Explorer](./resources/images/azure-search-images/search-explorer.png)
+![Search Explorer](./resources/images/lab-azure-search/search-explorer.png)
 
 ## Challenge
 
@@ -104,5 +104,5 @@ Using [Azure Search Simple Query Syntax](https://docs.microsoft.com/en-us/rest/a
 
 ## Next Step
 
-[Text Skills Lab](./Labs/Lab-Text-Skills.md) or
-[Back to Main Menu](./readme.md)
+[Text Skills Lab](./labs/lab-text-skills.md) or
+[Back to Main Menu](./README.md)

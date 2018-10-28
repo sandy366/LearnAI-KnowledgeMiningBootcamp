@@ -1,12 +1,14 @@
-# Finished Solution for Lab 3
+# Finished Solution - Custom Skills Lab
+
 Hello!
 
 Here are the body requests for the solution to Lab 3. Don't forget to adjust the URLs to use your Azure Search service name.
 
 ## Skillset
+
 ```json
 {
-  "description": 
+  "description":
   "Extract entities, detect language and extract key-phrases. Also, we translate from other languages to English",
   "skills":
   [
@@ -41,14 +43,14 @@ Here are the body requests for the solution to Lab 3. Don't forget to adjust the
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
-      "textSplitMode" : "pages", 
+      "textSplitMode" : "pages",
       "maximumPageLength": 4000,
       "inputs": [
       {
         "name": "text",
         "source": "/document/content"
       },
-      { 
+      {
         "name": "languageCode",
         "source": "/document/languageCode"
       }
@@ -77,7 +79,7 @@ Here are the body requests for the solution to Lab 3. Don't forget to adjust the
           "targetName": "keyPhrases"
         }
       ]
-    }, 
+    },
     {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
         "description": "Our new translator custom skill",
@@ -103,9 +105,10 @@ Here are the body requests for the solution to Lab 3. Don't forget to adjust the
       }
   ]
 }
-````
+```
 
 ## Index
+
 ```json
 {
     "@odata.context": "https://<your-azure-search>.search.windows.net/$metadata#indexes/$entity",
@@ -207,10 +210,12 @@ Here are the body requests for the solution to Lab 3. Don't forget to adjust the
     "charFilters": []
 }
 ```
+
 ## Indexer
+
 ```json
 {
-  "name":"demoindexer",	
+  "name":"demoindexer",
   "dataSourceName" : "demodata",
   "targetIndexName" : "demoindex",
   "skillsetName" : "demoskillset",
@@ -218,7 +223,7 @@ Here are the body requests for the solution to Lab 3. Don't forget to adjust the
         {
           "sourceFieldName" : "metadata_storage_path",
           "targetFieldName" : "id",
-          "mappingFunction" : 
+          "mappingFunction" :
             { "name" : "base64Encode" }
         },
         {
@@ -226,14 +231,14 @@ Here are the body requests for the solution to Lab 3. Don't forget to adjust the
           "targetFieldName" : "content"
         }
    ],
-  "outputFieldMappings" : 
+  "outputFieldMappings" :
   [
         {
-          "sourceFieldName" : "/document/organizations", 
+          "sourceFieldName" : "/document/organizations",
           "targetFieldName" : "organizations"
         },
         {
-          "sourceFieldName" : "/document/pages/*/keyPhrases/*", 
+          "sourceFieldName" : "/document/pages/*/keyPhrases/*",
           "targetFieldName" : "keyPhrases"
         },
         {
@@ -243,21 +248,20 @@ Here are the body requests for the solution to Lab 3. Don't forget to adjust the
          {
             "sourceFieldName": "/document/translatedText",
             "targetFieldName": "translatedText"
-        }    
+        }
   ],
   "parameters":
   {
-  	"maxFailedItems":-1,
-  	"maxFailedItemsPerBatch":-1,
-  	"configuration": 
+      "maxFailedItems":-1,
+      "maxFailedItemsPerBatch":-1,
+      "configuration":
     {
-    	"dataToExtract": "contentAndMetadata",
-     	"imageAction": "generateNormalizedImages"
-		}
+        "dataToExtract": "contentAndMetadata",
+         "imageAction": "generateNormalizedImages"
+        }
   }
 }
 ```
-
 
 ## Check Status
 
@@ -276,6 +280,5 @@ Content-Type: application/json
 ```
 
 ## Next Step
-[Back to Main Menu](./readme.md)
 
-
+[Back to Main Menu](./README.md)
