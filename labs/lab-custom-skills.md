@@ -361,8 +361,8 @@ Check the image below to see how Azure Search returns the metadata about your da
 
 ## Finished Solution
 
-If you could not make it, [here](./resources/finished-solutions/finished-solution-Lab-custom-skills.md) is the challenge solution. You just need to follow the steps.
+If you could not make it, [here](../resources/finished-solutions/finished-solution-Lab-custom-skills.md) is the challenge solution. You just need to follow the steps.
 
 ## Next Step
 
-[Final Case Lab](./labs/lab-final-case.md) or [Back to Labs Menu](./README.md)
+[Final Case Lab](../labs/lab-final-case.md) or [Back to Labs Menu](../README.md)
