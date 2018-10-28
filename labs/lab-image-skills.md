@@ -30,7 +30,7 @@ Content-Type: application/json
 
 You will probably see something similar to the image below - no information for the images we have.
 
-![No Metadata for Images](./resources/images/image-skills-images/no-images-info.png)
+![No Metadata for Images](../resources/images/image-skills/no-images-info.png)
 
 ## How can we fix it
 
@@ -105,8 +105,8 @@ Content-Type: application/json
 
 ## Finished Solution
 
-If you could not make it, [here](./resources/finished-solutions/finished-solution-lab-image-skills) is the challenge solution. You just need to follow the steps.
+If you could not make it, [here](../resources/finished-solutions/finished-solution-lab-image-skills) is the challenge solution. You just need to follow the steps.
 
 ## Next Step
 
-+ [Custom Skills Lab](./labs/lab-custom-skills.md) or [Back to Main Menu](./README.md)
++ [Custom Skills Lab](../labs/lab-custom-skills.md) or [Back to Read Me](../README.md)
