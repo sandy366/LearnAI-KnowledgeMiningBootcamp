@@ -92,7 +92,7 @@ The Microsoft Learn AI Team has a 2 day [Computer Vision Bot Bootcamp](https://a
 
 Labs 3, 4, and 5 will use Postman for [REST API calls](https://docs.microsoft.com/en-us/azure/search/search-fiddler). You can use any other REST API tool that can formulate and send HTTP requests, but we suggest you to use Postman since the training was created with/for it. The image below shows a visual example of Postman being used for Cognitive Search. Please check the suggested Postman tutoral on [Pre-Reqs section of the initial page](./readme.md).
 
-![Postman Example](./resources/images/sol-arch-images/postman.png)
+![Postman Example](./resources/images/sol-arch/postman.png)
 
 > Tip! Important details about Postman:
 > + You can save your commands, which is useful for reuse, not only within this workshop, but also in your future projects.
