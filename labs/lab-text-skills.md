@@ -383,5 +383,5 @@ You can use GET or POST, depending on query string complexity and length. For mo
 
 ## Next Step
 
-[Image Skills Lab](../lab-image-skills.md) or
+[Image Skills Lab](../labs/lab-image-skills.md) or
 [Back to Read Me](../README.md)
