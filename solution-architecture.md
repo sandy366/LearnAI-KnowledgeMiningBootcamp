@@ -10,7 +10,7 @@ The labs have a progressive level of complexity and they will help you to unders
 
 Every company has business documents: contracts, memos, presentations, images, spreadsheets, business plans and so on. Usually these documents doesn't have the metadata necessary to be searchable, **as you can see in the image below**. Since documents don't have tags, cetegories and comments, they only can be found by name. This creates a poor search experiece, slowing down busiess process and reducing productivity.
 
-![Lack of Metadata](./resources/images/sol-arch-images/no-meta.png)
+![Lack of Metadata](../resources/images/sol-arch/no-meta.png)
 
 Azure Cognitive Search, the Microsoft product for Knowledge Mining, uses the most advanced cognitive capabilities, based on Microsoft's Azure AI Platform, to extract and create enriched metadata about your documents, vastly improving the overall search experience. This process also allow companies to enforce complaince, detect risks and detect policies violations.
 
@@ -34,23 +34,23 @@ This Cognitive Search solution addresses these problems, extracting insights fro
 
 ### Architecture
 
-![Architecture](./resources/images/sol-arch-images/architecture.png)
+![Architecture](../resources/images/sol-arch/architecture.png)
 
 ## Labs Details
 
-In the [First Lab](./Lab-Environment-Creation.md) you will learn how to create the required environment for this training, including the business documents dataset upload into Azure Blob Storage.
+In the [First Lab](./labs/lab-environment-creation.md) you will learn how to create the required environment for this training, including the business documents dataset upload into Azure Blob Storage.
 
-In the [Second Lab](./Lab-Azure-Search-Fundamentals.md) you will learn how index the business documents with "basic" Azure Search. The objective is teach how the standard features adds sophisticated search capabilities to your documents: natural language search, ranking, paging, suggestions and so on. This lab will use the Azure Portal only, no coding is required.
+In the [Second Lab](./labs/lab-azure-search.md) you will learn how index the business documents with "basic" Azure Search. The objective is teach how the standard features adds sophisticated search capabilities to your documents: natural language search, ranking, paging, suggestions and so on. This lab will use the Azure Portal only, no coding is required.
 
-In the [Third Lab](./Lab-Text-Skills.md) you will learn the next level of data enrichment, using Cognitive Search. It will be clear for you how AI can **extend** the metadata created, enabling an advanced search experience. In this lab you will do some coding with Postman.
+In the [Third Lab](./labs/lab-text-skills.md) you will learn the next level of data enrichment, using Cognitive Search. It will be clear for you how AI can **extend** the metadata created, enabling an advanced search experience. In this lab you will do some coding with Postman.
 
-In the [Fourth Lab](./Lab-Image-Skills.md) you will learn how text skills don't work for images. You will detect and fix this situation, making your images queryable too. For this lab you will do some coding with Postman.
+In the [Fourth Lab](./labs/lab-image-skills.md) you will learn how text skills don't work for images. You will detect and fix this situation, making your images queryable too. For this lab you will do some coding with Postman.
 
-In the [Fifth Lab](./Lab-Custom-Skills.md) you will learn how to create a custom skill using Azure Content Moderator API and Azure Functions, connection this transformation into the enrichment pipeline. You will detect documents with incompliant content. For this lab you will do some coding with Postman and Visual Studio. The Azure Portal is also used, to create the Azure Function instance.
+In the [Fifth Lab](./labs/lab-custom-skills.md) you will learn how to create a custom skill using Azure Content Moderator API and Azure Functions, connection this transformation into the enrichment pipeline. You will detect documents with incompliant content. For this lab you will do some coding with Postman and Visual Studio. The Azure Portal is also used, to create the Azure Function instance.
 
-In the [Sixth Lab](./Lab-Business-Documents-Bot.md) you will learn how to use a Bot to interact with the Azure Search Index, the Business Documents Bot. This lab uses the Bot Emulator and Visual Studio.
+In the [Sixth Lab](./labs/lab-bot-business-documents.md) you will learn how to use a Bot to interact with the Azure Search Index, the Business Documents Bot. This lab uses the Bot Emulator and Visual Studio.
 
-In the [Seventh Lab](./Final-Case.md) you are invited to, based on what you have learned, create the architecture of a Knowledge Mining solution for another use case.
+In the [Seventh Lab](./labs/lab-final-case.md) you are invited to, based on what you have learned, create the architecture of a Knowledge Mining solution for another use case.
 
 ## Dataset
 
@@ -84,7 +84,7 @@ Microsoft Azure Search provides an API for web or mobile applications, creating 
 
 Although this is not a training on bots, you will learn how to integrate one with the  [Azure Search Rest API](https://docs.microsoft.com/en-us/azure/search/search-query-rest-api). This Bot will be as simple as possible, runninng locally with the [Bot Emulator](https://github.com/Microsoft/BotFramework-Emulator).
 
-This [gif](./resources/images/sol-arch-images/retrieving-cognitive-attrributes.gif) has the expected finished solution, so now you have idea of what we will be created by the end of the training.
+This [gif](./resources/images/sol-arch/retrieving-cognitive-attrributes.gif) has the expected finished solution, so now you have idea of what we will be created by the end of the training.
 
 The Microsoft Learn AI Team has a 2 day [Computer Vision Bot Bootcamp](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp) that shows you how to create an intelligent bot using Azure Search, CosmosDB and Cognitive Services.
 
@@ -104,4 +104,4 @@ Labs 3, 4, and 5 will use Postman for [REST API calls](https://docs.microsoft.co
 
 ## Next step
 
-[Environment Creation](./Environment-Creation.md) or [Back to Main Menu](./readme.md)
+[Environment Creation](./labs/labs/lab-environment-creation.md) or [Back to Read Me](./README.md)
