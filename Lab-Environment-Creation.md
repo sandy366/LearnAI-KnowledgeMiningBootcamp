@@ -33,17 +33,15 @@ In this lab, you will create an Azure Search service and a storage account. We r
 >Note!
 > Azure Search must have 2 replicas for read-only SLA and 3 replicas for read/write SLA. This is not addressed in this training. For more information, click [here](https://azure.microsoft.com/en-us/support/legal/sla/search/v1_0/)
 
-## Step 2 - Download the dataset
+## Step 2 - Clone the Repo
 
-There are 2 options to download the dataset:
+Cloning the repo will download all the training materials to your computer, including the dataset, the slides and the code for the Bot project.
 
-1. [Download the sample data](https://1drv.ms/f/s!AsUn_SC4PosUkqZqDqS24ubRlk3eXw) from your browser and save it in a temporary folder. If the download created a zip file, extract all of the content. We will use this folder in the next step, please remember the path for the extracted files.
+1. In the Cortana search bar, type "git bash" and select "Git Bash Desktop App", or type "cmd" and select "Command Prompt". Next, type `cd c` then enter. Now, you will be in the root directory of your computer.
 
-1. An alternative for this download is to clone this training repository:
+1. Type and enter `git clone https://github.com/Azure/LearnAI-KnowledgeMiningBootcamp`
 
-+ Download and install [git](https://git-scm.com/), if necessary.
-+ Open the Git CMD application, use MS-DOS sintaxe to create a folder and navigate to it. We will use this folder in the next step, please remember the exactly path you created.
-+ Type the comand `git clone https://github.com/Azure/LearnAI-KnowledgeMiningBootcamp` . This will download all of the files in the repo, including the dataset.
+1. *Validation step*: Go to **C:\LearnAI-KnowledgeMiningBootcamp** and confirm it exists, including the dataset in the resources folder
 
 ## Step 3 - Create the Azure Blob service and upload the dataset
 
@@ -53,7 +51,7 @@ The enrichment pipeline pulls from Azure data sources. Source data must originat
 
  1. Within this storage account, create a container named `basicdemo`.
 
- 1. You can upload the data to the blob storage using [Azure Portal](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal) or [Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). There are other methods to upload data to Azure, but we don't  suggest them for this training. **Don't upload the zip file, only its content.**
+ 1. You can upload files to the blob storage using [Azure Portal](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal) or [Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). There are other methods to upload data to Azure, but we don't  suggest them for this training.
 
 >Tip! If you are using Azure Storage Explorer, in the `basicdemo` container you created, click **Upload** to upload the sample files.
 

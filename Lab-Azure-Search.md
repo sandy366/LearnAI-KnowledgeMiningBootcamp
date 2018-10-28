@@ -27,7 +27,7 @@ The example above illustrates some of the components users are expecting in thei
 
 ## Step 1 - Import Data
 
-Using the Azure Search service created in the previous lab, you will use the "Import Data" wizard, that helps you with all required steps to ingest and analyze your data: data source and index creatoin. 
+Using the Azure Search service created in the previous lab, you will use the "Import Data" wizard, that helps you with all required steps to ingest and analyze your data: data source and index creatoin.
 
 - From the Overview tab, click on the**Import Data** option and right after, click on **Connect to Data Source**
 
@@ -39,7 +39,7 @@ Using the Azure Search service created in the previous lab, you will use the "Im
 
 - Don't add anything for Cognitive Search for now, we will do it in the next lab, using Postman and Azure Search APIs. Just click the blue **OK** button.
 
-- In the index tab, we will define the index structure and features. 
+- In the index tab, we will define the index structure and features.
   - Name your index as you want, but we will use this information later so you should use an easy to type name
   - Keep `metada_storage_path` as the key. This is a unique identifier for each file of the data source. It is a good idea to use the physical path of file, since it is unique by design
   - Set all fields to be Retrievable, to allow the application to retrieve these fields when searched. Please notice they are all string and among them we have interesting things like size, content type, language, and **specially the content**. This is the text of the documents, a great option to make search more relevant
@@ -47,7 +47,7 @@ Using the Azure Search service created in the previous lab, you will use the "Im
   - Set size, language, and title as **Sortable**. It doesn't make sense to sort for the content since it is a free text
   - Set size, storage_name, language, and title as **Facetable**, so you can use this categorization for fast searching
   - Set content, content_type, language and title as **Searchable**, you want to be able to search on all of them.
-  - Mark the **Analyzer** checkbox and set all the fields for "Standard - Lucene". But navigate trought the other language options. The Analyzer takes the terms a user enters and works to find the best matching terms in the Index. Azure Search includes analyzers that are used in technologies like Bing and Office that have deep understanding of 56 languages
+  - Mark the **Analyzer** checkbox and set all the fields for "Standard - Lucene". Navigate trought the other language options, to see what is available. The Analyzer takes the terms a user enters and works to find the best matching terms in the Index. Azure Search includes analyzers that are used in technologies like Bing and Office that have deep understanding of 56 languages
   - Click the **Suggester** checkbox and enter any suggester name you like. Choose content and title to be the fields to look for term suggestions. The Suggester feature helps the user of terms, as you can see in web search engines.
 - If your configuration looks like the image below, click the blue **OK** button. A validation will be made
 
@@ -60,43 +60,47 @@ Using the Azure Search service created in the previous lab, you will use the "Im
 
 ## Step 2 - Check Indexer Exacution Status
 
-1. To monitor data import, click on the **Indexers** link, it is in the middle of the page and you can also see it in the middle of the image above. 
+1. To monitor data import, click on the **Indexers** link, it is in the middle of the page and you can also see it in the middle of the image above.
 
-1. You should see the newly created indexer in the list, with status indicating "Failed". If not, click the refresh button in the top-middle of the overview tab. You should see the newly created indexer in the list, with status indicating "in progress" or "Warning", along with the number of documents indexed, "19/19" is expected. 
+1. You should see the newly created indexer in the list, with status indicating "Failed". If not, click the refresh button in the top-middle of the overview tab. You should see the newly created indexer in the list, with status indicating "in progress" or "Warning", along with the number of documents indexed, "19/19" is expected.
 
 1. Click on the refresh button, top middle of the page, until the execution is over. The "Warning" status is expected, click on the Indexer name to see the summary. In this page you will see all of the executions this Indexer may have and its details, duration and so on.
 
-1. Click on the "Execution Details" to see the warning messages, you should find problems related to data truncation and unsupported content type. The first message is caused by long texts and the second is very clear on what is going on. Both problems will be addressed in the Cognitive Search labs, helping you to understand the value of this capability. 
+1. Click on the "Execution Details" to see the warning messages, you should find problems related to data truncation and unsupported content type. The first message is caused by long texts and the second is very clear on what is going on. Both problems will be addressed in the Cognitive Search labs, helping you to understand the value of this capability.
 
 1. Let's check what else you can do in the Indexer page. Click on the "Edit" link. As you can see, also in the image below, there are some interesting options here.
-  - You can change the target Index
-  - You can schedule your Indexer again
-  - You can check "Advanced Options". Click this option to see:
-        - Base-64 Encode Keys. This is the alghoritm used encrypt the data, the default option of the Index creation. It means that the data within the Azure Search Index is protected and your app needs to decrypt it to read in "human format".
-        - You will also see optoins for max errors per execution, items per execution, execution size and so on.
-        - Please note that you can change the "Data to extract" and the "Parsing mode" options.
 
-![Indexer tab](./resources/images/azure-search-images/indexer-advanced.png)
+- You can change the target Index
+- You can schedule your Indexer again
+- You can check "Advanced Options". Click this option to see:
+  - Base-64 Encode Keys. This is the alghoritm used encrypt the data, the default option of the Index creation. It means that the data within the Azure Search Index is protected and your app needs to decrypt it to read in "human format".
+  - You will also see optoins for max errors per execution, items per execution, execution size and so on.
+  - Note that you can change the "Data to extract" and the "Parsing mode" options.
 
-6. Navigate back to the **Overview Tab** and click the **Index** link, the second from the left to the right. You should see the "Document Count" and the Storage Size. The expected count is 19 and the size should be close to 657.59 KiB. As you can see, Azure Search doesn't store all of the document, but parts of it: key words, metadata, tags.
+    ![Indexer tab](./resources/images/azure-search-images/indexer-advanced.png)
 
 ## Query the Azure Search Index
 
 At this point we can try searching the index. Let's keep on using the Azure Portal for this.
 
-1. Click **Search Explorer** and in the Overview Tab choose your Index in the "Change Index" option. 
+1. Navigate back to the **Overview Tab** and click the **Index** link, the second from the left to the right. You should see the "Document Count" and the Storage Size. The expected count is 19 and the size should be close to 657.59 KiB. As you can see, Azure Search doesn't store all of the document, but parts of it: key words, metadata, tags.
+
+1. Click **Search Explorer** and in the Overview Tab choose your Index in the "Change Index" option.
 
 1. Click **Search** to search for all documents. You can use any valid simple or full Lucene query syntax to create the request. The * character is equivalent to an empty or unspecified search that returns all documents in no particular order. You should see information returned for all of the 19 documents.
 
 1. Try searching for "Microsoft", a different result set is expected. In the resulting json, you'll see a number after `@search.score`. Scoring refers to the computation of a search score for every item returned in search results. The score is an indicator of an item's relevance in the context of the current search operation. The higher the score, the more relevant the item. In search results, items are rank ordered from high to low, based on the search scores calculated for each item.
 
-1. 
+1. You will probably see results like the image below. Scroll down until you see all meta information available.
 
-![Search Explorer](./resources/assets/AzureSearch-SearchExplorer.png)
+![Search Explorer](./resources/images/azure-search-images/search-explorer.png)
 
+## Challenge
 
+Using [Azure Search Simple Query Syntax](https://docs.microsoft.com/en-us/rest/api/searchservice/simple-query-syntax-in-azure-search), try to create queries for the following situations:
 
-Azure Search uses default scoring to compute an initial score, but you can customize the calculation through a [scoring profile](https://docs.microsoft.com/en-us/rest/api/searchservice/add-scoring-profiles-to-a-search-index). There is an extra lab at the end of this workshop if you want to get some hands on experience with using [term boosting](https://docs.microsoft.com/en-us/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_termboost) for scoring.
+1. Search documents where "Microsoft" and "Cloud" are up to 100 words distant
+1. Leverage the Analyzer searching for Microsoft, Azure and the vatiations you decide.
 
 ## Next Step
 

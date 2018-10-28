@@ -1,10 +1,11 @@
-# TO DO
-
-+ Add the new labs
-+ Content Moderator LAB + data
-+ Images sizes
-
 # LearnAI: Knowledge Mining Bootcamp - Azure Cogntive Search Solution for business documents
+
+## To do
+
++ Add bot lab
++ Content Moderator LAB + data
++ Images dimensions
++ Improve the Azure Search challenge
 
 ## Build an intelligent search solution  using Microsoft Azure AI Platform
 
@@ -78,7 +79,8 @@ If you do not have any of the above pre-requisites, please find below links
 1. *To Create:* You need a Microsoft Azure account to create the services we use in our solution. You can create a [free account](https://azure.microsoft.com/en-us/free/), use your [MSDN account](https://azure.microsoftcom/en-us/pricing/member-offers/credit-for-visual-studio-subscribers/) or use any other subscription where you have permission to create services
 1. *To Install:* [Visual Studio 2017](https://www.visualstudio.com/vs/) version version 15.5 or later, *including the Azure development workload*
 1. *To Install:* [Postman](https://www.getpostman.com/). To call the labs APIs
-1. *To install:* [Bot Framework Emulator]( [Bot Emulator](https://github.com/Microsoft/BotFramework-Emulator)
+1. *To Install:* [Bot Emulator](https://github.com/Microsoft/BotFramework-Emulator)
+1. *To Install:* [Git for Windows](https://gitforwindows.org/) or any other git app you prefer
 
 ### Course Details
 
