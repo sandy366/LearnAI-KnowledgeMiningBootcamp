@@ -128,4 +128,4 @@ Full Course classroom training:  16 hours
 
 ### Q&A and Survey
 
-Please help the LearnAI Team with [questions and feedback](./q&a-feedback-survey.md) about this training.
+Please help the LearnAI Team with [questions and feedback](./qa-feedback-survey.md) about this training.
