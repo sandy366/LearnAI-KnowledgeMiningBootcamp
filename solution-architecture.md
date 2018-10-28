@@ -104,4 +104,4 @@ Labs 3, 4, and 5 will use Postman for [REST API calls](https://docs.microsoft.co
 
 ## Next step
 
-[Environment Creation](./labs/labs/lab-environment-creation.md) or [Back to Read Me](./README.md)
+[Environment Creation Lab](./labs/labs/lab-environment-creation.md) or [Back to Read Me](./README.md)
