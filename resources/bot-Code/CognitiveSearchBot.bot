@@ -1,0 +1,18 @@
+{
+    "name": "SearchBot",
+    "description": "",
+    "services": [
+        {
+            "type": "endpoint",
+            "appId": "d81fc614-368f-4669-a643-aa15689cde8f",
+            "appPassword": "kbgYVZ9101_?mvkfYNRW8)]",
+            "endpoint": "http://localhost:3978/api/messages",
+            "id": "e4615890-c648-11e8-85c9-e96d7cedcc57",
+            "name": "http://localhost:3978/api/messages"
+        }
+    ],
+    "padlock": "",
+    "version": "2.0",
+    "overrides": null,
+    "path": "C:\\Users\\rodriguez\\Desktop\\CognitiveSearchBot\\CognitiveSearchBot\\SearchBot.bot"
+}
