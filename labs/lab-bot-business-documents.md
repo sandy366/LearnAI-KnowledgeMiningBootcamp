@@ -12,5 +12,5 @@ Now that you've downloaded and open the Bot Emulator, the next thing you have to
 
 ## Next Step
 
-[Text Skills Lab](../labs/lab-final-case.md) or
+[Final Case Lab](../labs/lab-final-case.md) or
 [Back to Main Menu](../README.md)
