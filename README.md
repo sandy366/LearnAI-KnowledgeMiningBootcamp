@@ -42,11 +42,11 @@ In this course you will learn these key concepts:
 
 ### Architecture
 
-![Architecture](../resources/images/readme/architecture.png)
+![Architecture](./resources/images/readme/architecture.png)
 
 ### Technologies Covered
 
-![Technology](../resources/images/readme/tech-map.png)
+![Technology](./resources/images/readme/tech-map.png)
 
 ### Industry application
 

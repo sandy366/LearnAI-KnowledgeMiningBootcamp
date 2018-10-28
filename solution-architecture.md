@@ -10,7 +10,7 @@ The labs have a progressive level of complexity and they will help you to unders
 
 Every company has business documents: contracts, memos, presentations, images, spreadsheets, business plans and so on. Usually these documents doesn't have the metadata necessary to be searchable, **as you can see in the image below**. Since documents don't have tags, cetegories and comments, they only can be found by name. This creates a poor search experiece, slowing down busiess process and reducing productivity.
 
-![Lack of Metadata](../resources/images/sol-arch/no-meta.png)
+![Lack of Metadata](./resources/images/sol-arch/no-meta.png)
 
 Azure Cognitive Search, the Microsoft product for Knowledge Mining, uses the most advanced cognitive capabilities, based on Microsoft's Azure AI Platform, to extract and create enriched metadata about your documents, vastly improving the overall search experience. This process also allow companies to enforce complaince, detect risks and detect policies violations.
 
@@ -34,7 +34,7 @@ This Cognitive Search solution addresses these problems, extracting insights fro
 
 ### Architecture
 
-![Architecture](../resources/images/sol-arch/architecture.png)
+![Architecture](./resources/images/sol-arch/architecture.png)
 
 ## Labs Details
 
@@ -104,4 +104,4 @@ Labs 3, 4, and 5 will use Postman for [REST API calls](https://docs.microsoft.co
 
 ## Next step
 
-[Environment Creation Lab](./labs/labs/lab-environment-creation.md) or [Back to Read Me](./README.md)
+[Environment Creation Lab](./labs/lab-environment-creation.md) or [Back to Read Me](./README.md)
