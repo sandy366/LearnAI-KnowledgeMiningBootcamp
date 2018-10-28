@@ -67,5 +67,5 @@ There are other ways to specify the connection string, such as providing a share
 
 ## Next Step
 
-[Azure Search Lab](./Lab-Azure-Search.md) or
+[Azure Search Lab](./Labs/Lab-Azure-Search.md) or
 [Back to Main Menu](./readme.md)

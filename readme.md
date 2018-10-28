@@ -111,19 +111,19 @@ Full Course classroom training:  16 hours
 
 1. [Architecture](./Solution-Architecture.md) – Solution Architecture for building enterprise search solution.
 
-1. [Lab 1](./Lab-Environment-Creation.md) - Azure environment creation
+1. [Lab 1](./Labs/Lab-Environment-Creation.md) - Azure environment creation
 
-1. [Lab 2](./Lab-Azure-Search) - Indexing Business Documents with Azure Search
+1. [Lab 2](./Labs/Lab-Azure-Search) - Indexing Business Documents with Azure Search
 
-1. [Lab 3](./Lab-Text-Skills.md) - Cognitive Search – Applying text skills
+1. [Lab 3](./Labs/Lab-Text-Skills.md) - Cognitive Search – Applying text skills
 
-1. [Lab 4](./Lab-Image-Skills.md) - Cognitive Search – Applying image skills
+1. [Lab 4](./Labs/Lab-Image-Skills.md) - Cognitive Search – Applying image skills
 
-1. [Lab 5](./Lab-Custom-Skills.md) - Cognitive Search – Applying Content Moderator with **Custom skills**
+1. [Lab 5](./Labs/Lab-Custom-Skills.md) - Cognitive Search – Applying Content Moderator with **Custom skills**
 
-1. [Lab 6](./Business-Documents-Bot.md) - Build and Integrate a Bot with Cognitive Search API
+1. [Lab 6](./Labs/Lab-Business-Documents-Bot.md) - Build and Integrate a Bot with Cognitive Search API
 
-1. [Lab 7](./Lab-Final-Case.md) - Group Design Session
+1. [Lab 7](./Labs/Lab-Final-Case.md) - Group Design Session
 
 ### Q&A and Survey
 

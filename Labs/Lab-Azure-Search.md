@@ -104,5 +104,5 @@ Using [Azure Search Simple Query Syntax](https://docs.microsoft.com/en-us/rest/a
 
 ## Next Step
 
-[Text Skills Lab](./Lab-Text-Skills.md) or
+[Text Skills Lab](./Labs/Lab-Text-Skills.md) or
 [Back to Main Menu](./readme.md)

@@ -109,4 +109,4 @@ If you could not make it, [here](./resources/Finished-Solutions/Finished-Solutio
 
 ## Next Step
 
-+ [Custom Skills Lab](./Lab-Custom-Skills.md) or [Back to Main Menu](./readme.md)
++ [Custom Skills Lab](./Labs/Lab-Custom-Skills.md) or [Back to Main Menu](./readme.md)
