@@ -45,6 +45,10 @@ Cloning the repo will download all the training materials to your computer, incl
 
 1. *Validation step*: Go to **C:\LearnAI-KnowledgeMiningBootcamp** and confirm it exists, including the dataset in the resources folder
 
+![Git process](../resources/images/lab-environment-creation/git.png)
+
+>Note! The image above has a smaller amount of files downloaded than expected, the training is under constant development.
+
 ## Step 3 - Create the Azure Blob service and upload the dataset
 
 The enrichment pipeline pulls from Azure data sources. Source data must originate from a supported data source type of an [Azure Search indexer](https://docs.microsoft.com/en-us/azure/search/search-indexer-overview). For this exercise, we use blob storage to showcase multiple content types.
