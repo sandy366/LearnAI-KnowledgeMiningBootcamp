@@ -365,4 +365,5 @@ If you could not make it, [here](../resources/finished-solutions/finished-soluti
 
 ## Next Step
 
-[Final Case Lab](../labs/lab-final-case.md) or [Back to Labs Menu](../README.md)
+[Final Case Lab](../labs/lab-final-case.md) or 
+[Back to Read Me](../README.md)
