@@ -91,9 +91,9 @@ namespace CognitiveSearchBot.Dialogs
             // TODO: Configure the search service and establish a connection, call it in StartAsync()
             // replace "YourSearchServiceName" and "YourSearchServiceKey" with your search service values
 
-            string searchServiceName = "msft-searchbot-prd";
-            string queryApiKey = "BD1F145D7E035711F10649F7B5AB32B3";
-            string indexName = "realestate-us-sample";
+            string searchServiceName = "rodcogsearch";
+            string queryApiKey = "C6E28D8D5053D56BF5273032930817B7";
+            string indexName = "demoindex2";
 
 
             SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, indexName, new SearchCredentials(queryApiKey));

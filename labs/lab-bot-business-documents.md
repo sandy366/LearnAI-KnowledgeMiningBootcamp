@@ -45,6 +45,16 @@ If you see that the message can not be sent, you might need to install [ngrok](h
 
 ## Step 4 - Build the Business Documents Bot
 
+Now you will start to build the bot integration with the Azure Search API, to query the insights we created using Cognitive Search.
+
+1. In Visual Studio 2017, open the CognitiveSearchBot.sln from the \LearnAI-KnowledgeMiningBootcamp\resources\bot-code folder.
+
+1. Open the CognitiveSearchBot.cs file, under the root folder in the Solution Explorer panel. Check the libraries, specially `Microsoft.Azure.Search`. It is required to access the Azure Search API.
+
+1. Open the SearchDialog.cs, under the Dialog folder in the Soluiton Explorer panel.
+
+1. Scroll down until the end of the code and add the information of the previous labs: Azure Search Service name, API Key (the same one you used with Postman), and the index name.
+
 ## Next Step
 
 [Final Case Lab](../labs/lab-final-case.md) or
