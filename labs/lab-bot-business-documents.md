@@ -41,7 +41,7 @@ The echo bot is a simple template to verify if the previous installations are wo
 ![New Bot Project](../resources/images/lab-bot/emulator-running.png)
 
 >Note!
-If you see that the message can not be sent, you might need to install [ngrok](https://ngrok.com/) and restart your machine, as ngrok didn't get the needed privileges on your system yet.
+If you see that the message can not be sent, you might need to install [ngrok](https://ngrok.com/) and restart your machine, as ngrok didn't get the needed privileges on your system yet. After the restart, open the Bot Framework Emulator and hit the settings button (gear icon in bottom left corner). In the "Path to ngrok" box, hit "Browse," find "ngrok.exe", click "Select ngrok", and then click "Save".
 
 ## Step 4 - Build the Business Documents Bot
 
