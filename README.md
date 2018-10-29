@@ -5,7 +5,7 @@
 + Finish bot lab: how to search, fix .bot, explain .bot, service name and keys, explain Nuget packages updates on run/build time, how the SDK works to "create the URL with SearchIndexClient".
 + Content Moderator LAB + data + finished solution
 + Adjust Images sizes
-+ Improve the Azure Search challenge
++ Azure Search Lab "Finished Solution"
 
 ## Build an intelligent search solution  using Microsoft Azure AI Platform
 
