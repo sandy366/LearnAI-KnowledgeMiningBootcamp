@@ -2,7 +2,7 @@
 
 In this lab you will create a simple bot to learn how to interact with the Azure Cognitive Search API. If you want deeper knowledge on Bots Development, check the [Learn AI Vision Bootcamp](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp).
 
-This [gif](./resources/images/sol-arch/retrieving-cognitive-attrributes.gif) has the expected finished solution, so now you have idea of what we will be created now.
+This [gif](./resources/images/sol-arch/retrieving-cognitive-attrributes.gif) has the expected finished solution, but with a different dataset. Now you have idea of what we will be created.
 
 ## Step 1 - Download and install the Bot Framework Emulator
 
