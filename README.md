@@ -81,6 +81,7 @@ If you do not have any of the above pre-requisites, please find below links
 1. *To Install:* [Postman](https://www.getpostman.com/). To call the labs APIs
 1. *To Install:* [Bot Emulator](https://github.com/Microsoft/BotFramework-Emulator)
 1. *To Install:* [Git for Windows](https://gitforwindows.org/) or any other git app you prefer
+1. *To Install:* [Bot Framework 4.0](https://botbuilder.myget.org/feed/aitemplates/package/vsix/BotBuilderV4.fbe0fc50-a6f1-4500-82a2-189314b7bea2)
 
 ### Course Details
 
