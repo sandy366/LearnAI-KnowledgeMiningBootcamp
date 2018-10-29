@@ -2,7 +2,7 @@
 
 ## To do
 
-+ Add bot lab
++ Finish bot lab: how to search, fix .bot, service names and keys, Nuget packages updates, how the SDK works to create the URL.
 + Content Moderator LAB + data + finished solution
 + Adjust Images sizes
 + Improve the Azure Search challenge
