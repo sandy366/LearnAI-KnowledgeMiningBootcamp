@@ -86,6 +86,15 @@ Using the Azure Search service created in the previous lab, you will use the "Im
 
 Azure Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). In Azure Search, the simple query syntax excludes the fuzzy/slop options.
 
+The image below explains how Azure Search executes a query. The process has four stages:
+
+1. Query parsing
+1. Lexical analysis
+1. Document retrieval
+1. Scoring
+
+![Query Architecture](../resources/images/lab-azure-search/query.png)
+
 At this point of the lab, we can try searching the index. Let's keep on using the Azure Portal for this.
 
 1. Navigate back to the **Overview Tab** and click the **Index** link, the second from the left to the right. You should see the "Document Count" and the Storage Size. The expected count is 19 and the size should be close to 657.59 KiB. As you can see, Azure Search doesn't store all of the document, but parts of it: key words, metadata, tags.
@@ -108,7 +117,7 @@ Using [Azure Search Simple Query Syntax](https://docs.microsoft.com/en-us/rest/a
 1. Search documents where words "Microsoft" and "Cloud" are up to 20 words distant one from the other
 1. Search for documents about Cloud, ordering the results by the score
 1. Search for documents about Cloud, but filtering those with mentions to Oracle
-1. Leverage the Analyzer searching for Microsoft, Azure and the vatiations you decide
+1. Search for documents about Cognitive Services and Bots
 
 ## Next Step
 
