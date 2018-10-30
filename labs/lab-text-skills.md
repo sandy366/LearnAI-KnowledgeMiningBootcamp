@@ -216,6 +216,14 @@ Content-Type: application/json
       "facetable": false,
       "sortable": true
     },
+   {
+      "name": "blob_uri",
+      "type": "Edm.String",
+      "searchable": true,
+      "filterable": false,
+      "facetable": false,
+      "sortable": true
+    },
     {
       "name": "content",
       "type": "Edm.String",
@@ -294,6 +302,10 @@ Content-Type: application/json
         {
           "sourceFieldName" : "content",
           "targetFieldName" : "content"
+        },
+         {
+          "sourceFieldName" : "metadata_storage_path",
+          "targetFieldName" : "blob_uri"
         }
    ],
   "outputFieldMappings" :
@@ -327,6 +339,8 @@ Content-Type: application/json
 Send the request. The web test tool should return a status code of 201 confirming successful processing.
 
 Expect this step to take several minutes to complete. Even though the data set is small, analytical skills are computation-intensive. Some skills, such as image analysis, are long-running.
+
+While it is running, check this detail: The "blob_uri" was defined as the second field of the index. But it is the third mapping in the indexer. It is a good example on how they work independent. You should scroll up to see these two body requests and compare them.
 
 > [!TIP]
 > Creating an indexer invokes the pipeline. If there are problems reaching the data, mapping inputs and outputs, or order of operations, they appear at this stage. To re-run the pipeline with code or script changes, you might need to drop objects first. For more information, see [Reset and re-run](https://docs.microsoft.com/en-us/azure/search/cognitive-search-tutorial-blob#reset).

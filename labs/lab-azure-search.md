@@ -41,7 +41,7 @@ Using the Azure Search service created in the previous lab, you will use the "Im
 
 - In the index tab, we will define the index structure and features.
   - Name your index as you want, but we will use this information later so you should use an easy to type name
-  - Keep `metada_storage_path` as the key. This is a unique identifier for each file of the data source. It is a good idea to use the physical path of file, since it is unique by design
+  - Keep `metada_storage_path` as the key. This is a unique identifier for each file of the data source. It is a good idea to use the physical path of file, since it is unique by design. Since our dataset is on blob storage, the content of this field is the file URL, that's why it is unique by design. If you check the other options, you will see that metadata_storage_path is only one field that can guarantee uniqueness
   - Set all fields to be Retrievable, to allow the application to retrieve these fields when searched. Please notice they are all string and among them we have interesting things like size, content type, language, and **specially the content**. This is the text of the documents, a great option to make search more relevant
   - Set size, content_type, language, and title as **Filterable**, so you can filter on these fields
   - Set size, language, and title as **Sortable**. It doesn't make sense to sort for the content since it is a free text
@@ -53,7 +53,10 @@ Using the Azure Search service created in the previous lab, you will use the "Im
 
 ![Index Configuration](../resources/images/lab-azure-search/index-settings.png)
 
+>Note! Using the portal you can't map the source fields more once. In the next labs you will create the index and the indexer using API calls, what will allow you to do it.
+
 - Name your indexer as you want,  keep the schedule as **once** and click the blue **OK** button. The indexer is the job that connects the data source, the index and the schedule
+
 - Again click the blue **OK** button, and you will be redirected to the ovwerview tab, where you can see now 1 index, 1 indexer and 1 data source.
 
 ![Overview tab](../resources/images/lab-azure-search/redirect.png)
@@ -73,7 +76,7 @@ Using the Azure Search service created in the previous lab, you will use the "Im
 - You can change the target Index
 - You can schedule your Indexer again
 - You can check "Advanced Options". Click this option to see:
-  - Base-64 Encode Keys. This is the alghoritm used encrypt the data, the default option of the Index creation. It means that the data within the Azure Search Index is protected and your app needs to decrypt it to read in "human format".
+  - Base-64 Encode Keys. This is the alghoritm used encrypt the data of your index key. It is the default option of the Index creation and this encryption avoids a typical problem of the metadata_storage_path, our recomended field for the documents key, as mentioned in the previous step. The storage path will have characters like "/" that are not allowded in a key. That's a **paradox**, we "have to use" metadata_storage_path but typicaly it has invalid characters. The Base-64 encryption fixes this problem. It also means that the data within the Azure Search Index is protected and your app needs to decrypt it to read in "human format".
   - You will also see optoins for max errors per execution, items per execution, execution size and so on.
   - Note that you can change the "Data to extract" and the "Parsing mode" options.
 

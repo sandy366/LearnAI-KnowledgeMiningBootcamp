@@ -130,6 +130,20 @@ Here are the body requests for the solution to Lab 3. Don't forget to adjust the
             "synonymMaps": []
         },
         {
+            "name": "blob_uri",
+            "type": "Edm.String",
+            "searchable": true,
+            "filterable": false,
+            "retrievable": true,
+            "sortable": false,
+            "facetable": false,
+            "key": false,
+            "indexAnalyzer": null,
+            "searchAnalyzer": null,
+            "analyzer": null,
+            "synonymMaps": []
+        },
+        {
             "name": "content",
             "type": "Edm.String",
             "searchable": true,
@@ -229,6 +243,10 @@ Here are the body requests for the solution to Lab 3. Don't forget to adjust the
         {
           "sourceFieldName" : "content",
           "targetFieldName" : "content"
+        },
+         {
+          "sourceFieldName" : "metadata_storage_path",
+          "targetFieldName" : "blob_uri"
         }
    ],
   "outputFieldMappings" :
