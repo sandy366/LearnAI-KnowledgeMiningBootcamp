@@ -3,10 +3,11 @@
 
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder;
 
-namespace CognitiveSearchBot
+namespace Microsoft.CognitiveSearchBot
 {
     public interface IRecognizedIntents
     {
@@ -47,9 +48,9 @@ namespace CognitiveSearchBot
         /// </summary>
         /// <param name="context"></param>
         /// <returns></returns>
-        public static IRecognizedIntents Get(ITurnContext context) { return context.Services.Get<IRecognizedIntents>(); }
+        public static IRecognizedIntents Get(ITurnContext context) { return context.TurnState.Get<IRecognizedIntents>(); }
 
-        public async Task OnTurn(ITurnContext context, MiddlewareSet.NextDelegate next)
+        public async Task OnTurnAsync(ITurnContext context, NextDelegate nextTurn, CancellationToken cancellationToken)
         {
             BotAssert.ContextNotNull(context);
 
@@ -64,8 +65,8 @@ namespace CognitiveSearchBot
                     result.TopIntent = topIntent;
                 }
             }
-            context.Services.Add((IRecognizedIntents)result);
-            await next().ConfigureAwait(false);
+            context.TurnState.Add((IRecognizedIntents)result);
+            await nextTurn(cancellationToken).ConfigureAwait(false);
         }
 
         public async Task<IList<Intent>> Recognize(ITurnContext context)

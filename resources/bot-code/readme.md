@@ -1,4 +1,1 @@
-﻿CognitiveSearchBot
-Based on lab02.2-building_bots from https://github.com/Azure/LearnAI-Bootcamp.
-
-
+At the bottom of CognitiveSearchBot.cs, you need to add your Azure Search service name, key, and index name.

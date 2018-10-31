@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Microsoft.Bot.Builder;
 
-namespace CognitiveSearchBot
+namespace Microsoft.CognitiveSearchBot
 { 
     public class RegExpRecognizerSettings
     {
