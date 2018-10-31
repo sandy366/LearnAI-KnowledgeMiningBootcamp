@@ -120,7 +120,7 @@ Full Course classroom training:  16 hours
 
 1. [Lab 5](./labs/lab-custom-skills.md) - Cognitive Search – **Custom Skills**
 
-1. [Lab 6](./labs/lab-business-documents-Bot.md) - Build and Integrate a **Bot** with Cognitive Search API
+1. [Lab 6](./labs/lab-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API
 
 1. [Lab 7](./labs/lab-final-case.md) - **Architecture Design Session**
 
