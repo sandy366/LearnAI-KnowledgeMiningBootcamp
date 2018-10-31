@@ -2,7 +2,6 @@
 
 ## To do
 
-+ Azure Search LAb - "modeLikeThis" and "Synonyms"
 + Content Moderator LAB + finished solution
 
 ## Build an intelligent search solution  using Microsoft Azure AI Platform
