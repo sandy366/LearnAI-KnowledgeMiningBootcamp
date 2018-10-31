@@ -2,7 +2,7 @@
 
 ## To do
 
-+ Finish bot lab: how to search, fix .bot, explain .bot, service name and keys, explain Nuget packages updates on run/build time, how the SDK works to "create the URL with SearchIndexClient".
++ Azure Search LAb - "modeLikeThis" and "Synonyms"
 + Content Moderator LAB + finished solution
 
 ## Build an intelligent search solution  using Microsoft Azure AI Platform
