@@ -1,8 +1,9 @@
 # Lab 3: Create a Cognitive Search Skillset with **Custom** Skills
 
-In this lab, you will learn how to create a web API custom skill that accepts text in any language and translates it to English. It is required because there are documents in languages besides English in our dataset. The expected behavior of this code is to do nothing if the document language is English and translate to English if the document is in another language. **The provided dataset has documents in Spanish**.
+In this lab, you will learn [how to create a Custom Skill](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-interface)
+and integrate it to the enrichment pipeline. Custom skills allow you to add any REST API transformation to the dataset, also feeding other transformations within the pipeline, if required.
 
-We will use an [Azure Function](https://azure.microsoft.com/services/functions/) to wrap the [Translate Text API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) so that it implements the custom skill interface.
+We will use an [Azure Function](https://azure.microsoft.com/services/functions/) to wrap the [Content Moderator API](https://azure.microsoft.com/en-us/services/cognitive-services/content-moderator/) so that it implements the custom skill interface.
 
 For documents in english we will replicate the original text in the output, so we can search only one field of our index. Another important detail, this function output is **Edm.String**, so we need to use the same type in the index definition.  
 
@@ -18,13 +19,15 @@ Although this example uses an Azure Function to host a web API, it is not requir
 
 1. In Visual Studio, select **New** > **Project** from the File menu.
 
-2. In the New Project dialog, select **Installed**, expand **Visual C#** > **Cloud**, select **Azure Functions**, type a Name for your project, and select **OK**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
+1. In the New Project dialog, select **Installed**, expand **Visual C#** > **Cloud**, select **Azure Functions**, type a Name for your project, and select **OK**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
 
-3. Select the type to be **HTTP Trigger**.
+1. Select **Azure Functions v2 (.Net Core)**. You could also do it with version 1, but the code written below is based on the v2 template.
 
-4. For Storage Account, you may select **None**, as you won't need any storage for this function.
+1. Select the type to be **HTTP Trigger**.
 
-5. Select **OK** to create the function project and HTTP triggered function.
+1. For Storage Account, you may select **None**, as you won't need any storage for this function.
+
+1. Select **OK** to create the function project and HTTP triggered function.
 
 #### Modify the code to call the Translate Cognitive Service
 
@@ -188,7 +191,7 @@ This example is a simple enricher that only works on one record at a time. This 
 
 ## Step 3 - Test the function from Visual Studio
 
-Press **F5** to run the program and test function behaviors. Use Postman or Fiddler to issue a call like the one shown below:
+Press **F5** to run the program and test function behaviors. Use Postman to issue a call like the one shown below:
 
 ```http
 POST https://localhost:7071/api/Translate

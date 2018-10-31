@@ -53,7 +53,7 @@ Using the Azure Search service created in the previous lab, you will use the "Im
 
 ![Index Configuration](../resources/images/lab-azure-search/index-settings.png)
 
->Note! Using the portal you can't map the source fields more once. In the next labs you will create the index and the indexer using API calls, what will allow you to do it.
+>Note! Using the portal you can't map the source fields more once. In the next labs you will create the index and the indexer using API calls, what will allow you to do it. It is also important to realyze that you only have the file's metadata to work with. In the next labs you will use Cognitive Search to create metadata from your data, your index will be completly different.
 
 - Name your indexer as you want,  keep the schedule as **once** and click the blue **OK** button. The indexer is the job that connects the data source, the index and the schedule
 

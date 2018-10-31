@@ -3,7 +3,7 @@
 ## To do
 
 + Finish bot lab: how to search, fix .bot, explain .bot, service name and keys, explain Nuget packages updates on run/build time, how the SDK works to "create the URL with SearchIndexClient".
-+ Content Moderator LAB + data + finished solution
++ Content Moderator LAB + finished solution
 
 ## Build an intelligent search solution  using Microsoft Azure AI Platform
 
@@ -110,15 +110,15 @@ Full Course classroom training:  16 hours
 
 1. [Architecture](./solution-architecture.md) – **Solution Architecture** for building enterprise search solution.
 
-1. [Lab 1](./labs/lab-environment-creation.md) - Azure - **environment creation**
+1. [Lab 1](./labs/lab-environment-creation.md) - Azure - **Environment Creation**
 
 1. [Lab 2](./labs/lab-azure-search) - Azure Search - **Indexing Blob Storage**
 
-1. [Lab 3](./labs/lab-text-skills.md) - Cognitive Search – **text skills**
+1. [Lab 3](./labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
 
-1. [Lab 4](./labs/lab-image-skills.md) - Cognitive Search – **image skills**
+1. [Lab 4](./labs/lab-image-skills.md) - Cognitive Search – **Image Skills**
 
-1. [Lab 5](./labs/lab-custom-skills.md) - Cognitive Search – **Custom skills**
+1. [Lab 5](./labs/lab-custom-skills.md) - Cognitive Search – **Custom Skills**
 
 1. [Lab 6](./labs/lab-business-documents-Bot.md) - Build and Integrate a **Bot** with Cognitive Search API
 

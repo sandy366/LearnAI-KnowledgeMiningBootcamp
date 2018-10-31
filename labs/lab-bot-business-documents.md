@@ -6,10 +6,10 @@ While this is a simple bot, this [gif](./resources/images/sol-arch/retrieving-co
 
 ## Step 1 - Download and install the Bot Framework Emulator
 
-The Bot Framework Emulator helps you run your bots locally, for testing and debugging. Download the emulator by going to [this page](https://github.com/Microsoft/BotFramework-Emulator/releases) and downloading the most recent version of the emulator that has the tag "Latest Release" (select the ".exe" file, if you are using windows). 
-> The instructions for the rest of the labs will assume you've downloaded the V4 Emulator (as opposed to the V3 Emulator).   
+The Bot Framework Emulator helps you run your bots locally, for testing and debugging. Download the emulator by going to [this page](https://github.com/Microsoft/BotFramework-Emulator/releases) and downloading the most recent version of the emulator that has the tag "Latest Release" (select the ".exe" file, if you are using windows).
+> The instructions for the rest of the labs will assume you've downloaded the V4 Emulator (as opposed to the V3 Emulator).
 
-The emulator installs to `c:\Users\`_your-username_`\AppData\Local\botframework\app-`_version_`\botframework-emulator.exe` or to your Downloads folder, depending on browser. Run the install and open the emulator, you'll use it shortly. 
+The emulator installs to `c:\Users\`_your-username_`\AppData\Local\botframework\app-`_version_`\botframework-emulator.exe` or to your Downloads folder, depending on browser. Run the install and open the emulator, you'll use it shortly.
 
 ## Step 2 - Accessing the sample
 
@@ -55,12 +55,11 @@ Next, run the bot (select `F5`) and (after sending "hi" then "search") search fo
 
 ![Examine hit locals](../resources/images/lab-bot/locals.png)
 
-Similarly, when "results" has been filled, you can see how many "hits" there are and expand those details as well. 
+Similarly, when "results" has been filled, you can see how many "hits" there are and expand those details as well.
 
 ![Examine results locals](../resources/images/lab-bot/locals2.png)
 
 Using break points for debugging and seeing how calls are made and processed is a very valuable tool. If you'd like to learn more, [start here](https://docs.microsoft.com/en-us/visualstudio/debugger/getting-started-with-the-debugger?view=vs-2017).
-
 
 ## Next Step
 
