@@ -3,8 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Bot.Schema;
 
-namespace CognitiveSearchBot.Responses
+namespace Responses
 {
     public class SearchResponses
     {
@@ -13,15 +14,15 @@ namespace CognitiveSearchBot.Responses
         // user what they want to search for
         public static async Task ReplyWithSearchRequest(ITurnContext context)
         {
-            await context.SendActivity($"What would you like to search for?");
+            await context.SendActivityAsync($"What would you like to search for?");
         }
         public static async Task ReplyWithSearchConfirmation(ITurnContext context, string utterance)
         {
-            await context.SendActivity($"Ok, retrieving Cognitve Attribute (KeyPhrases) of {utterance}");
+            await context.SendActivityAsync($"Ok, searching for \"" + utterance + "\"...");
         }
         public static async Task ReplyWithNoResults(ITurnContext context, string utterance)
         {
-            await context.SendActivity("There were no results found for \"" + utterance + "\".");
+            await context.SendActivityAsync("There were no results found for \"" + utterance + "\".");
         }
     }
 }

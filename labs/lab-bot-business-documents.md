@@ -1,59 +1,66 @@
 # Creating the Business Documents Bot
 
-In this lab you will create a simple bot to learn how to interact with the Azure Cognitive Search API. If you want deeper knowledge on Bots Development, check the [Learn AI Vision Bootcamp](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp).
+In this lab, you will create a simple bot to learn how Azure Cognitive Search can be integrated into a bot using the Microsoft Bot Framework (SDK V4, .NET Core). If you're interested in diving diver deeper into bot development, check out the [LearnAI: Azure Cognitive Services Bootcamp](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp) which integrates multiple Cognitive Services to create an intelligent agent.
 
-This [gif](./resources/images/sol-arch/retrieving-cognitive-attrributes.gif) has the expected finished solution, but with a different dataset. Now you have idea of what we will be created.
+While this is a simple bot, this [gif](./resources/images/sol-arch/retrieving-cognitive-attrributes.gif) provides some inspiration for what a solution could look like. Now that you have idea of what you will create and are feeling inspired, let's get into the labs.
 
 ## Step 1 - Download and install the Bot Framework Emulator
 
-You can skip this step if you have did it already.
+The Bot Framework Emulator helps you run your bots locally, for testing and debugging. Download the emulator by going to [this page](https://github.com/Microsoft/BotFramework-Emulator/releases) and downloading the most recent version of the emulator that has the tag "Latest Release" (select the ".exe" file, if you are using windows). 
+> The instructions for the rest of the labs will assume you've downloaded the V4 Emulator (as opposed to the V3 Emulator).   
 
-The Bot Framework Emulator helps you running your bots locally, for testing and debuging. The instructions for the rest of the labs will assume you've downloaded the v4 Emulator (as opposed to the v3 Emulator). Download the emulator by going to [this page](https://github.com/Microsoft/BotFramework-Emulator/releases) and downloading the most recent version of the emulator that has the tag "Latest Release" (select the ".exe" file, if you are using windows).  
+The emulator installs to `c:\Users\`_your-username_`\AppData\Local\botframework\app-`_version_`\botframework-emulator.exe` or to your Downloads folder, depending on browser. Run the install and open the emulator, you'll use it shortly. 
 
-The emulator installs to `c:\Users\`_your-username_`\AppData\Local\botframework\app-`_version_`\botframework-emulator.exe` or to your Downloads folder, depending on browser.
+## Step 2 - Accessing the sample
 
-## Step 2 - Download and install the the Bot Framework
+As part of the environment creation, you should have cloned the repository to your local environment. If you have not, now is a good time to go back and do so.  
 
-You can skip this step if you have did it already.
+Under **resources > bot-code**, you should be able to locate a "Microsoft Visual Studio Solution File" called "CognitiveSearchBot". Double click on it to open the solution.  
 
-Download and install the Bot Framework from this [page](https://botbuilder.myget.org/feed/aitemplates/package/vsix/BotBuilderV4.fbe0fc50-a6f1-4500-82a2-189314b7bea2)
+Once the solution is open, right-click on "Solution 'CognitiveSearchBot'" in the Solution Explorer (from now on we'll just refer to this as "the solution") and select "Rebuild" to pull down all the dependencies required.  
 
-## Step 3 - Testing if everything is ok - Creating the Echo Bot
+> Note: There is a lot of "stuff" in this solution. If you've worked with bots before, you may be interested in looking around to see how we've set up the state, regular expressions, and the dialogs/responses. If you've never worked with bots before, do not fret! This is not a bots course, so we'll walk you through the important things we want you to learn.  
 
-The echo bot is a simple template to verify if the previous installations are working as expected. Thanks to the template, your project contains all of the code that's necessary to create the bot in this quickstart. You won't actually need to write any additional code.
+Right-click on the solution and select "Manage NuGet Packages for Solution...". Under "Installed", you should find "Microsoft.Azure.Search" listed. There's no action here, but you should know that this package contains libraries that make it very easy for us to call the Azure Cognitive Search API and process the results.  
 
-+ In Visual Studio, create a new bot project using the Bot Builder Echo Bot V4 template
+Open "CognitiveSearchBot.cs" by double-clicking on it in the Solution Explorer. While there are lots of files in this solution, this is the most relevant one to integrating your search service. Spend at least five minutes **reading the file from start to finish**. We've commented what's happening on almost every line, so it is hopefully easy to follow, even if you don't have a background with bots.  
 
-![New Bot Project](../resources/images/lab-bot/bot-builder-dotnet-project.png)
+Near the bottom of the class, within `CreateSearchIndexClient()`, you'll notice that you need to fill in your search service name, search service key, and index name. Since you've created and tested the index in Postman, you should have these readily available. If not, you can open the Azure portal and locate your Azure Search service to get the needed information. Fill in your information and save the file (you can use `CTRL` + `S`).
 
-+ If needed, change the project build type to .Net Core 2.1
+## Step 3 - Interacting with your Cognitive Search Bot
 
-+ If needed, [update NuGet packages](https://docs.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-in-visual-studio)
+In Visual Studio, select the green button (looks like a play button) in the top menu bar to run the bot (you can alternatively select `F5` on your keyboard). This will build and run the bot locally, opening a few pages for testing purposes. The pages will close if you stop running the bot.  
 
-+ Click the run button, Visual Studio will build the application, deploy it to localhost, and launch the web browser to display the application's default.htm page. At this point, your bot is running locally
+Open the Bot Emulator if it is not open already. Select the button "Open Bot" from the Welcome page. Navigate to where your "BotConfiguration.bot" file is located (should be under **resources > bot-code** if you followed the previous instructions).  
 
-+ Start the emulator and connect your bot. Click the **Open Bot** link in the emulator "Welcome" tab
+This should open a chat window with your bot. You can start by saying some sort of greeting ("hi", "hello", "whats up bot", etc.). The bot should respond with a greeting, followed by the help message that says what it can do. Since really all it can do is search, enter "search" to trigger the search dialog.
 
-+ Select the .bot file located in the directory where you created the Visual Studio solution
+![Greet Bot](../resources/images/lab-bot/emulator-running.png)
 
-+ Send a message to your bot, and the bot will respond back with a message
+You should now be able to submit search requests, and your results should be returned. Try searching for various items and inspecting your results.
 
-![New Bot Project](../resources/images/lab-bot/emulator-running.png)
+## Step 4 (optional) - Using break points to understand the search flow
 
->Note!
-If you see that the message can not be sent, you might need to install [ngrok](https://ngrok.com/) and restart your machine, as ngrok didn't get the needed privileges on your system yet. After the restart, open the Bot Framework Emulator and hit the settings button (gear icon in bottom left corner). In the "Path to ngrok" box, hit "Browse," find "ngrok.exe", click "Select ngrok", and then click "Save".
+If you want to dive slightly deeper into calling the Azure Cognitive Search API and processing the results, we have provided some guidance on how to do so with break points.  
 
-## Step 4 - Build the Business Documents Bot
+First, stop your bot (by hitting the stop button in Visual Studio).  
 
-Now you will start to build the bot integration with the Azure Search API, to query the insights we created using Cognitive Search.
+Open the "CognitiveSearchBot.cs" file. First, note that on lines 13 and 14, you are referencing the Azure Search NuGet package that was installed. Remember, this is crucial to running the commands you are about to step through.  
 
-1. In Visual Studio 2017, open the CognitiveSearchBot.sln from the \LearnAI-KnowledgeMiningBootcamp\resources\bot-code folder.
+Next, scroll down to where the search related tasks are located. Place a break point on lines 228 and 234 (on the lines `DocumentSearchResult results = await indexClientForQueries.Documents.SearchAsync(searchText);` and `IMessageActivity activity = context.Activity.CreateReply();`) by clicking in the grey area left of the numbers. You should see a red dot next to the break point lines, as shown below:  
 
-1. Open the CognitiveSearchBot.cs file, under the root folder in the Solution Explorer panel. Check the libraries, specially [Microsoft.Azure.Search](https://docs.microsoft.com/en-us/azure/search/search-howto-dotnet-sdk). It is required to access the Azure Search API.
+![Set break points](../resources/images/lab-bot/setbreak.png)
 
-1. Open the SearchDialog.cs, under the Dialog folder in the Soluiton Explorer panel.
+Next, run the bot (select `F5`) and (after sending "hi" then "search") search for something. Visual Studio will likely start blinking requesting your return. In Visual Studio, you should see the line about to be executed highlighted. Select `F11` repeatedly to step through what is happening as the search is processed. In the bottom box within Visual Studio, you should see "Locals". These values can be expanded and inspected. For example, when you see "hit" in "Locals", you can expand it to see the results from the API call for a single search hit.
 
-1. Scroll down until the end of the code and add the information of the previous labs: Azure Search Service name, API Key (the same one you used with Postman), and the index name.
+![Examine hit locals](../resources/images/lab-bot/locals.png)
+
+Similarly, when "results" has been filled, you can see how many "hits" there are and expand those details as well. 
+
+![Examine results locals](../resources/images/lab-bot/locals2.png)
+
+Using break points for debugging and seeing how calls are made and processed is a very valuable tool. If you'd like to learn more, [start here](https://docs.microsoft.com/en-us/visualstudio/debugger/getting-started-with-the-debugger?view=vs-2017).
+
 
 ## Next Step
 

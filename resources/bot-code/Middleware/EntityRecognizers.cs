@@ -1,10 +1,9 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-using Microsoft.Bot.Builder.Core.Extensions;
 using Newtonsoft.Json;
 
-namespace CognitiveSearchBot
+namespace Microsoft.CognitiveSearchBot
 {
     public class Entity
     {
