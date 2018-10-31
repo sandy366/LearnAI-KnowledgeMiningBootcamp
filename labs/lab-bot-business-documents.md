@@ -23,7 +23,7 @@ Once the solution is open, right-click on "Solution 'CognitiveSearchBot'" in the
 
 Right-click on the solution and select "Manage NuGet Packages for Solution...". Under "Installed", you should find "Microsoft.Azure.Search" listed. There's no action here, but you should know that this package contains libraries that make it very easy for us to call the Azure Cognitive Search API and process the results.  
 
-Open "CognitiveSearchBot.cs" by double-clicking on it in the Solution Explorer. While there are lots of files in this solution, this is the most relevant one to integrating your search service. Spend at least five minutes **reading the file from start to finish**. We've commented what's happening on almost every line, so it is hopefully easy to follow, even if you don't have a background with bots.  
+Open "CognitiveSearchBot.cs" by double-clicking on it in the Solution Explorer. While there are lots of files in this solution, this is the most relevant one to integrating your search service. Spend at least five minutes reading the file **from start to finish**. We've commented what's happening on almost every line, so it is hopefully easy to follow, even if you don't have a background with bots.  
 
 Near the bottom of the class, within `CreateSearchIndexClient()`, you'll notice that you need to fill in your search service name, search service key, and index name. Since you've created and tested the index in Postman, you should have these readily available. If not, you can open the Azure portal and locate your Azure Search service to get the needed information. Fill in your information and save the file (you can use `CTRL` + `S`).
 
