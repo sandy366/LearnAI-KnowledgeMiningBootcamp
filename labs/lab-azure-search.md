@@ -119,6 +119,16 @@ Using [Azure Search Simple Query Syntax](https://docs.microsoft.com/en-us/rest/a
 1. Search for documents about Cloud, but filtering those with mentions to Oracle
 1. Search for documents about Cognitive Services and Bots
 
+## Extra Content
+
+The links below will work only with the API, what you will learn in the next labs. While you will not use it in these labs, check them now to know more about other Azure Search capabilities.
+
+[More like this](https://docs.microsoft.com/en-us/azure/search/search-more-like-this) is a feature to find documents that are similar to the document specified by the document key.
+
+[Synonyms](https://docs.microsoft.com/en-us/azure/search/search-synonyms) is the feature that allows you to search on previously mapped terms. Example: If you map MSFT as Microsoft, both searchs will have the same results.
+
+[Lucene Query Syntax](https://docs.microsoft.com/en-us/azure/search/search-query-lucene-examples) is also supported, giving more flexibilty to you business requirements.
+
 ## Next Step
 
 [Text Skills Lab](../labs/lab-text-skills.md) or
