@@ -3,13 +3,44 @@
 In this lab, you will learn [how to create a Custom Skill](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-interface)
 and integrate it to the enrichment pipeline. Custom skills allow you to add any REST API transformation to the dataset, also feeding other transformations within the pipeline, if required.
 
-We will use an [Azure Function](https://azure.microsoft.com/services/functions/) to wrap the [Content Moderator API](https://azure.microsoft.com/en-us/services/cognitive-services/content-moderator/) so that it implements the custom skill interface.
+You will use an [Azure Function](https://azure.microsoft.com/services/functions/) to wrap the [Content Moderator API](https://azure.microsoft.com/en-us/services/cognitive-services/content-moderator/) and detect uncomlient documents in the dataset.
 
-For documents in english we will replicate the original text in the output, so we can search only one field of our index. Another important detail, this function output is **Edm.String**, so we need to use the same type in the index definition.  
+The Azure Content Moderator API is a cognitive service that checks text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable. When such material is found, the service applies appropriate labels (flags) to the content. Your app can then handle flagged content in order to comply with regulations or maintain the intended environment for users. See the [Content Moderator APIs](https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/overview#content-moderator-apis) section to learn more about what the different content flags indicate.
 
-## Step 1 - Translator Text API
+The text moderation responses include:
 
-Use this [link](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/translator-text-how-to-signup) to sign up for the Translator Text API. Keep the API key, you will use it later in this lab. **Again, use the same region of your Azure Search Service.**
++ Profanity: term-based matching with built-in list of profane terms in various languages
++ Classification: machine-assisted classification into three categories
++ Personally Identifiable Information (PII)
++ Auto-corrected text
++ Original text
++ Language
+
+>Note! This Azure Function output is **Edm.String**, so we need to use the same type in the index definition.  
+
+## Step 1 - Content Moderator API
+
+Use the [Azure Portal](https://ms.portal.azure.com) to create a Content Moderator API, using the name you want, the location of the Azure Search service and the F0 pricing tier. You should also save the keys and the endpoint, for later use in this lab.
+
+To see how the API works, and also to learn how to demo this technology in minutes, navigate to the [Content Moderator Text API console](https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/try-text-api). Read the all page, you will need 4 minutes to do it. When you are done, scroll all the way up and click the first like of the page, [Text Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). It will open a control panel for Cognitive Services, as you can see in the image below.
+
+![Cognitive Services Panel](../resources/images/lab-custom-skills/panel.png)
+
+Now, clicking the blue buttons, choose the region where you created your Content Moderator API, that should be the same region you are using for all services in this training. Now set the values as listed below:
+
++ autocorrect = true
++ PII = true
++ listId = remove parameter (we don't have a list of prohibited terms to work with at this point)
++ classify = true
++ language = eng (The default example is in english)
++ keep Conten-Type as "text/plain"
++ paste your Content Moderator API key
+
+Now you are ready to test the API you created on Azure Portal. Scroll down and check the suggested text in "Request body" section. It has PIIs like email, phone number, physical and IP addresses. It also has a profanity word. Scroll until the end of the page and click the blue "Send" button. The expected results are:
+
++ Response Status = 200 OK
++ Response Latency <= 1000 ms
++ Response content with a json file where you can read all of the detected problems. The "Index" field indicates the position of the term within the submitted text.
 
 ## Step 2 - Create an Azure Function
 
@@ -185,7 +216,7 @@ namespace TranslateFunction
 }
 ```
 
-Make sure to enter your own *key* value in the *TranslateText* method based on the key you got when signing up for the Translate Text API.
+Make sure to enter your own *key* value in the *Moderate* method based on the key you got when signing up for the Content Moderator API.
 
 This example is a simple enricher that only works on one record at a time. This fact will become important later, when you're setting the batch size for the skillset.
 
@@ -197,24 +228,24 @@ Press **F5** to run the program and test function behaviors. Use Postman to issu
 POST https://localhost:7071/api/Translate
 ```
 
-#### Request body
+### Request body
 
 ```json
 {
    "values": [
         {
-        	"recordId": "a1",
-        	"data":
-	        {
-	           "text":  "Este es un contrato en Inglés",
-	           "language": "es"
-	        }
+            "recordId": "a1",
+            "data":
+            {
+               "text":  "Este es un contrato en Inglés",
+               "language": "es"
+            }
         }
    ]
 }
 ```
 
-#### Response
+### Response
 
 You should see a response similar to the following example:
 
@@ -255,18 +286,18 @@ Now that you have the default host key, test your function as follows:
 POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]
 ```
 
-#### Request Body
+### Request Body
 
 ```json
 {
    "values": [
         {
-        	"recordId": "a1",
-        	"data":
-	        {
-	           "text":  "Este es un contrato en Inglés",
-	           "language": "es"
-	        }
+            "recordId": "a1",
+            "data":
+            {
+               "text":  "Este es un contrato en Inglés",
+               "language": "es"
+            }
         }
    ]
 }
@@ -340,7 +371,7 @@ Like we did in Lab 2, we suggest you add this new skill at the end of the body d
 
 ```
 
-### Step 7.1 - Challenge!!
+### Step 7.1 - Challenge
 
 As you can see, again we are not giving you the body request. One more time you need to use Lab 1 as a reference. We can't use lab 2 definition because we've hit the maximum number of skills allowed within a skillset of a basic account (five). So, let's use Lab 1 json requests again.
 Skipping the services and the data source creation, repeat the other steps of the Lab 1, in the same order.
@@ -356,11 +387,7 @@ Skipping the services and the data source creation, repeat the other steps of th
 
 ## Step 8
 
-Now we have our data enriched with pre-defined and custom skills. Now we just need to learn how to [query the data using Azure Portal](https://docs.microsoft.com/en-us/azure/search/search-explorer). Since you know the entities and the key phrases of the documents, try to search for them. 
-
-Check the image below to see how Azure Search returns the metadata about your data. This image also helps to understand how to use the Search Explorer at the Azure Portal.
-
-![](./resources/images/Portal-Search.png)
+Now we have our data enriched with pre-defined and custom skills. Use the Search Explorer on the Azure Portal to query the data. Create a query to identity documents with compliance issues, the moderated documents.
 
 ## Finished Solution
 
@@ -368,5 +395,5 @@ If you could not make it, [here](../resources/finished-solutions/finished-soluti
 
 ## Next Step
 
-[Final Case Lab](../labs/lab-final-case.md) or 
+[Final Case Lab](../labs/lab-final-case.md) or
 [Back to Read Me](../README.md)
