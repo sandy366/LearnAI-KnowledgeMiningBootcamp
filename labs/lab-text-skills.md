@@ -24,6 +24,15 @@ Now that your services and source files are prepared, start assembling the compo
 
 For this tutorial, we will use Postman to call Azure Search service APIs. In the request header, provide the service name you used while creating the Azure Search service, and the api-key generated for your search service. In the request body, specify the blob container name and connection string.
 
+Check how to use Postman in the image below, you will need to:
+
++ Define the method (POST)
++ Enter your Azure Search service name in the URL
++ Enter your Azure Search service key in the header in the Headers tab
++ Enter and edit the json request in the body tab
+
+![Postman Help Image](../resources/images/lab-text-skills/postman-help.png)
+
 ### Data Source Sample Request
 
 ```http

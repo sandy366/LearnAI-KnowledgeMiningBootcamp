@@ -247,7 +247,7 @@ This example is a simple enricher that only works on one record at a time. This 
 Press **F5** to run the program and test function behaviors. Use Postman to issue a call like the one shown below:
 
 ```http
-POST https://localhost:7071/api/Translate
+POST https://localhost:7071/api/Moderate
 ```
 
 ### Request body
@@ -302,10 +302,10 @@ When you are satisfied with the function behavior, you can publish it.
 
 ## Step 5 - Test the function in Azure
 
-Now that you have the default host key, test your function as follows:
+Now that you have the default host key, use Postman to test your function as follows:
 
 ```http
-POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]
+POST https://[enter you Function name here].azurewebsites.net/api/Translate?code=[enter default host key here]
 ```
 
 ### Request Body
