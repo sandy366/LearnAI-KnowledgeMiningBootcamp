@@ -67,152 +67,174 @@ Visual Studio creates a project and in it a class that contains boilerplate code
 Now, replace all of the content of the file *Function1.cs* with the following code:
 
 ```csharp
+using System.Collections.Generic;
 using System.IO;
-using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.CognitiveSearch.WebApiSkills;
 using Newtonsoft.Json;
-using System.Net.Http;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Text;
 
-namespace TranslateFunction
+namespace CustomWebSkill
 {
-    // This function will simply translate messages sent to it.
-    public static class Function1
+    public static class ModorationFunction
     {
-        #region classes used to serialize the response
-        private class WebApiResponseError
-        {
-            public string message { get; set; }
-        }
-
-        private class WebApiResponseWarning
-        {
-            public string message { get; set; }
-        }
-
-        private class WebApiResponseRecord
-        {
-            public string recordId { get; set; }
-            public Dictionary<string, object> data { get; set; }
-            public List<WebApiResponseError> errors { get; set; }
-            public List<WebApiResponseWarning> warnings { get; set; }
-        }
-
-        private class WebApiEnricherResponse
-        {
-            public List<WebApiResponseRecord> values { get; set; }
-        }
-        #endregion
 
 
-        /// <summary>
-        /// Note that this function can translate up to 1000 characters. If you expect to need to translate more characters, use
-        /// the paginator skill before calling this custom enricher
-        /// </summary>
-        [FunctionName("Translate")]
-        public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)]HttpRequest req,
-            TraceWriter log)
+
+        [FunctionName("Moderate")]
+        public static async Task<HttpResponseMessage> RunContentMod([HttpTrigger(AuthorizationLevel.Function, "post", Route = null)]HttpRequestMessage req, TraceWriter log, ExecutionContext executionContext)
         {
             log.Info("C# HTTP trigger function processed a request.");
+            string skillName = executionContext.FunctionName;
 
-            string recordId = null;
-            string originalText = null;
-            string originalLanguage = null;
-            string translatedText = null;
+            respMessage outputObj = new respMessage();
+            outputObj.values = new List<OutputItem>();
 
-            string requestBody = new StreamReader(req.Body).ReadToEnd();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-
-            // Validation
-            if (data?.values == null)
+            IEnumerable<WebApiRequestRecord> requestRecords = WebApiSkillHelpers.GetRequestRecords(req);
+            if (requestRecords == null)
             {
-                return new BadRequestObjectResult(" Could not find values array");
+
+                return req.CreateErrorResponse(HttpStatusCode.BadRequest, $"{skillName} - Invalid request record array.");
             }
-            if (data?.values.HasValues == false || data?.values.First.HasValues == false)
-            {
-                // It could not find a record, then return empty values array.
-                return new BadRequestObjectResult(" Could not find valid records in values array");
-            }
+            dynamic obj = requestRecords.First().Data.First().Value;
 
-            recordId = data?.values?.First?.recordId?.Value as string;
-            originalText = data?.values?.First?.data?.text?.Value as string;
-            originalLanguage = data?.values?.First?.data?.language?.Value as string;
+            string val = await MakeRequest(obj);
+            ContentModerator mod = JsonConvert.DeserializeObject<ContentModerator>(val);
+            WebApiResponseRecord output = new WebApiResponseRecord();
+            output.RecordId = requestRecords.First().RecordId;
+            output.Data["PII"] = mod.PII;
 
-            if (recordId == null)
-            {
-                return new BadRequestObjectResult("recordId cannot be null");
-            }
+            return req.CreateResponse(HttpStatusCode.OK, output);
 
-            // Only translate records that actually need to be translated.
-            if (!originalLanguage.Contains("en"))
-            {
-                translatedText = TranslateText(originalText, "en-us").Result;
-            }
-            else
-            {
-                // text is already in English.
-                translatedText = originalText;
-            }
-
-            // Put together response.
-            WebApiResponseRecord responseRecord = new WebApiResponseRecord();
-            responseRecord.data = new Dictionary<string, object>();
-            responseRecord.recordId = recordId;
-            responseRecord.data.Add("text", translatedText);
-
-            WebApiEnricherResponse response = new WebApiEnricherResponse();
-            response.values = new List<WebApiResponseRecord>();
-            response.values.Add(responseRecord);
-
-            return (ActionResult)new OkObjectResult(response);
         }
 
-        /// <summary>
-        /// Use Cognitive Service to translate text from one language to antoher.
-        /// </summary>
-        /// <param name="myText">The text to translate</param>
-        /// <param name="destinationLanguage">The language you want to translate to.</param>
-        /// <returns>Asynchronous task that returns the translated text. </returns>
-        async static Task<string> TranslateText(string myText, string destinationLanguage)
+        static async Task<string> MakeRequest(string input)
         {
-            string host = "https://api.microsofttranslator.com";
-            string path = "/V2/Http.svc/Translate";
+            var client = new HttpClient();
 
-            // NOTE: Replace this example key with a valid subscription key.
-            string key = "064d8095730d4a99b49f4bcf16ac67f8";
+            //URL of the Moderator API. Fix the Prefix with your URL, what can be found in the Azure Portal.
+            var uriPrefix = "https://southcentralus.api.cognitive.microsoft.com/contentmoderator";
+            var uriSuffix = "/moderate/v1.0/ProcessText/Screen?autocorrect=false&PII=true&classify=false&language=eng";
 
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
 
-            List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>() {
-                new KeyValuePair<string, string>(myText, "en-us")
-            };
+            // Request headers - Add your API key to the placeholder below.
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<your key here>");
 
-            StringBuilder totalResult = new StringBuilder();
+            // Add the correct URL of your host, same prefix of uriPrefix but without https:// and finishing on ".com".
+            // If your are using south central us, don't need to change the Host.
+            client.DefaultRequestHeaders.Add("Host", "southcentralus.api.cognitive.microsoft.com");
 
-            foreach (KeyValuePair<string, string> i in list)
+
+            var uri = uriPrefix + uriSuffix;
+
+            HttpResponseMessage response;
+            byte[] byteData = Encoding.UTF8.GetBytes(input);
+                using (var content = new ByteArrayContent(byteData))
             {
-                string uri = host + path + "?to=" + i.Value + "&text=" + System.Net.WebUtility.UrlEncode(i.Key);
-
-                HttpResponseMessage response = await client.GetAsync(uri);
-
-                string result = await response.Content.ReadAsStringAsync();
-
-                // Parse the response XML
-                System.Xml.XmlDocument xmlResponse = new System.Xml.XmlDocument();
-                xmlResponse.LoadXml(result);
-                totalResult.Append(xmlResponse.InnerText);
+                content.Headers.ContentType = new MediaTypeHeaderValue("text/plain");
+                response = await client.PostAsync(uri, content);
             }
+            return await response.Content.ReadAsStringAsync();
 
-            return totalResult.ToString();
         }
     }
+
+
+    public class ContentModerator
+    {
+        public string OriginalText { get; set; }
+        public string NormalizedText { get; set; }
+        public string AutoCorrectedText { get; set; }
+        public object Misrepresentation { get; set; }
+        public Classification Classification { get; set; }
+        public Status Status { get; set; }
+        public PII PII { get; set; }
+        public string Language { get; set; }
+        public Terms[] Terms { get; set; }
+        public string TrackingId { get; set; }
+    }
+
+    public class Classification
+    {
+        public Category1 Category1 { get; set; }
+        public Category2 Category2 { get; set; }
+        public Category3 Category3 { get; set; }
+        public bool ReviewRecommended { get; set; }
+    }
+
+    public class Category1
+    {
+        public float Score { get; set; }
+    }
+
+    public class Category2
+    {
+        public float Score { get; set; }
+    }
+
+    public class Category3
+    {
+        public float Score { get; set; }
+    }
+
+    public class Status
+    {
+        public int Code { get; set; }
+        public string Description { get; set; }
+        public object Exception { get; set; }
+    }
+
+    public class PII
+    {
+        public Email[] Email { get; set; }
+        public IPA[] IPA { get; set; }
+        public Phone[] Phone { get; set; }
+        public Address[] Address { get; set; }
+    }
+
+    public class Email
+    {
+        public string Detected { get; set; }
+        public string SubType { get; set; }
+        public string Text { get; set; }
+        public int Index { get; set; }
+    }
+
+    public class IPA
+    {
+        public string SubType { get; set; }
+        public string Text { get; set; }
+        public int Index { get; set; }
+    }
+
+    public class Phone
+    {
+        public string CountryCode { get; set; }
+        public string Text { get; set; }
+        public int Index { get; set; }
+    }
+
+    public class Address
+    {
+        public string Text { get; set; }
+        public int Index { get; set; }
+    }
+
+    public class Terms
+    {
+        public int Index { get; set; }
+        public int OriginalIndex { get; set; }
+        public int ListId { get; set; }
+        public string Term { get; set; }
+    }
+
 }
 ```
 
