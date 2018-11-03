@@ -1,8 +1,10 @@
 # Alternative Agendas
 
-You may want to do or redelivery this course in less than 2 days, the origianl agenda. Here are some alternatives for you. 
+You may want to do or redelivery this course in less than 2 days, the origianl agenda. Here are some alternatives for you.
 
 Keep in mind that this training will always be public on Github, so you can use parts of the content and finish the other labs later, as a call to action.
+
+You can create your own agenda, based on your objectives and audience.
 
 ## Original Agenda - 2 Days
 
