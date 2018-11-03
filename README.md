@@ -2,13 +2,13 @@
 
 ## To do
 
-+ Content Moderator LAB + finished solution
++ Content Moderator finished solution
 
 ## Build an intelligent search solution  using Microsoft Azure AI Platform
 
 ### About this Course
 
-In this course you will create an enterprise search solution by applying knowledge mining to business documents like contracts, memos, presentations and images. You will use Microsoft Azure AI technology to extract insights from unstructured data and expose the results in a Bot interface.
+In this course you will create an enterprise search solution by applying knowledge mining to business documents like contracts, memos, presentations and images. You will use Microsoft Azure AI technology to extract insights from unstructured data and expose the results in a Bot interface. This is a two days training, but you can compress the duration with [alternative agendas](./resources/md-files/alternative-agendas.md)
 
 At the end of this training you will have learned:
 
@@ -105,9 +105,9 @@ Full Course classroom training:  16 hours
 
 ### Course Modules
 
-1. [Introduction](./introduction.md) – **Presentation** overview of Azure Search, Cognitive Search, business scenarios and industry specific applications.
+1. [Introduction](./resources/md-files/introduction.md) – **Presentation** overview of Azure Search, Cognitive Search, business scenarios and industry specific applications.
 
-1. [Architecture](./solution-architecture.md) – **Solution Architecture** for building enterprise search solution.
+1. [Architecture](./resources/md-files/solution-architecture.md) – **Solution Architecture** for building enterprise search solution.
 
 1. [Lab 1](./labs/lab-environment-creation.md) - Azure - **Environment Creation**
 
@@ -125,4 +125,4 @@ Full Course classroom training:  16 hours
 
 ### Q&A and Survey
 
-Please help the LearnAI Team with [questions and feedback](./qa-feedback-survey.md) about this training.
+Please help the LearnAI Team with [questions and feedback](./resources/md-files/qa-feedback-survey.md) about this training.
