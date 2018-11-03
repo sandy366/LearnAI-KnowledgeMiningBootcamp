@@ -42,209 +42,53 @@ Now you are ready to test the API you created on Azure Portal. Scroll down and c
 + Response Latency <= 1000 ms
 + Response content with a json file where you can read all of the detected problems. The "Index" field indicates the position of the term within the submitted text.
 
-## Step 2 - Create an Azure Function
+## Step 2 - Visual Studio
 
-Although this example uses an Azure Function to host a web API, it is not required.  As long as you meet the [interface requirements for a cognitive skill](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-interface), the approach you take is immaterial. Azure Functions, however, make it easy to create a custom skill.
+Visual Studio has [Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vs/) but you don't need it for training since they are used to **create** custom AI projects, while in this training you are **using** AI through Azure Cognitive Search and Services.
 
-### Step 2.1 - Create a function app
+### Step 2.1 - Checking Versions
 
-1. In Visual Studio, select **New** > **Project** from the File menu.
+Open your Visual Studio and click "Help / About Microsoft Visual Studio" on the main menu. You can try to use different versions, specially newer versions. But this training was created using the envivonment below and It is strongly recommended that you use the same versions. Please check if your system match this versions:
 
-1. In the New Project dialog, select **Installed**, expand **Visual C#** > **Cloud**, select **Azure Functions**, type a Name for your project, and select **OK**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
++ Visual Studio version 15.8.9
++ Microsoft .Net Framework version 4.7.03190
++ Azure Functions and Web Jobs Tools - 15.9.02046.0
 
-1. Select **Azure Functions v2 (.Net Core)**. You could also do it with version 1, but the code written below is based on the v2 template.
+![Versions](../resources/images/lab-custom-skills/versions.png)
 
-1. Select the type to be **HTTP Trigger**.
+If your Azure Functions Tools don't match, follow [this](https://docs.microsoft.com/en-us/visualstudio/extensibility/how-to-update-a-visual-studio-extension?view=vs-2017) procedure to update it.
 
-1. For Storage Account, you may select **None**, as you won't need any storage for this function.
+If your Visual Studio version doesn't match, click "Help / Check for Updates" and follow the instructions.
 
-1. Select **OK** to create the function project and HTTP triggered function.
+If your .Net Framework version doesn't match, [download](https://www.microsoft.com/net/download) and install the last version.
 
-#### Modify the code to call the Translate Cognitive Service
+### Step 2.2 - Preparing the solution
 
-Visual Studio creates a project and in it a class that contains boilerplate code for the chosen function type. The *FunctionName* attribute on the method sets the name of the function. The *HttpTrigger* attribute specifies that the function is triggered by an HTTP request.
+Open the Windows Explorer and find folder "resources/azure-function-code/ where your cloned the training repository. You need to locate the file ContentModerator.sln. There should be a ContentModerator folder in the same folder where you found the .sln file.
 
-Now, replace all of the content of the file *Function1.cs* with the following code:
+Double click, or hit enter, on the sln file, what should open visual studio. Check your Solution Explorer on the right and confirm that you can see the same structure of the image below.
 
-```csharp
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Azure.WebJobs.Host;
-using Microsoft.CognitiveSearch.WebApiSkills;
-using Newtonsoft.Json;
+![Solution Structure](../resources/images/lab-custom-skills/structure.png)
 
-namespace CustomWebSkill
-{
-    public static class ModorationFunction
-    {
+>Note! This is not a C# training and this Azure Function application is a way to add the custom skill to the enrichment pipeline. Please note that good practices are not 100% used in the code, the key wide open and fixed in the code is on example. For enterprise grade solutions, this code should be adapted to all good practices, business and security requirements.
 
+Click on the Moderator.cs file on the Solution Explorer, it should open in the main window of your Visual Studio. Get familiar with the "using session", to learn which packages are used. Scroll down until the three "TO DO - Action Required" sessions of the code.
 
+Follow the instructions of the three "TO DO" sections:
 
-        [FunctionName("Moderate")]
-        public static async Task<HttpResponseMessage> RunContentMod([HttpTrigger(AuthorizationLevel.Function, "post", Route = null)]HttpRequestMessage req, TraceWriter log, ExecutionContext executionContext)
-        {
-            log.Info("C# HTTP trigger function processed a request.");
-            string skillName = executionContext.FunctionName;
++ If necessary change "southcentralus" in the uriPrefix URL. This is the same endpoint of the first step of this lab
++ Add your key. This is the same key of the first step of this lab
++ If necessary, change the host url with the same endpoint of the first step of this lab, but without `https://` and without `/contentmoderator`
 
-            respMessage outputObj = new respMessage();
-            outputObj.values = new List<OutputItem>();
-
-            IEnumerable<WebApiRequestRecord> requestRecords = WebApiSkillHelpers.GetRequestRecords(req);
-            if (requestRecords == null)
-            {
-
-                return req.CreateErrorResponse(HttpStatusCode.BadRequest, $"{skillName} - Invalid request record array.");
-            }
-            dynamic obj = requestRecords.First().Data.First().Value;
-
-            string val = await MakeRequest(obj);
-            ContentModerator mod = JsonConvert.DeserializeObject<ContentModerator>(val);
-            WebApiResponseRecord output = new WebApiResponseRecord();
-            output.RecordId = requestRecords.First().RecordId;
-            output.Data["PII"] = mod.PII;
-
-            return req.CreateResponse(HttpStatusCode.OK, output);
-
-        }
-
-        static async Task<string> MakeRequest(string input)
-        {
-            var client = new HttpClient();
-
-            //URL of the Moderator API. Fix the Prefix with your URL, what can be found in the Azure Portal.
-            var uriPrefix = "https://southcentralus.api.cognitive.microsoft.com/contentmoderator";
-            var uriSuffix = "/moderate/v1.0/ProcessText/Screen?autocorrect=false&PII=true&classify=false&language=eng";
-
-
-            // Request headers - Add your API key to the placeholder below.
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<your key here>");
-
-            // Add the correct URL of your host, same prefix of uriPrefix but without https:// and finishing on ".com".
-            // If your are using south central us, don't need to change the Host.
-            client.DefaultRequestHeaders.Add("Host", "southcentralus.api.cognitive.microsoft.com");
-
-
-            var uri = uriPrefix + uriSuffix;
-
-            HttpResponseMessage response;
-            byte[] byteData = Encoding.UTF8.GetBytes(input);
-                using (var content = new ByteArrayContent(byteData))
-            {
-                content.Headers.ContentType = new MediaTypeHeaderValue("text/plain");
-                response = await client.PostAsync(uri, content);
-            }
-            return await response.Content.ReadAsStringAsync();
-
-        }
-    }
-
-
-    public class ContentModerator
-    {
-        public string OriginalText { get; set; }
-        public string NormalizedText { get; set; }
-        public string AutoCorrectedText { get; set; }
-        public object Misrepresentation { get; set; }
-        public Classification Classification { get; set; }
-        public Status Status { get; set; }
-        public PII PII { get; set; }
-        public string Language { get; set; }
-        public Terms[] Terms { get; set; }
-        public string TrackingId { get; set; }
-    }
-
-    public class Classification
-    {
-        public Category1 Category1 { get; set; }
-        public Category2 Category2 { get; set; }
-        public Category3 Category3 { get; set; }
-        public bool ReviewRecommended { get; set; }
-    }
-
-    public class Category1
-    {
-        public float Score { get; set; }
-    }
-
-    public class Category2
-    {
-        public float Score { get; set; }
-    }
-
-    public class Category3
-    {
-        public float Score { get; set; }
-    }
-
-    public class Status
-    {
-        public int Code { get; set; }
-        public string Description { get; set; }
-        public object Exception { get; set; }
-    }
-
-    public class PII
-    {
-        public Email[] Email { get; set; }
-        public IPA[] IPA { get; set; }
-        public Phone[] Phone { get; set; }
-        public Address[] Address { get; set; }
-    }
-
-    public class Email
-    {
-        public string Detected { get; set; }
-        public string SubType { get; set; }
-        public string Text { get; set; }
-        public int Index { get; set; }
-    }
-
-    public class IPA
-    {
-        public string SubType { get; set; }
-        public string Text { get; set; }
-        public int Index { get; set; }
-    }
-
-    public class Phone
-    {
-        public string CountryCode { get; set; }
-        public string Text { get; set; }
-        public int Index { get; set; }
-    }
-
-    public class Address
-    {
-        public string Text { get; set; }
-        public int Index { get; set; }
-    }
-
-    public class Terms
-    {
-        public int Index { get; set; }
-        public int OriginalIndex { get; set; }
-        public int ListId { get; set; }
-        public string Term { get; set; }
-    }
-
-}
-```
-
-Make sure to enter your own *key* value in the *Moderate* method based on the key you got when signing up for the Content Moderator API.
-
-This example is a simple enricher that only works on one record at a time. This fact will become important later, when you're setting the batch size for the skillset.
+>Note! Our dataset has a text file with PII, in english. That's why we are only testing this capability, to enforce this regulation within the business documents. This simple usage was defined to keep the training simple. For advanced scenarios, you can use all other Content Moderator capabilities.
 
 ## Step 3 - Test the function from Visual Studio
 
-Press **F5** to run the program and test function behaviors. Use Postman to issue a call like the one shown below:
+Press **F5** or click the green arrow on the "ContentModerator" button to run the solution. you should expect a "cmd" window with some information and the local URL of the endpoint in the end of the log, like you can see in the image below.
+
+![Cmd window](../resources/images/lab-custom-skills/cmd.png)
+
+Now use Postman to issue a call like the one shown below:
 
 ```http
 POST https://localhost:7071/api/Moderate
@@ -259,8 +103,7 @@ POST https://localhost:7071/api/Moderate
             "recordId": "a1",
             "data":
             {
-               "text":  "Este es un contrato en Inglés",
-               "language": "es"
+               "text":  "Email: abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052"
             }
         }
    ]
@@ -273,16 +116,42 @@ You should see a response similar to the following example:
 
 ```json
 {
-    "values": [
-        {
-            "recordId": "a1",
-            "data": {
-                "text": "This is a contract in English"
-            },
-            "errors": null,
-            "warnings": null
+    "RecordId": "a1",
+    "Data": {
+        "PII": {
+            "Email": [
+                {
+                    "Detected": "abcdef@abcd.com",
+                    "SubType": "Regular",
+                    "Text": "abcdef@abcd.com",
+                    "Index": 7
+                }
+            ],
+            "IPA": [
+                {
+                    "SubType": "IPV4",
+                    "Text": "255.255.255.255",
+                    "Index": 47
+                }
+            ],
+            "Phone": [
+                {
+                    "CountryCode": "US",
+                    "Text": "6657789887",
+                    "Index": 31
+                }
+            ],
+            "Address": [
+                {
+                    "Text": "1 Microsoft Way, Redmond, WA 98052",
+                    "Index": 64
+                }
+            ]
         }
-    ]
+    },
+    "Errors": [],
+    "Warnings": []
+}   ]
 }
 ```
 
@@ -305,7 +174,7 @@ When you are satisfied with the function behavior, you can publish it.
 Now that you have the default host key, use Postman to test your function as follows:
 
 ```http
-POST https://[enter you Function name here].azurewebsites.net/api/Translate?code=[enter default host key here]
+POST https://[enter you Function name here].azurewebsites.net/api/Moderate?code=[enter default host key here]
 ```
 
 ### Request Body
@@ -317,8 +186,7 @@ POST https://[enter you Function name here].azurewebsites.net/api/Translate?code
             "recordId": "a1",
             "data":
             {
-               "text":  "Este es un contrato en Inglés",
-               "language": "es"
+               "text":  "Email: abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052"
             }
         }
    ]
@@ -370,7 +238,7 @@ Like we did in Lab 2, we suggest you add this new skill at the end of the body d
       {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
         "description": "Our new translator custom skill",
-        "uri": "https://[enter function name here].azurewebsites.net/api/Translate?code=[enter default host key here]",
+        "uri": "https://[enter function name here].azurewebsites.net/api/Moderate?code=[enter default host key here]",
         "batchSize":1,
         "context": "/document",
         "inputs": [
@@ -386,7 +254,7 @@ Like we did in Lab 2, we suggest you add this new skill at the end of the body d
         "outputs": [
           {
             "name": "text",
-            "targetName": "translatedText"
+            "targetName": "moderatedText"
           }
         ]
       }
