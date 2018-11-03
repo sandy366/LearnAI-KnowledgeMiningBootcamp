@@ -213,6 +213,8 @@ Content-Type: application/json
 
 #### Index Request Body Syntax
 
+>Note! In the Index Body JSON instructions below, you are defining the same properties of the previous lab, but trough the API instead of the Azure Portal.
+
 ```json
 {
   "fields": [
