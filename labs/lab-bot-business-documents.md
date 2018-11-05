@@ -2,7 +2,7 @@
 
 In this lab, you will create a simple bot to learn how Azure Cognitive Search can be integrated into a bot using the Microsoft Bot Framework (SDK V4, .NET Core). If you're interested in diving diver deeper into bot development, check out the [LearnAI: Azure Cognitive Services Bootcamp](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp) which integrates multiple Cognitive Services to create an intelligent agent.
 
-While this is a simple bot, this [gif](./resources/images/sol-arch/retrieving-cognitive-attrributes.gif) provides some inspiration for what a solution could look like. Now that you have idea of what you will create and are feeling inspired, let's get into the labs.
+While this is a simple bot, this [gif](../resources/images/lab-bot/retrieving-cognitive-attrributes.gif) provides some inspiration for what a solution could look like. Now that you have idea of what you will create and are feeling inspired, let's get into the labs.
 
 ## Step 1 - Download and install the Bot Framework Emulator
 
