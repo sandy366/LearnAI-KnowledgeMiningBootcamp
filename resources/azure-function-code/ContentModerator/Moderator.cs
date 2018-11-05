@@ -55,7 +55,7 @@ namespace CustomWebSkill
 
             // TO DO - Action required!!
             // Request headers - Add your API key to the placeholder below.        
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "your key here");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "0473f3c8a170415aa2897f24b7509fba");
 
             //TO DO - Action required!!
             // Add the correct URL of your host, same prefix of uriPrefix but without https:// and finishing on ".com". 

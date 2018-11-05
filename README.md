@@ -3,6 +3,7 @@
 ## To do
 
 + Content Moderator finished solution
++ one broken link - gif
 
 ## Build an intelligent search solution  using Microsoft Azure AI Platform
 
