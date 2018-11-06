@@ -1,6 +1,6 @@
 # Azure Search Fundamentals
 
-In this lab you will learn the basics of the Azure search service and how to ingest and index the provided dataset with the built-in tools. This lab will teach you on how to use the **Azure Portal** do ingest and search the business documents of the provided dataset.
+In this lab, you will learn the basics of the Azure Search service and how to ingest and index a provided dataset using the built-in tools. This lab will teach you how to use the **Azure Portal** to ingest and search the business documents of a provided dataset.
 
 ## What is Azure Search
 
@@ -25,39 +25,49 @@ The example above illustrates some of the components users are expecting in thei
 1. Search an index
     - When submitting search requests to Azure Search, you can use simple search options, you can [filter](https://docs.microsoft.com/en-us/azure/search/search-filters), [sort](https://docs.microsoft.com/en-us/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [project](https://docs.microsoft.com/en-us/azure/search/search-faceted-navigation), and [page over results](https://docs.microsoft.com/en-us/azure/search/search-pagination-page-layout). You have the ability to address spelling mistakes, phonetics, and Regex, and there are options for working with search and [suggest](https://docs.microsoft.com/en-us/rest/api/searchservice/suggesters). These query parameters allow you to achieve deeper control of the [full-text search experience](https://docs.microsoft.com/en-us/azure/search/search-query-overview).
 
+# Lab Steps
+
 ## Step 1 - Import Data
 
 Using the Azure Search service created in the previous lab, you will use the "Import Data" wizard, that helps you with all required steps to ingest and analyze your data: data source and index creation.
 
 - From the Overview tab, click on the **Import Data** option and right after, click on **Connect to Data Source**
 
-![Example of Search Requirements](../resources/images/lab-azure-search/import-data.png)
+![Import Data Graphic](../resources/images/lab-azure-search/import-data.png)
 
-- Choose the **Azure Blob Storage** Data Source and name it as `lab1data`. Choose the **Content and Metadata** option, we want to index not only the files properties but also their content. Choose the **Default** parsing mode, since the dataset also have pdfs, and connect to the storage container created in the previous lab. The **Text** option has performance advantage, but that's not what we want because on the characteristics of our dataset. You skip Blob Folder and Description. After you click the **OK** blue button, you will wait a few seconds because Azure Search will be detecting (sampling) the schema and the metadata of the dataset.
+- Choose the **Azure Blob Storage** Data Source and name it as `lab1data`. Choose the **Content and Metadata** option, we want to index not only the files properties but also their content. Choose the **Default** parsing mode, since the dataset also have pdfs. The **Text** option has performance advantage, but that's not what we want because on the characteristics of our dataset. In the **Connection string** add the connection string collected in the previous lab. In the **Container name**, type "basicdemo". You skip Blob Folder and Description. After you click the **OK** blue button, you will wait a few seconds because Azure Search will be detecting (sampling) the schema and the metadata of the dataset.
 
-![Example of Search Requirements](../resources/images/lab-azure-search/data-source-2.png)
+![Data Source Graphic](../resources/images/lab-azure-search/data-source-2.png)
 
-- Don't add anything for Cognitive Search for now, we will do it in the next lab, using Postman and Azure Search APIs. Just click the blue **Next: Customize target index** button.
+- **Don't add anything for Cognitive Search for now**, we will do it in the next lab, using Postman and Azure Search APIs. Just click the blue **Next: Customize target index** button.
 
-- In the index tab, we will define the index structure and features.
-  - Name your index as you want, but we will use this information later so you should use an easy to type name.
-  - Keep `metada_storage_path` as the key. This is a unique identifier for each file of the data source. It is a good idea to use the physical path of file, since it is unique by design. Since our dataset is on blob storage, the content of this field is the file URL, that's why it is unique by design. If you check the other options, you will see that metadata_storage_path is only one field that can guarantee uniqueness.
-  - Set all fields to be Retrievable, to allow the application to retrieve these fields when searched. Please notice they are all strings and among them we have interesting things like size, content type, language, and **the content itself**. The "content" contains the text of the documents, a great option to make search more relevant
-  - Set size, content_type, language, and title as **Filterable**, so you can filter on these fields.
-  - Set size, language, and title as **Sortable**. It doesn't make sense to sort for the content since it is a free text.
-  - Set size, storage_name, language, and title as **Facetable**, so you can use this categorization for fast searching.
-  - Set content, content_type, language and title as **Searchable**, you want to be able to search on all of them.
-  - Mark the **Analyzer** checkbox and set all the fields for "Standard - Lucene". Navigate through the other language options, to see what is available. The Analyzer takes the terms a user enters and works to find the best matching terms in the Index. Azure Search includes analyzers that are used in technologies like Bing and Office that have deep understanding of 56 languages.
-  - Click the **Suggester** checkbox and enter any Suggester name you like. Choose content and title to be the fields to look for term suggestions. The Suggester feature helps the user of terms, as you can see in web search engines.
+- In the index tab, we will define the index structure and features as follows:
+  - **Name your index as you want**, but we will use this information later so you should use an easy to type name.
+
+  - **Keep `metada_storage_path` as the key.** This is a unique identifier for each file of the data source. It is a good idea to use the physical path of file, since it is unique by design. Since our dataset is on blob storage, the content of this field is the file URL, that's why it is unique by design. If you check the other options, you will see that metadata_storage_path is only one field that can guarantee uniqueness.
+
+  - **Set all fields to be Retrievable**. This allows the application to retrieve these fields when searched. Please notice they are all strings and among them we have interesting things like metadata_storage_size, metadata_content type, metadata_language, and **the content itself**.
+
+  - Set **metadata_storage_size**, **metadata_content_type**, **metadata_language**, and **metadata_title** as **Filterable**, so you can filter on these fields.
+
+  - Set **metadata_storage_size**, **metadata_language**, and **metadata_title** as **Sortable**. It doesn't make sense to sort for the content since it is a free text.
+
+  - Set **metadata_storage_size**, **metadata_storage_name**, **metadata_language**, and **metadata_title** as **Facetable**, so you can use this categorization for fast searching.
+
+  - Set **content**, **metadata_content_type**, **metadata_language** and **metadata_title** as **Searchable**, you want to be able to search on all of them.
+
+  - Mark the **Analyzer** checkbox and all the fields from the last step will be set to **"Standard - Lucene"**. Navigate through the other language options, to see what is available. The Analyzer takes the terms a user enters and works to find the best matching terms in the Index. Azure Search includes analyzers that are used in technologies like Bing and Office that have deep understanding of 56 languages.
+
+  - Click the **Suggester** checkbox and enter any Suggester name you like. Set the **Search Mode** to **"analyzingInfixMatching"** and choose **content** and **metadata_title** to be the fields to look for term suggestions. The Suggester feature helps the user of terms, as you can see in web search engines.
 - If your configuration looks like the image below, click the blue **Next: Create an indexer** button. A validation will be made.
 
 ![Index Configuration](../resources/images/lab-azure-search/index-settings.png)
 
 >Note! Using the portal you can't map the source fields more than once (i.e. to change you have to start over). In the next labs, you will create the index and the indexer using API calls, and that **does** allow you to do it. It is also important to realize that you only have the file's metadata to work with. In the next labs you will use Cognitive Search to create metadata from your data, and, as a result, your index will be completely different.
 
-- Name your indexer as you want,  keep the schedule as **once** and click the blue **OK** button. The indexer is the job that connects the data source, the index and the schedule
+- **Name** your indexer as you want,  keep the schedule as **once**. The indexer is the job that connects the data source, the index and the schedule
 
-- Again click the blue **Submit** button, and you will be redirected to the overview tab, where now you can see 1 index, 1 indexer and 1 data source (you may have to refresh your page).
+- Click the blue **Submit** button, and you will be redirected to the overview tab, where now you can see 1 index, 1 indexer and 1 data source (you may have to refresh your page).
 
 ![Overview tab](../resources/images/lab-azure-search/redirect.png)
 
