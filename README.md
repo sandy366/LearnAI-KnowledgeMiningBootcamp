@@ -1,9 +1,5 @@
 # LearnAI: Knowledge Mining Bootcamp - Azure Cognitive Search Solution for business documents
 
-## To do
-
-+ Content Moderator finished solution
-
 ## Build an intelligent search solution using the Microsoft Azure AI Platform
 
 ### About this Course
@@ -122,6 +118,8 @@ Full Course classroom training:  16 hours
 1. [Lab 6](./labs/lab-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API
 
 1. [Lab 7](./labs/lab-final-case.md) - **Architecture Design Session**
+
+> Note: Once you've completed the labs, we recommend deleting the resource group (and all the resources in it) to avoid incurring extra charges.
 
 ### Q&A and Survey
 

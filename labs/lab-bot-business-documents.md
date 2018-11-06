@@ -61,6 +61,10 @@ Similarly, when "results" has been filled, you can see how many "hits" there are
 
 Using break points for debugging and seeing how calls are made and processed is a very valuable tool. If you'd like to learn more, [start here](https://docs.microsoft.com/en-us/visualstudio/debugger/getting-started-with-the-debugger?view=vs-2017).
 
+## Cleaning your environment
+
+You have completed all of the hands-on portions of the course. We recommend deleting the resource group (and all of the resources in it) to avoid incurring extra charges.
+
 ## Next Step
 
 [Final Case Lab](../labs/lab-final-case.md) or
