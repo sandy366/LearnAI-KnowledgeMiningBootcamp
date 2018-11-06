@@ -53,7 +53,7 @@ Cloning the repo will download all the training materials to your computer, incl
 
 The enrichment pipeline pulls from Azure data sources. Source data must originate from a supported data source type of an [Azure Search indexer](https://docs.microsoft.com/en-us/azure/search/search-indexer-overview). For this exercise, we use blob storage to showcase multiple content types.
 
- 1. Create a storage account in the **same region of your Azure Search service** created in the step above, to avoid latency between the search service and the files.  Use a general purpose account and LRS replication. For production environments, you may need to use another replication type. If you haven't done this before, you can refer to the [Azure Storage Explorer Quickstart](https://azure.microsoft.com/en-us/features/storage-explorer) for instructions on all the steps.
+ 1. Create a storage account in the **same region of your Azure Search service** created in the step above, to avoid latency between the search service and the files.  Use a general purpose account and LRS replication. For production environments, you may need to use another replication type. If you haven't done this before, you can refer to the [Azure Storage Explorer Quickstart](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) for instructions on all the steps.
 
  1. Within this storage account, create a container named `basicdemo`.
 

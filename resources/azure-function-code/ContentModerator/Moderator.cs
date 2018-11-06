@@ -45,7 +45,7 @@ namespace CustomWebSkill
             var client = new HttpClient();
 
             // TO DO - Action required!!
-            // URL of the Moderator API. Fix the Prefix below, using your service URL. It can be found in the Azure Portal.
+            // URL of the Moderator API. Fix the Prefix below, using your service region. It can be found in the Azure Portal.
             // If you are using South Central US, you don't need to change it.
             var uriPrefix = "https://southcentralus.api.cognitive.microsoft.com/contentmoderator";
 
@@ -55,11 +55,10 @@ namespace CustomWebSkill
 
             // TO DO - Action required!!
             // Request headers - Add your API key to the placeholder below.        
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "0473f3c8a170415aa2897f24b7509fba");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "YourKeyHere");
 
             //TO DO - Action required!!
-            // Add the correct URL of your host, same prefix of uriPrefix but without https:// and finishing on ".com". 
-            // If your are using south central us, don't need to change the Host.
+            // Add the correct URL of your host, same prefix as uriPrefix but without https:// and finishing on ".com". 
             // If you are using South Central US, you don't need to change it.
             client.DefaultRequestHeaders.Add("Host", "southcentralus.api.cognitive.microsoft.com");
 

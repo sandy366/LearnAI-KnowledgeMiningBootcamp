@@ -23,7 +23,7 @@ Every feedback is welcome, please write to learnanalytics@microsoft.com .
 
 ## Survey
 
-If you are attending an ILT, the Instructor will provide the link for a 5 minutes survey.
+If you are attending an ILT, the Instructor will provide the link for a 5 minute survey.
 
 ## Next step
 

@@ -20,7 +20,7 @@ The list of activities we will do, using Azure Search REST APIs, is:
 
 ## Step 1 - Create a data source
 
-Now that your services and source files are prepared, start assembling the components of your indexing pipeline. We'll begin by creating a [data source object](https://docs.microsoft.com/rest/api/searchservice/create-data-source) that tells Azure Search how to retrieve external source data.
+Now that your services and source files are prepared, you can start assembling the components of your indexing pipeline. We'll begin by creating a [data source object](https://docs.microsoft.com/rest/api/searchservice/create-data-source) that tells Azure Search how to retrieve external source data.
 
 For this tutorial, we will use Postman to call Azure Search service APIs. In the request header, provide the service name you used while creating the Azure Search service, and the api-key generated for your search service. In the request body, specify the blob container name and connection string.
 
@@ -185,9 +185,9 @@ A graphical representation of the skillset you created is shown below.
 
 ![Understand a skillset](../resources/images/lab-text-skills/skillset.png "Understand a skillset")
 
-Outputs can be mapped to an index, used as input to a downstream skill, or both as is the case with language code. In the index, a language code is useful for filtering. As an input, language code is used by text analysis skills to inform the linguistic rules around word breaking.
+Outputs can be mapped to an index, used as input to a downstream skill, or both, as is the case with language code. In the index, a language code is useful for filtering. As an input, language code is used by text analysis skills to inform the linguistic rules around word breaking.
 
-For more information about skillset fundamentals, read [how to define a skillset](cognitive-search-defining-skillset.md).
+For more information about skillset fundamentals, read [how to define a skillset](https://docs.microsoft.com/en-us/rest/api/searchservice/create-skillset).
 
 ## Step 3 - Create an index
 
@@ -402,7 +402,7 @@ api-key: [api-key]
 Content-Type: application/json
 ```
 
-Repeat for additional fields: content, language, keyphrases, and organizations in this exercise. You can return multiple fields via `$select` using a comma-delimited list.
+Repeat for additional fields: "content", "languageCode", "keyPhrases", and "organization"s in this exercise. You can return multiple fields via `$select` using a comma-delimited list.
 
 You can use GET or POST, depending on query string complexity and length. For more information, see [Query using the REST API](https://docs.microsoft.com/azure/search/search-query-rest-api).
 

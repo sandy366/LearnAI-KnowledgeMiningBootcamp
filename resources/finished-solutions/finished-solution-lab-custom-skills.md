@@ -9,7 +9,7 @@ Here are the body requests for the solution to Lab 3. Don't forget to adjust the
 ```json
 {
   "description":
-  "Extract entities, detect language and extract key-phrases. Also, we translate from other languages to English",
+  "Extract entities, detect language and extract key-phrases. Also, we call the content moderator function.",
   "skills":
   [
     {
@@ -82,8 +82,8 @@ Here are the body requests for the solution to Lab 3. Don't forget to adjust the
     },
     {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "description": "Our new translator custom skill",
-        "uri": "https://[enter function name here].azurewebsites.net/api/Translate?code=[enter default host key here]",
+        "description": "Our new content moderator custom skill",
+        "uri": "https://[enter function name here].azurewebsites.net/api/Moderate?code=[enter default host key here]",
         "batchSize":1,
         "context": "/document",
         "inputs": [
@@ -99,7 +99,7 @@ Here are the body requests for the solution to Lab 3. Don't forget to adjust the
         "outputs": [
           {
             "name": "text",
-            "targetName": "translatedText"
+            "targetName": "moderatedText"
           }
         ]
       }
@@ -111,8 +111,6 @@ Here are the body requests for the solution to Lab 3. Don't forget to adjust the
 
 ```json
 {
-    "@odata.context": "https://<your-azure-search>.search.windows.net/$metadata#indexes/$entity",
-    "@odata.etag": "\"0x8D5B9CB96002CA5\"",
     "name": "demoindex",
     "fields": [
         {
@@ -200,7 +198,7 @@ Here are the body requests for the solution to Lab 3. Don't forget to adjust the
             "synonymMaps": []
         },
         {
-            "name": "translatedText",
+            "name": "moderatedText",
             "type": "Edm.String",
             "searchable": true,
             "filterable": false,
@@ -264,8 +262,8 @@ Here are the body requests for the solution to Lab 3. Don't forget to adjust the
             "targetFieldName": "languageCode"
         },
          {
-            "sourceFieldName": "/document/translatedText",
-            "targetFieldName": "translatedText"
+            "sourceFieldName": "/document/moderatedText",
+            "targetFieldName": "moderatedText"
         }
   ],
   "parameters":
@@ -289,10 +287,10 @@ api-key: [api-key]
 Content-Type: application/json
 ```
 
-## Check the Translated Content extracted
+## Check the Moderated Content extracted
 
 ```http
-GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=translatedText&api-version=2017-11-11-Preview
+GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=moderatedText&api-version=2017-11-11-Preview
 api-key: [api-key]
 Content-Type: application/json
 ```

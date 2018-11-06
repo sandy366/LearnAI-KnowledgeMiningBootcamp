@@ -70,8 +70,6 @@
 ***
 ![Slide](../../resources/slides/35.png)
 ***
-![Slide](../../resources/slides/36.png)
-***
 
 ## Next Step
 

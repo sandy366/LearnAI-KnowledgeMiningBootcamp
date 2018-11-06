@@ -28,11 +28,11 @@ api-key: [api-key]
 Content-Type: application/json
 ```
 
-You will probably see something similar to the image below - no information for the images we have.
+You will probably see something similar to the image below for all of the images - no information.
 
 ![No Metadata for Images](../resources/images/lab-image-skills/no-images-info.png)
 
-## How can we fix it
+## How can we fix it?
 
 We will fix it, but there is a challenge for you increase your learning about Predefined Skills. The next steps will guide you through the challenge and don't worry if you get stuck (that's why it's a challenge!), we will share the solution, too.
 
@@ -48,13 +48,13 @@ We need to prepare the environment to add the image analysis we will create. The
 
 #### Step 4.1
 
- Save all scripts (API calls) you did until here, including the definition json files you used in the "body" field. Let's start deleting the index and the indexer. You can use Azure Portal or API calls:
+ Save all the scripts (API calls) you've done up until this point, including the definition json files you used in the "body" field. Let's start deleting the index and the indexer. You can use Azure Portal or API calls:
 1. [Deleting the indexer](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-indexer) - Just use your service, key and indexer name
 2. [Deleting the index](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-index) - Just use your service, key and indexer name
 
 #### Step 4.2
 
-Skillsets can only be deleted through an HTTP command, let's use another API call request to delete it. If you used another skillset name, just change it in the URL.
+There is an option to delete the skillset when you delete the indexer in the portal, but it may be easier to delete via an HTTP command, let's use another API call request to delete it. If you used another skillset name, just change it in the URL.
 
 ```http
 DELETE https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
