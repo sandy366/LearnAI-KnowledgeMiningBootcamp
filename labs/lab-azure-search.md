@@ -83,12 +83,12 @@ Using the Azure Search service created in the previous lab, you will use the "Im
 
 1. Let's check what else you can do in the Indexer page. Click on the "Edit" link. As you can see, also in the image below, there are some interesting options here.
 
-- You can change the target Index
-- You can schedule your Indexer again
-- You can check "Advanced Options". Click this option to see:
-  - Base-64 Encode Keys. This is the algorithm used encrypt the data of your index key. It is the default option of the Index creation and this encryption avoids a typical problem of the metadata_storage_path, our recommended field for the documents key, as mentioned in the previous step. The storage path will have characters like "/" that are not allowed in a key. That's a **paradox**, we "have to use" metadata_storage_path but typically it has invalid characters. The Base-64 encryption fixes this problem. It also means that the data within the Azure Search Index is protected and your app needs to decrypt it to read in "human format".
-  - You will also see options for max errors per execution, items per execution, execution size and so on.
-  - Note that you can change the "Data to extract" and the "Parsing mode" options.
+    - You can change the target Index
+    - You can schedule your Indexer again
+    - You can check "Advanced Options". Click this option to see:
+        - Base-64 Encode Keys. This is the algorithm used encrypt the data of your index key. It is the default option of the Index creation and this encryption avoids a typical problem of the metadata_storage_path, our recommended field for the documents key, as mentioned in the previous step. The storage path will have characters like "/" that are not allowed in a key. That's a **paradox**, we "have to use" metadata_storage_path but typically it has invalid characters. The Base-64 encryption fixes this problem. It also means that the data within the Azure Search Index is protected and your app needs to decrypt it to read in "human format".
+        - You will also see options for max errors per execution, items per execution, execution size and so on.
+        - Note that you can change the "Data to extract" and the "Parsing mode" options.
 
     ![Indexer tab](../resources/images/lab-azure-search/indexer-advanced.png)
 
@@ -107,9 +107,9 @@ The image below explains how Azure Search executes a query. The process has four
 
 At this point of the lab, we can try searching the index. Let's keep on using the Azure Portal for this.
 
-1. Navigate back to the **Overview Tab** and click the **Indexes** link, the second from the left to the right. You should see the "Document Count" and the Storage Size. The expected count is 20 and the size should be close to 0.11% (which works out to be about 657.59 KiB). As you can see, Azure Search doesn't store all of the document, just part of it: key words, metadata, tags.
+1. Navigate back to the **Overview Tab** and click the **Indexes** link, the second from the left to the right. You should see the "Document Count" and the Storage Size. The expected count is 20 and the size should be close to 2.19 MiB). As you can see, Azure Search doesn't store all of the document, just part of it: key words, metadata, tags.
 
-1. Click **Search Explorer** and in the Overview Tab choose your Index in the "Change Index" option.
+1. Click **Search Explorer** and in the Overview Tab select your Index in the **"Change Index"** button.
 
 1. Click **Search** to search for all documents. You can use any valid simple or full Lucene query syntax to create the request. The * character is equivalent to an empty or unspecified search that returns all documents in no particular order. You should see information returned for all of the 20 documents.
 
