@@ -2,20 +2,20 @@
 
 In this lab, you will create a simple bot to learn how Azure Cognitive Search can be integrated into a bot using the Microsoft Bot Framework (SDK V4, .NET Core). If you're interested in diving diver deeper into bot development, check out the [LearnAI: Azure Cognitive Services Bootcamp](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp) which integrates multiple Cognitive Services to create an intelligent agent.
 
-While this is a simple bot, this [gif](../resources/images/lab-bot/retrieving-cognitive-attrributes.gif) provides some inspiration for what a solution could look like. Now that you have idea of what you will create and are feeling inspired, let's get into the labs.
+> While this is a simple bot, this [gif](../resources/images/lab-bot/retrieving-cognitive-attrributes.gif) provides some inspiration for what a solution could look like in a real estate scenario. Hopefully, it gives you some inspiration for what's possible. You could also integrate this into a web app, here is a [WebMD example](http://webmedsearch.azurewebsites.net/) and a [Seismic data example](http://seismicsearch.azurewebsites.net/).
 
 ## Step 1 - Download and install the Bot Framework Emulator
 
-The Bot Framework Emulator helps you run your bots locally, for testing and debugging. Download the emulator by going to [this page](https://github.com/Microsoft/BotFramework-Emulator/releases) and downloading the most recent version of the emulator that has the tag "Latest Release" (select the ".exe" file, if you are using windows).
+The Bot Framework Emulator helps you run your bots locally, for testing and debugging purposes. Download the emulator by going to [this page](https://github.com/Microsoft/BotFramework-Emulator/releases) and downloading the most recent version of the emulator that has the tag "Latest Release" (select the ".exe" file, if you are using windows).
 > The instructions for the rest of the labs will assume you've downloaded the V4 Emulator (as opposed to the V3 Emulator).
 
 The emulator installs to `c:\Users\`_your-username_`\AppData\Local\botframework\app-`_version_`\botframework-emulator.exe` or to your Downloads folder, depending on browser. Run the install and open the emulator, you'll use it shortly.
 
 ## Step 2 - Accessing the sample
 
-As part of the environment creation, you should have cloned the repository to your local environment. If you have not, now is a good time to go back and do so.  
+As part of the environment creation lab, you should have cloned the repository to your local environment. If you have not, now is a good time to go back and do so.  
 
-Under **resources > bot-code**, you should be able to locate a "Microsoft Visual Studio Solution File" called "CognitiveSearchBot". Double click on it to open the solution.  
+Under **resources > bot-code**, you should be able to locate a "Microsoft Visual Studio Solution File" called "CognitiveSearchBot". Double-click on it to open the solution.  
 
 Once the solution is open, right-click on "Solution 'CognitiveSearchBot'" in the Solution Explorer (from now on we'll just refer to this as "the solution") and select "Rebuild" to pull down all the dependencies required.  
 
