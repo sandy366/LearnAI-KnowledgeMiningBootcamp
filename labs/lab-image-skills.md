@@ -2,39 +2,49 @@
 
 In this lab, we will verify the lack of image processing results we got from the previous lab and fix it by adding image analysis skill sets to our pipeline.
 
-## The Problem
+## Part I: The Problem Statement
 
-There were png and jpg images within the provided dataset. If you decided to bring your own data, it was suggested to also include images. But we did not add any predefined skillsets for image analysis. This is exactly what we will do now, but first, let's check out the problem with steps 1 and 2.
+There are png and jpg images within the provided dataset. If you decided to bring your own data, it was suggested to also include images. But we did not add any predefined skillsets for image analysis. This is exactly what we will do now, but first, let's check out the kind of problems we could expext to see if we used the Language Detection, Text Split, Named Entity Recognition and Key Phrase Extraction Skills on images with steps 1 and 2.
 
-### Step 1 - Checking part of the problem
+### Step 1 - Checking warning message from the API
 
 Let's check the indexer status again, it has valuable information about our "images problem". You can use the same command we used in the previous lab (pasted below for convenience). If you used another indexer name, just change it in the URL.
 
 ```http
 GET https://[servicename].search.windows.net/indexers/demoindexer/status?api-version=2017-11-11-Preview
-api-key: [api-key]
 Content-Type: application/json
+api-key: [api-key]
 ```
 
-If you check the response messages for any of the png or jpg files, there will be warnings and not data.  
+If you check the response messages for any of the png or jpg files in the results, there will be warnings and no metadata for the images.  
 
-### Step 2 - Checking the other part of the problem
+### Step 2 - Existing skills will show no results
 
-Now let's again repeat a previous lab request, but with another analysis. We will re-execute the step to verify content, but this time querying all fields.  
+Let's again repeat a previous lab request, but with another analysis. We will re-execute the step to verify content, but this time querying all fields.  
 
 ```http
 GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=*&api-version=2017-11-11-Preview
-api-key: [api-key]
 Content-Type: application/json
+api-key: [api-key]
 ```
 
-You will probably see something similar to the image below for all of the images - no information.
+Send the request. The web test tool should return the results in the textbox at the bottom of the Postman application.
+
+Go to line 106, you should see the following value in this line
+
+>"blob_uri": "https://ctosa.blob.core.windows.net/basicdemo/redshirt.jpg"
+
+Note that no data values are returned on lines 107 - 110 for the key values that are defined as these return results back for the Language Detection, Text Split, Named Entity Recognition and Key Phrase Extraction Skills, which we defined in the previous lab. As the object in line 106 is just an image, we need to have a skills that deals with that.
+
+>[Tip] if the value described does not appear on line 106, in the top right of the reults screen is a magnifing glass buttom. Click on this button to open the Search box, in the text box type **"redshirt.jpg"** and click on the find next button to find this result.
+
+
 
 ![No Metadata for Images](../resources/images/lab-image-skills/no-images-info.png)
 
 ## How can we fix it?
 
-We will fix it, but there is a challenge for you increase your learning about Predefined Skills. The next steps will guide you through the challenge and don't worry if you get stuck (that's why it's a challenge!), we will share the solution, too.
+We will fix it, but there is a challenge for you to increase your learning about Predefined Skills. The next steps will guide you through the challenge and don't worry if you get stuck (that's why it's a challenge!), we will share the solution, too.
 
 ### Step 3 - Learning
 
@@ -58,8 +68,8 @@ There is an option to delete the skillset when you delete the indexer in the por
 
 ```http
 DELETE https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
-api-key: [api-key]
 Content-Type: application/json
+api-key: [api-key]
 ```
 
 Status code 204 is returned on successful deletion.
@@ -97,8 +107,8 @@ Skipping the services and the data source creation, repeat the other steps of th
 
 ```http
 GET https://[servicename].search.search.windows.net/indexes/rodindex2/docs?search=*&$select=myOcrText&api-version=2017-11-11-Preview
-api-key: [api-key]
 Content-Type: application/json
+api-key: [api-key]
 ```
 
 **TIP 4:** Your indexer sourceFieldName for the OCR text field has to be /document/normalized_images/*/myOcrText if your field is named myOcrText.  
