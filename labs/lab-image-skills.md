@@ -1,6 +1,6 @@
 # Lab 2: Re-create a Cognitive Search Skillset with **Image** Skills
 
-In this lab, we will verify the lack of image processing results we got from the previous lab and fix it by adding image analysis skill sets to our pipeline.
+In this lab, we will verify the lack of image processing results we got from the previous lab and fix it by adding image analysis skill set to our pipeline.
 
 ## Part I: The Problem Statement
 
@@ -16,7 +16,7 @@ Content-Type: application/json
 api-key: [api-key]
 ```
 
-If you check the response messages for any of the png or jpg files in the results, there will be warnings and no metadata for the images.  
+If you check the response messages for any of the png or jpg files in the results, there will be warnings and no metadata for the images.
 
 ### Step 2 - Existing skills will show no results
 
@@ -42,27 +42,27 @@ Note that no data values are returned on lines 107 - 110 for the key values that
 
 ![No Metadata for Images](../resources/images/lab-image-skills/no-images-info.png)
 
-## How can we fix it?
+## PART II: How can we fix it?
 
 We will fix it, but there is a challenge for you to increase your learning about Predefined Skills. The next steps will guide you through the challenge and don't worry if you get stuck (that's why it's a challenge!), we will share the solution, too.
 
-### Step 3 - Learning
+### Step 3 - Learning the OCR image skill
 
 Two of the nine [predefined skills](https://docs.microsoft.com/en-us/azure/search/cognitive-search-predefined-skills) are related to image analysis. Your first assignment is to read about how to use them using this [link](https://docs.microsoft.com/en-us/azure/search/cognitive-search-concept-image-scenarios).
 
 We will add OCR to our cognitive search pipeline, this skill set will read text from the images within our dataset. Here is a [link](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-ocr) where you can read more details.
 
-### Step 4 - Cleaning the environment
+### Step 4 - Deleting the environment
 
 We need to prepare the environment to add the image analysis we will create. The most practical approach is to delete the objects from Azure Search and rebuild them. With the exception of the data source, we will delete everything else. Resource names are unique, so by deleting an object, you can recreate it using the same name.
 
-#### Step 4.1
+#### Step 4.1 - deleting the index and indexer
 
  Save all the scripts (API calls) you've done up until this point, including the definition json files you used in the "body" field. Let's start deleting the index and the indexer. You can use Azure Portal or API calls:
 1. [Deleting the indexer](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-indexer) - Just use your service, key and indexer name
 2. [Deleting the index](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-index) - Just use your service, key and indexer name
 
-#### Step 4.2
+#### Step 4.2 - deleting the skillset
 
 There is an option to delete the skillset when you delete the indexer in the portal, but it may be easier to delete via an HTTP command, let's use another API call request to delete it. If you used another skillset name, just change it in the URL.
 
@@ -76,15 +76,7 @@ Status code 204 is returned on successful deletion.
 
 ### Step 5 - Recreating the environment - Challenge
 
-Now it is your time to guide the work. We are using a basic Azure Search service, so we can create skillsets with up to 5 skills. Since we currently are using 4, from the previous lab, we can add one more for image processing.
-
-#### Step 5.1
-
-Use the same skillset definition from Lab 1, but add in the [OCR image analysis skill](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-ocr) you read about in Step 3. We suggest you add them at the end of the JSON of the body syntax definition.
-
-#### Step 5.2
-
-Skipping the services and the data source creation, repeat the other steps of the Lab 1, in the same order. Use the previous lab as a reference.
+Now for your challenge exercise. We are using a basic Azure Search service, so we can create skillsets with up to 5 skills. Since we currently are using 4, from the previous lab, we can add one more for image processing. In this challenge exercise, you will be performing the following steps:
 
 1. ~~Create the services at the portal~~ **Not required, we did not delete it**.
 1. ~~Create the Data Source~~ **Not required, we did not delete it**.
@@ -95,15 +87,26 @@ Skipping the services and the data source creation, repeat the other steps of th
 1. Check the Index Fields - Check the image fields you just created.
 1. Check the data - Here you can repeat the same verification of Lab 2, Step 2. If you don't have a different result, something went wrong.
 
+#### Step 5.1 Creating the skillset with the OCR image skillset
+
+Use the same skillset definition from Lab 1,  add in the [OCR image analysis skill](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-ocr) you read about in Step 3. We suggest you add them at the end of the JSON of the body syntax definition.
+
+#### Step 5.2 - Recreating the index and indexer
+
+Skipping the services and the data source creation, repeat the other steps of the Lab 1, in the same order. Use the previous lab as a reference.
+
+
+
 **TIP 1:** What you need to do:
 
-1. Create a new skillset exactly like the one we did in Lab 1, but with an extra skill, the OCR skillset. You can use the same json body field and add the new OCR skill in the end.
 1. Create a new index exactly like the one we did in Lab 1 but with an extra field for the OCR text from the images. Name suggestion: myOCRtext. You can use the same json body field and add the new OCR field in the end.
 1. Create a new indexer exactly like the one we did in Lab 1, but with and extra mapping for the new skill and the new field listed above. You can use the same json body field and add the new OCR mapping in the end.
 
 **TIP 2:** Your new field in the Index must have the [Collection Data Type](https://docs.microsoft.com/en-us/rest/api/searchservice/Supported-data-types?redirectedfrom=MSDN).
 
-**TIP 3:** You can query only the OCR field, to better visualize the results. Suppose that your new index field name is myOcrTex. You can query it using:
+#### Step 5.3 - Validating the index creation
+
+You can query only the OCR field, to better visualize the results. Suppose that your new index field name is myOcrTex. You can query it using:
 
 ```http
 GET https://[servicename].search.search.windows.net/indexes/rodindex2/docs?search=*&$select=myOcrText&api-version=2017-11-11-Preview
@@ -111,7 +114,9 @@ Content-Type: application/json
 api-key: [api-key]
 ```
 
-**TIP 4:** Your indexer sourceFieldName for the OCR text field has to be /document/normalized_images/*/myOcrText if your field is named myOcrText.  
+Your indexer sourceFieldName for the OCR text field has to be /document/normalized_images/*/myOcrText if your field is named myOcrText.  
+
+In addition you can log into the Azure portal and verify the creation of the skillset, index and indexers in the Azure Search dashboard
 
 ## Finished Solution
 

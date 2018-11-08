@@ -16,11 +16,11 @@ The text moderation responses include:
 + Original text
 + Language
 
->Note! This Azure Function output is **Edm.String**, so we need to use the same type in the index definition.  
+>IMPORTANT: This Azure Function output is **Edm.String**, so we need to use the same type in the index definition.  
 
 ## Step 1 - Content Moderator API
 
-Use the [Azure Portal](https://ms.portal.azure.com) to create a Content Moderator API, using the name you want, the location of the Azure Search service and the F0 pricing tier. You should also save the keys and the endpoint, for later use in this lab.
+Use the [Azure Portal](https://ms.portal.azure.com) to create a Content Moderator API, using the name you want, the same location of the Azure Search service and the F0 pricing tier. You should also save the keys and the endpoint, for later use in this lab.
 
 To see how the API works, and also to learn how to demo this technology in minutes, navigate to the [Content Moderator Text API console](https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/try-text-api). Read the whole page, it should take you about four minutes. When you are done, scroll all the way up and click the first link on the page, [Text Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). It will open a control panel for Cognitive Services, as you can see in the image below.
 
@@ -91,7 +91,7 @@ Press **F5** or click the green arrow on the "ContentModerator" button to run th
 Now use Postman to issue a call like the one shown below:
 
 ```http
-POST https://localhost:7071/api/Moderate
+POST http://localhost:7071/api/Moderate
 ```
 
 ### Request body
@@ -154,6 +154,7 @@ You should see a response similar to the following example:
 }   ]
 }
 ```
+Close down the Azure Function CLI window to stop debugging
 
 ## Step 4 - Publish the function to Azure
 
@@ -208,14 +209,14 @@ For more information, click [here](https://docs.microsoft.com/en-us/azure/search
 
 Let's do the same cleaning process of lab 2. Save all scripts (API calls) you did until here, including the definition json files you used in the "body" field.
 
-### Step 6.1
+### Step 6.1 - Delete the index and indexer
 
 Let's start deleting the index and the indexer. You can use Azure Portal or API calls:
 
 1. [Deleting the indexer](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-indexer) - Just use your service, key and indexer name
 2. [Deleting the index](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-index) - Just use your service, key and indexer name
 
-### Step 6.2
+### Step 6.2 - Delete the skillset
 
 If you didn't use the portal to delete the indexer, skillsets can only be deleted through an HTTP command, let's use another API call request to delete it. Don't forget to add your skillset name in the URL.
 

@@ -283,16 +283,16 @@ Here are the body requests for the solution to Lab 3. Don't forget to adjust the
 
 ```http
 GET https://[servicename].search.windows.net/indexers/demoindexer/status?api-version=2017-11-11-Preview
-api-key: [api-key]
 Content-Type: application/json
+api-key: [api-key]
 ```
 
 ## Check the Moderated Content extracted
 
 ```http
 GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=moderatedText&api-version=2017-11-11-Preview
-api-key: [api-key]
 Content-Type: application/json
+api-key: [api-key]
 ```
 
 ## Next Step
