@@ -62,6 +62,10 @@ If your Visual Studio version doesn't match, click "Help / Check for Updates" an
 
 If your .Net Framework version doesn't match, [download](https://www.microsoft.com/net/download) and install the last version.
 
+There is another method to find the required Visual Studio and Azure Functions updates: Just click the yellow flag on the upper right corner of your Visual Studio, as you can see in the image below.
+
+![Yellow Flag](../resources/images/lab-custom-skills/yellow-flag.png)
+
 ### Step 2.2 - Preparing the solution
 
 Open the Windows Explorer and find the folder "resources/azure-function-code/ where you cloned this repository. You need to locate the file CognitiveSkill.sln. There should be a CognitiveSkill folder in the same folder where you found the .sln file.
