@@ -1,21 +1,21 @@
-# Creating the Business Documents Bot
+# Lab 4: Creating the Business Documents Bot
 
-In this lab, you will create a simple bot to learn how Azure Cognitive Search can be integrated into a bot using the Microsoft Bot Framework (SDK V4, .NET Core). If you're interested in diving diver deeper into bot development, check out the [LearnAI: Azure Cognitive Services Bootcamp](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp) which integrates multiple Cognitive Services to create an intelligent agent.
+In this lab, you will learn how Azure Cognitive Search can be integrated into a bot using the Microsoft Bot Framework (SDK V4, .NET Core). Since this is not a bot course, the creation has been taken care of for you. However, you'll get the chance to interact with your search service via the bot and use debugging to follow the processes to call the Azure Cognitive Search API and format results. If you're interested in diving deeper into bot development, check out the [LearnAI: Azure Cognitive Services Bootcamp](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp) which integrates multiple Cognitive Services to create an intelligent agent.
 
-While this is a simple bot, this [gif](./resources/images/sol-arch/retrieving-cognitive-attrributes.gif) provides some inspiration for what a solution could look like. Now that you have idea of what you will create and are feeling inspired, let's get into the labs.
+> While this is a simple bot, this [gif](../resources/images/lab-bot/retrieving-cognitive-attrributes.gif) provides some inspiration for what a solution could look like in a real estate scenario. Hopefully, it gives you some inspiration for what's possible. You could also integrate this into a web app, here is a [WebMD example](http://webmedsearch.azurewebsites.net/) and a [Seismic data example](http://seismicsearch.azurewebsites.net/).
 
 ## Step 1 - Download and install the Bot Framework Emulator
 
-The Bot Framework Emulator helps you run your bots locally, for testing and debugging. Download the emulator by going to [this page](https://github.com/Microsoft/BotFramework-Emulator/releases) and downloading the most recent version of the emulator that has the tag "Latest Release" (select the ".exe" file, if you are using windows).
+The Bot Framework Emulator helps you run your bots locally for testing and debugging purposes. Download the emulator by going to [this page](https://github.com/Microsoft/BotFramework-Emulator/releases) and downloading the most recent version of the emulator that has the tag "Latest Release" (select the ".exe" file, if you are using windows).
 > The instructions for the rest of the labs will assume you've downloaded the V4 Emulator (as opposed to the V3 Emulator).
 
 The emulator installs to `c:\Users\`_your-username_`\AppData\Local\botframework\app-`_version_`\botframework-emulator.exe` or to your Downloads folder, depending on browser. Run the install and open the emulator, you'll use it shortly.
 
 ## Step 2 - Accessing the sample
 
-As part of the environment creation, you should have cloned the repository to your local environment. If you have not, now is a good time to go back and do so.  
+As part of the environment creation lab, you should have cloned the repository to your local environment. If you have not, now is a good time to go back and do so.  
 
-Under **resources > bot-code**, you should be able to locate a "Microsoft Visual Studio Solution File" called "CognitiveSearchBot". Double click on it to open the solution.  
+Under **resources > bot-code**, you should be able to locate a "Microsoft Visual Studio Solution File" called "CognitiveSearchBot". Double-click on it to open the solution.  
 
 Once the solution is open, right-click on "Solution 'CognitiveSearchBot'" in the Solution Explorer (from now on we'll just refer to this as "the solution") and select "Rebuild" to pull down all the dependencies required.  
 
@@ -37,7 +37,7 @@ This should open a chat window with your bot. You can start by saying some sort 
 
 ![Greet Bot](../resources/images/lab-bot/emulator-running.png)
 
-You should now be able to submit search requests, and your results should be returned. Try searching for various items and inspecting your results.
+You should now be able to submit search requests, and your results should be returned. Try searching for various items and inspecting your results. If you're unsure what to search for, here are a few suggestions: "satya nadella", "financial reporting", "security issues", "Azure", "cognitive services", "cloud", "sql server", "learnai", "reports".
 
 ## Step 4 (optional) - Using break points to understand the search flow
 
@@ -59,9 +59,15 @@ Similarly, when "results" has been filled, you can see how many "hits" there are
 
 ![Examine results locals](../resources/images/lab-bot/locals2.png)
 
-Using break points for debugging and seeing how calls are made and processed is a very valuable tool. If you'd like to learn more, [start here](https://docs.microsoft.com/en-us/visualstudio/debugger/getting-started-with-the-debugger?view=vs-2017).
+Using break points for debugging and seeing how calls are made and processed is a very valuable tool. If you'd like to learn more, [start here](https://docs.microsoft.com/en-us/visualstudio/debugger/getting-started-with-the-debugger?view=vs-2017).  
+
+> Want to dive deeper into bot development? Check out the [LearnAI: Azure Cognitive Services Bootcamp](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp) which integrates multiple Cognitive Services to create an intelligent agent.
+
+## Cleaning your environment
+
+You have completed all of the hands-on portions of the course. We recommend deleting the resource group (and all of the resources in it) to avoid incurring extra charges.
 
 ## Next Step
 
-[Final Case Lab](../labs/lab-final-case.md) or
+[Final Case](../labs/lab-final-case.md) or
 [Back to Read Me](../README.md)

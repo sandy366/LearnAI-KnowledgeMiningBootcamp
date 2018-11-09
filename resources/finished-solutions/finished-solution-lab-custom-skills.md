@@ -2,14 +2,14 @@
 
 Hello!
 
-Here are the body requests for the solution to Lab 3. Don't forget to adjust the URLs to use your Azure Search service name.
+Here are the body requests for the custom skills lab. Don't forget to adjust the URLs to use your Azure Search service name.
 
 ## Skillset
 
 ```json
 {
   "description":
-  "Extract entities, detect language and extract key-phrases. Also, we translate from other languages to English",
+  "Extract entities, detect language and extract key-phrases. Also, Moderates the content with a custom skill",
   "skills":
   [
     {
@@ -82,24 +82,20 @@ Here are the body requests for the solution to Lab 3. Don't forget to adjust the
     },
     {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "description": "Our new translator custom skill",
-        "uri": "https://[enter function name here].azurewebsites.net/api/Translate?code=[enter default host key here]",
+        "description": "Our new moderator custom skill",
+        "uri": "https://[your-azure-function-name].azurewebsites.net/api/ContentModerator?code=[your-azure-function-key]",
         "batchSize":1,
         "context": "/document",
         "inputs": [
           {
             "name": "text",
             "source": "/document/content"
-          },
-          {
-            "name": "language",
-            "source": "/document/languageCode"
           }
         ],
         "outputs": [
           {
             "name": "text",
-            "targetName": "translatedText"
+            "targetName": "ModeratedText"
           }
         ]
       }
@@ -111,117 +107,63 @@ Here are the body requests for the solution to Lab 3. Don't forget to adjust the
 
 ```json
 {
-    "@odata.context": "https://<your-azure-search>.search.windows.net/$metadata#indexes/$entity",
-    "@odata.etag": "\"0x8D5B9CB96002CA5\"",
-    "name": "demoindex",
-    "fields": [
+  "fields": [
+    {
+      "name": "id",
+      "type": "Edm.String",
+      "key": true,
+      "searchable": true,
+      "filterable": false,
+      "facetable": false,
+      "sortable": true
+    },
+     {
+      "name": "blob_uri",
+      "type": "Edm.String",
+      "searchable": true,
+      "filterable": false,
+      "facetable": false,
+      "sortable": true
+    },
+    {
+      "name": "content",
+      "type": "Edm.String",
+      "sortable": false,
+      "searchable": true,
+      "filterable": false,
+      "facetable": false
+    },
+    {
+      "name": "languageCode",
+      "type": "Edm.String",
+      "searchable": true,
+      "filterable": false,
+      "facetable": false
+    },
+    {
+      "name": "keyPhrases",
+      "type": "Collection(Edm.String)",
+      "searchable": true,
+      "filterable": false,
+      "facetable": false
+    },
+    {
+      "name": "organizations",
+      "type": "Collection(Edm.String)",
+      "searchable": true,
+      "sortable": false,
+      "filterable": false,
+      "facetable": false
+    },
         {
-            "name": "id",
-            "type": "Edm.String",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": true,
-            "facetable": false,
-            "key": true,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
-        },
-        {
-            "name": "blob_uri",
-            "type": "Edm.String",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": false,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
-        },
-        {
-            "name": "content",
-            "type": "Edm.String",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": false,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
-        },
-        {
-            "name": "languageCode",
-            "type": "Edm.String",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": true,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
-        },
-        {
-            "name": "keyPhrases",
-            "type": "Collection(Edm.String)",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": false,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
-        },
-        {
-            "name": "organizations",
-            "type": "Collection(Edm.String)",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": false,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
-        },
-        {
-            "name": "translatedText",
-            "type": "Edm.String",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": false,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
-        }
-    ],
-    "scoringProfiles": [],
-    "defaultScoringProfile": null,
-    "corsOptions": null,
-    "suggesters": [],
-    "analyzers": [],
-    "tokenizers": [],
-    "tokenFilters": [],
-    "charFilters": []
+      "name": "ModeratedText",
+      "type": "Edm.Boolean",
+      "searchable": false,
+      "sortable": false,
+      "filterable": false,
+      "facetable": false
+    }
+  ]
 }
 ```
 
@@ -264,8 +206,8 @@ Here are the body requests for the solution to Lab 3. Don't forget to adjust the
             "targetFieldName": "languageCode"
         },
          {
-            "sourceFieldName": "/document/translatedText",
-            "targetFieldName": "translatedText"
+            "sourceFieldName": "/document/moderatedText",
+            "targetFieldName": "moderatedText"
         }
   ],
   "parameters":
@@ -285,18 +227,19 @@ Here are the body requests for the solution to Lab 3. Don't forget to adjust the
 
 ```http
 GET https://[servicename].search.windows.net/indexers/demoindexer/status?api-version=2017-11-11-Preview
-api-key: [api-key]
 Content-Type: application/json
+api-key: [api-key]
 ```
 
-## Check the Translated Content extracted
+## Check the Moderated Content extracted
 
 ```http
-GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=translatedText&api-version=2017-11-11-Preview
-api-key: [api-key]
+GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=ModeratedText,blob_uri&api-version=2017-11-11-Preview
 Content-Type: application/json
+api-key: [api-key]
 ```
 
 ## Next Step
 
-[Back to Main Menu](./README.md)
+[Bots Lab](../../labs/lab-bot-business-documents.md) or
+[Back to Read Me](../../README.md)

@@ -1,15 +1,10 @@
-# LearnAI: Knowledge Mining Bootcamp - Azure Cogntive Search Solution for business documents
+# LearnAI: Knowledge Mining Bootcamp - Azure Cognitive Search Solution for business documents
 
-## To do
-
-+ Content Moderator finished solution
-+ one broken link - gif
-
-## Build an intelligent search solution  using Microsoft Azure AI Platform
+## Build an intelligent search solution using the Microsoft Azure AI Platform
 
 ### About this Course
 
-In this course you will create an enterprise search solution by applying knowledge mining to business documents like contracts, memos, presentations and images. You will use Microsoft Azure AI technology to extract insights from unstructured data and expose the results in a Bot interface. This is a two days training, but you can compress the duration with [alternative agendas](./resources/md-files/alternative-agendas.md).
+In this course, you will create an enterprise search solution by applying knowledge mining to business documents like contracts, memos, presentations and images. You will use Microsoft Azure AI technology to extract insights from unstructured data and expose the results in a Bot interface. This training is two days, but you can compress the duration with [alternative agendas](./resources/md-files/alternative-agendas.md).
 
 At the end of this training you will have learned:
 
@@ -18,21 +13,21 @@ At the end of this training you will have learned:
 + **Why** this technology can be useful for any company
 + **When** to use this solution for demos, POCs and other business scenarios
 
-The hands-on labs will teach you how to use Microsoft Azure Search combined with Microsoft Cognitive Services for entity recognition, image analysis, text translation and indexed search on enterprise business documents. This approach uses Arificial Intelligence to create an advanced search experience.
+The hands-on labs will teach you how to use Microsoft Azure Search combined with Microsoft Cognitive Services for entity recognition, image analysis, text translation and indexed search on enterprise business documents. This approach uses Artificial Intelligence to create an advanced search experience.
 
-While this course focusses on Azure Cognitive Search capabilities, a depth course on building Bots and integrating various cognitive services is available here - [Building Intelligent Agents and Apps](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp).
+While this course focuses on Azure Cognitive Search capabilities, an in-depth course on building Bots and integrating various Azure Cognitive Services is available here - [Azure Cognitive Services Bootcamp](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp).
 
-In this course you will learn these key concepts:
+In this course we will cover these key concepts:
 
 1. Fundamentals of Azure Search and its capabilities
 
-1. Understand Microsoft Cognitive Search and its key business scenarios
+1. Microsoft Cognitive Search and its key business scenarios
 
-1. Build an enrichment data pipeline for search using predefined and custom skillsets:
+1. Building an enrichment data pipeline for search using predefined and custom skillsets:
 
     + Text skills like entity recognition, language detection, text manipulation and key phrase extraction
     + Image skills like OCR
-    + Content moderation skills to detect documents with incompliant content.
+    + Content moderation skills to detect documents with incompliant content
 
 1. Use the enriched data for an advanced search experience for business documents within an enterprise.
 
@@ -54,12 +49,12 @@ Intelligent search is relevant to many major industries. Some are listed below.
 
 1. Retail, Housing and Automotive industries for sales/listing.
 
-1. Law firms and legal deparments can use this technologies to enforce complaince or improve search capabilities.
+1. Law firms and legal departments can use this technology to enforce compliance or improve search capabilities.
 
 ### Pre-requisites
 
 1. Fundamental working knowledge of Azure Portal, Azure Functions and Azure Search
-1. Familiarity with Visual Studio and minimun C# knowledge
+1. Familiarity with Visual Studio and minimum C# knowledge
 1. Familiarity with Azure Bots and Microsoft Bot Framework v4
 1. Familiarity with [Postman](https://www.getpostman.com/)
 
@@ -74,12 +69,11 @@ If you do not have any of the above pre-requisites, please find below links
 
 ### Pre-Setup before you attend the class Mandatory
 
-1. *To Create:* You need a Microsoft Azure account to create the services we use in our solution. You can create a [free account](https://azure.microsoft.com/en-us/free/), use your [MSDN account](https://azure.microsoftcom/en-us/pricing/member-offers/credit-for-visual-studio-subscribers/) or use any other subscription where you have permission to create services
-1. *To Install:* [Visual Studio 2017](https://www.visualstudio.com/vs/) version version 15.5 or later, *including the Azure development workload*
+1. *To Create:* You need a Microsoft Azure account to create the services we use in our solution. You can create a [free account](https://azure.microsoft.com/en-us/free/), use your MSDN account or any other subscription where you have permission to create services
+1. *To Install:* [Visual Studio 2017](https://www.visualstudio.com/vs/) version 15.5 or later, *including the Azure development workload*
 1. *To Install:* [Postman](https://www.getpostman.com/). To call the labs APIs
-1. *To Install:* [Bot Emulator](https://github.com/Microsoft/BotFramework-Emulator)
+1. *To Install:* [Bot Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases), use the '.exe' file from the latest release
 1. *To Install:* [Git for Windows](https://gitforwindows.org/) or any other git app you prefer
-1. *To Install:* [Bot Framework 4.0](https://botbuilder.myget.org/feed/aitemplates/package/vsix/BotBuilderV4.fbe0fc50-a6f1-4500-82a2-189314b7bea2)
 
 ### Course Details
 
@@ -100,9 +94,9 @@ Full Course classroom training:  16 hours
 
 ### Related LearnAI Courses
 
-[Building an Intelligent Bot with Computer Vision, LUIS and Azure Search](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp)
-[Cognitive Search Workshop](https://github.com/Azure/LearnAI-Cognitive-Search)
-[Designing and Architecting Intelligent Agents](https://azure.github.io/LearnAI-DesigningandArchitectingIntelligentAgents/)
+[Azure Cognitive Services Bootcamp](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp)  
+[Cognitive Search Workshop](https://azure.github.io/LearnAI-Cognitive-Search/)  
+[Designing and Architecting Intelligent Agents](https://azure.github.io/LearnAI-DesigningandArchitectingIntelligentAgents/)  
 
 ### Course Modules
 
@@ -123,6 +117,8 @@ Full Course classroom training:  16 hours
 1. [Lab 6](./labs/lab-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API
 
 1. [Lab 7](./labs/lab-final-case.md) - **Architecture Design Session**
+
+> Note: Once you've completed the labs, we recommend deleting the resource group (and all the resources in it) to avoid incurring extra charges.
 
 ### Q&A and Survey
 
