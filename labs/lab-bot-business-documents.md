@@ -63,11 +63,9 @@ Using break points for debugging and seeing how calls are made and processed is 
 
 > Want to dive deeper into bot development? Check out the [LearnAI: Azure Cognitive Services Bootcamp](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp) which integrates multiple Cognitive Services to create an intelligent agent.
 
-
 ## Cleaning your environment
 
 You have completed all of the hands-on portions of the course. We recommend deleting the resource group (and all of the resources in it) to avoid incurring extra charges.
-
 
 ## Next Step
 

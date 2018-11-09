@@ -40,7 +40,7 @@ Note that no data values are returned on lines 107 - 110 for the key values that
 
 ![No Metadata for Images](../resources/images/lab-image-skills/no-images-info.png)
 
-## PART II: How can we fix it
+## PART II: How to fix it
 
 We will fix it, but there is a challenge for you to increase your learning about Predefined Skills. The next steps will guide you through the challenge and don't worry if you get stuck (that's why it's a challenge!), we will share the solution, too.
 
@@ -54,23 +54,13 @@ We will add OCR to our cognitive search pipeline, this skill set will read text 
 
 We need to prepare the environment to add the image analysis we will create. The most practical approach is to delete the objects from Azure Search and rebuild them. With the exception of the data source, we will delete everything else. Resource names are unique, so by deleting an object, you can recreate it using the same name.
 
-#### Step 4.1 - deleting the index and indexer
-
  Save all the scripts (API calls) you've done up until this point, including the definition json files you used in the "body" field. Let's start deleting the index and the indexer. You can use Azure Portal or API calls:
-1. [Deleting the indexer](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-indexer) - Just use your service, key and indexer name
-2. [Deleting the index](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-index) - Just use your service, key and indexer name
 
-#### Step 4.2 - deleting the skillset
+1. [Deleting the indexer - API call](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-indexer) - Just use your service, key and indexer name
+1. [Deleting the index](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-index) - Just use your service, key and indexer name
+1. [Deleting the Skillset](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-skillset) - Just use your service, key and skillset name
 
-There is an option to delete the skillset when you delete the indexer in the portal, but it may be easier to delete via an HTTP command, let's use another API call request to delete it. If you used another skillset name, just change it in the URL.
-
-```http
-DELETE https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
-Content-Type: application/json
-api-key: [api-key]
-```
-
-Status code 204 is returned on successful deletion.
+Status code 204 is returned on a successful deletion.
 
 ### Step 5 - Recreating the environment - Challenge
 

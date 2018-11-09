@@ -2,10 +2,6 @@
 
 ## Build an intelligent search solution using the Microsoft Azure AI Platform
 
-## TO DO
-
-1. Now it is possible to delete skillsets with postman. Change labs?
-
 ### About this Course
 
 In this course, you will create an enterprise search solution by applying knowledge mining to business documents like contracts, memos, presentations and images. You will use Microsoft Azure AI technology to extract insights from unstructured data and expose the results in a Bot interface. This training is two days, but you can compress the duration with [alternative agendas](./resources/md-files/alternative-agendas.md).
