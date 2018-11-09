@@ -260,6 +260,8 @@ Skipping the services and the data source creation, repeat the other steps of th
 
 Now we have our data enriched with pre-defined and custom skills. Use the Search Explorer within your Azure Search service in the Azure Portal to query the data. Create a query to identify documents with compliance issues, the moderated documents.
 
+![Checking for Moderation problems](../resources/images/lab-custom-skills/moderatedtex-query-portal.png)
+
 ## Finished Solution
 
 If you could not make it, [here](../resources/finished-solutions/finished-solution-Lab-custom-skills.md) is the challenge solution. You just need to follow the steps.
