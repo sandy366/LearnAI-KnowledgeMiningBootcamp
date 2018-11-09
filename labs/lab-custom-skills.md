@@ -235,7 +235,7 @@ Like we did in Lab 2, we suggest you add this new skill at the end of the body d
         "outputs": [
           {
             "name": "text",
-            "targetName": "moderatedText"
+            "targetName": "ModeratedText"
           }
         ]
       }
