@@ -26,7 +26,6 @@ Using what you've learned throughout the course, develop a potential Cognitive S
 
 Your group should be ready to present to the other teams.  
 
-
 ## Next Step
 
 [Back to Read Me](../README.md)

@@ -36,11 +36,10 @@ If you are not so familiar with Postman, perform the following detailed steps to
 
 1. Define the POST method.
 
-
     - Open the Postman application. If a dialog box opens, close it down. You will be presented with a screen that states **"Untitled Request"** , underneath this is a button that showes the word **"GET"**.
     - Click on the downward pointing arrow next to **"GET"**, and click the option **"POST"**.
     - In the text box that shows the words "Enter request url" type in the following information, replacing **[service name]** with the name of the Azure Search service you created:
-      > https://[service name].search.windows.net/datasources?api-version=2017-11-11-Preview  
+      > <https://[service> name].search.windows.net/datasources?api-version=2017-11-11-Preview  
 
 1. Define header information in the Headers tab
     - Below the text box where you have defined your url, click on the link that states **"Headers"**.
@@ -48,7 +47,6 @@ If you are not so familiar with Postman, perform the following detailed steps to
     - Under the VALUE column, in the first row, type in the following text **"application/json"**.
     - Under the KEY column, in the second row, type in the following text **"api-key"**.
     - Under the VALUE column, in the second row, paste in your Azure search key.
-
 
 In the **Request body**, you will specify the blob container name and connection string you created earlier to create a data source and load data into the data source as follows:
 
@@ -67,7 +65,7 @@ In the **Request body**, you will specify the blob container name and connection
 
 If you are not so familiar with Postman, perform the following detailed steps to define the Request body.
 
-3. Enter and edit the json request in the Body tab.
+1. Enter and edit the json request in the Body tab.
     - Below the text box where you have defined your url, click on the link that states **"Body"**.
     - Click on the radio button next to the option of **"raw"**.
     - In the text box, paste in the following request body syntax.
@@ -89,9 +87,9 @@ If you are not so familiar with Postman, perform the following detailed steps to
 
       The following image can be used to confirm the settings you should define.
 
-      ![Postman Help Image](../resources/images/lab-text-skills/postman-help.png) 
+      ![Postman Help Image](../resources/images/lab-text-skills/postman-help.png)
 
-4. Validating the request and confirming the data source creation.
+1. Validating the request and confirming the data source creation.
     - Send the request. The web test tool should return a status code of **201 Created** confirming success.
     - Check the Azure portal to confirm the data source was created in Azure Search. On the **Search service dashboard page**, verify the **Data Sources** tile has a new item. You might need to wait a few minutes for the portal page to refresh.
 
@@ -100,22 +98,21 @@ If you are not so familiar with Postman, perform the following detailed steps to
       > [TIP]
 If you got a 403 or 404 error, check the request construction: `api-version=2017-11-11-Preview` should be on the endpoint, `api-key` should be in the Header after `Content-Type`, and its value must be valid for a search service. You can reuse the header for the remaining steps in this lab. Verify that the search service is running in one of the supported locations providing the preview feature: South Central US or West Europe.
 
-
 ## Step 2 - Create a skillset
 
 In this step, you define a set of enrichment steps that you want to apply to your data. Each enrichment step is called a *skill*, and the set of enrichment steps a *skillset*. This tutorial uses the following [predefined cognitive skills](https://docs.microsoft.com/en-us/azure/search/cognitive-search-predefined-skills):
 
-+ [Language Detection](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-language-detection) to identify the content's language.
+- [Language Detection](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-language-detection) to identify the content's language.
 
-+ [Text Split](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-textsplit) to break large content into smaller chunks before calling the key phrase extraction skill. Key phrase extraction accepts inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit.
+- [Text Split](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-textsplit) to break large content into smaller chunks before calling the key phrase extraction skill. Key phrase extraction accepts inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit.
 
-+ [Named Entity Recognition](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-named-entity-recognition) for extracting the names of organizations from content in the blob container.
+- [Named Entity Recognition](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-named-entity-recognition) for extracting the names of organizations from content in the blob container.
 
-+ [Key Phrase Extraction](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-keyphrases) to pull out the top key phrases.
+- [Key Phrase Extraction](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-keyphrases) to pull out the top key phrases.
 
 ### Define the PUT method and Header information
 
-  In this step, you are going to use Postman to issue a PUT method that will create a skillset named ```demoskillset```. Note that in the url section the PUT method, and that the url contains the location of skillsets to define the skillset named ```demoskillset```. Before you make this REST call, remember to replace the service name and the admin key in the request below with your information if your tool does not preserve the request header between calls. 
+  In this step, you are going to use Postman to issue a PUT method that will create a skillset named ```demoskillset```. Note that in the url section the PUT method, and that the url contains the location of skillsets to define the skillset named ```demoskillset```. Before you make this REST call, remember to replace the service name and the admin key in the request below with your information if your tool does not preserve the request header between calls.
 
   Reference the skillset name ```demoskillset``` for the rest of this lab.
 
@@ -206,7 +203,6 @@ In the **Request body**, you will use JSON to define the Language Detection, Tex
   ]
 }
 ```
-
 
 ### Validate that the  Request has been successful
 
