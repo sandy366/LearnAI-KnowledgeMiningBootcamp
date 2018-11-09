@@ -2,7 +2,7 @@
 
 Hello!
 
-Here are the body requests for the solution to Lab 2. Don't forget to adjust the URLs to use your Azure Search service name.
+Here are the body requests for the Image Skills lab. Don't forget to adjust the URLs to use your Azure Search service name.
 
 ## Skillset
 
@@ -311,4 +311,5 @@ Content-Type: application/json
 
 ## Next Step
 
-[Back to Main Menu](../../README.md)
+[Custom Skills Lab](../../labs/lab-custom-skills.md) or
+[Back to Read Me](../../README.md)

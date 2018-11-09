@@ -129,6 +129,10 @@ Using [Azure Search Simple Query Syntax](https://docs.microsoft.com/en-us/rest/a
 1. Search for documents about Cloud, but filtering those with mentions to Oracle
 1. Search for documents about Cognitive Services and Bots
 
+## Finished Solution
+
+If you could not make it, [here](../resources/finished-solutions/finished-solution-lab-azure-search.md) is the challenge solution. You just need to follow the steps.
+
 ## Extra Content
 
 The links below will work only with the API, which you will learn in the next labs. While you will not use it in these labs, check them now to learn more about other Azure Search capabilities.

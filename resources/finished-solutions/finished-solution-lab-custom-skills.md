@@ -2,7 +2,7 @@
 
 Hello!
 
-Here are the body requests for the solution to Lab 3. Don't forget to adjust the URLs to use your Azure Search service name.
+Here are the body requests for the custom skills lab. Don't forget to adjust the URLs to use your Azure Search service name.
 
 ## Skillset
 
@@ -241,4 +241,5 @@ api-key: [api-key]
 
 ## Next Step
 
-[Back to Main Menu](../../README.md)
+[Bots Lab](../../labs/lab-bot-business-documents.md) or
+[Back to Read Me](../../README.md)
