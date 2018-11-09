@@ -5,7 +5,7 @@
 ## TO DO
 
 1. Now it is possible to delete skillsets with postman. Change labs?
-1. finished solution - Lab Azure Search - Add query solutions with $select=ModeratedText,blob_uri and all other challenges
+1. finished solution - Lab Azure Search - Add query solutio\ns with $select=ModeratedText,blob_uri and all other challenges
 
 ### About this Course
 
