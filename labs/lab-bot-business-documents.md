@@ -1,4 +1,4 @@
-# Creating the Business Documents Bot
+# Lab 4: Creating the Business Documents Bot
 
 In this lab, you will learn how Azure Cognitive Search can be integrated into a bot using the Microsoft Bot Framework (SDK V4, .NET Core). Since this is not a bot course, the creation has been taken care of for you. However, you'll get the chance to interact with your search service via the bot and use debugging to follow the processes to call the Azure Cognitive Search API and format results. If you're interested in diving deeper into bot development, check out the [LearnAI: Azure Cognitive Services Bootcamp](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp) which integrates multiple Cognitive Services to create an intelligent agent.
 
@@ -69,5 +69,5 @@ You have completed all of the hands-on portions of the course. We recommend dele
 
 ## Next Step
 
-[Final Case Lab](../labs/lab-final-case.md) or
+[Final Case](../labs/lab-final-case.md) or
 [Back to Read Me](../README.md)

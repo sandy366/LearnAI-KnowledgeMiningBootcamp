@@ -36,7 +36,7 @@ If you are not so familiar with Postman, perform the following detailed steps to
 
 1. Define the POST method.
 
-    - Open the Postman application. If a dialog box opens, close it down. You will be presented with a screen that states **"Untitled Request"** , underneath this is a button that showes the word **"GET"**.
+    - Open the Postman application. If a dialog box opens, close it down. You will be presented with a screen that states **"Untitled Request"** , underneath this is a button that shows the word **"GET"**.
     - Click on the downward pointing arrow next to **"GET"**, and click the option **"POST"**.
     - In the text box that shows the words "Enter request url" type in the following information, replacing **[service name]** with the name of the Azure Search service you created:
       > <https://[service> name].search.windows.net/datasources?api-version=2017-11-11-Preview  
@@ -441,7 +441,7 @@ api-key: [api-key]
 Content-Type: application/json
 ```
 
-Repeat for additional fields: "content", "languageCode", "keyPhrases", and "organization"s in this exercise. You can return multiple fields via `$select` using a comma-delimited list.
+Repeat for additional fields: "content", "languageCode", "keyPhrases", and "organizations" in this exercise. You can return multiple fields via `$select` using a comma-delimited list.
 
 You can use GET or POST, depending on query string complexity and length. For more information, see [Query using the REST API](https://docs.microsoft.com/azure/search/search-query-rest-api).
 

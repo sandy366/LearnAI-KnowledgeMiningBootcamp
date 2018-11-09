@@ -107,7 +107,7 @@ The image below explains how Azure Search executes a query. The process has four
 
 At this point of the lab, we can try searching the index. Let's keep on using the Azure Portal for this.
 
-1. Navigate back to the **Overview Tab** and click the **Indexes** link, the second from the left to the right. You should see the "Document Count" and the Storage Size. The expected count is 20 and the size should be close to 2.19 MiB). As you can see, Azure Search doesn't store all of the document, just part of it: key words, metadata, tags.
+1. Navigate back to the **Overview Tab** and click the **Indexes** link, the second from the left to the right. You should see the "Document Count" and the Storage Size. The expected count is 20 and the size should be close to 2.19 MiB. As you can see, Azure Search doesn't store all of the document, just part of it: key words, metadata, tags.
 
 1. Click **Search Explorer** and in the Overview Tab select your Index in the **"Change Index"** button.
 

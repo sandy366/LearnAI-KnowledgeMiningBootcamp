@@ -1,10 +1,10 @@
-# Lab 2: Re-create a Cognitive Search Skillset with **Image** Skills
+# Lab 2: Create a Cognitive Search Skillset with **Image** Skills
 
 In this lab, we will verify the lack of image processing results we got from the previous lab and fix it by adding image analysis skill set to our pipeline.
 
 ## Part I: The Problem Statement
 
-There are png and jpg images within the provided dataset. If you decided to bring your own data, it was suggested to also include images. But we did not add any predefined skillsets for image analysis. This is exactly what we will do now, but first, let's check out the kind of problems we could expext to see if we used the Language Detection, Text Split, Named Entity Recognition and Key Phrase Extraction Skills on images with steps 1 and 2.
+There are png and jpg images within the provided dataset. If you decided to bring your own data, it was suggested to also include images. But we did not add any predefined skillsets for image analysis. This is exactly what we will do now, but first, let's check out the kind of problems we could expect to see if we used the Language Detection, Text Split, Named Entity Recognition and Key Phrase Extraction Skills on images with steps 1 and 2.
 
 ### Step 1 - Checking warning message from the API
 
@@ -36,7 +36,7 @@ Go to line 106, you should see the following value in this line
 
 Note that no data values are returned on lines 107 - 110 for the key values that are defined as these return results back for the Language Detection, Text Split, Named Entity Recognition and Key Phrase Extraction Skills, which we defined in the previous lab. As the object in line 106 is just an image, we need to have a skills that deals with that.
 
->[Tip] if the value described does not appear on line 106, in the top right of the reults screen is a magnifing glass buttom. Click on this button to open the Search box, in the text box type **"redshirt.jpg"** and click on the find next button to find this result.
+>Tip: if the value described does not appear on line 106, in the top right of the results screen is a magnifying glass button. Click on this button to open the Search box, in the text box type **"redshirt.jpg"** and click on the find next button to find this result.
 
 ![No Metadata for Images](../resources/images/lab-image-skills/no-images-info.png)
 

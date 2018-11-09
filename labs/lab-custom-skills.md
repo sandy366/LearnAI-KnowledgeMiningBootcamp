@@ -32,7 +32,7 @@ Now, clicking the blue buttons, choose the region where you created your Content
 + PII = true
 + listId = remove parameter (we don't have a list of prohibited terms to work with at this point)
 + classify = true
-+ language = eng (The default example is in english)
++ language = eng (The default example is in English)
 + Keep Content-Type as "text/plain"
 + Paste in your Content Moderator API key
 
@@ -48,7 +48,7 @@ Visual Studio has [Tools for AI](https://visualstudio.microsoft.com/downloads/ai
 
 ### Step 2.1 - Checking Versions
 
-Open your Visual Studio and click "Help / About Microsoft Visual Studio" on the main menu. You can try to use different versions, especially newer versions. But this training was created using the envivonment below and It is strongly recommended that you use the same versions. Please check if your system match this versions:
+Open your Visual Studio and click "Help / About Microsoft Visual Studio" on the main menu. You can try to use different versions, especially newer versions. But this training was created using the environment below and It is strongly recommended that you use the same versions. Please check if your system matches this versions:
 
 + Visual Studio version 15.8.9
 + Microsoft .Net Framework version 4.7.03190
@@ -76,7 +76,7 @@ Double click, or hit enter, on the .sln file to open it in Visual Studio. Check 
 
 In the image below you can see very important aspects of the code you are about to edit:
 
-1. In the first red square you can see the code testing the return of the Content Moderator API for Personal Indentifiable Information (PII). The code will return if the documents of the dataset have PII or not.
+1. In the first red square you can see the code testing the return of the Content Moderator API for Personal Identifiable Information (PII). The code will return if the documents of the dataset have PII or not.
 
 1. The second red area highlights the "text" label. You will need to use this label in the skillset definition of this lab, in one of the next steps.
 
@@ -84,7 +84,7 @@ In the image below you can see very important aspects of the code you are about 
 
 ![C# code](../resources/images/lab-custom-skills/code.png)
 
->Note! This is not a C# training and this Azure Function application is a way to add the custom skill to the enrichment pipeline. Please note that good practices are not 100% used in the code (e.g the key wide open and fixed in the code). For enterprise grade solutions, this code should be adapted to all good practices, business and security requirements.
+>Note! This is not a C# training and this Azure Function application is a way to add the custom skill to the enrichment pipeline. Please note that good practices are not 100% used in the code (e.g. the key wide open and fixed in the code). For enterprise grade solutions, this code should be adapted to all good practices, business and security requirements.
 
 Click on the Moderation.cs file on the Solution Explorer, it should open in the main window of your Visual Studio. Get familiar with the "using session", to learn which packages are used. Scroll down until the three "TO DO - Action Required" sessions of the code.
 
@@ -219,7 +219,7 @@ Like we did in Lab 2, we suggest you add this new skill at the end of the body d
       {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
         "description": "Our new content moderator custom skill",
-        "uri": "https://[enter function name here].azurewebsites.net/api/Moderate?code=[enter default host key here]",
+        "uri": "https://[enter function name here].azurewebsites.net/api/ContentModerator?code=[enter default host key here]",
         "batchSize":1,
         "context": "/document",
         "inputs": [
@@ -254,7 +254,7 @@ Skipping the services and the data source creation, repeat the other steps of th
 5. Recreate the Indexer
 6. Check Indexer Status - Check the moderation results.  
 7. Check the Index Fields - Check the moderated text new field.
-8. Check the data - If you don't see the moderated data, something went wrong. Select only the ModeratedText and the blob_uri fields
+8. Check the data - If you don't see the moderated data, something went wrong. Select only the moderatedText and the blob_uri fields
 
 ## Step 8
 
@@ -266,5 +266,5 @@ If you could not make it, [here](../resources/finished-solutions/finished-soluti
 
 ## Next Step
 
-[Final Case Lab](../labs/lab-final-case.md) or
+[Business Documents Bot Lab](../labs/lab-bot-business-documents.md) or
 [Back to Read Me](../README.md)
