@@ -25,9 +25,9 @@ The example above illustrates some of the components users are expecting in thei
 1. Search an index
     - When submitting search requests to Azure Search, you can use simple search options, you can [filter](https://docs.microsoft.com/en-us/azure/search/search-filters), [sort](https://docs.microsoft.com/en-us/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [project](https://docs.microsoft.com/en-us/azure/search/search-faceted-navigation), and [page over results](https://docs.microsoft.com/en-us/azure/search/search-pagination-page-layout). You have the ability to address spelling mistakes, phonetics, and Regex, and there are options for working with search and [suggest](https://docs.microsoft.com/en-us/rest/api/searchservice/suggesters). These query parameters allow you to achieve deeper control of the [full-text search experience](https://docs.microsoft.com/en-us/azure/search/search-query-overview).
 
-# Lab Steps
+## Lab Steps
 
-## Step 1 - Import Data
+### Step 1 - Import Data
 
 Using the Azure Search service created in the previous lab, you will use the "Import Data" wizard, that helps you with all required steps to ingest and analyze your data: data source and index creation.
 
@@ -71,7 +71,7 @@ Using the Azure Search service created in the previous lab, you will use the "Im
 
 ![Overview tab](../resources/images/lab-azure-search/redirect.png)
 
-## Step 2 - Check Indexer Execution Status
+### Step 2 - Check Indexer Execution Status
 
 1. To monitor data import, click on the **Indexers** link (it is in the middle of the page and you can also see it in the middle of the image above).
 
@@ -92,7 +92,7 @@ Using the Azure Search service created in the previous lab, you will use the "Im
 
     ![Indexer tab](../resources/images/lab-azure-search/indexer-advanced.png)
 
-## Query the Azure Search Index
+### Step 3 - Query the Azure Search Index
 
 Azure Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). In Azure Search, the simple query syntax excludes the fuzzy/slop options.
 
