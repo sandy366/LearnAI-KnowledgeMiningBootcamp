@@ -10,14 +10,14 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.CognitiveSearch.WebApiSkills;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
-namespace CustomWebSkill
+namespace CognitiveSkill
 {
-    public static class ModorationFunction
+    public static class Function1
     {
-               
-        [FunctionName("Moderate")]
-        public static async Task<HttpResponseMessage> RunContentMod([HttpTrigger(AuthorizationLevel.Function, "post", Route = null)]HttpRequestMessage req, TraceWriter log, ExecutionContext executionContext)
+        [FunctionName("ContentModerator")]
+        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = null)]HttpRequestMessage req, TraceWriter log, ExecutionContext executionContext)
         {
             log.Info("C# HTTP trigger function processed a request.");
             string skillName = executionContext.FunctionName;
@@ -30,36 +30,43 @@ namespace CustomWebSkill
             }
             dynamic obj = requestRecords.First().Data.First().Value;
 
+            if (obj.Length > 1024)
+                obj = obj.Substring(0, 1024);
+
             string val = await MakeRequest(obj);
             ContentModerator mod = JsonConvert.DeserializeObject<ContentModerator>(val);
+
+            bool requiresModeration = false;
+            if (mod.PII.Email.Length > 0)
+                requiresModeration = true;
+            if (mod.PII.Address.Length > 0)
+                requiresModeration = true;
+            if (mod.PII.IPA.Length > 0)
+                requiresModeration = true;
+            if (mod.PII.Phone.Length > 0)
+                requiresModeration = true;
             WebApiResponseRecord output = new WebApiResponseRecord();
             output.RecordId = requestRecords.First().RecordId;
-            output.Data["PII"] = mod.PII;
-                                                              
-            return req.CreateResponse(HttpStatusCode.OK, output);
-
+            output.Data["text"] = requiresModeration;
+            
+            WebApiSkillResponse resp = new WebApiSkillResponse();
+            resp.Values = new List<WebApiResponseRecord>();
+            resp.Values.Add(output);
+            return req.CreateResponse(HttpStatusCode.OK, resp);
         }
-
         static async Task<string> MakeRequest(string input)
         {
             var client = new HttpClient();
 
-            // TO DO - Action required!!
-            // URL of the Moderator API. Fix the Prefix below, using your service region. It can be found in the Azure Portal.
-            // If you are using South Central US, you don't need to change it.
+            //TO-DO: URL of the Moderator API. Fix the Prefix with your URL, what can be found in the Azure Portal. 
+            //If you are using southcentralus, don't need to change anything
             var uriPrefix = "https://southcentralus.api.cognitive.microsoft.com/contentmoderator";
-
-            // Suffix, don't need to change anything.
-            // Please realize the code will do PII only, for english only. This restriction was implemented by design, to keep the training as simple as possible.
             var uriSuffix = "/moderate/v1.0/ProcessText/Screen?autocorrect=false&PII=true&classify=false&language=eng";
 
-            // TO DO - Action required!!
-            // Request headers - Add your API key to the placeholder below.        
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "YourKeyHere");
+            //TO-DO: Add your content moderator key here
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "your content moderator key here");
 
-            //TO DO - Action required!!
-            // Add the correct URL of your host, same prefix as uriPrefix but without https:// and finishing on ".com". 
-            // If you are using South Central US, you don't need to change it.
+            //TO-DO: WITHOUT he https://, check the url of the region of your content moderator API. If nos southcentralus, change it.
             client.DefaultRequestHeaders.Add("Host", "southcentralus.api.cognitive.microsoft.com");
 
 
@@ -67,17 +74,18 @@ namespace CustomWebSkill
 
             HttpResponseMessage response;
             byte[] byteData = Encoding.UTF8.GetBytes(input);
-            // Request body
-
             using (var content = new ByteArrayContent(byteData))
             {
                 content.Headers.ContentType = new MediaTypeHeaderValue("text/plain");
                 response = await client.PostAsync(uri, content);
             }
-            return await response.Content.ReadAsStringAsync();
+            var result = response.Content.ReadAsStringAsync();
+
+            return await result;
 
         }
     }
+
 
     public class ContentModerator
     {
@@ -168,4 +176,3 @@ namespace CustomWebSkill
     }
 
 }
-

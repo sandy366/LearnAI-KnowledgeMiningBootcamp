@@ -64,17 +64,27 @@ If your .Net Framework version doesn't match, [download](https://www.microsoft.c
 
 ### Step 2.2 - Preparing the solution
 
-Open the Windows Explorer and find the folder "resources/azure-function-code/ where you cloned this repository. You need to locate the file ContentModerator.sln. There should be a ContentModerator folder in the same folder where you found the .sln file.
+Open the Windows Explorer and find the folder "resources/azure-function-code/ where you cloned this repository. You need to locate the file CognitiveSkill.sln. There should be a CognitiveSkill folder in the same folder where you found the .sln file.
 
 Double click, or hit enter, on the .sln file to open it in Visual Studio. Check your Solution Explorer on the right and confirm that you can see the same structure of the image below.
 
 ![Solution Structure](../resources/images/lab-custom-skills/structure.png)
 
+In the image below you can see very important aspects of the code you are about to edit:
+
+1. In the first red square you can see the code testing the return of the Content Moderator API for Personal Indentifiable Information (PII). The code will return if the documents of the dataset have PII or not.
+
+1. The second red area highlights the "text" label. You will need to use this label in the skillset definition of this lab, in one of the next steps.
+
+1. The other 3 read areas indicate where you need to edit the code, what will be explained right after the image, within this step of the lab.
+
+![C# code](../resources/images/lab-custom-skills/code.png)
+
 >Note! This is not a C# training and this Azure Function application is a way to add the custom skill to the enrichment pipeline. Please note that good practices are not 100% used in the code (e.g the key wide open and fixed in the code). For enterprise grade solutions, this code should be adapted to all good practices, business and security requirements.
 
-Click on the Moderator.cs file on the Solution Explorer, it should open in the main window of your Visual Studio. Get familiar with the "using session", to learn which packages are used. Scroll down until the three "TO DO - Action Required" sessions of the code.
+Click on the Moderation.cs file on the Solution Explorer, it should open in the main window of your Visual Studio. Get familiar with the "using session", to learn which packages are used. Scroll down until the three "TO DO - Action Required" sessions of the code.
 
-Follow the instructions of the three "TO DO" sections:
+Follow the instructions of the three "TO-DO" sections:
 
 + If necessary change "southcentralus" in the uriPrefix URL. This is the same endpoint of the first step of this lab
 + Add your key. This is the same key of the first step of this lab
@@ -88,10 +98,10 @@ Press **F5** or click the green arrow on the "ContentModerator" button to run th
 
 ![Cmd window](../resources/images/lab-custom-skills/cmd.png)
 
-Now use Postman to issue a call like the one shown below:
+Now use Postman, without any information in headers tab, to issue a call like the one shown below:
 
 ```http
-POST http://localhost:7071/api/Moderate
+POST http://localhost:7071/api/ContentModerator
 ```
 
 ### Request body
@@ -116,45 +126,20 @@ You should see a response similar to the following example:
 
 ```json
 {
-    "RecordId": "a1",
-    "Data": {
-        "PII": {
-            "Email": [
-                {
-                    "Detected": "abcdef@abcd.com",
-                    "SubType": "Regular",
-                    "Text": "abcdef@abcd.com",
-                    "Index": 7
-                }
-            ],
-            "IPA": [
-                {
-                    "SubType": "IPV4",
-                    "Text": "255.255.255.255",
-                    "Index": 47
-                }
-            ],
-            "Phone": [
-                {
-                    "CountryCode": "US",
-                    "Text": "6657789887",
-                    "Index": 31
-                }
-            ],
-            "Address": [
-                {
-                    "Text": "1 Microsoft Way, Redmond, WA 98052",
-                    "Index": 64
-                }
-            ]
+    "Values": [
+        {
+            "RecordId": "a1",
+            "Data": {
+                "text": true
+            },
+            "Errors": [],
+            "Warnings": []
         }
-    },
-    "Errors": [],
-    "Warnings": []
-}   ]
+    ]
 }
 ```
-Close down the Azure Function CLI window to stop debugging
+
+Close down the Azure Function CLI window to stop debugging.
 
 ## Step 4 - Publish the function to Azure
 
@@ -175,7 +160,7 @@ When you are satisfied with the function behavior, you can publish it.
 Now that you have the default host key, use Postman to test your function as follows:
 
 ```http
-POST https://[enter you Function name here].azurewebsites.net/api/Moderate?code=[enter default host key here]
+POST https://[enter you Function name here].azurewebsites.net/api/ContentModerator?code=[enter your Azure Functions key here]
 ```
 
 ### Request Body
@@ -272,9 +257,9 @@ Skipping the services and the data source creation, repeat the other steps of th
 3. Recreate the Skillset
 4. Recreate the Index
 5. Recreate the Indexer
-6. Check Indexer Status - Check the translation results.  
-7. Check the Index Fields - Check the translated text new field.
-8. Check the data - If you don't see the translated data, something went wrong.
+6. Check Indexer Status - Check the moderation results.  
+7. Check the Index Fields - Check the moderated text new field.
+8. Check the data - If you don't see the moderated data, something went wrong. Select only the ModeratedText and the blob_uri fields
 
 ## Step 8
 

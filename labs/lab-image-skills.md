@@ -23,7 +23,7 @@ If you check the response messages for any of the png or jpg files in the result
 Let's again repeat a previous lab request, but with another analysis. We will re-execute the step to verify content, but this time querying all fields.  
 
 ```http
-GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=*&api-version=2017-11-11-Preview
+GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=languageCode,keyPhrases,blob_uri&api-version=2017-11-11-Preview
 Content-Type: application/json
 api-key: [api-key]
 ```
@@ -32,17 +32,15 @@ Send the request. The web test tool should return the results in the textbox at 
 
 Go to line 106, you should see the following value in this line
 
->"blob_uri": "https://ctosa.blob.core.windows.net/basicdemo/redshirt.jpg"
+>"blob_uri": "<https://ctosa[your-container].blob.core.windows.net/basicdemo/redshirt.jpg">
 
 Note that no data values are returned on lines 107 - 110 for the key values that are defined as these return results back for the Language Detection, Text Split, Named Entity Recognition and Key Phrase Extraction Skills, which we defined in the previous lab. As the object in line 106 is just an image, we need to have a skills that deals with that.
 
 >[Tip] if the value described does not appear on line 106, in the top right of the reults screen is a magnifing glass buttom. Click on this button to open the Search box, in the text box type **"redshirt.jpg"** and click on the find next button to find this result.
 
-
-
 ![No Metadata for Images](../resources/images/lab-image-skills/no-images-info.png)
 
-## PART II: How can we fix it?
+## PART II: How can we fix it
 
 We will fix it, but there is a challenge for you to increase your learning about Predefined Skills. The next steps will guide you through the challenge and don't worry if you get stuck (that's why it's a challenge!), we will share the solution, too.
 
@@ -85,7 +83,7 @@ Now for your challenge exercise. We are using a basic Azure Search service, so w
 1. Recreate the Indexer
 1. Check Indexer Status - Here you can repeat the same verification of Lab 2, 1tep 1. If you don't have a different result, something went wrong.  
 1. Check the Index Fields - Check the image fields you just created.
-1. Check the data - Here you can repeat the same verification of Lab 2, Step 2. If you don't have a different result, something went wrong.
+1. Check the data - Here you can repeat the same verification of Lab 2, Step 2. If you don't have a different result, something went wrong. Select only the myOcrText field, for better visualization
 
 #### Step 5.1 Creating the skillset with the OCR image skillset
 
@@ -94,8 +92,6 @@ Use the same skillset definition from Lab 1,  add in the [OCR image analysis ski
 #### Step 5.2 - Recreating the index and indexer
 
 Skipping the services and the data source creation, repeat the other steps of the Lab 1, in the same order. Use the previous lab as a reference.
-
-
 
 **TIP 1:** What you need to do:
 

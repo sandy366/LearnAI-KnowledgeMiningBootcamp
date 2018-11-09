@@ -2,6 +2,11 @@
 
 ## Build an intelligent search solution using the Microsoft Azure AI Platform
 
+## TO DO
+
+1. Now it is possible to delete skillsets with postman. Change labs?
+1. finished solution - Lab Azure Search - Add query solutions with $select=ModeratedText,blob_uri and all other challenges
+
 ### About this Course
 
 In this course, you will create an enterprise search solution by applying knowledge mining to business documents like contracts, memos, presentations and images. You will use Microsoft Azure AI technology to extract insights from unstructured data and expose the results in a Bot interface. This training is two days, but you can compress the duration with [alternative agendas](./resources/md-files/alternative-agendas.md).
@@ -74,7 +79,6 @@ If you do not have any of the above pre-requisites, please find below links
 1. *To Install:* [Postman](https://www.getpostman.com/). To call the labs APIs
 1. *To Install:* [Bot Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases), use the '.exe' file from the latest release
 1. *To Install:* [Git for Windows](https://gitforwindows.org/) or any other git app you prefer
-
 
 ### Course Details
 

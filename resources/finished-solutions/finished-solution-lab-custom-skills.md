@@ -9,7 +9,7 @@ Here are the body requests for the solution to Lab 3. Don't forget to adjust the
 ```json
 {
   "description":
-  "Extract entities, detect language and extract key-phrases. Also, we call the content moderator function.",
+  "Extract entities, detect language and extract key-phrases. Also, Moderates the content with a custom skill",
   "skills":
   [
     {
@@ -82,24 +82,20 @@ Here are the body requests for the solution to Lab 3. Don't forget to adjust the
     },
     {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "description": "Our new content moderator custom skill",
-        "uri": "https://[enter function name here].azurewebsites.net/api/Moderate?code=[enter default host key here]",
+        "description": "Our new moderator custom skill",
+        "uri": "https://[your-azure-function-name].azurewebsites.net/api/ContentModerator?code=[your-azure-function-key]",
         "batchSize":1,
         "context": "/document",
         "inputs": [
           {
             "name": "text",
             "source": "/document/content"
-          },
-          {
-            "name": "language",
-            "source": "/document/languageCode"
           }
         ],
         "outputs": [
           {
             "name": "text",
-            "targetName": "moderatedText"
+            "targetName": "ModeratedText"
           }
         ]
       }
@@ -111,115 +107,63 @@ Here are the body requests for the solution to Lab 3. Don't forget to adjust the
 
 ```json
 {
-    "name": "demoindex",
-    "fields": [
+  "fields": [
+    {
+      "name": "id",
+      "type": "Edm.String",
+      "key": true,
+      "searchable": true,
+      "filterable": false,
+      "facetable": false,
+      "sortable": true
+    },
+     {
+      "name": "blob_uri",
+      "type": "Edm.String",
+      "searchable": true,
+      "filterable": false,
+      "facetable": false,
+      "sortable": true
+    },
+    {
+      "name": "content",
+      "type": "Edm.String",
+      "sortable": false,
+      "searchable": true,
+      "filterable": false,
+      "facetable": false
+    },
+    {
+      "name": "languageCode",
+      "type": "Edm.String",
+      "searchable": true,
+      "filterable": false,
+      "facetable": false
+    },
+    {
+      "name": "keyPhrases",
+      "type": "Collection(Edm.String)",
+      "searchable": true,
+      "filterable": false,
+      "facetable": false
+    },
+    {
+      "name": "organizations",
+      "type": "Collection(Edm.String)",
+      "searchable": true,
+      "sortable": false,
+      "filterable": false,
+      "facetable": false
+    },
         {
-            "name": "id",
-            "type": "Edm.String",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": true,
-            "facetable": false,
-            "key": true,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
-        },
-        {
-            "name": "blob_uri",
-            "type": "Edm.String",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": false,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
-        },
-        {
-            "name": "content",
-            "type": "Edm.String",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": false,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
-        },
-        {
-            "name": "languageCode",
-            "type": "Edm.String",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": true,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
-        },
-        {
-            "name": "keyPhrases",
-            "type": "Collection(Edm.String)",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": false,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
-        },
-        {
-            "name": "organizations",
-            "type": "Collection(Edm.String)",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": false,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
-        },
-        {
-            "name": "moderatedText",
-            "type": "Edm.String",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": false,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
-        }
-    ],
-    "scoringProfiles": [],
-    "defaultScoringProfile": null,
-    "corsOptions": null,
-    "suggesters": [],
-    "analyzers": [],
-    "tokenizers": [],
-    "tokenFilters": [],
-    "charFilters": []
+      "name": "ModeratedText",
+      "type": "Edm.Boolean",
+      "searchable": false,
+      "sortable": false,
+      "filterable": false,
+      "facetable": false
+    }
+  ]
 }
 ```
 
@@ -290,11 +234,11 @@ api-key: [api-key]
 ## Check the Moderated Content extracted
 
 ```http
-GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=moderatedText&api-version=2017-11-11-Preview
+GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=ModeratedText,blob_uri&api-version=2017-11-11-Preview
 Content-Type: application/json
 api-key: [api-key]
 ```
 
 ## Next Step
 
-[Back to Main Menu](./README.md)
+[Back to Main Menu](../../README.md)
