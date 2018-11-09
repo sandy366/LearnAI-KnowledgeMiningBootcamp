@@ -20,7 +20,7 @@ The text moderation responses include:
 
 ## Step 1 - Content Moderator API
 
-Use the [Azure Portal](https://ms.portal.azure.com) to create a Content Moderator API, using the name you want, the same location of the Azure Search service and the F0 pricing tier. You should also save the keys and the endpoint, for later use in this lab.
+Use the [Azure Portal](https://ms.portal.azure.com) to create a Content Moderator API, using the name you want, the same location of the Azure Search service and the S0 pricing tier. We can't use the free tier since it only allows 1 TPS (transaction per second). You should also save the keys and the endpoint, for later use in this lab.
 
 To see how the API works, and also to learn how to demo this technology in minutes, navigate to the [Content Moderator Text API console](https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/try-text-api). Read the whole page, it should take you about four minutes. When you are done, scroll all the way up and click the first link on the page, [Text Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). It will open a control panel for Cognitive Services, as you can see in the image below.
 
