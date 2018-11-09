@@ -72,7 +72,7 @@ If you do not have any of the above pre-requisites, please find below links
 1. *To Create:* You need a Microsoft Azure account to create the services we use in our solution. You can create a [free account](https://azure.microsoft.com/en-us/free/), use your MSDN account or any other subscription where you have permission to create services
 1. *To Install:* [Visual Studio 2017](https://www.visualstudio.com/vs/) version 15.5 or later, *including the Azure development workload*
 1. *To Install:* [Postman](https://www.getpostman.com/). To call the labs APIs
-1. *To Install:* [Bot Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases), use the '.exe' file from the latest release
+1. *To Install:* [Bot Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases), use the '.exe' file from release 4.1.0 or newer
 1. *To Install:* [Git for Windows](https://gitforwindows.org/) or any other git app you prefer
 
 ### Course Details
