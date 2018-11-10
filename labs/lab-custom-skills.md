@@ -196,11 +196,9 @@ For more information, click [here](https://docs.microsoft.com/en-us/azure/search
 
 ## Step 6 - Cleaning the environment again
 
-Let's do the same cleaning process of lab 2. Save all scripts (API calls) you did until here, including the definition json files you used in the "body" field.
+Let's do the same cleaning process of the previous lab. Save all scripts (API calls) you did until here, including the definition json files you used in the "body" field.
 
-### Step 6.1 - Delete the index and indexer
-
-Let's start deleting the index and the indexer. You can use Azure Portal or API calls:
+You can use Azure Portal or API calls to do the required deletes:
 
 1. [Deleting the indexer - API call](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-indexer) - Just use your service, key and indexer name
 1. [Deleting the index](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-index) - Just use your service, key and indexer name
