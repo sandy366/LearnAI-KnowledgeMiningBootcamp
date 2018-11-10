@@ -16,7 +16,7 @@ In this lab, you will create an Azure Search service and a storage account. We r
 
 1. For **Location**, choose either **South Central US** or **West Europe**. Currently, the Cognitive Search API is only available in these two regions
 
-1. For **Pricing tier**, create a **Basic** service to complete tutorials and quickstarts. For deeper information on Azure Search pricing, click [here](https://azure.microsoft.com/pricing/details/search/) and [here](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity). 
+1. For **Pricing tier**, create a **Basic** service to complete tutorials and quickstarts. For deeper information on Azure Search pricing and limits, click [here](https://azure.microsoft.com/pricing/details/search/) and [here](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity). 
 
   > Tip! While Cognitive Search is in public preview, you just need to pay for the Azure Search service.  At a later time, the pricing for this capability will be announced. Skillset execution is currently available in all tiers, including free. But it is not enough for this training.
 
