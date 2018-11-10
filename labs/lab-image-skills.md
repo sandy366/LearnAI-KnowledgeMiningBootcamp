@@ -50,7 +50,7 @@ Two of the nine [predefined skills](https://docs.microsoft.com/en-us/azure/searc
 
 We will add OCR to our cognitive search pipeline, this skill set will read text from the images within our dataset. Here is a [link](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-ocr) where you can read more details.
 
-### Step 4 - Preparing the environment
+### Step 4 - Cleaning the environment
 
 We need to prepare the environment to add the image analysis we will create. The most practical approach is to delete the objects from Azure Search and rebuild them. With the exception of the data source, we will delete everything else. Resource names are unique, so by deleting an object, you can recreate it using the same name.
 
