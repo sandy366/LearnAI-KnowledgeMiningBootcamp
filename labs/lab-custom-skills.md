@@ -224,10 +224,6 @@ Like we did in Lab 2, we suggest you add this new skill at the end of the body d
           {
             "name": "text",
             "source": "/document/content"
-          },
-          {
-            "name": "language",
-            "source": "/document/languageCode"
           }
         ],
         "outputs": [
