@@ -180,7 +180,7 @@ If you just want to teach what Cognitive Search is, since it is a brand new prod
 
 1. ~~[Lab 7](../../labs/lab-final-case.md) - **Architecture Design Session**~~
 
-## Alternative Agenda - 2 hour - Cognitive Search Lab Session
+## Alternative Agenda - 2 hours - Cognitive Search Lab Session
 
 For express deliveries with some knowledge and some code. It is expected a qualified audience, with knowledge on Azure Search. Environment Creation and pre-reqs must be done before the start of the training.
 
