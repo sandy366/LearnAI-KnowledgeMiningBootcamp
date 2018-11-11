@@ -238,8 +238,8 @@ Like we did in Lab 2, we suggest you add this new skill at the end of the body d
 
 ### Step 7.1 - Challenge
 
-As you can see, again we are not giving you the body request. One more time you need to use Lab 1 as a reference. We can't use lab 2 definition because we've hit the maximum number of skills allowed within a skillset of a basic account (five). So, let's use Lab 1 json requests again.
-Skipping the services and the data source creation, repeat the other steps of the Lab 1, in the same order.
+As you can see, again we are not giving you the body request. One more time you can use the previous lab as a reference.  
+Skipping the services and the data source creation, repeat the other steps of the previous labs, in the same order.
 
 1. ~~Create the services at the portal~~ **Not required, we did not delete it**.
 2. ~~Create the Data Source~~ **Not required, we did not delete it**.
