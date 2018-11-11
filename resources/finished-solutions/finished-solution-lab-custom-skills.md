@@ -8,7 +8,7 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
 
 ```json
 {
-  "description":
+  "description": 
   "Extract entities, detect language and extract key-phrases. Also, Moderates the content with a custom skill",
   "skills":
   [
@@ -43,14 +43,14 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
-      "textSplitMode" : "pages",
+      "textSplitMode" : "pages", 
       "maximumPageLength": 4000,
       "inputs": [
       {
         "name": "text",
         "source": "/document/content"
       },
-      {
+      { 
         "name": "languageCode",
         "source": "/document/languageCode"
       }
@@ -79,11 +79,31 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
           "targetName": "keyPhrases"
         }
       ]
-    },
+    }, 
+    
+     {
+        "description": "Extracts text (plain and structured) from image.",
+        "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
+        "context": "/document/normalized_images/*",
+        "defaultLanguageCode": null,
+        "detectOrientation": true,
+        "inputs": [
+          {
+            "name": "image",
+            "source": "/document/normalized_images/*"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "text",
+            "targetName": "myOcrText"
+          }
+        ]
+      },
     {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
         "description": "Our new moderator custom skill",
-        "uri": "https://[your-azure-function-name].azurewebsites.net/api/ContentModerator?code=[your-azure-function-key]",
+        "uri": "https://cognitiveskill20181107032017.azurewebsites.net/api/ContentModerator?code=bA/CVOmqtLEpEEGRiedDiMR5aPybUcU1Pa3d1cB4POnrOYEOf/4Zyw==",
         "batchSize":1,
         "context": "/document",
         "inputs": [
@@ -155,7 +175,14 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
       "filterable": false,
       "facetable": false
     },
-        {
+    {
+      "name": "myOcrText",
+      "type": "Collection(Edm.String)",
+      "searchable": true,
+      "filterable": false,
+      "facetable": false
+    } ,
+   {
       "name": "ModeratedText",
       "type": "Edm.Boolean",
       "searchable": false,
@@ -172,7 +199,7 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
 ```json
 {
   "name":"demoindexer",
-  "dataSourceName" : "demodata",
+  "dataSourceName" : "newdatasource",
   "targetIndexName" : "demoindex",
   "skillsetName" : "demoskillset",
   "fieldMappings" : [
@@ -206,8 +233,12 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
             "targetFieldName": "languageCode"
         },
          {
-            "sourceFieldName": "/document/moderatedText",
-            "targetFieldName": "moderatedText"
+            "sourceFieldName": "/document/normalized_images/*/myOcrText",
+            "targetFieldName": "myOcrText"
+        },
+        {
+            "sourceFieldName": "/document/ModeratedText",
+            "targetFieldName": "ModeratedText"
         }
   ],
   "parameters":
@@ -221,6 +252,7 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
         }
   }
 }
+
 ```
 
 ## Check Status
@@ -234,7 +266,7 @@ api-key: [api-key]
 ## Check the Moderated Content extracted
 
 ```http
-GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=ModeratedText,blob_uri&api-version=2017-11-11-Preview
+GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=ModeratedText,blob_uri,myOcrText&api-version=2017-11-11-Preview
 Content-Type: application/json
 api-key: [api-key]
 ```
