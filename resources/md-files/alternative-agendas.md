@@ -48,7 +48,7 @@ If the audience is familiar with Azure Search, but not with Cognitive Search.
 
 1. [Lab 7](../../labs/lab-final-case.md) - **Architecture Design Session**
 
-## Alternative Agenda - 1.5 Days - No Bot
+## Alternative Agenda - 1.5 Days - KMB without the Bot Lab
 
 If the audience is familiar with Bots or Web Developments using APIs
 
@@ -155,6 +155,28 @@ To do this in half day you need a qualified audience and all pre-reqs and enviro
 1. [Lab 5](../../labs/lab-custom-skills.md) - Cognitive Search – **Custom Skills**
 
 1. ~~[Lab 6](../../labs/lab-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API~~
+
+1. ~~[Lab 7](../../labs/lab-final-case.md) - **Architecture Design Session**~~
+
+## Alternative Agenda - 0.5 Day - Basic Cognitive Search with Bot
+
+To do this in half day you need a qualified audience and all pre-reqs and environment creation done before the start of the training.
+
+1. [Introduction](../../resources/md-files/introduction.md) – **Presentation** overview of Azure Search, Cognitive Search, business scenarios and industry specific applications.
+
+1. [Architecture](../../resources/md-files/solution-architecture.md) – **Solution Architecture** for building enterprise search solution.
+
+1. ~~[Lab 1](../../labs/lab-environment-creation.md) - Azure - **Environment Creation**~~
+
+1. ~~[Lab 2](../../labs/lab-azure-search) - Azure Search - **Indexing Blob Storage**~~
+
+1. [Lab 3](../../labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
+
+1. ~~[Lab 4](../../labs/lab-image-skills.md) - Cognitive Search – **Image Skills**~~
+
+1. ~~[Lab 5](../../labs/lab-custom-skills.md) - Cognitive Search – **Custom Skills**~~
+
+1. [Lab 6](../../labs/lab-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API
 
 1. ~~[Lab 7](../../labs/lab-final-case.md) - **Architecture Design Session**~~
 
