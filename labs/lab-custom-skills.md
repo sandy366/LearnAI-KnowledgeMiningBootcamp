@@ -258,7 +258,7 @@ Now we have our data enriched with pre-defined and custom skills. Use the Search
 
 ## Finished Solution
 
-If you could not make it, [here](../resources/finished-solutions/finished-solution-Lab-custom-skills.md) is the challenge solution. You just need to follow the steps.
+If you could not make it, [here](../resources/finished-solutions/finished-solution-lab-custom-skills.md) is the challenge solution. You just need to follow the steps.
 
 ## Next Step
 
