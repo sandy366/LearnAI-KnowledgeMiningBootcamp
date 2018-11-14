@@ -4,7 +4,9 @@ In this lab, you will learn the mechanics of programming data enrichment in Azur
 
 **All the links in this lab are extra content for your learning, but you don't need them to perform the required activities.**
 
-In this lab, we will learn how to create a Cognitive Search indexing pipeline that enriches source data in route to an index. The output is a full text searchable index on Azure Search.
+In this lab, we will learn how to create a Cognitive Search indexing pipeline that enriches source data in route to an index. The output is a full text searchable index on Azure Search. The image below shows you the 4 objects we will create using API CALLs.
+
+![Lab Plan](../resources/images/lab-text-skills/plan.png)
 
 The list of activities we will do, using Azure Search REST APIs, is:
 
