@@ -29,7 +29,7 @@ Now that your services and source files are prepared, you can start assembling t
 For this tutorial, we will use Postman to call Azure Search service APIs. Using the **POST** method and **Header** of the Postman application, you will provide the service name and the api-key you used while creating the Azure Search service, and you will define the content-type as JSON. This information is summarized as follows:
 
 ```http
-PUT https://[servicename].search.windows.net/datasources?api-version=2017-11-11-Preview
+POST https://[servicename].search.windows.net/datasources?api-version=2017-11-11-Preview
 Content-Type: application/json
 api-key: [admin key]
 ```
@@ -41,7 +41,7 @@ If you are not so familiar with Postman, perform the following detailed steps to
     - Open the Postman application. If a dialog box opens, close it down. You will be presented with a screen that states **"Untitled Request"** , underneath this is a button that shows the word **"GET"**.
     - Click on the downward pointing arrow next to **"GET"**, and click the option **"POST"**.
     - In the text box that shows the words "Enter request url" type in the following information, replacing **[service name]** with the name of the Azure Search service you created:
-      > <https://[service> name].search.windows.net/datasources?api-version=2017-11-11-Preview  
+      > https://[service name].search.windows.net/datasources?api-version=2017-11-11-Preview  
 
 1. Define header information in the Headers tab
     - Below the text box where you have defined your url, click on the link that states **"Headers"**.
