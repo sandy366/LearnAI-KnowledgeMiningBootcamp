@@ -4,7 +4,9 @@ In this lab, you will learn the mechanics of programming data enrichment in Azur
 
 **All the links in this lab are extra content for your learning, but you don't need them to perform the required activities.**
 
-In this lab, we will learn how to create a Cognitive Search indexing pipeline that enriches source data in route to an index. The output is a full text searchable index on Azure Search.
+In this lab, we will learn how to create a Cognitive Search indexing pipeline that enriches source data in route to an index. The output is a full text searchable index on Azure Search. The image below shows you the 4 objects we will create using API CALLs.
+
+![Lab Plan](../resources/images/lab-text-skills/plan.png)
 
 The list of activities we will do, using Azure Search REST APIs, is:
 
@@ -27,7 +29,7 @@ Now that your services and source files are prepared, you can start assembling t
 For this tutorial, we will use Postman to call Azure Search service APIs. Using the **POST** method and **Header** of the Postman application, you will provide the service name and the api-key you used while creating the Azure Search service, and you will define the content-type as JSON. This information is summarized as follows:
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
+POST https://[servicename].search.windows.net/datasources?api-version=2017-11-11-Preview
 Content-Type: application/json
 api-key: [admin key]
 ```
@@ -39,7 +41,7 @@ If you are not so familiar with Postman, perform the following detailed steps to
     - Open the Postman application. If a dialog box opens, close it down. You will be presented with a screen that states **"Untitled Request"** , underneath this is a button that shows the word **"GET"**.
     - Click on the downward pointing arrow next to **"GET"**, and click the option **"POST"**.
     - In the text box that shows the words "Enter request url" type in the following information, replacing **[service name]** with the name of the Azure Search service you created:
-      > <https://[service> name].search.windows.net/datasources?api-version=2017-11-11-Preview  
+      > https://[service name].search.windows.net/datasources?api-version=2017-11-11-Preview  
 
 1. Define header information in the Headers tab
     - Below the text box where you have defined your url, click on the link that states **"Headers"**.
@@ -388,7 +390,7 @@ Send the request. The web test tool should return a status code of 201 confirmin
 
 Expect this step to take several minutes to complete. Even though the data set is small, analytical skills are computation-intensive. Some skills, such as image analysis, are long-running.
 
-Check the Azure portal to confirm the index was created in Azure Search. On the **Search service dashboard page**, verify the **Indexers** tile has a 2 items. You might need to wait a few minutes for the portal page to refresh. Click on **Indexers** to confirm that the ```demoindexer``` appears.
+Check the Azure portal to confirm the index was created in Azure Search. On the **Search service dashboard page**, verify if the **Indexers** tile has a 2 items. You might need to wait a few minutes for the portal page to refresh. Click on **Indexers** to confirm that the ```demoindexer``` appears.
 
 While it is running, check this detail: The "blob_uri" was defined as the second field of the index. But it is the third mapping in the indexer. It is a good example on how they work independent. You should scroll up to see these two body requests and compare them.
 

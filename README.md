@@ -106,7 +106,7 @@ Full Course classroom training:  16 hours
 
 1. [Lab 1](./labs/lab-environment-creation.md) - Azure - **Environment Creation**
 
-1. [Lab 2](./labs/lab-azure-search) - Azure Search - **Indexing Blob Storage**
+1. [Lab 2](./labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**
 
 1. [Lab 3](./labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
 
