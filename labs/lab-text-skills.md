@@ -64,6 +64,7 @@ In the **Request body**, you will specify the blob container name and connection
     "container" : { "name" : "<your blob container name>" }
 }  
 ```
+>Note! Double check you have used the all connection string, it is very long and sometimes you may have not copied it all.
 
 If you are not so familiar with Postman, perform the following detailed steps to define the Request body.
 
