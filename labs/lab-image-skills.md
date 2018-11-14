@@ -64,7 +64,7 @@ Status code 204 is returned on a successful deletion.
 
 ### Step 5 - Recreating the environment - Challenge
 
-Now for your challenge exercise. We are using a basic Azure Search service, so we can create skillsets with up to 5 skills. Since we currently are using 4, from the previous lab, we can add one more for image processing. In this challenge exercise, you will be performing the following steps:
+Now we have a challenge for you. In this challenge exercise, you will be performing the following steps:
 
 1. ~~Create the services at the portal~~ **Not required, we did not delete it**.
 1. ~~Create the Data Source~~ **Not required, we did not delete it**.
@@ -85,14 +85,14 @@ Skipping the services and the data source creation, repeat the other steps of th
 
 **TIP 1:** What you need to do:
 
-1. Create a new index exactly like the one we did in Lab 1 but with an extra field for the OCR text from the images. Name suggestion: myOCRtext. You can use the same json body field and add the new OCR field in the end.
+1. Create a new index exactly like the one we did in Lab 1 but with an extra field for the OCR text from the images. Name suggestion: myOcrText. You can use the same json body field and add the new OCR field in the end.
 1. Create a new indexer exactly like the one we did in Lab 1, but with and extra mapping for the new skill and the new field listed above. You can use the same json body field and add the new OCR mapping in the end.
 
 **TIP 2:** Your new field in the Index must have the [Collection Data Type](https://docs.microsoft.com/en-us/rest/api/searchservice/Supported-data-types?redirectedfrom=MSDN).
 
 #### Step 5.3 - Validating the index creation
 
-You can query only the OCR field, to better visualize the results. Suppose that your new index field name is myOcrTex. You can query it using:
+You can query only the OCR field, to better visualize the results. Suppose that your new index field name is myOcrText. You can query it using:
 
 ```http
 GET https://[servicename].search.search.windows.net/indexes/rodindex2/docs?search=*&$select=myOcrText&api-version=2017-11-11-Preview
