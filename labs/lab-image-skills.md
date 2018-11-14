@@ -36,7 +36,7 @@ Go to any result set about an image file like jpg or png, like this one below.
 
 Note that no keyPhrases returned for the redshirt.jpg image as these return results back for the Language Detection, Text Split, Named Entity Recognition and Key Phrase Extraction Skills, which we defined in the previous lab. As the object in line 100 is just an image, we need to have a skills that deals with that.
 
->Tip: if the value described does not appear on line 106, in the top right of the results screen is a magnifying glass button. Click on this button to open the Search box, in the text box type **"redshirt.jpg"** and click on the find next button to find this result.
+>Tip: if the value described does not appear right in the top of the result set, in the top right of the results screen is a magnifying glass button. Click on this button to open the Search box, in the text box type **"redshirt.jpg"** and click on the find next button to find this result.
 
 ![No Metadata for Images](../resources/images/lab-image-skills/no-images-info.png)
 
