@@ -199,7 +199,7 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
 ```json
 {
   "name":"demoindexer",
-  "dataSourceName" : "newdatasource",
+  "dataSourceName" : "demodata",
   "targetIndexName" : "demoindex",
   "skillsetName" : "demoskillset",
   "fieldMappings" : [
