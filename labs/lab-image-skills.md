@@ -32,7 +32,7 @@ Send the request. The web test tool should return the results in the textbox at 
 
 Go to line 106, you should see the following value in this line
 
->"blob_uri": "<https://ctosa[your-container].blob.core.windows.net/basicdemo/redshirt.jpg">
+>"blob_uri": "<https://[your-container].blob.core.windows.net/basicdemo/redshirt.jpg">
 
 Note that no data values are returned on lines 107 - 110 for the key values that are defined as these return results back for the Language Detection, Text Split, Named Entity Recognition and Key Phrase Extraction Skills, which we defined in the previous lab. As the object in line 106 is just an image, we need to have a skills that deals with that.
 
