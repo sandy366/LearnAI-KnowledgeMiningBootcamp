@@ -30,7 +30,7 @@ api-key: [api-key]
 
 Send the request. The web test tool should return the results in the textbox at the bottom of the Postman application.
 
-Go to line 100, you should see the following value in this line
+Go to any result set about an image file like jpg or png, like this one below.
 
 >"blob_uri": "<https://[your-container].blob.core.windows.net/basicdemo/redshirt.jpg">
 
