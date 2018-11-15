@@ -270,6 +270,11 @@ GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$se
 Content-Type: application/json
 api-key: [api-key]
 ```
+## Filter moderated content using Azure Search Explorer
+
+```http
+$select=blob_uri,ModeratedText&$filter=ModeratedText eq true
+```
 
 ## Next Step
 
