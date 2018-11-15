@@ -241,6 +241,8 @@ Like we did in Lab 2, we suggest you add this new skill at the end of the body d
 As you can see, again we are not giving you the body request. One more time you can use the previous lab as a reference.  
 Skipping the services and the data source creation, repeat the other steps of the previous labs, in the same order.
 
+>Note! Please make sure you will create the new index with the new field for the moderation analysis as boolean. More information [here](https://docs.microsoft.com/en-us/azure/search/search-what-is-an-index).
+
 1. ~~Create the services at the portal~~ **Not required, we did not delete it**.
 2. ~~Create the Data Source~~ **Not required, we did not delete it**.
 3. Recreate the Skillset
