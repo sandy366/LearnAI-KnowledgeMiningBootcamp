@@ -31,11 +31,11 @@ The example above illustrates some of the components users are expecting in thei
 
 Using the Azure Search service created in the previous lab, you will use the "Import Data" wizard, that helps you with all required steps to ingest and analyze your data: data source and index creation.
 
-- From the Overview tab, click on the **Import Data** option and right after, click on **Connect to Data Source**
+- From the Overview tab, click on the **Import Data** option
 
 ![Import Data Graphic](../resources/images/lab-azure-search/import-data.png)
 
-- Choose the **Azure Blob Storage** Data Source and name it as `lab1data`. Choose the **Content and Metadata** option, we want to index not only the files properties but also their content. Choose the **Default** parsing mode, since the dataset also have pdfs. The **Text** option has performance advantage, but that's not what we want because on the characteristics of our dataset. In the **Connection string** add the connection string collected in the previous lab. In the **Container name**, type "basicdemo". You skip Blob Folder and Description. After you click the **OK** blue button, you will wait a few seconds because Azure Search will be detecting (sampling) the schema and the metadata of the dataset.
+- Create a new data source. Choose the **Azure Blob Storage** Data Source and name it as `lab1data`. Choose the **Content and Metadata** option, we want to index not only the files properties but also their content. Choose the **Default** parsing mode, since the dataset also have pdfs. The **Text** option has performance advantage, but that's not what we want because on the characteristics of our dataset. In the **Connection string** add the connection string collected in the previous lab. In the **Container name**, type "basicdemo". You skip Blob Folder and Description. After you click the blue button, you will wait a few seconds because Azure Search will be detecting (sampling) the schema and the metadata of the dataset.
 
 ![Data Source Graphic](../resources/images/lab-azure-search/data-source-2.png)
 
