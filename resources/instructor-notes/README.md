@@ -31,6 +31,10 @@ Important to comment:
 1. You can use [this](https://github.com/Rodrigossz/AzureCognitiveSkill) Azure Functions solution to demo the complex type that is returned
 1. Explanation: we are only using PII
 
+## Bot LAB
+
+You can demo searches for linux e LearnAI. Ctrl+click the URL to open the IMAGES, not the other files.
+
 ## Final Case - Finished Solution
 
 Expected:
