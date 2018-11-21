@@ -20,6 +20,17 @@ Use the KMB-Opening.pptx presentation to:
 
 While the introduction has a pdf version, this one won't have one. The idea is to keep on editing this presentation for each delivery.
 
+## Azure Functions Code
+
+Important to comment:
+
+1. language: eng (Content Moderator) x en (Azure Search)
+1. 1024 limit
+1. host x region. Without and with https
+1. Complex types explanation: why we are transforming in boolean
+1. You can use [this](https://github.com/Rodrigossz/AzureCognitiveSkill) Azure Functions solution to demo the complex type that is returned
+1. Explanation: we are only using PII
+
 ## Final Case - Finished Solution
 
 Expected:
