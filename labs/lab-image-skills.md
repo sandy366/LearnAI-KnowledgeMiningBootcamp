@@ -45,7 +45,7 @@ We will add OCR to our cognitive search pipeline, this skill set will read text 
 
 ### Step 4 - Cleaning the environment
 
-We need to prepare the environment to add the image analysis we will create. The most practical approach is to delete the objects from Azure Search and rebuild them. With the exception of the data source, we will delete everything else. Resource names are unique, so by deleting an object, you can recreate it using the same name.
+We need to prepare the environment to add the image analysis we will create. The most practical approach is to delete the objects from Azure Search and rebuild them. This also avoids redundancy of similar information. This cleaning also reduces cost, two replicated/similar indexes will use space os the service. Last, but not least: to teach about DELETES is also an objective of this training. With the exception of the data source, we will delete everything else. Resource names are unique, so by deleting an object, you can recreate it using the same name.
 
  Save all the scripts (API calls) you've done up until this point, including the definition json files you used in the "body" field. Let's start deleting the index and the indexer. You can use Azure Portal or API calls:
 
