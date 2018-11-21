@@ -20,25 +20,18 @@ If you check the response messages for any of the png or jpg files in the result
 
 ### Step 2 - Existing skills will show no results
 
-Let's again repeat a previous lab request, but with another analysis. We will re-execute the step to verify content, but this time querying all fields.  
+Let's again repeat a previous lab request, but with another analysis. We will re-execute the step to verify content.  
 
 ```http
-GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=languageCode,keyPhrases,blob_uri&api-version=2017-11-11-Preview
-Content-Type: application/json
+GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=organizations,blob_uri&api-version=2017-11-11-Preview
 api-key: [api-key]
 ```
 
 Send the request. The web test tool should return the results in the textbox at the bottom of the Postman application.
 
-Go to any result set about an image file like jpg or png, like this one below.
+Go to any result set about an image file like jpg or png, like this one below. Note that no organizations are returned.
 
->"blob_uri": "<https://[your-container].blob.core.windows.net/basicdemo/redshirt.jpg">
-
-Note that no keyPhrases returned for the redshirt.jpg image as these return results back for the Language Detection, Text Split, Named Entity Recognition and Key Phrase Extraction Skills, which we defined in the previous lab. As the object in line 100 is just an image, we need to have a skills that deals with that.
-
->Tip: if the value described does not appear right in the top of the result set, in the top right of the results screen is a magnifying glass button. Click on this button to open the Search box, in the text box type **"redshirt.jpg"** and click on the find next button to find this result.
-
-![No Metadata for Images](../resources/images/lab-image-skills/no-images-info.png)
+>Tip: if any image is in the top results: There is a magnifying glass button in the top right of the results screen. Click on this button to open the Search box, in the text box type **"redshirt.jpg"** and click on the find next button to find this result.
 
 ## PART II: How to fix it
 
