@@ -14,9 +14,9 @@ In this lab, you will create an Azure Search service and a storage account. We r
 
 1. For **Resource group**, create a resource group to contain all the resources you create in this tutorial. This makes it easier to clean up the resources after you have finished the tutorial.
 
-1. For **Location**, choose either **South Central US** or **West Europe**. Currently, the Cognitive Search API is only available in these two regions
+1. For **Location**, choose between **Australia East**, **South Central US** or **West Europe**. Currently, the Cognitive Search API is only available in these regions
 
-1. For **Pricing tier**, create a **Basic** service to complete tutorials and quickstarts. For deeper information on Azure Search pricing and limits, click [here](https://azure.microsoft.com/pricing/details/search/) and [here](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity). 
+1. For **Pricing tier**, create a **Basic** service to complete tutorials and quickstarts. For deeper information on Azure Search pricing and limits, click [here](https://azure.microsoft.com/pricing/details/search/) and [here](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity).
 
   > Tip! While Cognitive Search is in public preview, you just need to pay for the Azure Search service.  At a later time, the pricing for this capability will be announced. Skillset execution is currently available in all tiers, including free. But it is not enough for this training.
 
@@ -51,26 +51,21 @@ Cloning the repo will download all the training materials to your computer, incl
 
 The enrichment pipeline pulls from Azure data sources. Source data must originate from a supported data source type of an [Azure Search indexer](https://docs.microsoft.com/en-us/azure/search/search-indexer-overview). For this exercise, we use blob storage to showcase multiple content types.
 
- 1. Create a **storage account** in the **same region of your Azure Search service** created in the step above, to avoid latency between the search service and the files.  Use a **general purpose** account and **LRS replication**. For production environments, you may need to use another replication type. If you haven't done this before, you can refer to the [Azure Storage Explorer Quickstart](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) for instructions on all the steps.
+ 1. Create a **storage account** in the **same region of your Azure Search service** created in the step above, to avoid latency between the search service and the files.  Use a **general purpose** account and **LRS replication**. For production environments, you may need to use another replication type.
 
- 1. Within this storage account, create a **container** named **`basicdemo`**. 
-    - To create a container, select the storage account, click the CONTAINERS tab and click **ADD CONTAINER** at the bottom of the screen, which opens a new dialog box. 
-    - Enter a name for the container. 
+ 1. From the storage account **Overview** tab, click the link to **Blobs** and create a **container** named **`basicdemo`**:
+    - Enter a name for the container.
     - Select **Private** for Access Type. When you set the access to private, the container and blob data can be read by the Windows Azure account owner only.
 
  1. You can upload the sample **all files** from the **\resources\dataset** folder to the blob storage using [Azure Portal](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal) or [Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). There are other methods to upload data to Azure, but we don't  suggest them for this training.
 
 >Tip! If you are using Azure Storage Explorer, in the `basicdemo` container you created, click **Upload** to upload the sample files.
+>
+>Be careful! don't create another folder level. This training is created with the assumption that all of the data is located in the root folder of the container.
 
- After sample files are uploaded, get the container name and a connection string for your Blob storage. You could do that by navigating to your storage account in the Azure portal. On **Access keys**, and then copy the **Connection String**  field.
+Use the portal to confirm that all of the 21 files are uploaded to the root directory of the **basicdemo** container.
 
- We recommend storing the container name and connection string with your Azure Search URL and api-key from Step 1. The connection string should be a URL similar to the following hypothetical example:
-
-  ```http
-  DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your key here>==;EndpointSuffix=core.windows.net
-  ```
-
-There are other ways to specify the connection string, such as providing a shared access signature. We won't be covering that in this workshop, but to learn more about data source credentials, see [Indexing Azure Blob Storage](https://docs.microsoft.com/en-us/azure/search/search-howto-indexing-azure-blob-storage).
+Also in the portal, find the storage account tab called **Access keys**, it has information you will use in the next lab. Get familiar with the blue icons to copy the information for storage account name, key and connection string. They prevent partial copy of the codes. Extra care with the connection string, it is long and finished with **core.windows.net**.
 
 ## Next Step
 

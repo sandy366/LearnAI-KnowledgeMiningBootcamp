@@ -102,7 +102,27 @@ api-key: [api-key]
 
 Your indexer sourceFieldName for the OCR text field has to be /document/normalized_images/*/myOcrText if your field is named myOcrText.  
 
-In addition you can log into the Azure portal and verify the creation of the skillset, index and indexers in the Azure Search dashboard
+#### Step 5.4 - Portal
+
+Log into the Azure portal and verify the creation of the skillset, index and indexers in the Azure Search dashboard. If nothing is missed, use the Search Explorer to do the searches below. Click on the files URLs (crtrl+click) to check if the AI services created the metadada as expected.
+
++ Search for "linux"
+
+```http
+search=myOcrText:linux&querytype=full
+```
+
++ Search for "microsoft"
+
+```http
+search=myOcrText:microsoft&querytype=full
+```
+
++ Search for "LearnAI", that is the team that created this training. You should see an image of our portal.
+
+```http
+search=myOcrText:LearnAI&querytype=full
+```
 
 ## Finished Solution
 
