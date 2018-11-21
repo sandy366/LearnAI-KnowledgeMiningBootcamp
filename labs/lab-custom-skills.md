@@ -73,7 +73,7 @@ There is another method to find the required Visual Studio and Azure Functions u
 
 ### Step 2.2 - Preparing the solution
 
-Open the Windows Explorer and find the folder "resources/azure-function-code/ where you cloned this repository. You need to locate the file CognitiveSkill.sln. There should be a CognitiveSkill folder in the same folder where you found the .sln file.
+Open the Windows Explorer and find the folder **resources/code-azure-function** where you cloned this repository. You need to locate the file CognitiveSkill.sln. There should be a CognitiveSkill folder in the same folder where you found the .sln file.
 
 Double click, or hit enter, on the .sln file to open it in Visual Studio. Check your Solution Explorer on the right and confirm that you can see the same structure of the image below.
 
