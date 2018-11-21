@@ -8,7 +8,7 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
 
 ```json
 {
-  "description": 
+  "description":
   "Extract entities, detect language and extract key-phrases. Also, Moderates the content with a custom skill",
   "skills":
   [
@@ -43,14 +43,14 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
-      "textSplitMode" : "pages", 
+      "textSplitMode" : "pages",
       "maximumPageLength": 4000,
       "inputs": [
       {
         "name": "text",
         "source": "/document/content"
       },
-      { 
+      {
         "name": "languageCode",
         "source": "/document/languageCode"
       }
@@ -79,8 +79,8 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
           "targetName": "keyPhrases"
         }
       ]
-    }, 
-    
+    },
+
      {
         "description": "Extracts text (plain and structured) from image.",
         "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
@@ -270,6 +270,7 @@ GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$se
 Content-Type: application/json
 api-key: [api-key]
 ```
+
 ## Filter moderated content using Azure Search Explorer
 
 ```http
