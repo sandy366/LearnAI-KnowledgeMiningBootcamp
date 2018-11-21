@@ -28,11 +28,16 @@ To see how the API works, and also to learn how to demo this technology in minut
 
 Now, clicking the blue buttons, choose the region where you created your Content Moderator API, that should be the same region you are using for all services in this training. Now set the values as listed below:
 
+### Query parameters
+
 + autocorrect = true
 + PII = true
 + listId = remove parameter (we don't have a list of prohibited terms to work with at this point)
 + classify = true
 + language = eng (The default example is in English)
+
+### Headers
+
 + Keep Content-Type as "text/plain"
 + Paste in your Content Moderator API key
 
