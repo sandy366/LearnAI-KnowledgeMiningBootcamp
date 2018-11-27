@@ -23,11 +23,11 @@ If you check the response messages for any of the png or jpg files in the result
 Let's again repeat a previous lab request, but with another analysis. We will re-execute the step to verify content.  
 
 ```http
-GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=organizations,blob_uri&api-version=2017-11-11-Preview
+GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,organizations,languageCode,keyPhrases&api-version=2017-11-11-Preview
 api-key: [api-key]
 ```
 
-Send the request and go to any result set about an image file like jpg or png, like this one below. Note that no organizations are returned.
+Send the request and go to any result set about an image file like jpg or png, like these images listed in the image below. Note that no organizations, languageCode and keyPhrases are returned for the images, jpg or png files. That's because they were not created.
 
 ![No metada created for images](../resources/images/lab-image-skills/postman-no-data.png)
 
@@ -81,17 +81,17 @@ Skipping the services and the data source creation, repeat the other steps of th
 
 **TIP 1:** What you need to do:
 
-1. Create a new index exactly like the one we did in Lab 1 but with an extra field for the OCR text from the images. Name suggestion: myOcrText. You can use the same json body field and add the new OCR field in the end.
-1. Create a new indexer exactly like the one we did in Lab 1, but with and extra mapping for the new skill and the new field listed above. You can use the same json body field and add the new OCR mapping in the end.
+1. Create a new index exactly like the one we did in Lab 1 but with an extra field for the OCR text from the images. Name suggestion: myOcrText. You can use the same json body field and add the new OCR field in the end
+1. Create a new indexer exactly like the one we did in Lab 1, but with and extra mapping for the new skill and the new field listed above. You can use the same json body field and add the new OCR mapping in the end
+1. Check the indexer execution status as you did in the previous lab
 
 **TIP 2:** Your new field in the Index must have the [Collection Data Type](https://docs.microsoft.com/en-us/rest/api/searchservice/Supported-data-types?redirectedfrom=MSDN).
 
 #### Step 5.3 - Validation
 
-You can query only the OCR field, to better visualize the results. Suppose that your new index field name is myOcrText. You can query it using:
-
+Run the same query of the Step 2, the URL is pasted below. Now you should see organizations, languageCode and keyPhrases for most of the images.
 ```http
-GET https://[servicename].search.search.windows.net/indexes/demoindex/docs?search=*&$select=myOcrText&api-version=2017-11-11-Preview
+GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,organizations,languageCode,keyPhrases&api-version=2017-11-11-Preview
 Content-Type: application/json
 api-key: [api-key]
 ```
