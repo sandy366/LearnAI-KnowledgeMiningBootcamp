@@ -263,7 +263,8 @@ api-key: [api-key]
       "searchable": true,
       "filterable": false,
       "facetable": false,
-      "sortable": true
+      "sortable": true,
+      "retrievable": false
     },
    {
       "name": "blob_uri",
@@ -279,7 +280,8 @@ api-key: [api-key]
       "sortable": false,
       "searchable": true,
       "filterable": false,
-      "facetable": false
+      "facetable": false,
+      "retrievable": false
     },
     {
       "name": "languageCode",
