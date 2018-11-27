@@ -14,8 +14,20 @@ In this lab, you will create an Azure Search service and a storage account. We r
 
 1. For **Resource group**, create a resource group to contain all the resources you create in this tutorial. This makes it easier to clean up the resources after you have finished the tutorial.
 
-1. For **Location**, choose between West Central US, South Central US, East US, East US 2, West US 2, Canada Central, West Europe, UK South, 
-North Europe, Brazil South, Southeast Asia, Central India, and Australia East. for now, Cogniteve Search is not available in all Azure regions.
+1. For **Location**, choose one of the regions below, Cogniteve Search is not available in all Azure regions.
+- West Central US
+- South Central US
+- East US
+- East US 2
+- West US 2
+- Canada Central
+- West Europe
+- UK South
+- North Europe
+- Brazil South
+- Southeast Asia
+- Central India
+- Australia East
 
 1. For **Pricing tier**, create a **Basic** service to complete tutorials and quickstarts. For deeper information on Azure Search pricing and limits, click [here](https://azure.microsoft.com/pricing/details/search/) and [here](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity).
 

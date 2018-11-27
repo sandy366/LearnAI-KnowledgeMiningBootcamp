@@ -16,7 +16,7 @@ https://[your-service-name].search.windows.net/skillsets/demoskillset?api-versio
 https://[your-service-name].search.windows.net/indexes/demoindex?api-version=2017-11-11-Preview
 ```
 
-## Delete Index
+## Delete Indexer
 
 ```http
 https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=2017-11-11-Preview
@@ -26,7 +26,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
 
 ```json
 {
-  "description": 
+  "description":
   "Extract entities, detect language and extract key-phrases",
   "skills":
   [
@@ -62,7 +62,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
           "name": "itemsToInsert", "source": "/document/normalized_images/*/myOcrText"
         },
         {
-          "name":"offsets", "source": "/document/normalized_images/*/contentOffset" 
+          "name":"offsets", "source": "/document/normalized_images/*/contentOffset"
         }
       ],
       "outputs": [
@@ -102,14 +102,14 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
-      "textSplitMode" : "pages", 
+      "textSplitMode" : "pages",
       "maximumPageLength": 50000,
       "inputs": [
       {
         "name": "text",
         "source": "/document/mergedText"
       },
-      { 
+      {
         "name": "languageCode",
         "source": "/document/languageCode"
       }
@@ -217,7 +217,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
         {
           "sourceFieldName" : "metadata_storage_path",
           "targetFieldName" : "metadata_storage_path",
-          "mappingFunction" : 
+          "mappingFunction" :
             { "name" : "base64Encode" }
         },
         {
@@ -229,14 +229,14 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
           "targetFieldName" : "blob_uri"
         }
    ],
-  "outputFieldMappings" : 
+  "outputFieldMappings" :
   [
         {
-          "sourceFieldName" : "/document/organizations", 
+          "sourceFieldName" : "/document/organizations",
           "targetFieldName" : "organizations"
         },
         {
-          "sourceFieldName" : "/document/pages/*/keyPhrases/*", 
+          "sourceFieldName" : "/document/pages/*/keyPhrases/*",
           "targetFieldName" : "keyPhrases"
         },
         {
@@ -252,7 +252,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
   {
     "maxFailedItems":-1,
     "maxFailedItemsPerBatch":-1,
-    "configuration": 
+    "configuration":
     {
       "dataToExtract": "contentAndMetadata",
        "imageAction": "generateNormalizedImages"
@@ -275,7 +275,7 @@ Content-Type: application/json
 https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,organizations,languageCode,keyPhrases&api-version=2017-11-11-Preview
 api-key: [api-key]
 Content-Type: application/json
-``` 
+```
 
 ## Check the OCR Content extracted
 

@@ -215,7 +215,7 @@ Status code 204 is returned on a successful deletion.
 
 Now let's use the [official documentation](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-interface) to learn the syntax we need to add the custom skill to our enrichment pipeline.
 
-As you can see, the custom skill works like all other predefined skills, but the type is **WebApiSkill** and you need to specify the URL you created above. The example below shows you how to call the skill. Because the skill doesn't handle batches, 
+As you can see, the custom skill works like all other predefined skills, but the type is **WebApiSkill** and you need to specify the URL you created above. The example below shows you how to call the skill. Because the skill doesn't handle batches,
 you have to add an instruction for maximum batch size to be just ```1``` to send documents one at a time. The objectives are:
 
 1. Save the extracted boolean value for moderation in a new index field

@@ -16,7 +16,7 @@ https://[your-service-name].search.windows.net/skillsets/demoskillset?api-versio
 https://[your-service-name].search.windows.net/indexes/demoindex?api-version=2017-11-11-Preview
 ```
 
-## Delete Index
+## Delete Indexer
 
 ```http
 https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=2017-11-11-Preview
@@ -26,7 +26,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
 
 ```json
 {
-  "description": 
+  "description":
   "Extract entities, detect language and extract key-phrases. Also does OCR and submit everything to Content Moderator",
   "skills":
   [
@@ -62,7 +62,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
           "name": "itemsToInsert", "source": "/document/normalized_images/*/myOcrText"
         },
         {
-          "name":"offsets", "source": "/document/normalized_images/*/contentOffset" 
+          "name":"offsets", "source": "/document/normalized_images/*/contentOffset"
         }
       ],
       "outputs": [
@@ -102,14 +102,14 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
-      "textSplitMode" : "pages", 
+      "textSplitMode" : "pages",
       "maximumPageLength": 50000,
       "inputs": [
       {
         "name": "text",
         "source": "/document/mergedText"
       },
-      { 
+      {
         "name": "languageCode",
         "source": "/document/languageCode"
       }

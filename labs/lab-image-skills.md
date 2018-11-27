@@ -73,7 +73,7 @@ In this challenge, you will perform the following steps:
 Use the same skillset definition from Lab 1,  add in the [OCR image analysis skill](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-ocr) to your skillset. The objectives are:
 
 1. Save the text extracted from OCR into the index
-1. Submit the text extracted from OCR to language detection, key phrases and entity detection. 
+1. Submit the text extracted from OCR to language detection, key phrases and entity detection.
 
 #### Step 5.2 - Recreating the index and indexer
 
@@ -99,7 +99,7 @@ Content-Type: application/json
 api-key: [api-key]
 ```
 
-Now run the query below to check the OCR text extracted from the images. You Should see text for most of the images. 
+Now run the query below to check the OCR text extracted from the images. You Should see text for most of the images.
 
 ```http
 GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,myOcrText&api-version=2017-11-11-Preview

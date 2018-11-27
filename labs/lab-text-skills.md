@@ -41,7 +41,7 @@ If you are not so familiar with Postman, perform the following detailed steps to
     - Open the Postman application. If a dialog box opens, close it down. You will be presented with a screen that states **"Untitled Request"** , underneath this is a button that shows the word **"GET"**.
     - Click on the downward pointing arrow next to **"GET"**, and click the option **"POST"**.
     - In the text box that shows the words "Enter request url" type in the following information, replacing **[service name]** with the name of the Azure Search service you created:
-      > https://[service name].search.windows.net/datasources?api-version=2017-11-11-Preview  
+      > <<https://[your-service-name].search.windows.net/datasources?api-version=2017-11-11-Preview>  
 
 1. Define header information in the Headers tab
     - Below the text box where you have defined your url, click on the link that states **"Headers"**.
@@ -64,6 +64,7 @@ In the **Request body**, you will specify the blob container name and connection
     "container" : { "name" : "basicdemo" }
 }  
 ```
+
 >Note! Double check you have used the all connection string, it is very long and sometimes you may have not copied it all.
 
 If you are not so familiar with Postman, perform the following detailed steps to define the Request body.
@@ -129,7 +130,7 @@ In the **Request body**, you will use JSON to define the Language Detection, Tex
 
 ```json
 {
-  "description": 
+  "description":
   "Extract entities, detect language and extract key-phrases",
   "skills":
   [
@@ -164,14 +165,14 @@ In the **Request body**, you will use JSON to define the Language Detection, Tex
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
-      "textSplitMode" : "pages", 
+      "textSplitMode" : "pages",
       "maximumPageLength": 50000,
       "inputs": [
       {
         "name": "text",
         "source": "/document/content"
       },
-      { 
+      {
         "name": "languageCode",
         "source": "/document/languageCode"
       }
@@ -278,7 +279,7 @@ api-key: [api-key]
       "searchable": true,
       "filterable": false,
       "facetable": false
-      
+
     },
     {
       "name": "languageCode",
@@ -345,7 +346,7 @@ api-key: [api-key]
         {
           "sourceFieldName" : "metadata_storage_path",
           "targetFieldName" : "id",
-          "mappingFunction" : 
+          "mappingFunction" :
             { "name" : "base64Encode" }
         },
         {
@@ -357,26 +358,26 @@ api-key: [api-key]
           "targetFieldName" : "blob_uri"
         }
    ],
-  "outputFieldMappings" : 
+  "outputFieldMappings" :
   [
         {
-          "sourceFieldName" : "/document/organizations", 
+          "sourceFieldName" : "/document/organizations",
           "targetFieldName" : "organizations"
         },
         {
-          "sourceFieldName" : "/document/pages/*/keyPhrases/*", 
+          "sourceFieldName" : "/document/pages/*/keyPhrases/*",
           "targetFieldName" : "keyPhrases"
         },
         {
             "sourceFieldName": "/document/languageCode",
             "targetFieldName": "languageCode"
-        }      
+        }
   ],
   "parameters":
   {
     "maxFailedItems":-1,
     "maxFailedItemsPerBatch":-1,
-    "configuration": 
+    "configuration":
     {
       "dataToExtract": "contentAndMetadata",
        "imageAction": "generateNormalizedImages"
