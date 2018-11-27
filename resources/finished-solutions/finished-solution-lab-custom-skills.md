@@ -13,12 +13,58 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
   "skills":
   [
     {
+  "description": 
+  "Extract entities, detect language and extract key-phrases",
+  "skills":
+  [
+     {
+        "description": "Extract text (plain and structured) from image.",
+        "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
+        "context": "/document/normalized_images/*",
+        "defaultLanguageCode": "en",
+        "detectOrientation": true,
+        "inputs": [
+          {
+            "name": "image",
+            "source": "/document/normalized_images/*"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "myOcrText"
+          }
+        ]
+    },
+    {
+      "@odata.type": "#Microsoft.Skills.Text.MergeSkill",
+      "description": "Create merged_text, which includes all the textual representation of each image inserted at the right location in the content field.",
+      "context": "/document",
+      "insertPreTag": " ",
+      "insertPostTag": " ",
+      "inputs": [
+        {
+          "name":"text", "source": "/document/content"
+        },
+        {
+          "name": "itemsToInsert", "source": "/document/normalized_images/*/myOcrText"
+        },
+        {
+          "name":"offsets", "source": "/document/normalized_images/*/contentOffset" 
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mergedText", "targetName" : "merged_text"
+        }
+      ]
+    },
+    {
       "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
       "inputs": [
         {
-          "name": "text", "source": "/document/content"
+          "name": "text", "source": "/document/merged_text"
         }
       ],
       "outputs": [
@@ -31,7 +77,7 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
       "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
       "inputs": [
         {
-          "name": "text", "source": "/document/content"
+          "name": "text", "source": "/document/merged_text"
         }
       ],
       "outputs": [
@@ -43,14 +89,14 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
-      "textSplitMode" : "pages",
-      "maximumPageLength": 4000,
+      "textSplitMode" : "pages", 
+      "maximumPageLength": 50000,
       "inputs": [
       {
         "name": "text",
-        "source": "/document/content"
+        "source": "/document/merged_text"
       },
-      {
+      { 
         "name": "languageCode",
         "source": "/document/languageCode"
       }
@@ -80,26 +126,6 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
         }
       ]
     },
-
-     {
-        "description": "Extracts text (plain and structured) from image.",
-        "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
-        "context": "/document/normalized_images/*",
-        "defaultLanguageCode": null,
-        "detectOrientation": true,
-        "inputs": [
-          {
-            "name": "image",
-            "source": "/document/normalized_images/*"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "text",
-            "targetName": "myOcrText"
-          }
-        ]
-      },
     {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
         "description": "Our new moderator custom skill",
@@ -109,7 +135,7 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
         "inputs": [
           {
             "name": "text",
-            "source": "/document/content"
+            "source": "/document/merged_text"
           }
         ],
         "outputs": [
