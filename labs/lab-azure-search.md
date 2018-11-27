@@ -14,6 +14,15 @@ Search is a hard and rarely a core expertise area. From an infrastructure standp
 
 The example above illustrates some of the components users are expecting in their search experience. [Azure Search](https://docs.microsoft.com/en-us/azure/search/search-what-is-azure-search) can accomplish these user experience features, along with giving you [monitoring and reporting](https://docs.microsoft.com/en-us/azure/search/search-traffic-analytics), [simple scoring](https://docs.microsoft.com/en-us/rest/api/searchservice/add-scoring-profiles-to-a-search-index), and tools for [prototyping](https://docs.microsoft.com/en-us/azure/search/search-import-data-portal) and [inspection](https://docs.microsoft.com/en-us/azure/search/search-explorer).
 
+## How it works
+
+Azure Search uses a structure called inverted index, which is designed to allow very fast full-text searches. An inverted index consists of a list of all the unique words that appear in any document, 
+and for each word, a list of the documents in which it appears. In the indexing process, Azure Search splits the content of each document into separate words, creates a sorted list of all the unique terms, 
+and then lists in which document each word appears. 
+
+![Inverted Index](../resources/images/lab-azure-search/inverted.png)
+
+
 ## Typical Workflow
 
 1. Provision service
