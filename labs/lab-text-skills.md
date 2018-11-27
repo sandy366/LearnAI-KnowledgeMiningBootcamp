@@ -280,8 +280,8 @@ api-key: [api-key]
       "sortable": false,
       "searchable": true,
       "filterable": false,
-      "facetable": false,
-      "retrievable": false
+      "facetable": false
+      
     },
     {
       "name": "languageCode",
