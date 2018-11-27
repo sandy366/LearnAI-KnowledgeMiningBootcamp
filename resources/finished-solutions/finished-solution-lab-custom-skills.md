@@ -50,7 +50,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.MergeSkill",
-      "description": "Create merged_text, which includes all the textual representation of each image inserted at the right location in the content field.",
+      "description": "Create mergedText, which includes all the textual representation of each image inserted at the right location in the content field.",
       "context": "/document",
       "insertPreTag": " ",
       "insertPostTag": " ",
@@ -67,7 +67,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
       ],
       "outputs": [
         {
-          "name": "mergedText", "targetName" : "merged_text"
+          "name": "mergedText", "targetName" : "mergedText"
         }
       ]
     },
@@ -77,7 +77,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
       "defaultLanguageCode": "en",
       "inputs": [
         {
-          "name": "text", "source": "/document/merged_text"
+          "name": "text", "source": "/document/mergedText"
         }
       ],
       "outputs": [
@@ -90,7 +90,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
       "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
       "inputs": [
         {
-          "name": "text", "source": "/document/merged_text"
+          "name": "text", "source": "/document/mergedText"
         }
       ],
       "outputs": [
@@ -107,7 +107,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
       "inputs": [
       {
         "name": "text",
-        "source": "/document/merged_text"
+        "source": "/document/mergedText"
       },
       { 
         "name": "languageCode",
@@ -148,7 +148,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
         "inputs": [
           {
             "name": "text",
-            "source": "/document/merged_text"
+            "source": "/document/mergedText"
           }
         ],
         "outputs": [
@@ -304,7 +304,7 @@ api-key: [api-key]
 ## Check files and the moderated text indicator
 
 ```http
-GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,moderatedText&api-version=2017-11-11-Preview
+GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,moderatedText,organizations&api-version=2017-11-11-Preview
 Content-Type: application/json
 api-key: [api-key]
 ```
