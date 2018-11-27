@@ -22,6 +22,13 @@ and then lists in which document each word appears.
 
 ![Inverted Index](../resources/images/lab-azure-search/inverted.png)
 
+## Competitors
+
+The table below lists the week points of the Azure Search Competitors and was created using public information available in December 2018. **This information must be confirmed before any other usage.** If we analyze the two largest public cloud providers, we see that the data of one will hardly be indexed by the search service on the other. But you can use Azure Search by reading data from a SQL Server IaaS on AWS. 
+Elastic Search is also a big competitor, but its focus are log files, not "human information". 
+
+![Inverted Index](../resources/images/lab-azure-search/compete.png)
+
 
 ## Typical Workflow
 
