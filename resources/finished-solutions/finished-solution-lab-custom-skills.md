@@ -9,7 +9,7 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
 ```json
 {
   "description":
-  "Extract entities, detect language and extract key-phrases. Also, Moderates the content with a custom skill",
+  "Extract entities, detect language and extract key-phrases. Also, moderates the content with a custom skill",
   "skills":
   [
     {
