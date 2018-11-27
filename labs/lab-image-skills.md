@@ -87,16 +87,25 @@ Skipping the services and the data source creation, repeat the other steps of th
 
 **TIP 2:** Your new field in the Index must have the [Collection Data Type](https://docs.microsoft.com/en-us/rest/api/searchservice/Supported-data-types?redirectedfrom=MSDN).
 
+**TIP 3:** Your indexer sourceFieldName for the OCR text field has to be /document/normalized_images/*/myOcrText if your field is named myOcrText.  
+
 #### Step 5.3 - Validation
 
 Run the same query of the Step 2, the URL is pasted below. Now you should see organizations, languageCode and keyPhrases for most of the images.
+
 ```http
 GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,organizations,languageCode,keyPhrases&api-version=2017-11-11-Preview
 Content-Type: application/json
 api-key: [api-key]
 ```
 
-Your indexer sourceFieldName for the OCR text field has to be /document/normalized_images/*/myOcrText if your field is named myOcrText.  
+Now run the query below to check the OCR text extracted from the images. You Should see text for most of the images. 
+
+```http
+GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,myOcrText&api-version=2017-11-11-Preview
+Content-Type: application/json
+api-key: [api-key]
+```
 
 #### Step 5.4 - Portal
 
