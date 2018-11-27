@@ -4,6 +4,24 @@ Hello!
 
 Here are the body requests for the Image Skills lab. Don't forget to adjust the URLs to use your Azure Search service name.
 
+## Delete Skillset
+
+```http
+https://[your-service-name].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
+```
+
+## Delete Index
+
+```http
+https://[your-service-name].search.windows.net/indexes/demoindex?api-version=2017-11-11-Preview
+```
+
+## Delete Index
+
+```http
+https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=2017-11-11-Preview
+```
+
 ## Skillset
 
 ```json
@@ -26,7 +44,7 @@ Here are the body requests for the Image Skills lab. Don't forget to adjust the 
         ],
         "outputs": [
           {
-            "name": "myOcrText"
+            "name": "text", "targetName": "myOcrText"
           }
         ]
     },
@@ -129,115 +147,62 @@ Here are the body requests for the Image Skills lab. Don't forget to adjust the 
 
 ```json
 {
-    "name": "demoindex",
-    "fields": [
-        {
-            "name": "id",
-            "type": "Edm.String",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": true,
-            "facetable": false,
-            "key": true,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
-        },
-        {
-            "name": "blob_uri",
-            "type": "Edm.String",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": false,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
-        },
-        {
-            "name": "content",
-            "type": "Edm.String",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": false,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
-        },
-        {
-            "name": "languageCode",
-            "type": "Edm.String",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": true,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
-        },
-        {
-            "name": "keyPhrases",
-            "type": "Collection(Edm.String)",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": false,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
-        },
-        {
-            "name": "organizations",
-            "type": "Collection(Edm.String)",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": false,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
-        },
-        {
-            "name": "myOcrText",
-            "type": "Collection(Edm.String)",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": false,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
-        }
-    ],
-    "scoringProfiles": [],
-    "defaultScoringProfile": null,
-    "corsOptions": null,
-    "suggesters": [],
-    "analyzers": [],
-    "tokenizers": [],
-    "tokenFilters": [],
-    "charFilters": []
+  "fields": [
+    {
+      "name": "id",
+      "type": "Edm.String",
+      "key": true,
+      "searchable": true,
+      "filterable": false,
+      "facetable": false,
+      "sortable": true
+    },
+     {
+      "name": "blob_uri",
+      "type": "Edm.String",
+      "searchable": true,
+      "filterable": false,
+      "facetable": false,
+      "sortable": true
+    },
+    {
+      "name": "content",
+      "type": "Edm.String",
+      "sortable": false,
+      "searchable": true,
+      "filterable": false,
+      "facetable": false
+    },
+    {
+      "name": "languageCode",
+      "type": "Edm.String",
+      "searchable": true,
+      "filterable": false,
+      "facetable": false
+    },
+    {
+      "name": "keyPhrases",
+      "type": "Collection(Edm.String)",
+      "searchable": true,
+      "filterable": false,
+      "facetable": false
+    },
+    {
+      "name": "organizations",
+      "type": "Collection(Edm.String)",
+      "searchable": true,
+      "sortable": false,
+      "filterable": false,
+      "facetable": false
+    },
+    {
+      "name": "myOcrText",
+      "type": "Collection(Edm.String)",
+      "searchable": true,
+      "filterable": false,
+      "facetable": false
+    }
+  ]
 }
 ```
 
@@ -245,54 +210,53 @@ Here are the body requests for the Image Skills lab. Don't forget to adjust the 
 
 ```json
 {
-  "name":"demoindexer",
   "dataSourceName" : "demodata",
   "targetIndexName" : "demoindex",
   "skillsetName" : "demoskillset",
   "fieldMappings" : [
         {
           "sourceFieldName" : "metadata_storage_path",
-          "targetFieldName" : "id",
-          "mappingFunction" :
+          "targetFieldName" : "metadata_storage_path",
+          "mappingFunction" : 
             { "name" : "base64Encode" }
         },
         {
           "sourceFieldName" : "content",
           "targetFieldName" : "content"
         },
-         {
+        {
           "sourceFieldName" : "metadata_storage_path",
           "targetFieldName" : "blob_uri"
         }
    ],
-  "outputFieldMappings" :
+  "outputFieldMappings" : 
   [
         {
-          "sourceFieldName" : "/document/organizations",
+          "sourceFieldName" : "/document/organizations", 
           "targetFieldName" : "organizations"
         },
         {
-          "sourceFieldName" : "/document/pages/*/keyPhrases/*",
+          "sourceFieldName" : "/document/pages/*/keyPhrases/*", 
           "targetFieldName" : "keyPhrases"
         },
         {
             "sourceFieldName": "/document/languageCode",
             "targetFieldName": "languageCode"
         },
-         {
+        {
             "sourceFieldName": "/document/normalized_images/*/myOcrText",
             "targetFieldName": "myOcrText"
         }
   ],
   "parameters":
   {
-      "maxFailedItems":-1,
-      "maxFailedItemsPerBatch":-1,
-      "configuration":
+    "maxFailedItems":-1,
+    "maxFailedItemsPerBatch":-1,
+    "configuration": 
     {
-        "dataToExtract": "contentAndMetadata",
-         "imageAction": "generateNormalizedImages"
-        }
+      "dataToExtract": "contentAndMetadata",
+       "imageAction": "generateNormalizedImages"
+    }
   }
 }
 ```
@@ -304,6 +268,14 @@ GET https://[servicename].search.windows.net/indexers/demoindexer/status?api-ver
 api-key: [api-key]
 Content-Type: application/json
 ```
+
+## Check organizations, languageCode and keyPhrases
+
+```http
+https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=organizations,languageCode,keyPhrases,blob_uri&api-version=2017-11-11-Preview
+api-key: [api-key]
+Content-Type: application/json
+``` 
 
 ## Check the OCR Content extracted
 
