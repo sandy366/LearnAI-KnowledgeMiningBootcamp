@@ -220,6 +220,7 @@ you have to add an instruction for maximum batch size to be just ```1``` to send
 
 1. Save the extracted boolean value for moderation in a new index field
 1. Also submit the OCR text to the content moderator API
+1. Keep the OCR text been submited to Entity, Language and Key Phrases extractions
 
 ```json
       {
