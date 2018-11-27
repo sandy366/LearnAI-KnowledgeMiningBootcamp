@@ -29,7 +29,7 @@ Now that your services and source files are prepared, you can start assembling t
 For this tutorial, we will use Postman to call Azure Search service APIs. Using the **POST** method and **Header** of the Postman application, you will provide the service name and the api-key you used while creating the Azure Search service, and you will define the content-type as JSON. This information is summarized as follows:
 
 ```http
-POST https://[servicename].search.windows.net/datasources?api-version=2017-11-11-Preview
+POST https://[your-service-name].search.windows.net/datasources?api-version=2017-11-11-Preview
 Content-Type: application/json
 api-key: [admin key]
 ```
@@ -120,7 +120,7 @@ In this step, you define a set of enrichment steps that you want to apply to you
   Reference the skillset name ```demoskillset``` for the rest of this lab.
 
   ```http
-  PUT https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
+  PUT https://[your-service-name].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
   Content-Type: application/json
   api-key: [admin key]
   ```
@@ -244,7 +244,7 @@ Before you make this REST call, remember to replace the service name and the adm
 This request creates an index. Use the index name ```demoindex``` for the rest of this tutorial.
 
 ```http
-PUT https://[servicename].search.windows.net/indexes/demoindex?api-version=2017-11-11-Preview
+PUT https://[your-service-name].search.windows.net/indexes/demoindex?api-version=2017-11-11-Preview
 Content-Type: application/json
 api-key: [api-key]
 ```
@@ -331,7 +331,7 @@ Before you make this REST call, remember to replace the service name and the adm
 Also, provide the name of your indexer. You can reference it as ```demoindexer``` for the rest of this lab.
 
 ```http
-PUT https://[servicename].search.windows.net/indexers/demoindexer?api-version=2017-11-11-Preview
+PUT https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=2017-11-11-Preview
 Content-Type: application/json
 api-key: [api-key]
 ```
@@ -413,7 +413,7 @@ In this preview, ```"generateNormalizedImages"``` is the only valid value for ``
 Once the indexer is defined, it runs automatically when you submit the request. Depending on which cognitive skills you defined, indexing can take longer than you expect. To find out whether the indexer is still running, send the following request to check the indexer status.
 
 ```http
-GET https://[servicename].search.windows.net/indexers/demoindexer/status?api-version=2017-11-11-Preview
+GET https://[your-service-name].search.windows.net/indexers/demoindexer/status?api-version=2017-11-11-Preview
 Content-Type: application/json
 api-key: [api-key]
 ```
@@ -429,7 +429,7 @@ After indexing is finished, run queries that return the contents of individual f
 As a verification step, query the index for all of the fields.
 
 ```http
-GET https://[servicename].search.windows.net/indexes/demoindex?api-version=2017-11-11-Preview
+GET https://[your-service-name].search.windows.net/indexes/demoindex?api-version=2017-11-11-Preview
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -439,7 +439,7 @@ The output is the index schema, with the name, type, and attributes of each fiel
 Submit a second query for `"*"` to return all contents of a single field, such as `organizations`.
 
 ```http
-GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,organizations,languageCode,keyPhrases&api-version=2017-11-11-Preview
+GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,organizations,languageCode,keyPhrases&api-version=2017-11-11-Preview
 api-key: [api-key]
 Content-Type: application/json
 ```
