@@ -4,6 +4,24 @@ Hello!
 
 Here are the body requests for the custom skills lab. Don't forget to adjust the URLs to use your Azure Search service name.
 
+## Delete Skillset
+
+```http
+https://[your-service-name].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
+```
+
+## Delete Index
+
+```http
+https://[your-service-name].search.windows.net/indexes/demoindex?api-version=2017-11-11-Preview
+```
+
+## Delete Index
+
+```http
+https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=2017-11-11-Preview
+```
+
 ## Skillset
 
 ```json
@@ -31,7 +49,7 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
         ],
         "outputs": [
           {
-            "name": "myOcrText"
+            "name": "text", "targetName": "myOcrText"
           }
         ]
     },
