@@ -169,7 +169,7 @@ When you are satisfied with the function behavior, you can publish it.
 Now that you have the default host key, use Postman to test your function as follows:
 
 ```http
-POST https://[enter you Function name here].azurewebsites.net/api/ContentModerator?code=[enter your Azure Functions key here]
+POST https://[your-function-name].azurewebsites.net/api/ContentModerator?code=[enter your Azure Functions key here]
 ```
 
 ### Request Body
@@ -215,14 +215,17 @@ Status code 204 is returned on a successful deletion.
 
 Now let's use the [official documentation](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-interface) to learn the syntax we need to add the custom skill to our enrichment pipeline.
 
-As you can see, the custom skill works like all other predefined skills, but the type is **WebApiSkill** and you need to specify the URL you created above. The example below shows you how to call the skill. Because the skill doesn't handle batches, you have to add an instruction for maximum batch size to be just ```1``` to send documents one at a time.
-Like we did in Lab 2, we suggest you add this new skill at the end of the body definition of the skillset.
+As you can see, the custom skill works like all other predefined skills, but the type is **WebApiSkill** and you need to specify the URL you created above. The example below shows you how to call the skill. Because the skill doesn't handle batches, 
+you have to add an instruction for maximum batch size to be just ```1``` to send documents one at a time. The objectives are:
+
+1. Save the extracted boolean value for moderation in a new index field
+1. Also submit the OCR text to the content moderator API
 
 ```json
       {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
         "description": "Our new content moderator custom skill",
-        "uri": "https://[enter function name here].azurewebsites.net/api/ContentModerator?code=[enter default host key here]",
+        "uri": "https://[your-function-name].azurewebsites.net/api/ContentModerator?code=[enter default host key here]",
         "batchSize":1,
         "context": "/document",
         "inputs": [
@@ -246,7 +249,7 @@ Like we did in Lab 2, we suggest you add this new skill at the end of the body d
 As you can see, again we are not giving you the body request. One more time you can use the previous lab as a reference.  
 Skipping the services and the data source creation, repeat the other steps of the previous labs, in the same order.
 
->Note! Please make sure you will create the new index with the new field for the moderation analysis as boolean. More information [here](https://docs.microsoft.com/en-us/azure/search/search-what-is-an-index).
+>Note! Please make sure you will create the new index field for the moderation analysis as boolean. More information [here](https://docs.microsoft.com/en-us/azure/search/search-what-is-an-index).
 
 1. ~~Create the services at the portal~~ **Not required, we did not delete it**.
 2. ~~Create the Data Source~~ **Not required, we did not delete it**.
