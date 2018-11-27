@@ -61,7 +61,7 @@ In the **Request body**, you will specify the blob container name and connection
     { "connectionString" :
       "DefaultEndpointsProtocol=https;AccountName=<your account name>;AccountKey=<your account key>;"
     },  
-    "container" : { "name" : "<your blob container name>" }
+    "container" : { "name" : "basicdemo" }
 }  
 ```
 >Note! Double check you have used the all connection string, it is very long and sometimes you may have not copied it all.
