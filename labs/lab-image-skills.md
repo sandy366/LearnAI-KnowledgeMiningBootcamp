@@ -86,12 +86,12 @@ Skipping the services and the data source creation, repeat the other steps of th
 
 **TIP 2:** Your new field in the Index must have the [Collection Data Type](https://docs.microsoft.com/en-us/rest/api/searchservice/Supported-data-types?redirectedfrom=MSDN).
 
-#### Step 5.3 - Validating the index creation
+#### Step 5.3 - Validation
 
 You can query only the OCR field, to better visualize the results. Suppose that your new index field name is myOcrText. You can query it using:
 
 ```http
-GET https://[servicename].search.search.windows.net/indexes/rodindex2/docs?search=*&$select=myOcrText&api-version=2017-11-11-Preview
+GET https://[servicename].search.search.windows.net/indexes/demoindex/docs?search=*&$select=myOcrText&api-version=2017-11-11-Preview
 Content-Type: application/json
 api-key: [api-key]
 ```
