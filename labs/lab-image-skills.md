@@ -64,9 +64,9 @@ Now we have a challenge for you. In this challenge exercise, you will be perform
 1. Recreate the Skillset
 1. Recreate the Index
 1. Recreate the Indexer
-1. Check Indexer Status - Here you can repeat the same verification of Lab 2, 1tep 1. If you don't have a different result, something went wrong.  
+1. Check Indexer Status - If you don't have a different result, something went wrong.
 1. Check the Index Fields - Check the image fields you just created.
-1. Check the data - Here you can repeat the same verification of Lab 2, Step 2. If you don't have a different result, something went wrong. Select only the myOcrText field, for better visualization
+1. Check the data - If you don't have a different result, something went wrong.
 
 #### Step 5.1 Creating the skillset with the OCR image skillset
 
