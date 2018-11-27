@@ -123,10 +123,10 @@ search=myOcrText:linux&querytype=full
 search=myOcrText:microsoft&querytype=full
 ```
 
-+ Search for "LearnAI", that is the team that created this training. You should see an image of our portal.
++ Search for "Learning", what will show you an image of the LearnAI Team portal, who created this training.
 
 ```http
-search=myOcrText:LearnAI&querytype=full
+search=myOcrText:Learning&querytype=full
 ```
 
 ## Finished Solution
