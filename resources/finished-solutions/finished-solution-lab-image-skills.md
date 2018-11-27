@@ -50,7 +50,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.MergeSkill",
-      "description": "Create merged_text, which includes all the textual representation of each image inserted at the right location in the content field.",
+      "description": "Create mergedText, which includes all the textual representation of each image inserted at the right location in the content field.",
       "context": "/document",
       "insertPreTag": " ",
       "insertPostTag": " ",
@@ -67,7 +67,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
       ],
       "outputs": [
         {
-          "name": "mergedText", "targetName" : "merged_text"
+          "name": "mergedText", "targetName" : "mergedText"
         }
       ]
     },
@@ -77,7 +77,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
       "defaultLanguageCode": "en",
       "inputs": [
         {
-          "name": "text", "source": "/document/merged_text"
+          "name": "text", "source": "/document/mergedText"
         }
       ],
       "outputs": [
@@ -90,7 +90,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
       "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
       "inputs": [
         {
-          "name": "text", "source": "/document/merged_text"
+          "name": "text", "source": "/document/mergedText"
         }
       ],
       "outputs": [
@@ -107,7 +107,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
       "inputs": [
       {
         "name": "text",
-        "source": "/document/merged_text"
+        "source": "/document/mergedText"
       },
       { 
         "name": "languageCode",
