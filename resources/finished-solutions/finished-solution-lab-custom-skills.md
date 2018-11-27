@@ -275,7 +275,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
             "targetFieldName": "myOcrText"
         },
         {
-            "sourceFieldName": "/document/ModeratedText",
+            "sourceFieldName": "/document/moderatedText",
             "targetFieldName": "moderatedText"
         }
   ],
