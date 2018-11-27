@@ -12,7 +12,7 @@ The commands below should be types in the Search Explorer **Query string** bar.
 
 1. Search for documents about Cloud, ordering the results by the score: `cloud order by score desc`
 
-1. Search for documents about Cloud, but filtering those with mentions to Oracle: `cloud -oracle`
+1. Search for documents about Cloud, but filtering those with mentions to Oracle: `+cloud -oracle &searchMode=all`
 
 1. Search for documents about Cognitive Services and Bots: `"Cognitive Services", Bots`
 
