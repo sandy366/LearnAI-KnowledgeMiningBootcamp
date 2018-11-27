@@ -340,7 +340,6 @@ api-key: [api-key]
 
 ```json
 {
-  "name":"demoindexer",
   "dataSourceName" : "demodata",
   "targetIndexName" : "demoindex",
   "skillsetName" : "demoskillset",
