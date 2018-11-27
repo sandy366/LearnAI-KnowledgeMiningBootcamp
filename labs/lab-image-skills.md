@@ -31,7 +31,7 @@ Send the request and go to any result set about an image file like jpg or png, l
 
 ![No metada created for images](../resources/images/lab-image-skills/postman-no-data.png)
 
->Tip: if any image is in the top results: There is a magnifying glass button in the top right of the results screen. Click on this button to open the Search box, in the text box type **"redshirt.jpg"** and click on the find next button to find this result.
+>Tip: if any image is in the top results: There is a magnifying glass button in the top right of the results screen. Click on this button to open the Search box, in the text box type **jpg** or **png** and click on the find next button to find this result.
 
 ## PART II: How to fix it
 
