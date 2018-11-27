@@ -16,7 +16,7 @@ Content-Type: application/json
 api-key: [api-key]
 ```
 
-If you check the response messages for any of the png or jpg files in the results, there will be warnings and no text for the images.
+If you check the response messages for any of the png or jpg files in the results, there will be warnings about missing text for the images.
 
 ### Step 2 - Existing skills will show no results
 
