@@ -4,7 +4,7 @@ Hello!
 
 Here are suggestions for the challenge at the end of the [Azure Search Lab](../../labs/lab-azure-search.md)
 
-The commands below should be types in the Search Explorer **Query string** bar.
+The commands below should be types in the Search Explorer **Query string** bar. Use `Ctrl+F` to make sure your queries are working as expected.
 
 1. Return only the first document: `$top=1`
 
