@@ -159,7 +159,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
         "outputs": [
           {
             "name": "text",
-            "targetName": "ModeratedText"
+            "targetName": "moderatedText"
           }
         ]
       }
@@ -227,7 +227,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
       "facetable": false
     } ,
    {
-      "name": "ModeratedText",
+      "name": "moderatedText",
       "type": "Edm.Boolean",
       "searchable": false,
       "sortable": false,
@@ -281,7 +281,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
         },
         {
             "sourceFieldName": "/document/ModeratedText",
-            "targetFieldName": "ModeratedText"
+            "targetFieldName": "moderatedText"
         }
   ],
   "parameters":
@@ -301,15 +301,15 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
 ## Check Status
 
 ```http
-GET https://[servicename].search.windows.net/indexers/demoindexer/status?api-version=2017-11-11-Preview
+GET https://[your-service-name].search.windows.net/indexers/demoindexer/status?api-version=2017-11-11-Preview
 Content-Type: application/json
 api-key: [api-key]
 ```
 
-## Check the Moderated Content extracted
+## Check files and the moderated text indicator
 
 ```http
-GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=ModeratedText,blob_uri,myOcrText&api-version=2017-11-11-Preview
+GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,moderatedText&api-version=2017-11-11-Preview
 Content-Type: application/json
 api-key: [api-key]
 ```
@@ -317,7 +317,7 @@ api-key: [api-key]
 ## Filter moderated content using Azure Search Explorer
 
 ```http
-$select=blob_uri,ModeratedText&$filter=ModeratedText eq true
+$select=blob_uri,moderatedText,content&$filter=moderatedText eq true
 ```
 
 ## Next Step
