@@ -280,7 +280,7 @@ Content-Type: application/json
 ## Check the OCR Content extracted
 
 ```http
-GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=myOcrText&api-version=2017-11-11-Preview
+GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,myOcrText&api-version=2017-11-11-Preview
 api-key: [api-key]
 Content-Type: application/json
 ```
