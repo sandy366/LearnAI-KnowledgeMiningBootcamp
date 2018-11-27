@@ -131,7 +131,7 @@ In the **Request body**, you will use JSON to define the Language Detection, Tex
 
 ```json
 {
-  "description":
+  "description": 
   "Extract entities, detect language and extract key-phrases",
   "skills":
   [
@@ -166,14 +166,14 @@ In the **Request body**, you will use JSON to define the Language Detection, Tex
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
-      "textSplitMode" : "pages",
+      "textSplitMode" : "pages", 
       "maximumPageLength": 4000,
       "inputs": [
       {
         "name": "text",
         "source": "/document/content"
       },
-      {
+      { 
         "name": "languageCode",
         "source": "/document/languageCode"
       }
@@ -347,42 +347,42 @@ api-key: [api-key]
         {
           "sourceFieldName" : "metadata_storage_path",
           "targetFieldName" : "id",
-          "mappingFunction" :
+          "mappingFunction" : 
             { "name" : "base64Encode" }
         },
         {
           "sourceFieldName" : "content",
           "targetFieldName" : "content"
         },
-         {
+        {
           "sourceFieldName" : "metadata_storage_path",
           "targetFieldName" : "blob_uri"
         }
    ],
-  "outputFieldMappings" :
+  "outputFieldMappings" : 
   [
         {
-          "sourceFieldName" : "/document/organizations",
+          "sourceFieldName" : "/document/organizations", 
           "targetFieldName" : "organizations"
         },
         {
-          "sourceFieldName" : "/document/pages/*/keyPhrases/*",
+          "sourceFieldName" : "/document/pages/*/keyPhrases/*", 
           "targetFieldName" : "keyPhrases"
         },
         {
             "sourceFieldName": "/document/languageCode",
             "targetFieldName": "languageCode"
-        }
+        }      
   ],
   "parameters":
   {
-  "maxFailedItems":-1,
-  "maxFailedItemsPerBatch":-1,
-  "configuration":
+    "maxFailedItems":-1,
+    "maxFailedItemsPerBatch":-1,
+    "configuration": 
     {
-    "dataToExtract": "contentAndMetadata",
-    "imageAction": "generateNormalizedImages"
-}
+      "dataToExtract": "contentAndMetadata",
+       "imageAction": "generateNormalizedImages"
+    }
   }
 }
 ```
@@ -439,12 +439,12 @@ The output is the index schema, with the name, type, and attributes of each fiel
 Submit a second query for `"*"` to return all contents of a single field, such as `organizations`.
 
 ```http
-GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=organizations&api-version=2017-11-11-Preview
+GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,organizations,languageCode,keyPhrases&api-version=2017-11-11-Preview
 api-key: [api-key]
 Content-Type: application/json
 ```
 
-Repeat for additional fields: "content", "languageCode", "keyPhrases", and "organizations" in this exercise. You can return multiple fields via `$select` using a comma-delimited list.
+>Note! You can return multiple fields via `$select` using a comma-delimited list.
 
 You can use GET or POST, depending on query string complexity and length. For more information, see [Query using the REST API](https://docs.microsoft.com/azure/search/search-query-rest-api).
 
