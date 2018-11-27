@@ -167,7 +167,7 @@ In the **Request body**, you will use JSON to define the Language Detection, Tex
     {
       "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
       "textSplitMode" : "pages", 
-      "maximumPageLength": 4000,
+      "maximumPageLength": 50000,
       "inputs": [
       {
         "name": "text",
