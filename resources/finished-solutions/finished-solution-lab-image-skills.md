@@ -264,7 +264,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
 ## Check Status
 
 ```http
-GET https://[servicename].search.windows.net/indexers/demoindexer/status?api-version=2017-11-11-Preview
+GET https://[your-service-name].search.windows.net/indexers/demoindexer/status?api-version=2017-11-11-Preview
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -272,7 +272,7 @@ Content-Type: application/json
 ## Check organizations, languageCode and keyPhrases
 
 ```http
-https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=organizations,languageCode,keyPhrases,blob_uri&api-version=2017-11-11-Preview
+https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,organizations,languageCode,keyPhrases&api-version=2017-11-11-Preview
 api-key: [api-key]
 Content-Type: application/json
 ``` 
@@ -280,7 +280,7 @@ Content-Type: application/json
 ## Check the OCR Content extracted
 
 ```http
-GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,myOcrText&api-version=2017-11-11-Preview
+GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,myOcrText&api-version=2017-11-11-Preview
 api-key: [api-key]
 Content-Type: application/json
 ```
