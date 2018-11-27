@@ -94,9 +94,7 @@ If you are not so familiar with Postman, perform the following detailed steps to
 
 1. Validating the request and confirming the data source creation.
     - Send the request. The web test tool should return a status code of **201 Created** confirming success.
-    - Check the Azure portal to confirm the data source was created in Azure Search. On the **Search service dashboard page**, verify the **Data Sources** tile has a new item. You might need to wait a few minutes for the portal page to refresh.
-
-      ![Data sources tile in the portal](../resources/images/lab-text-skills/data-source.png "Data sources tile in the portal")
+    - Check the Azure portal to confirm the data source was created in Azure Search. On the **Search service dashboard page**, verify the **Data Sources** link has a new item. You might need to wait a few minutes for the portal page to refresh.
 
       > [TIP]
 If you got a 403 or 404 error, check the request construction: `api-version=2017-11-11-Preview` should be on the endpoint, `api-key` should be in the Header after `Content-Type`, and its value must be valid for a search service. You can reuse the header for the remaining steps in this lab. Verify that the search service is running in one of the supported locations providing the preview feature: South Central US or West Europe.
