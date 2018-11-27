@@ -1,10 +1,10 @@
 # Lab 2: Create a Cognitive Search Skillset with **Image** Skills
 
-In this lab, we will verify the lack of image processing results we got from the previous lab and fix it by adding image analysis skill set to our pipeline.
+In this lab, you will verify the lack of image processing results we got from the previous lab and fix it by adding image analysis skill set to our pipeline.
 
 ## Part I: The Problem Statement
 
-There are png and jpg images within the provided dataset. If you decided to bring your own data, it was suggested to also include images. But we did not add any predefined skillsets for image analysis. This is exactly what we will do now, but first, let's check out the kind of problems we could expect to see if we used the Language Detection, Text Split, Named Entity Recognition and Key Phrase Extraction Skills on images with steps 1 and 2.
+There are png and jpg images within the provided dataset. If you decided to bring your own data, it was suggested to also include images. But we did not add any predefined skillsets for image analysis. This is exactly what you will do now, but first, let's check out the kind of problems we could expect to see if we used the Language Detection, Text Split, Named Entity Recognition and Key Phrase Extraction Skills on images with steps 1 and 2.
 
 ### Step 1 - Checking warning message from the API
 
@@ -20,7 +20,7 @@ If you check the response messages for any of the png or jpg files in the result
 
 ### Step 2 - Existing skills will show no results
 
-Let's again repeat a previous lab request, but with another analysis. We will re-execute the step to verify content.  
+Let's again repeat a previous lab request, but with another analysis. you will re-execute the step to verify content.  
 
 ```http
 GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,organizations,languageCode,keyPhrases&api-version=2017-11-11-Preview
@@ -35,17 +35,17 @@ Send the request and go to any result set about an image file like jpg or png, l
 
 ## PART II: How to fix it
 
-We will fix it, but there is a challenge for you to increase your learning about Predefined Skills. The next steps will guide you through the challenge and don't worry if you get stuck (that's why it's a challenge!), we will share the solution, too.
+The next steps will guide you through a challenge and don't worry if you get stuck (that's why it's a challenge!), you will share the solution, too.
 
 ### Step 3 - Learning the OCR image skill
 
 Two of the nine [predefined skills](https://docs.microsoft.com/en-us/azure/search/cognitive-search-predefined-skills) are related to image analysis. Your first assignment is to read about how to use them using this [link](https://docs.microsoft.com/en-us/azure/search/cognitive-search-concept-image-scenarios).
 
-We will add OCR to our cognitive search pipeline, this skill set will read text from the images within our dataset. Here is a [link](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-ocr) where you can read more details.
+You will add OCR to the cognitive search pipeline, this skill set will read text from the images within our dataset. Here is a [link](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-ocr) where you can read more details.
 
 ### Step 4 - Cleaning the environment
 
-We need to prepare the environment to add the image analysis we will create. The most practical approach is to delete the objects from Azure Search and rebuild them. This also avoids redundancy of similar information. This cleaning also reduces cost, two replicated/similar indexes will use space os the service. Last, but not least: to teach about DELETES is also an objective of this training. With the exception of the data source, we will delete everything else. Resource names are unique, so by deleting an object, you can recreate it using the same name.
+You need to prepare the environment to add the image analysis you will create. The most practical approach is to delete the objects from Azure Search and rebuild them. This also avoids redundancy of similar information. This cleaning also reduces cost, two replicated/similar indexes will use space os the service. Last, but not least: to teach about DELETES is also an objective of this training. With the exception of the data source, you will delete everything else. Resource names are unique, so by deleting an object, you can recreate it using the same name.
 
  Save all the scripts (API calls) you've done up until this point, including the definition json files you used in the "body" field. Let's start deleting the index and the indexer. You can use Azure Portal or API calls:
 
@@ -57,7 +57,7 @@ Status code 204 is returned on a successful deletion.
 
 ### Step 5 - Recreating the environment - Challenge
 
-Now we have a challenge for you. In this challenge exercise, you will be performing the following steps:
+In this challenge, you will perform the following steps:
 
 1. ~~Create the services at the portal~~ **Not required, we did not delete it**.
 1. ~~Create the Data Source~~ **Not required, we did not delete it**.
