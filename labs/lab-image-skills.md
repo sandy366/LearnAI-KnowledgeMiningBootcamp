@@ -70,7 +70,10 @@ Now we have a challenge for you. In this challenge exercise, you will be perform
 
 #### Step 5.1 Creating the skillset with the OCR image skillset
 
-Use the same skillset definition from Lab 1,  add in the [OCR image analysis skill](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-ocr) you read about in Step 3. We suggest you add them at the end of the JSON of the body syntax definition.
+Use the same skillset definition from Lab 1,  add in the [OCR image analysis skill](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-ocr) to your skillset. The objectives are:
+
+1. Save the text extracted from OCR into the index
+1. Submit the text extracted from OCR to language detection, key phrases and entity detection. 
 
 #### Step 5.2 - Recreating the index and indexer
 
