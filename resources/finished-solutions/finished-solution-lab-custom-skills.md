@@ -26,13 +26,8 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
 
 ```json
 {
-  "description":
-  "Extract entities, detect language and extract key-phrases. Also, moderates the content with a custom skill",
-  "skills":
-  [
-    {
   "description": 
-  "Extract entities, detect language and extract key-phrases",
+  "Extract entities, detect language and extract key-phrases. Also does OCR and submit everything to Content Moderator",
   "skills":
   [
      {
@@ -144,7 +139,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
         }
       ]
     },
-    {
+        {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
         "description": "Our new moderator custom skill",
         "uri": "https://cognitiveskill20181107032017.azurewebsites.net/api/ContentModerator?code=bA/CVOmqtLEpEEGRiedDiMR5aPybUcU1Pa3d1cB4POnrOYEOf/4Zyw==",
@@ -162,7 +157,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
             "targetName": "moderatedText"
           }
         ]
-      }
+    }
   ]
 }
 ```
