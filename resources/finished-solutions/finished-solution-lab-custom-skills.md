@@ -226,7 +226,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
       "type": "Edm.Boolean",
       "searchable": false,
       "sortable": false,
-      "filterable": false,
+      "filterable": true,
       "facetable": false
     }
   ]
