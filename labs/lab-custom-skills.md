@@ -28,11 +28,16 @@ To see how the API works, and also to learn how to demo this technology in minut
 
 Now, clicking the blue buttons, choose the region where you created your Content Moderator API, that should be the same region you are using for all services in this training. Now set the values as listed below:
 
+### Query parameters
+
 + autocorrect = true
 + PII = true
 + listId = remove parameter (we don't have a list of prohibited terms to work with at this point)
 + classify = true
 + language = eng (The default example is in English)
+
+### Headers
+
 + Keep Content-Type as "text/plain"
 + Paste in your Content Moderator API key
 
@@ -68,7 +73,7 @@ There is another method to find the required Visual Studio and Azure Functions u
 
 ### Step 2.2 - Preparing the solution
 
-Open the Windows Explorer and find the folder "resources/azure-function-code/ where you cloned this repository. You need to locate the file CognitiveSkill.sln. There should be a CognitiveSkill folder in the same folder where you found the .sln file.
+Open the Windows Explorer and find the folder **resources/code-azure-function** where you cloned this repository. You need to locate the file CognitiveSkill.sln. There should be a CognitiveSkill folder in the same folder where you found the .sln file.
 
 Double click, or hit enter, on the .sln file to open it in Visual Studio. Check your Solution Explorer on the right and confirm that you can see the same structure of the image below.
 
@@ -164,7 +169,7 @@ When you are satisfied with the function behavior, you can publish it.
 Now that you have the default host key, use Postman to test your function as follows:
 
 ```http
-POST https://[enter you Function name here].azurewebsites.net/api/ContentModerator?code=[enter your Azure Functions key here]
+POST https://[your-function-name].azurewebsites.net/api/ContentModerator?code=[enter your Azure Functions key here]
 ```
 
 ### Request Body
@@ -210,14 +215,18 @@ Status code 204 is returned on a successful deletion.
 
 Now let's use the [official documentation](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-interface) to learn the syntax we need to add the custom skill to our enrichment pipeline.
 
-As you can see, the custom skill works like all other predefined skills, but the type is **WebApiSkill** and you need to specify the URL you created above. The example below shows you how to call the skill. Because the skill doesn't handle batches, you have to add an instruction for maximum batch size to be just ```1``` to send documents one at a time.
-Like we did in Lab 2, we suggest you add this new skill at the end of the body definition of the skillset.
+As you can see, the custom skill works like all other predefined skills, but the type is **WebApiSkill** and you need to specify the URL you created above. The example below shows you how to call the skill. Because the skill doesn't handle batches,
+you have to add an instruction for maximum batch size to be just ```1``` to send documents one at a time. The objectives are:
+
+1. Save the extracted boolean value for moderation in a new index field
+1. Also submit the OCR text to the content moderator API
+1. Keep the OCR text been submited to Entity, Language and Key Phrases extractions
 
 ```json
       {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
         "description": "Our new content moderator custom skill",
-        "uri": "https://[enter function name here].azurewebsites.net/api/ContentModerator?code=[enter default host key here]",
+        "uri": "https://[your-function-name].azurewebsites.net/api/ContentModerator?code=[enter default host key here]",
         "batchSize":1,
         "context": "/document",
         "inputs": [
@@ -241,6 +250,8 @@ Like we did in Lab 2, we suggest you add this new skill at the end of the body d
 As you can see, again we are not giving you the body request. One more time you can use the previous lab as a reference.  
 Skipping the services and the data source creation, repeat the other steps of the previous labs, in the same order.
 
+>Note! Please make sure you will create the new index field for the moderation analysis as boolean. More information [here](https://docs.microsoft.com/en-us/azure/search/search-what-is-an-index).
+
 1. ~~Create the services at the portal~~ **Not required, we did not delete it**.
 2. ~~Create the Data Source~~ **Not required, we did not delete it**.
 3. Recreate the Skillset
@@ -252,7 +263,7 @@ Skipping the services and the data source creation, repeat the other steps of th
 
 ## Step 8
 
-Now we have our data enriched with pre-defined and custom skills. Use the Search Explorer within your Azure Search service in the Azure Portal to query the data. Create a query to identify documents with compliance issues, the moderated documents.
+Now we have our data enriched with pre-defined and custom skills. Use the Search Explorer within your Azure Search service in the Azure Portal to query the data. Create 2 or more queries to identify documents with compliance issues, the moderated documents.
 
 ![Checking for Moderation problems](../resources/images/lab-custom-skills/moderatedtex-query-portal.png)
 

@@ -14,6 +14,22 @@ Search is a hard and rarely a core expertise area. From an infrastructure standp
 
 The example above illustrates some of the components users are expecting in their search experience. [Azure Search](https://docs.microsoft.com/en-us/azure/search/search-what-is-azure-search) can accomplish these user experience features, along with giving you [monitoring and reporting](https://docs.microsoft.com/en-us/azure/search/search-traffic-analytics), [simple scoring](https://docs.microsoft.com/en-us/rest/api/searchservice/add-scoring-profiles-to-a-search-index), and tools for [prototyping](https://docs.microsoft.com/en-us/azure/search/search-import-data-portal) and [inspection](https://docs.microsoft.com/en-us/azure/search/search-explorer).
 
+## How it works
+
+Azure Search uses a structure called inverted index, which is designed to allow very fast full-text searches. An inverted index consists of a list of all the unique words that appear in any document, 
+and for each word, a list of the documents in which it appears. In the indexing process, Azure Search splits the content of each document into separate words, creates a sorted list of all the unique terms, 
+and then lists in which document each word appears. 
+
+![Inverted Index](../resources/images/lab-azure-search/inverted.png)
+
+## Competitors
+
+The table below lists the week points of the Azure Search Competitors and was created using public information available in December 2018. **This information must be confirmed before any other usage.** If we analyze the two largest public cloud providers, we see that the data of one will hardly be indexed by the search service on the other. But you can use Azure Search by reading data from a SQL Server IaaS on AWS. 
+Elastic Search is also a big competitor, but its focus are log files, not "human information". 
+
+![Inverted Index](../resources/images/lab-azure-search/compete.png)
+
+
 ## Typical Workflow
 
 1. Provision service
@@ -31,11 +47,11 @@ The example above illustrates some of the components users are expecting in thei
 
 Using the Azure Search service created in the previous lab, you will use the "Import Data" wizard, that helps you with all required steps to ingest and analyze your data: data source and index creation.
 
-- From the Overview tab, click on the **Import Data** option and right after, click on **Connect to Data Source**
+- From the Overview tab, click on the **Import Data** option
 
 ![Import Data Graphic](../resources/images/lab-azure-search/import-data.png)
 
-- Choose the **Azure Blob Storage** Data Source and name it as `lab1data`. Choose the **Content and Metadata** option, we want to index not only the files properties but also their content. Choose the **Default** parsing mode, since the dataset also have pdfs. The **Text** option has performance advantage, but that's not what we want because on the characteristics of our dataset. In the **Connection string** add the connection string collected in the previous lab. In the **Container name**, type "basicdemo". You skip Blob Folder and Description. After you click the **OK** blue button, you will wait a few seconds because Azure Search will be detecting (sampling) the schema and the metadata of the dataset.
+- Create a new data source. Choose the **Azure Blob Storage** Data Source and name it as `lab1data`. Choose the **Content and Metadata** option, we want to index not only the files properties but also their content. Choose the **Default** parsing mode, since the dataset also have pdfs. The **Text** option has performance advantage, but that's not what we want because on the characteristics of our dataset. In the **Connection string** add the connection string collected in the previous lab. In the **Container name**, type "basicdemo". You skip Blob Folder and Description. After you click the blue button, you will wait a few seconds because Azure Search will be detecting (sampling) the schema and the metadata of the dataset.
 
 ![Data Source Graphic](../resources/images/lab-azure-search/data-source-2.png)
 
@@ -46,20 +62,20 @@ Using the Azure Search service created in the previous lab, you will use the "Im
 
   - **Keep `metada_storage_path` as the key.** This is a unique identifier for each file of the data source. It is a good idea to use the physical path of file, since it is unique by design. Since our dataset is on blob storage, the content of this field is the file URL, that's why it is unique by design. If you check the other options, you will see that metadata_storage_path is only one field that can guarantee uniqueness.
 
-  - **Set all fields to be Retrievable**. This allows the application to retrieve these fields when searched. Please notice they are all strings and among them we have interesting things like metadata_storage_size, metadata_content type, metadata_language, and **the content itself**.
-
-  - Set **metadata_storage_size**, **metadata_content_type**, **metadata_language**, and **metadata_title** as **Filterable**, so you can filter on these fields.
-
-  - Set **metadata_storage_size**, **metadata_language**, and **metadata_title** as **Sortable**. It doesn't make sense to sort for the content since it is a free text.
-
-  - Set **metadata_storage_size**, **metadata_storage_name**, **metadata_language**, and **metadata_title** as **Facetable**, so you can use this categorization for fast searching.
-
-  - Set **content**, **metadata_content_type**, **metadata_language** and **metadata_title** as **Searchable**, you want to be able to search on all of them.
-
-  - Mark the **Analyzer** checkbox and all the fields from the last step will be set to **"Standard - Lucene"**. Navigate through the other language options, to see what is available. The Analyzer takes the terms a user enters and works to find the best matching terms in the Index. Azure Search includes analyzers that are used in technologies like Bing and Office that have deep understanding of 56 languages.
+    - Mark the **Analyzer** checkbox and all the fields from the last step will be set to **"Standard - Lucene"**. Navigate through the other language options, to see what is available. The Analyzer takes the terms a user enters and works to find the best matching terms in the Index. Azure Search includes analyzers that are used in technologies like Bing and Office that have deep understanding of 56 languages.
 
   - Click the **Suggester** checkbox and enter any Suggester name you like. Set the **Search Mode** to **"analyzingInfixMatching"** and choose **content** and **metadata_title** to be the fields to look for term suggestions. The Suggester feature helps the user of terms, as you can see in web search engines.
 - If your configuration looks like the image below, click the blue **Next: Create an indexer** button. A validation will be made.
+
+  - **Set all fields to be Retrievable**. This allows the application to retrieve these fields when searched. Please notice they are all strings and among them we have interesting things like metadata_storage_size, metadata_content type, metadata_language, and **the content itself**.
+
+  - Set **metadata_storage_size**, **metadata_content_type**, and **metadata_language** as **Filterable**, so you can filter on these fields.
+
+  - Set **metadata_storage_size**, **metadata_language**, and **metadata_title** as **Sortable**. It doesn't make sense to sort for the content since it is a free text.
+
+  - Set **metadata_storage_size**, **metadata_storage_name**, and **metadata_language** as **Facetable**, so you can use this categorization for fast searching.
+
+  - Set **content**, **metadata_content_type**, **metadata_language** and **metadata_title** as **Searchable**, you want to be able to search on all of them.
 
 ![Index Configuration](../resources/images/lab-azure-search/index-settings.png)
 

@@ -15,7 +15,7 @@ The emulator installs to `c:\Users\`_your-username_`\AppData\Local\botframework\
 
 As part of the environment creation lab, you should have cloned the repository to your local environment. If you have not, now is a good time to go back and do so.  
 
-Under **resources > bot-code**, you should be able to locate a "Microsoft Visual Studio Solution File" called "CognitiveSearchBot". Double-click on it to open the solution.  
+Under **resources > code-bot**, you should be able to locate a "Microsoft Visual Studio Solution File" called "CognitiveSearchBot". Double-click on it to open the solution.  
 
 Once the solution is open, right-click on "Solution 'CognitiveSearchBot'" in the Solution Explorer (from now on we'll just refer to this as "the solution") and select "Rebuild" to pull down all the dependencies required.  
 
@@ -31,7 +31,7 @@ Near the bottom of the class, within `CreateSearchIndexClient()`, you'll notice 
 
 In Visual Studio, select the green button (looks like a play button) in the top menu bar to run the bot (you can alternatively select `F5` on your keyboard). This will build and run the bot locally, opening a few pages for testing purposes. The pages will close if you stop running the bot.  
 
-Open the Bot Emulator if it is not open already. Select the button "Open Bot" from the Welcome page. Navigate to where your "BotConfiguration.bot" file is located (should be under **resources > bot-code** if you followed the previous instructions).  
+Open the Bot Emulator if it is not open already. Select the button "Open Bot" from the Welcome page. Navigate to where your "BotConfiguration.bot" file is located (should be under **resources > code-bot** if you followed the previous instructions).  
 
 This should open a chat window with your bot. You can start by saying some sort of greeting ("hi", "hello", "whats up bot", etc.). The bot should respond with a greeting, followed by the help message that says what it can do. Since really all it can do is search, enter "search" to trigger the search dialog.
 

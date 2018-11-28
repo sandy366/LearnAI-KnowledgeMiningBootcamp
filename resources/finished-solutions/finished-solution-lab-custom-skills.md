@@ -4,21 +4,80 @@ Hello!
 
 Here are the body requests for the custom skills lab. Don't forget to adjust the URLs to use your Azure Search service name.
 
+## Delete Skillset
+
+```http
+https://[your-service-name].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
+```
+
+## Delete Index
+
+```http
+https://[your-service-name].search.windows.net/indexes/demoindex?api-version=2017-11-11-Preview
+```
+
+## Delete Indexer
+
+```http
+https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=2017-11-11-Preview
+```
+
 ## Skillset
 
 ```json
 {
-  "description": 
-  "Extract entities, detect language and extract key-phrases. Also, Moderates the content with a custom skill",
+  "description":
+  "Extract entities, detect language and extract key-phrases. Also does OCR and submit everything to Content Moderator",
   "skills":
   [
+     {
+        "description": "Extract text (plain and structured) from image.",
+        "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
+        "context": "/document/normalized_images/*",
+        "defaultLanguageCode": "en",
+        "detectOrientation": true,
+        "inputs": [
+          {
+            "name": "image",
+            "source": "/document/normalized_images/*"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "text", "targetName": "myOcrText"
+          }
+        ]
+    },
+    {
+      "@odata.type": "#Microsoft.Skills.Text.MergeSkill",
+      "description": "Create mergedText, which includes all the textual representation of each image inserted at the right location in the content field.",
+      "context": "/document",
+      "insertPreTag": " ",
+      "insertPostTag": " ",
+      "inputs": [
+        {
+          "name":"text", "source": "/document/content"
+        },
+        {
+          "name": "itemsToInsert", "source": "/document/normalized_images/*/myOcrText"
+        },
+        {
+          "name":"offsets", "source": "/document/normalized_images/*/contentOffset"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mergedText", "targetName" : "mergedText"
+        }
+      ]
+    },
     {
       "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
       "inputs": [
         {
-          "name": "text", "source": "/document/content"
+          "name": "text", "source": "/document/mergedText"
         }
       ],
       "outputs": [
@@ -31,7 +90,7 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
       "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
       "inputs": [
         {
-          "name": "text", "source": "/document/content"
+          "name": "text", "source": "/document/mergedText"
         }
       ],
       "outputs": [
@@ -43,14 +102,14 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
-      "textSplitMode" : "pages", 
-      "maximumPageLength": 4000,
+      "textSplitMode" : "pages",
+      "maximumPageLength": 50000,
       "inputs": [
       {
         "name": "text",
-        "source": "/document/content"
+        "source": "/document/mergedText"
       },
-      { 
+      {
         "name": "languageCode",
         "source": "/document/languageCode"
       }
@@ -79,28 +138,8 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
           "targetName": "keyPhrases"
         }
       ]
-    }, 
-    
-     {
-        "description": "Extracts text (plain and structured) from image.",
-        "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
-        "context": "/document/normalized_images/*",
-        "defaultLanguageCode": null,
-        "detectOrientation": true,
-        "inputs": [
-          {
-            "name": "image",
-            "source": "/document/normalized_images/*"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "text",
-            "targetName": "myOcrText"
-          }
-        ]
-      },
-    {
+    },
+        {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
         "description": "Our new moderator custom skill",
         "uri": "https://cognitiveskill20181107032017.azurewebsites.net/api/ContentModerator?code=bA/CVOmqtLEpEEGRiedDiMR5aPybUcU1Pa3d1cB4POnrOYEOf/4Zyw==",
@@ -109,16 +148,16 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
         "inputs": [
           {
             "name": "text",
-            "source": "/document/content"
+            "source": "/document/mergedText"
           }
         ],
         "outputs": [
           {
             "name": "text",
-            "targetName": "ModeratedText"
+            "targetName": "moderatedText"
           }
         ]
-      }
+    }
   ]
 }
 ```
@@ -183,11 +222,11 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
       "facetable": false
     } ,
    {
-      "name": "ModeratedText",
+      "name": "moderatedText",
       "type": "Edm.Boolean",
       "searchable": false,
       "sortable": false,
-      "filterable": false,
+      "filterable": true,
       "facetable": false
     }
   ]
@@ -198,8 +237,7 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
 
 ```json
 {
-  "name":"demoindexer",
-  "dataSourceName" : "newdatasource",
+  "dataSourceName" : "demodata",
   "targetIndexName" : "demoindex",
   "skillsetName" : "demoskillset",
   "fieldMappings" : [
@@ -237,8 +275,8 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
             "targetFieldName": "myOcrText"
         },
         {
-            "sourceFieldName": "/document/ModeratedText",
-            "targetFieldName": "ModeratedText"
+            "sourceFieldName": "/document/moderatedText",
+            "targetFieldName": "moderatedText"
         }
   ],
   "parameters":
@@ -258,17 +296,23 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
 ## Check Status
 
 ```http
-GET https://[servicename].search.windows.net/indexers/demoindexer/status?api-version=2017-11-11-Preview
+GET https://[your-service-name].search.windows.net/indexers/demoindexer/status?api-version=2017-11-11-Preview
 Content-Type: application/json
 api-key: [api-key]
 ```
 
-## Check the Moderated Content extracted
+## Check files and the moderated text indicator
 
 ```http
-GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=ModeratedText,blob_uri,myOcrText&api-version=2017-11-11-Preview
+GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,moderatedText,organizations&api-version=2017-11-11-Preview
 Content-Type: application/json
 api-key: [api-key]
+```
+
+## Filter moderated content using Azure Search Explorer
+
+```http
+$select=blob_uri,moderatedText,content&$filter=moderatedText eq true
 ```
 
 ## Next Step
