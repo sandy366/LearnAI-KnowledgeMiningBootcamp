@@ -14,7 +14,7 @@ In this lab, you will create an Azure Search service and a storage account. We r
 
 1. For **Resource group**, create a resource group to contain all the resources you create in this tutorial. This makes it easier to clean up the resources after you have finished the tutorial.
 
-1. For **Location**, choose one of the regions below, Cogniteve Search is not available in all Azure regions.
+1. For **Location**, choose one of the regions below, Cognitive Search is not available in all Azure regions.
 - West Central US
 - South Central US
 - East US
