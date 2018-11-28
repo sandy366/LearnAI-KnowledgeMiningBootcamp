@@ -35,7 +35,7 @@ Send the request and go to any result set about an image file like jpg or png, l
 
 ## PART II: How to fix it
 
-The next steps will guide you through a challenge and don't worry if you get stuck (that's why it's a challenge!), you will share the solution, too.
+The next steps will guide you through a challenge and don't worry if you get stuck (that's why it's a challenge!), we will share the finished solution, too.
 
 ### Step 3 - Learning the OCR image skill
 
