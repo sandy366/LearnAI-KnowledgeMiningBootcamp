@@ -16,19 +16,18 @@ The example above illustrates some of the components users are expecting in thei
 
 ## How it works
 
-Azure Search uses a structure called inverted index, which is designed to allow very fast full-text searches. An inverted index consists of a list of all the unique words that appear in any document, 
-and for each word, a list of the documents in which it appears. In the indexing process, Azure Search splits the content of each document into separate words, creates a sorted list of all the unique terms, 
-and then lists in which document each word appears. 
+Azure Search uses a structure called inverted index, which is designed to allow very fast full-text searches. An inverted index consists of a list of all the unique words that appear in any document,
+and for each word, a list of the documents in which it appears. In the indexing process, Azure Search splits the content of each document into separate words, creates a sorted list of all the unique terms,
+and then lists in which document each word appears.
 
 ![Inverted Index](../resources/images/lab-azure-search/inverted.png)
 
 ## Competitors
 
-The table below lists the week points of the Azure Search Competitors and was created using public information available in December 2018. **This information must be confirmed before any other usage.** If we analyze the two largest public cloud providers, we see that the data of one will hardly be indexed by the search service on the other. But you can use Azure Search by reading data from a SQL Server IaaS on AWS. 
-Elastic Search is also a big competitor, but its focus are log files, not "human information". 
+The table below lists the week points of the Azure Search Competitors and was created using public information available in December 2018. **This information must be confirmed before any other usage.** If we analyze the two largest public cloud providers, we see that the data of one will hardly be indexed by the search service on the other. But you can use Azure Search by reading data from a SQL Server IaaS on AWS.
+Elastic Search is also a big competitor, but its focus are log files, not "human information".
 
 ![Inverted Index](../resources/images/lab-azure-search/compete.png)
-
 
 ## Typical Workflow
 
@@ -83,7 +82,7 @@ Using the Azure Search service created in the previous lab, you will use the "Im
 
 - **Name** your indexer as you want,  keep the schedule as **once**. The indexer is the job that connects the data source, the index and the schedule
 
-- Click the blue **Submit** button, and you will be redirected to the overview tab, where now you can see 1 index, 1 indexer and 1 data source (you may have to refresh your page).
+- Click the blue **OK** button, and you will be redirected to the overview tab, where now you can see 1 index, 1 indexer and 1 data source (you may have to refresh your page).
 
 ![Overview tab](../resources/images/lab-azure-search/redirect.png)
 
