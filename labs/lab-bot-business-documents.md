@@ -15,7 +15,7 @@ The emulator installs to `c:\Users\`_your-username_`\AppData\Local\botframework\
 
 As part of the environment creation lab, you should have cloned the repository to your local environment. If you have not, now is a good time to go back and do so.  
 
-Under **resources > code-bot**, you should be able to locate a "Microsoft Visual Studio Solution File" called "CognitiveSearchBot". Double-click on it to open the solution.  
+Under **resources > code-bot**, you should be able to locate a "Microsoft Visual Studio Solution File" called "CognitiveSearchBot.sln". Double-click on it to open the solution in Visual Studio.  
 
 Once the solution is open, right-click on "Solution 'CognitiveSearchBot'" in the Solution Explorer (from now on we'll just refer to this as "the solution") and select "Rebuild" to pull down all the dependencies required.  
 
@@ -23,9 +23,11 @@ Once the solution is open, right-click on "Solution 'CognitiveSearchBot'" in the
 
 Right-click on the solution and select "Manage NuGet Packages for Solution...". Under "Installed", you should find "Microsoft.Azure.Search" listed. There's no action here, but you should know that this package contains libraries that make it very easy for us to call the Azure Cognitive Search API and process the results.  
 
-Open "CognitiveSearchBot.cs" by double-clicking on it in the Solution Explorer. While there are lots of files in this solution, this is the most relevant one to integrating your search service. Spend at least five minutes reading the file **from start to finish**. We've commented what's happening on almost every line, so it is hopefully easy to follow, even if you don't have a background with bots.  
+Open "SearchDialogBase.cs" by double-clicking on it in the Solution Explorer, it is in the Dialogs folder on the Solution Explorer. While there are lots of files in this solution, this is one of the most relevant. It does the integration with your search service. Spend at least five minutes reading the file **from start to finish**. We've commented what's happening on almost every line, so it is hopefully easy to follow, even if you don't have a background with bots. This code shows you how to interact with the Search service using C# and the Azure Search SDK.
 
-Near the bottom of the class, within `CreateSearchIndexClient()`, you'll notice that you need to fill in your search service name, search service key, and index name. Since you've created and tested the index in Postman, you should have these readily available. If not, you can open the Azure portal and locate your Azure Search service to get the needed information. Fill in your information and save the file (you can use `CTRL` + `S`).
+Near the bottom of the Solution Explorer menu, you will see the Constants.cs file. Open it with a double click. You'll notice that you need to fill in your search service name, search service key, and index name. Since you've created and tested the index in Postman, you should have these readily available. If not, you can open the Azure portal and locate your Azure Search service to get the needed information. Fill in your information and save the file (you can use `CTRL` + `S`).
+
+>Note! The Bot code has many references to the index fields. If you did not named the content moderator field as **moderatedText** or the OCR field as **myOcrText**, you will need to change the code to use your fields names. The files to be changed are: /Dialogs/ModeratedContentSearchDialog.cs and /Models/SearchHit.cs .
 
 ## Step 3 - Interacting with your Cognitive Search Bot
 

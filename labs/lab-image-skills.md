@@ -83,7 +83,7 @@ Skipping the services and the data source creation, repeat the other steps of th
 
 **TIP 1:** What you need to do:
 
-1. Create a new index exactly like the one we did in Lab 1 but with an extra field for the OCR text from the images. Name suggestion: myOcrText. You can use the same json body field and add the new OCR field in the end
+1. Create a new index exactly like the one we did in Lab 1 but with an extra field for the OCR text from the images. Name the new field as **myOcrText**. You can use the same json body field and add the new OCR field in the end. If you decide to use a different name, you will need to change the Bot code to make it work.
 1. Create a new indexer exactly like the one we did in Lab 1, but with and extra mapping for the new skill and the new field listed above. You can use the same json body field and add the new OCR mapping in the end
 1. Check the indexer execution status as you did in the previous lab
 
