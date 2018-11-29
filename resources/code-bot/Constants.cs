@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿// Recognition and appreciation// This bot was develop in partnership with Pragmatismo Consulting: General Bots open-core - https://github.com/pragmatismo-io/BotServer// This bot also was also created with support from David Ruhlemann from Tallan inc.  
 
 namespace CognitiveSearchBot
 {
