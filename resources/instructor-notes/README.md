@@ -17,14 +17,16 @@ Use the KMB-Opening.pptx presentation to:
 1. Spektra Instructions
 1. Github link - <http://aka.ms/kmb>
 1. Survey URL
+1. Talk about environment cleaning, to avoid costs.
 
 While the introduction has a pdf version, this one won't have one. The idea is to keep on editing this presentation for each delivery.
 
-## Azure Functions Code
+## Custom Skills LAB
 
-Important to comment:
+Important to comment in the Azure Functions Code:
 
 1. language: eng (Content Moderator) x en (Azure Search)
+1. For now, language is not dynamic (not using the document extracted language). So, we are not moderating spanish docs very well.
 1. 1024 limit
 1. host x region. Without and with https
 1. Complex types explanation: why we are transforming in boolean

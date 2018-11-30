@@ -6,7 +6,7 @@
 
 ## Complex Scenarios
 
-The diagrams below describe from simple to complex scenarios of Cognitive Search.
+Now you are very familiar to 1x1x1x1 scenarios: one dataset, one index, one skillset and one indexer. The diagrams below describe this situation but also complex scenarios of Cognitive Search.
 
 ![Simple Scenario](../resources/images/lab-final-case/simple.png)
 ![Complex Scenario 1](../resources/images/lab-final-case/complex1.png)
@@ -31,6 +31,10 @@ Using what you've learned throughout the course, develop a potential Cognitive S
 1. List of the predefined and custom skills
 1. The skills sequence and how they are integrated
 1. The necessary Azure Search tier for this solution
+
+## Cleaning your environment - Again
+
+You have completed all of the hands-on portions of the course. We recommend deleting the resource group (and all of the resources in it) to avoid incurring extra charges.
 
 ## Next Step
 

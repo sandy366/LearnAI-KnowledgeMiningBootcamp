@@ -57,7 +57,7 @@ Right-click on the solution and select "Manage NuGet Packages for Solution...". 
 
 Search for the BFV4 components mentioned above. Some of them are easy do find, the solution folders organize the code.
 
-Open "SearchDialogBase.cs" by double-clicking on it in the Solution Explorer, it is in the Dialogs folder on the Solution Explorer. While there are lots of files in this solution, this is one of the most relevant. It does the integration with your search service. Spend at least five minutes reading the file **from start to finish**. We've commented what's happening on almost every line, so it is hopefully easy to follow, even if you don't have a background with bots. This code shows you how to interact with the Search service using C# and the Azure Search SDK.
+Open **SearchDialogBase.cs** by double-clicking on it in the Solution Explorer, it is in the Dialogs folder on the Solution Explorer. While there are lots of files in this solution, this is one of the most relevant. It does the integration with your search service. Spend at least five minutes reading the file **from start to finish**. We've commented what's happening on almost every line, so it is hopefully easy to follow, even if you don't have a background with bots. This code shows you how to interact with the Search service using C# and the Azure Search SDK.
 
 Near the bottom of the Solution Explorer menu, you will see the Constants.cs file. Open it with a double click. You'll notice that you need to fill in your search service name, search service key, and index name. Since you've created and tested the index in Postman, you should have these readily available. If not, you can open the Azure portal and locate your Azure Search service to get the needed information. Fill in your information and save the file (you can use `CTRL` + `S`).
 
@@ -69,11 +69,11 @@ In Visual Studio, select the green button (looks like a play button) in the top 
 
 Open the Bot Emulator if it is not open already. Select the button "Open Bot" from the Welcome page. Navigate to where your "BotConfiguration.bot" file is located (should be under **resources > code-bot** if you followed the previous instructions).  
 
-This should open a chat window with your bot. You can start by saying some sort of greeting ("hi", "hello", "whats up bot", etc.). The bot should respond with a greeting, followed by the help message that says what it can do. Since really all it can do is search, enter "search" to trigger the search dialog.
+This should open a chat window with your bot. You can start by saying some sort of greeting ("hi", "hello", "whats up bot", etc.). The bot should respond with a greeting, followed by the help message that says what it can do. Since really all it can do is search, enter "search" to trigger the search dialog. There is also a menu to avoid typing, it comes up right after the greeting. You can also ask for help, but the answer will be the same you had before.
 
 ![Greet Bot](../resources/images/lab-bot/emulator-running.png)
 
-You should now be able to submit search requests, and your results should be returned. Try searching for various items and inspecting your results. If you're unsure what to search for, here are a few suggestions: "satya nadella", "financial reporting", "security issues", "Azure", "cognitive services", "cloud", "sql server", "learnai", "reports".
+You should now be able to submit search requests, and your results should be returned. Try searching for various items and inspecting your results. If you're unsure what to search for, here are a few suggestions: "satya nadella", "financial reporting", "security issues", "Azure", "cognitive services", "cloud", "sql server", "learnai", "reports". Try to search using both the menu button and typing search + enter + the term you want to search for.
 
 ## Step 4 (optional) - Using break points to understand the search flow
 
@@ -81,19 +81,15 @@ If you want to dive slightly deeper into calling the Azure Cognitive Search API 
 
 First, stop your bot (by hitting the stop button in Visual Studio).  
 
-Open the "CognitiveSearchBot.cs" file. First, note that on lines 13 and 14, you are referencing the Azure Search NuGet package that was installed. Remember, this is crucial to running the commands you are about to step through.  
+Open the **SearchDialog.cs** file. First, note that on line 3 there is a reference for CognitiveSearchBot, that is using the Azure Search SDK (file **SearchDialogBase.cs**). Remember, this is crucial to running the commands you are about to step through.  
 
-Next, scroll down to where the search related tasks are located. Place a break point on lines 228 and 234 (on the lines `DocumentSearchResult results = await indexClientForQueries.Documents.SearchAsync(searchText);` and `IMessageActivity activity = context.Activity.CreateReply();`) by clicking in the grey area left of the numbers. You should see a red dot next to the break point lines, as shown below:  
+Next, scroll down to where the search related tasks are located. Place a break point on line 59, where there is the command `await ExecuteSearchAsync(stepContext.Context, searchText);`, by clicking in the grey area left of the numbers. You should see a red dot next to the break point lines, as shown below:  
 
 ![Set break points](../resources/images/lab-bot/setbreak.png)
 
-Next, run the bot (select `F5`) and (after sending "hi" then "search") search for something. Visual Studio will likely start blinking requesting your return. In Visual Studio, you should see the line about to be executed highlighted. Select `F11` repeatedly to step through what is happening as the search is processed. In the bottom box within Visual Studio, you should see "Locals". These values can be expanded and inspected. For example, when you see "hit" in "Locals", you can expand it to see the results from the API call for a single search hit.
+Next, run the bot (select `F5`) and on the Bot Emulator, search for something. Anything works. Visual Studio will likely start blinking requesting your return. In Visual Studio, you should see the line about to be executed highlighted. Select `F11` repeatedly to step through what is happening as the search is processed. In the bottom box within Visual Studio, you should see "Locals". These values can be expanded and inspected. For example, when you should be able to see the search you just did.
 
 ![Examine hit locals](../resources/images/lab-bot/locals.png)
-
-Similarly, when "results" has been filled, you can see how many "hits" there are and expand those details as well.
-
-![Examine results locals](../resources/images/lab-bot/locals2.png)
 
 Using break points for debugging and seeing how calls are made and processed is a very valuable tool. If you'd like to learn more, [start here](https://docs.microsoft.com/en-us/visualstudio/debugger/getting-started-with-the-debugger?view=vs-2017).  
 
