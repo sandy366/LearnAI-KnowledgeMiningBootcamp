@@ -4,6 +4,38 @@ In this lab, you will learn how Azure Cognitive Search can be integrated into a 
 
 > While this is a simple bot, this [gif](../resources/images/lab-bot/retrieving-cognitive-attrributes.gif) provides some inspiration for what a solution could look like in a real estate scenario. Hopefully, it gives you some inspiration for what's possible. You could also integrate this into a web app, here is a [WebMD example](http://webmedsearch.azurewebsites.net/) and a [Seismic data example](http://seismicsearch.azurewebsites.net/).
 
+The image belows describes the bot created in this lab. Please notice that:
+
++ If you click on a chat message, the Bot Emulator will show you the JSON file of that interaction
++ The Log window shows you the status of the interactions
++ Preview of the files are loaded
++ URLs are returned, you can click an open the files
++ There is a menu to help your search experience, you will be able to find moderated documents with one click
+
+![Finished Bot](../resources/images/lab-bot/expected.png)
+
+## Bot Framework V4
+
+This lab's bot uses framework V4, a complete re-write of the framework with new concepts, terminology, documentation, and architecture. BFv4 SDK is open source and available for JavaScript, C#, Python and Java.
+
+The concept of the bot as a single code base which is published to multiple channels (Skype, Cortana, Facebook etc) remains the same. The Azure Bot Service idea also remains the same, an Azure web APP to host the bot server-side service. The code architecture key concepts are:
+
++ **Adapter:** It is the orchestrator for the bot, routing incoming and outgoing communication and authentication. For any interaction, it creates a `TurnContext` object and passes it to he bot application logic.
+
++ **Middleware:** the pipeline between the adapter and the bot code. It handles the bot state.
+
++ **Turn:** It is the action of the `TurnContext`been received by the bot. Normally there will be some processing and the bot will answer back to the user.
+
++ **Dialog and Conversations:** The way conversation flows through the bot has changed significantly compared to BFv3. Key docs include Manage conversation flow with dialogs and Create modular bot logic with a dialog container. These are some of the key concepts:
+
+  + `Dialog`: simple turn interactions. Dialogs receive input from state or `OnTurn` function
+  + `Prompt`: Dialog intent to capture and verify data from the bot user
+  + `DialogContainer`: a collection of dialogs and prompts, executed in `WaterfallStep` sequency
+  + `DialogSet`: Can contain Dialogs, prompts and dialog containers. Used for menus. Also kown as "root dialog"
+  + `WaterfallStep`: the most granular action in the conversation.
+
++ **State:** Stores data relating to either the conversation or the user. State is a middleware component. Available storage layers are Memory (data is cleared each time the bot is restarted), Blob Storage and CosmosDB. **State management** automates the reading and writing of your bot's state to the underlying storage layer.
+
 ## Step 1 - Download and install the Bot Framework Emulator
 
 The Bot Framework Emulator helps you run your bots locally for testing and debugging purposes. Download the emulator by going to [this page](https://github.com/Microsoft/BotFramework-Emulator/releases) and downloading the most recent version of the emulator that has the tag "Latest Release" (select the ".exe" file, if you are using windows). We suggest release 4.1.0 or newer. Be careful, the page is not sorted by release number.
@@ -21,7 +53,9 @@ Once the solution is open, right-click on "Solution 'CognitiveSearchBot'" in the
 
 > Note: There is a lot of "stuff" in this solution. If you've worked with bots before, you may be interested in looking around to see how we've set up the state, regular expressions, and the dialogs/responses. If you've never worked with bots before, do not fret! This is not a bots course, so we'll walk you through the important things we want you to learn.  
 
-Right-click on the solution and select "Manage NuGet Packages for Solution...". Under "Installed", you should find "Microsoft.Azure.Search" listed. There's no action here, but you should know that this package contains libraries that make it very easy for us to call the Azure Cognitive Search API and process the results.  
+Right-click on the solution and select "Manage NuGet Packages for Solution...". Under "Installed", you should find "Microsoft.Azure.Search" listed. There's no action here, but you should know that this package contains libraries that make it very easy for us to call the Azure Cognitive Search API and process the results.
+
+Search for the BFV4 components mentioned above. Some of them are easy do find, the solution folders organize the code.
 
 Open "SearchDialogBase.cs" by double-clicking on it in the Solution Explorer, it is in the Dialogs folder on the Solution Explorer. While there are lots of files in this solution, this is one of the most relevant. It does the integration with your search service. Spend at least five minutes reading the file **from start to finish**. We've commented what's happening on almost every line, so it is hopefully easy to follow, even if you don't have a background with bots. This code shows you how to interact with the Search service using C# and the Azure Search SDK.
 
