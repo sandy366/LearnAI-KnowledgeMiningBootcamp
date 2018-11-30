@@ -80,6 +80,18 @@ Azure Search has the following security features:
   + Index per tenant
   + Service per tenant
 
+### Partial or incremental indexing
+
+Once an index is in production, focus shifts to incremental indexing, usually with no discernable service disruptions. Partial or incremental indexing is a content-only workload that synchronizes the content of a search index to reflect the state of content in a contributing data source. A document added or deleted in the source is added or deleted to the index.
+
+When using indexers that crawl external data sources, change-tracking mechanisms in source systems are leveraged for incremental indexing.
+
++ For Azure Blob storage, a lastModified field is used
++ On Azure Table storage, timestamp serves the same purpose
++ Similarly, both Azure SQL Database indexer and Azure Cosmos DB indexer have fields for flagging row updates
+
+When you have 2 instances of the same indexer running at the same time, each execution will process the existing delta in the execution start moment. There is no overlap, the system blocks for each execution the work to be done.
+
 ### Service Limits
 
 The most important service limits for this training are listed below. For the all list, for all tiers, click [here](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity).
