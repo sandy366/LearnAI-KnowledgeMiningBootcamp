@@ -9,8 +9,8 @@ namespace CognitiveSearchBot
     public static class Constants
     {
         // replace "YourSearchServiceName", "YourSearchServiceKey", and "YourIndexName" with your search service values
-        public static string SearchServiceName = "rodcogsearch";
-        public static string SearchServiceApiKey = "C6E28D8D5053D56BF5273032930817B7";
-        public static string TargetIndexName = "demoindex";
+        public static string SearchServiceName = "your-azure-search-service-name";
+        public static string SearchServiceApiKey = "your-azure-search-service-key";
+        public static string TargetIndexName = "your-index-name";
     }
 }
