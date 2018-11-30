@@ -33,29 +33,44 @@ Important to comment:
 
 ## Bot LAB
 
-You can demo searches for linux e LearnAI. Ctrl+click the URL to open the IMAGES, not the other files.
++ You can demo searches for linux e LearnAI. Ctrl+click the URL to open the IMAGES, not the other files.
++ Search for moderated documents
++ Explain details of Framework 4 code
 
 ## Final Case - Finished Solution
 
 Expected:
 
-1. Sizing discussion: [Tier](https://azure.microsoft.com/en-us/pricing/details/search/) x [SLA](https://azure.microsoft.com/en-us/support/legal/sla/search/v1_0/), Units. For SLA is required 2 or more copies. Basic tear limit is 2 GB, Standard has 300 GB total.
++ Complex Scenarios
+  + Multiple datasets:
+    + More than one datasource: product catalog, reviews, ERP, CRM
+    + Data source is too big, processing needs to be partitioned
+  + Multiple Indexes
+    + One for each region, in each languages
+    + Each region demands different fields or ranking or Analyzer or suggester
+  + Multiple Indexers
+    + Datasources updated in different times
+    + Each product or region requires different schdules
+  + Multiple Skillsets
+    + VIVINO/CREDIT/Logistics/Other custom skillset with a different schedule update - "runs once a day"
 
-1. Skills
-    - Text Skills
-    - OCR (text in images)
-    - Image Analysis too (images scenes descriptions)
-    - Language detection
-    - Celebrity Detection (famous somelier)
-    - Entity Extraction (location, organizations)
-    - Important to discuss the order of the transformations
++ Sizing discussion: [Tier](https://azure.microsoft.com/en-us/pricing/details/search/) x [SLA](https://azure.microsoft.com/en-us/support/legal/sla/search/v1_0/), Units. For SLA is required 2 or more copies. Basic tear limit is 2 GB, Standard has 300 GB total.
 
-1. Other AI envolved
-    - Translation API
-    - Recommendation API created with AML and running on AKS
++ Skills
+  + Text Skills
+  + OCR (text in images)
+  + Image Analysis too (images scenes descriptions)
+  + Language detection
+  + Celebrity Detection (famous somelier)
+  + Entity Extraction (location, organizations)
+  + Important to discuss the order of the transformations
 
-1. South America means 2 more languages after the orginal docs in English: Portuguese and Spanish. It is expected discussions like:
-    - Save all fields in 3 languages? Storage costs. Write once and read many
-    - Translate on the fly? Data out and API usage costs, latency
++ Other AI envolved
+  + Translation API
+  + Recommendation API created with AML and running on AKS
 
-1. Other Technologies: CosmosDB for the product catalog? Blob Storage? Bot Services? Batch AI to train the recomendation API?
++ South America means 2 more languages after the orginal docs in English: Portuguese and Spanish. It is expected discussions like:
+  + Save all fields in 3 languages? Storage costs. Write once and read many
+  + Translate on the fly? Data out and API usage costs, latency
+
++ Other Technologies: CosmosDB for the product catalog? Blob Storage? Bot Services? Batch AI to train the recomendation API?
