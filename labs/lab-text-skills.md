@@ -206,6 +206,8 @@ In the **Request body**, you will use JSON to define the Language Detection, Tex
 }
 ```
 
+>New! Entity Recognition skill initial types were "Person", "Location" and "Oragnization". Types "Quantity", "Datetime", "URL" and "Email" were added on November 28th, 2018. This means that Entity Recognition Skill can be used 7 times in the same skillset. **But you can't use the same type twice in the same skillset**.
+
 ### Validate that the  Request has been successful
 
 Send the request. The web test tool should return a status code of **201 Created** confirming success.
