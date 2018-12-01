@@ -56,7 +56,7 @@ In the [Seventh Lab](../../labs/lab-final-case.md) you are invited to, based on 
 
 We will provide a sample dataset that contains documents with multiple languages and formats including HTML, doc, pdf, ppt, png and jpg. They were selected for a better learning experience, showcasing the technology capabilities.
 
-The dataset has 19 files and 15 MBs. It includes public Microsoft business documents. There is a document in spanish, so you can learn about langauge identification. There is also a document with anonimized Personal Indetifiable Information (PII) for the Content Moderator lab.
+The dataset has 21 files and 15 MBs. It includes public Microsoft business documents. There is a document in spanish, so you can learn about langauge identification. There is also a document with anonimized Personal Indetifiable Information (PII) for the Content Moderator lab.
 
 Since we are working with unstructured data, any set of files can be used. In other words, this could be a **Bring Your Own Data** solution; you can test later with any dataset you want.
 
