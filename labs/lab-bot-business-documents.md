@@ -8,8 +8,8 @@ The image belows describes the bot created in this lab. Please notice that:
 
 + If you click on a chat message, the Bot Emulator will show you the JSON file of that interaction
 + The Log window shows you the status of the interactions
-+ Preview of the files are loaded
-+ URLs are returned, you can click an open the files
++ Preview of the files are loaded in a carousel
++ URLs are returned, you can click to open the files
 + There is a menu to help your search experience, you will be able to find moderated documents with one click
 
 ![Finished Bot](../resources/images/lab-bot/expected.png)
@@ -31,7 +31,7 @@ The concept of the bot as a single code base which is published to multiple chan
   + `Dialog`: simple turn interactions. Dialogs receive input from state or `OnTurn` function
   + `Prompt`: Dialog intent to capture and verify data from the bot user
   + `DialogContainer`: a collection of dialogs and prompts, executed in `WaterfallStep` sequency
-  + `DialogSet`: Can contain Dialogs, prompts and dialog containers. Used for menus. Also kown as "root dialog"
+  + `DialogSet`: Can contain dialogs, prompts and dialog containers. Used for menus. Also kown as "root dialog"
   + `WaterfallStep`: the most granular action in the conversation.
 
 + **State:** Stores data relating to either the conversation or the user. State is a middleware component. Available storage layers are Memory (data is cleared each time the bot is restarted), Blob Storage and CosmosDB. **State management** automates the reading and writing of your bot's state to the underlying storage layer.
