@@ -26,7 +26,7 @@ and then lists in which document each word appears.
 
 The table below is an independent analysis of the biggest competitors. While it is not an official Microsoft position, there is no formal battlecard, it helps to start future studies and discussions. While Azuse Search works with Office and pdf documents by design, it is Cognitive Search that boost the product to also index images and extract human comceptual understanding from the data.
 
-Data sources like MySQL, CosmosDB and Azure SQL are also a competitive advantages.
+Data sources like MySQL, CosmosDB and Azure SQL are also competitive advantages.
 
 ![Battlecard](../resources/images/lab-azure-search/compete.png)
 
