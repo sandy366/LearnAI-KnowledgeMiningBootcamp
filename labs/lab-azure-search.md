@@ -94,7 +94,7 @@ When you have 2 instances of the same indexer running at the same time, each exe
 
 ### Service Limits
 
-The most important service limits for this training are listed below. For the all list, for all tiers, click [here](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity).
+The service limits for this training are listed below. For the all list, click [here](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity).
 
 | Resource | Free Tier | Basic Tear | S1 Tear | S2 Tier | S3 Tier |
 |-------|----------|----------|----------|----------|----------|
