@@ -21,6 +21,10 @@ Use the KMB-Opening.pptx presentation to:
 
 While the introduction has a pdf version, this one won't have one. The idea is to keep on editing this presentation for each delivery.
 
+## Image Skills Lab
+
+OCR: Expected performance is 3 seconds per image.  For documents with multiple images, you can apply those 3 seconds for every one of them. The product performance is under constant optimizations and improvements are expexted soon.
+
 ## Custom Skills LAB
 
 Important to comment in the Azure Functions Code:

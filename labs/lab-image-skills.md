@@ -45,6 +45,8 @@ You will add OCR to the cognitive search pipeline, this skill set will read text
 
 >Note! For now, Cognitive Search uses [OCR V2](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) (preview), for english. And uses V1 for other languages. This may change in the future.
 
+Image skills, like OCR and Image Analysis, are heavier than text skills. Behind the sciences, Microsoft is running deep learning algorithms on your data. Expect to have the indexer running longer than the text only skillset.
+
 ### Step 4 - Cleaning the environment
 
 You need to prepare the environment to add the image analysis you will create. The most practical approach is to delete the objects from Azure Search and rebuild them. This also avoids redundancy of similar information. This cleaning also reduces cost, two replicated/similar indexes will use space os the service. Last, but not least: to teach about DELETES is also an objective of this training. With the exception of the data source, you will delete everything else. Resource names are unique, so by deleting an object, you can recreate it using the same name.
