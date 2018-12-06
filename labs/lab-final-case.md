@@ -8,6 +8,16 @@
 
 Now you are very familiar to 1x1x1x1 scenarios: one dataset, one index, one skillset and one indexer. The diagrams below describe this situation but also complex scenarios of Cognitive Search.
 
+### Partitioning for Parallel processing
+
+To divide the data into multiple containers, or partitions, helps to increase performance. It is required to create one data source and one indexer for partition, pointing to the same index. It is possible to use the same skillset or not, depends on the business requirements and also how the partitions were made. As an example, let's say that all images are separated from text documents. In this case makes sense to have different skillsets.
+
+To run them in parallel, Standard Service Tier is required, with the correct number of replicas and partitions. The number or maximum parallel indexers executions at the same time is calculated with this simple formula: number of partitions x number of replicas. If you have 3 replicas and 3 partitions, you can have up to 9 indexers at the same time.
+
+For more information on sizing, click [here](https://docs.microsoft.com/en-us/azure/search/search-capacity-planning) to learn how to do your sizing.
+
+### Complex Scenarios Diagrams
+
 ![Simple Scenario](../resources/images/lab-final-case/simple.png)
 ![Complex Scenario 1](../resources/images/lab-final-case/complex1.png)
 ![Complex Scenario 2](../resources/images/lab-final-case/complex2.png)

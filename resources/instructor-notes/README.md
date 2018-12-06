@@ -50,7 +50,7 @@ Expected:
 + Complex Scenarios
   + Multiple datasets:
     + More than one datasource: product catalog, reviews, ERP, CRM
-    + Data source is too big, processing needs to be partitioned
+    + Data source is too big, data needs to be partitioned 
   + Multiple Indexes
     + One for each region, in each languages
     + Each region demands different fields or ranking or Analyzer or suggester
