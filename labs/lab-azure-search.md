@@ -96,17 +96,20 @@ When you have 2 instances of the same indexer running at the same time, each exe
 
 The most important service limits for this training are listed below. For the all list, for all tiers, click [here](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity).
 
-| Resource | Free Tier | Basic Tear | S1 Tear |
-|-------|----------|----------|----------|
-| SLA | No | Yes| Yes | Yes |
-| Storage per Partition | 50 MB | 2 GB | 25 GB |
-| Partitions | 1 | 1 | 12 |
-| Replicas | N/A | 3 | 12 |
-| Maximum Indexes | 3 | 15 | 50 |
-| Maximum Indexers | 3 | 15 | 50 |
-| Maximum fields per Index | 1000 | 100 | 1000 |
-| Total Documents | 10,000 | 15 million per partition | 60 million per partition |
-| Maximum Skliisets | 3 | 15 | 50 |
+| Resource | Free Tier | Basic Tear | S1 Tear | S2 Tier | S3 Tier |
+|-------|----------|----------|----------|----------|----------|
+| SLA | No | Yes| Yes | Yes | Yes | Yes |
+| Storage per Partition | 50 MB | 2 GB | 25 GB | 100 GB | 200 GB |
+| Partitions | 1 | 1 | 12 | 12 | 12 | 12 |
+| Replicas | N/A | 3 | 12 | 12 | 12 | 12 |
+| Maximum Indexes | 3 | 15 | 50 | 200 | 200 |
+| Maximum Indexers | 3 | 15 | 50 | 200 | 200 |
+| Maximum fields per Index | 1000 | 100 | 1000 | 1000 | 1000 |
+| Total Documents | 10,000 | 1 million | 15 million per partition | 60 million per partition | 120 million per partition |
+| Maximum Skliisets | 3 | 15 | 50 | 200 | 200 |
+| Maximum File size | 16 MB | 16 MB | 128 MB|  256 | 256 |
+
+>Note! Azure Search also offers the **S3 High Density (S3 HD) tier**, engineered for specific workloads: multi-tenancy and large quantities of small indexes (one million documents per index, three thousand indexes per service). This tier does not provide the indexer feature, can't be used for Cognitive Search. On S3 HD, data ingestion must leverage the push approach, using API calls to push data from source to index.
 
 ### Typical Workflow
 
