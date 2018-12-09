@@ -21,6 +21,12 @@ Use the KMB-Opening.pptx presentation to:
 
 While the introduction has a pdf version, this one won't have one. The idea is to keep on editing this presentation for each delivery.
 
+## Text Skills lab
+
++ Important to read the skills been used with the students, explain why pages with 4000 characters is an example of valuable information that teachs how text split is important. It also helps to learn how the output of one skill is input of another one.
++ Some warnings about long words and/or text are expected, Cognitive Search works with the limitations of the Cognitive Services APIs that are used under the hood.
++ Someone may ask why there are duplicates for `keyPhrases` and `organizations`. It is unique per page, we are creating lots and lots of them, bacause on the Entity Recognition actual (december 2018) 4000 characters limit. All of it may change in the future, the limits and the uniqueness per page.
+
 ## Image Skills Lab
 
 OCR: Expected performance is 3 seconds per image.  For documents with multiple images, you can apply those 3 seconds for every one of them. The product performance is under constant optimizations and improvements are expexted soon.
@@ -50,7 +56,7 @@ Expected:
 + Complex Scenarios
   + Multiple datasets:
     + More than one datasource: product catalog, reviews, ERP, CRM
-    + Data source is too big, data needs to be partitioned 
+    + Data source is too big, data needs to be partitioned
   + Multiple Indexes
     + One for each region, in each languages
     + Each region demands different fields or ranking or Analyzer or suggester

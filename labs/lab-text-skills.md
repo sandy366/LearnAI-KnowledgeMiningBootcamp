@@ -109,15 +109,13 @@ If you got a 403 or 404 error, check the request construction: `api-version=2017
 
 In this step, you define a set of enrichment steps that you want to apply to your data. Each enrichment step is called a *skill*, and the set of enrichment steps a *skillset*. This tutorial uses the following [predefined cognitive skills](https://docs.microsoft.com/en-us/azure/search/cognitive-search-predefined-skills):
 
-+ [Language Detection](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-language-detection) to identify the content's language.
++ [Language Detection](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-language-detection) to identify the content's language. In December 2018 only English and Spanish are supported for all cognitive skills. For the actual Cognitive Search language list and status, click [here](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/language-support). That's why the provided dataset has documents in these two languages. The Azure Search supported language list is something different, a different universe of options. For more information, click [here](https://docs.microsoft.com/en-us/rest/api/searchservice/Language-support?redirectedfrom=MSDN).
 
-+ [Text Split](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-textsplit) to break large content into smaller chunks before calling the key phrase extraction skill. Key phrase extraction accepts inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit.
++ [Text Split](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-textsplit) to break large content into smaller chunks before calling the key phrase extraction skill. Key phrase extraction accepts inputs of 50,000 characters or less. In December 2018, entity recognition is accepting only 4000, it will be increased to 50,000 characters in the near future. But to make it work with both actual limits, this training labs will use 4000 characters. It is required, the dataset has files much bigger than that.
 
 + [Named Entity Recognition](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-named-entity-recognition) for extracting the names of organizations from content in the blob container.
 
 + [Key Phrase Extraction](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-keyphrases) to pull out the top key phrases.
-
->Note! On December 2018 only English and Spanish are supported for all cognitive skills. For the actual Cognitive Search language list and status, click [here](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/language-support). That's why the provided dataset has documents in these two languages. The Azure Search supported language list is something different, a different universe of options. For more information, click [here](https://docs.microsoft.com/en-us/rest/api/searchservice/Language-support?redirectedfrom=MSDN).
 
 ### Define the PUT method and Header information
 
@@ -141,22 +139,7 @@ In the **Request body**, you will use JSON to define the Language Detection, Tex
   "Extract entities, detect language and extract key-phrases",
   "skills":
   [
-    {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
-      "categories": [ "Organization" ],
-      "defaultLanguageCode": "en",
-      "inputs": [
-        {
-          "name": "text", "source": "/document/content"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "organizations", "targetName": "organizations"
-        }
-      ]
-    },
-    {
+   {
       "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
       "inputs": [
         {
@@ -173,7 +156,7 @@ In the **Request body**, you will use JSON to define the Language Detection, Tex
     {
       "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
       "textSplitMode" : "pages",
-      "maximumPageLength": 50000,
+      "maximumPageLength": 4000,
       "inputs": [
       {
         "name": "text",
@@ -191,6 +174,22 @@ In the **Request body**, you will use JSON to define the Language Detection, Tex
       }
     ]
   },
+{
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+      "categories": [ "Organization" ],
+      "defaultLanguageCode": "en",
+      "context": "/document/pages/*",
+      "inputs": [
+        {
+          "name": "text", "source": "/document/pages/*"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "organizations", "targetName": "organizations"
+        }
+      ]
+    },
   {
       "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
       "context": "/document/pages/*",
@@ -370,7 +369,7 @@ api-key: [api-key]
   "outputFieldMappings" :
   [
         {
-          "sourceFieldName" : "/document/organizations",
+          "sourceFieldName" : "/document/pages/*/organizations/*",
           "targetFieldName" : "organizations"
         },
         {
