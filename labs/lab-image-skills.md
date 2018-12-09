@@ -47,6 +47,8 @@ You will add OCR to the cognitive search pipeline, this skill set will read text
 
 Image skills, like OCR and Image Analysis, are heavier than text skills. Behind the sciences, Microsoft is running deep learning algorithms on your data. Expect to have the indexer running longer than the text only skillset.
 
+>Note! Currently OCR only works with "/document/normalized_images" field, produced by the Azure Blob indexer when imageAction is set to generateNormalizedImages. As part of document cracking, there are a new set of indexer configuration parameters for handling image files or images embedded in files. These parameters are used to normalize images for further downstream processing. Normalizing images makes them more uniform. Large images are resized to a maximum height and width to make them consumable. For images providing metadata on orientation, image rotation is adjusted for vertical loading. Metadata adjustments are captured in a complex type created for each image.
+
 ### Step 4 - Cleaning the environment
 
 You need to prepare the environment to add the image analysis you will create. The most practical approach is to delete the objects from Azure Search and rebuild them. This also avoids redundancy of similar information. This cleaning also reduces cost, two replicated/similar indexes will use space os the service. Last, but not least: to teach about DELETES is also an objective of this training. With the exception of the data source, you will delete everything else. Resource names are unique, so by deleting an object, you can recreate it using the same name.
@@ -72,12 +74,12 @@ In this challenge, you will perform the following steps:
 1. Check the Index Fields - Check the image fields you just created.
 1. Check the data - If you don't have a different result, something went wrong.
 
-#### Step 5.1 Creating the skillset with the OCR image skillset
+#### Step 5.1 Creating the skillset for images
 
 Use the same skillset definition from Lab 1,  add in the [OCR image analysis skill](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-ocr) to your skillset. The objectives are:
 
 1. Save the text extracted from OCR into the index
-1. Submit the text extracted from OCR to language detection, key phrases and entity detection.
+1. Submit the text extracted from OCR and also the `content`, extracted by default from all text documents, to language detection, key phrases, and entity detection. You will  need to use another pre defined skill to merge the text, since you can't use the same skill twice in the same skillset. It is part of the challenge to find the correct skill and how to use it
 
 #### Step 5.2 - Recreating the index and indexer
 

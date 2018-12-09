@@ -29,7 +29,9 @@ While the introduction has a pdf version, this one won't have one. The idea is t
 
 ## Image Skills Lab
 
-OCR: Expected performance is 3 seconds per image.  For documents with multiple images, you can apply those 3 seconds for every one of them. The product performance is under constant optimizations and improvements are expexted soon.
++ OCR: Expected performance is 3 seconds per image.  For documents with multiple images, you can apply those 3 seconds for every one of them. The product performance is under constant optimizations and improvements are expexted soon
++ Talk about normalized images. The lab has a "Note!" for that. All info you need is there
++ Highlight that now the skillset is merging and splitting the content
 
 ## Custom Skills LAB
 

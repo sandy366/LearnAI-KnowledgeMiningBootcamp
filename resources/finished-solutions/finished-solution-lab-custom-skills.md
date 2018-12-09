@@ -72,21 +72,6 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
       ]
     },
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
-      "categories": [ "Organization" ],
-      "defaultLanguageCode": "en",
-      "inputs": [
-        {
-          "name": "text", "source": "/document/mergedText"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "organizations", "targetName": "organizations"
-        }
-      ]
-    },
-    {
       "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
       "inputs": [
         {
@@ -103,7 +88,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
     {
       "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
       "textSplitMode" : "pages",
-      "maximumPageLength": 50000,
+      "maximumPageLength": 4000,
       "inputs": [
       {
         "name": "text",
@@ -139,10 +124,26 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
         }
       ]
     },
+    {
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+      "categories": [ "Organization" ],
+      "defaultLanguageCode": "en",
+      "context": "/document/pages/*",
+      "inputs": [
         {
+          "name": "text", "source": "/document/pages/*"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "organizations", "targetName": "organizations"
+        }
+      ]
+    },
+    {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
         "description": "Our new moderator custom skill",
-        "uri": "https://cognitiveskill20181107032017.azurewebsites.net/api/ContentModerator?code=bA/CVOmqtLEpEEGRiedDiMR5aPybUcU1Pa3d1cB4POnrOYEOf/4Zyw==",
+        "uri": "https://[your-content-moderator-api-url].azurewebsites.net/api/ContentModerator?code=[your-content-moderator-api-key]",
         "batchSize":1,
         "context": "/document",
         "inputs": [
@@ -259,7 +260,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
   "outputFieldMappings" :
   [
         {
-          "sourceFieldName" : "/document/organizations",
+          "sourceFieldName" : "/document/pages/*/organizations/*",
           "targetFieldName" : "organizations"
         },
         {
