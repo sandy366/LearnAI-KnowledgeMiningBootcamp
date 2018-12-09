@@ -39,11 +39,16 @@ Important to comment in the Azure Functions Code:
 
 1. language: eng (Content Moderator) x en (Azure Search)
 1. For now, language is not dynamic (not using the document extracted language). So, we are not moderating spanish docs very well.
-1. 1024 limit
+1. 1024 limit.
 1. host x region. Without and with https
 1. Complex types explanation: why we are transforming in boolean
 1. You can use [this](https://github.com/Rodrigossz/AzureCognitiveSkill) Azure Functions solution to demo the complex type that is returned
 1. Explanation: we are only using PII
+
+Important to comment about the skillset:
+
+1. We could submit entities and organizations to content moderator
+1. Content Moderator limit, 1024 characters, could be a smaller problem if we submit the pages instead of the merged text. Maybe in the next version of the training. You can ask those who finished early to do it. Extra Challenge.
 
 ## Bot LAB
 
