@@ -205,11 +205,11 @@ The image below explains how Azure Search executes a query. The process has four
 
 At this point of the lab, we can try searching the index. Let's keep on using the Azure Portal for this.
 
-1. Navigate back to the **Overview Tab** and click the **Indexes** link, the second from the left to the right. You should see the "Document Count" and the Storage Size. The expected count is 20 and the size should be close to 2.19 MiB. As you can see, Azure Search doesn't store all of the document, just part of it: key words, metadata, tags.
+1. Navigate back to the **Overview Tab** and click the **Indexes** link, the second from the left to the right. You should see the "Document Count" and the Storage Size. The expected count is 21 and the size should be close to 2.19 MiB. As you can see, Azure Search doesn't store all of the document, just part of it: key words, metadata, tags.
 
 1. Click **Search Explorer** and in the Overview Tab select your Index in the **"Change Index"** button.
 
-1. Click **Search** to search for all documents. You can use any valid simple or full Lucene query syntax to create the request. The * character is equivalent to an empty or unspecified search that returns all documents in no particular order. You should see information returned for all of the 20 documents.
+1. Click **Search** to search for all documents. You can use any valid simple or full Lucene query syntax to create the request. The * character is equivalent to an empty or unspecified search that returns all documents in no particular order. You should see information returned for all of the 21 documents.
 
 1. Try searching for "Microsoft", a different result set is expected. In the resulting json, you'll see a number after `@search.score`. Scoring refers to the computation of a search score for every item returned in search results. The score is an indicator of an item's relevance in the context of the current search operation. The higher the score, the more relevant the item. In search results, items are rank ordered from high to low, based on the search scores calculated for each item.
 

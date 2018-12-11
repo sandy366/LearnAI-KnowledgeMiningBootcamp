@@ -26,13 +26,13 @@ You can use the Microsoft Bot Framework to create a single code base to deploy w
 
 + **Turn:** It is the action of the `TurnContext`been received by the bot. Normally there will be some processing and the bot will answer back to the user
 
-+ **Dialog and Conversations:** The way conversation flows through the bot. Some of the key elements are:
++ **Dialogs** The way conversation flows through the bot. They are a central concept in the SDK, and provide a useful way to manage a conversation with the user. Dialogs are structures in your bot that act like functions in your bot's program; each dialog is designed to perform a specific task, in a specific order. You can specify the order of individual dialogs to guide the conversation, and invoke them in different ways - sometimes in response to a user, sometimes in response to some outside stimuli, or from other dialogs. Dialogs receive input from state or `OnTurn` function. Dialogs types:
 
-  + `Dialog`: Simple turn interactions. Dialogs receive input from state or `OnTurn` function
-  + `Prompt`: Dialog intent to capture and verify data from the bot user
-  + `DialogContainer`: Collection of dialogs and prompts, executed in `WaterfallStep` sequency
-  + `DialogSet`: Can contain dialogs, prompts and dialog containers. Used for menus
-  + `WaterfallStep`: The most granular action in the conversation.
+  + **Prompt**: Provides an easy way to ask the user for information and evaluate their response. For example for a number prompt, you specify the question or information you are asking for, and the prompt automatically checks to see if it received a valid number response.
+  + **Waterfall**: Specific implementation of a dialog that is commonly used to collect information from the user or guide the user through a series of tasks. Each step of the conversation is implemented as an asynchronous function that takes a waterfall step context, the `step` parameter. At each step, the bot prompts the user for input (or can begin a child dialog, but that it is often a prompt), waits for a response, and then passes the result to the next step. The result of the first function is passed as an argument into the next function, and so on.
+  + **Component**: Provides a strategy for creating independent dialogs to handle specific scenarios, breaking a large dialog set into more manageable pieces. Each of these pieces has its own dialog set, and avoids any name collisions with the dialog set that contains it.
+
+![Dialogs hierarchy](../resources/images/lab-bot/diagram.png)
 
 + **State:** Stores data relating to either the conversation or the user. State is a middleware component. Available storage layers are Memory (data is cleared each time the bot is restarted), Blob Storage and CosmosDB. **State management** automates the reading and writing of your bot's state to the underlying storage layer.
 
@@ -43,7 +43,7 @@ The Bot Framework Emulator helps you run your bots locally for testing and debug
 
 The emulator installs to `c:\Users\`_your-username_`\AppData\Local\botframework\app-`_version_`\botframework-emulator.exe` or to your Downloads folder, depending on browser. Run the install and open the emulator, you'll use it shortly.
 
-## Step 2 - Accessing the sample
+## Step 2 - Opening the Solution
 
 As part of the environment creation lab, you should have cloned the repository to your local environment. If you have not, now is a good time to go back and do so.  
 
@@ -51,13 +51,21 @@ Under **resources > code-bot**, you should be able to locate a "Microsoft Visual
 
 Once the solution is open, right-click on "Solution 'CognitiveSearchBot'" in the Solution Explorer (from now on we'll just refer to this as "the solution") and select "Rebuild" to pull down all the dependencies required.  
 
-> Note: There is a lot of "stuff" in this solution. If you've worked with bots before, you may be interested in looking around to see how we've set up the state, regular expressions, and the dialogs/responses. If you've never worked with bots before, do not fret! This is not a bots course, so we'll walk you through the important things we want you to learn.  
-
 Right-click on the solution and select "Manage NuGet Packages for Solution...". Under "Installed", you should find "Microsoft.Azure.Search" listed. There's no action here, but you should know that this package contains libraries that make it very easy for us to call the Azure Cognitive Search API and process the results.
 
-Search for the BFV4 components mentioned above. Some of them are easy do find, the solution folders organize the code.
+### Step 2.1 - Understanding the Code
 
-Open **SearchDialogBase.cs** by double-clicking on it in the Solution Explorer, it is in the Dialogs folder on the Solution Explorer. While there are lots of files in this solution, this is one of the most relevant. It does the integration with your search service. Spend at least five minutes reading the file **from start to finish**. We've commented what's happening on almost every line, so it is hopefully easy to follow, even if you don't have a background with bots. This code shows you how to interact with the Search service using C# and the Azure Search SDK.
+There is a lot of "stuff" in this solution. If you've worked with bots before, you may be interested in looking around to see how we've set up the state, regular expressions, and the dialogs/responses. If you've never worked with bots before, do not fret! This is not a bots course, so we'll walk you through the important things we want you to learn.
+
++ Let's search for some of the BFV4 components mentioned before.
+  + In the Solution Explorer, check the folders that organize the code: **Dialogs, Middleware, Responses, Utilities**.
+  + Open **SearchDialogBase.cs** by double-clicking on it in the Solution Explorer, it is in the Dialogs folder on the Solution Explorer. While there are lots of files in this solution, this is one of the most relevant. It does the integration with your search service. Spend at least five minutes reading the file **from start to finish**. We've commented what's happening on almost every line, so it is hopefully easy to follow, even if you don't have a background with bots. This code shows you how to interact with the Search service using C# and the Azure Search SDK. Componets like `SearchResponses`, `ISearchIndexClient`, and `SearchHitStyler` optimize the development and organize the interaction with the Azure Search Service.
+  + Open the **MainDialog.cs** file, in the same Dialogs folder. You can see how the state of the bot is managed within the `waterfalldialog`. At the end of the file you will see 3 `case` commands to route the main dialog, where you are now, the other possible dialogs of the bot. The interaction "help" drives the dialog straight to a response. Let's check them in the next item.
+  + In the **Response** folder you will see the 2 possible responses of the bot, one for the results and the main response, with the other possible answers.
+  + In the root folder, open the **Startup.cs** file. It has the regex code with all of the 3 possible intents and their middleware "injection".
+  + In the Middleware folder, open the **CognitiveSearchBot.cs** file. It handles the `turnContext` object detecting the dialog context and starts the main dialog if necessary.
+
+### Step 2.2 - Changing the code
 
 Near the bottom of the Solution Explorer menu, you will see the Constants.cs file. Open it with a double click. You'll notice that you need to fill in your search service name, search service key, and index name. Since you've created and tested the index in Postman, you should have these readily available. If not, you can open the Azure portal and locate your Azure Search service to get the needed information. Fill in your information and save the file (you can use `CTRL` + `S`).
 
