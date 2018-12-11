@@ -23,7 +23,7 @@ While the introduction has a pdf version, this one won't have one. The idea is t
 
 ## Azure Search LAB
 
-Open the page https://alice.unearth.ai/ to show how important is the Analtzer definition. This page shows the different results you can get from Standard Lucene, English Lucene and English Microsoft. Search for:
+Open the page <https://alice.unearth.ai/> to show how important is the Analtzer definition. This page shows the different results you can get from Standard Lucene, English Lucene and English Microsoft. Search for:
 
 + "Alice": Standard Lucene gets 10 hits less than the others
 + "Thinking": Now the hits totals are very different. English Lucene returns "think" too. English Microsoft returns even"thought"
