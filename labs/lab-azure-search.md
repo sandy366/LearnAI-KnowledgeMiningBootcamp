@@ -24,7 +24,7 @@ and then lists in which document each word appears.
 
 ### Competitors
 
-The table below is an independent analysis of the biggest competitors. 
+The table below is an independent analysis of the biggest competitors.
 While it is not an official Microsoft position (there is no formal battlecard), the table below can help with future studies and discussions. Azure Search works with Office and pdf documents by design, but it is Cognitive Search that boosts the product to be able to index images and extract conceptual understanding from the data.
 
 Support for data sources including MySQL, CosmosDB, and Azure SQL is also a competitive advantage.
@@ -132,7 +132,7 @@ Using the Azure Search service created in the previous lab, you will use the "Im
 
 ![Import Data Graphic](../resources/images/lab-azure-search/import-data.png)
 
-+ Create a new data source. Choose the **Azure Blob Storage** Data Source and name it as `lab1data`. Choose the **Content and Metadata** option, we want to index not only the files properties but also their content. Choose the **Default** parsing mode, since the dataset also have pdfs. The **Text** option has performance advantage, but that's not what we want because on the characteristics of our dataset. In the **Connection string** add the connection string collected in the previous lab. In the **Container name**, type "basicdemo". You skip Blob Folder and Description. After you click the blue button, you will wait a few seconds because Azure Search will be detecting (sampling) the schema and the metadata of the dataset.
++ Create a new data source. Choose the **Azure Blob Storage** Data Source and name it as `lab1data`. Choose the **Content and Metadata** option, we want to index not only the files properties but also their content. Choose the **Default** parsing mode, since the dataset also has pdfs. The **Text** option has performance advantage, but that's not what we want because of the characteristics of our dataset. In the **Connection string** add the connection string collected in the previous lab. In the **Container name**, type "basicdemo". You can skip Blob Folder and Description. After you click the blue button, you will wait a few seconds because Azure Search will be detecting (sampling) the schema and the metadata of the dataset.
 
 ![Data Source Graphic](../resources/images/lab-azure-search/data-source-2.png)
 
@@ -141,11 +141,11 @@ Using the Azure Search service created in the previous lab, you will use the "Im
 + In the index tab, we will define the index structure and features as follows:
   + **Name your index as you want**, but we will use this information later so you should use an easy to type name.
 
-  + **Keep `metada_storage_path` as the key.** This is a unique identifier for each file of the data source. It is a good idea to use the physical path of file, since it is unique by design. Since our dataset is on blob storage, the content of this field is the file URL, that's why it is unique by design. If you check the other options, you will see that metadata_storage_path is only one field that can guarantee uniqueness. On December 2018 the key maximum size is 1024 characters. This limit won't be a problem for this training, but the workaround is to reduce the file name length and also the path. This limit us under analysis of the product team.
+  + **Keep `metada_storage_path` as the key.** This is a unique identifier for each file of the data source. It is a good idea to use the physical path of file, since it is unique by design. Since our dataset is on blob storage, the content of this field is the file URL, that's why it is unique by design. If you check the other options, you will see that metadata_storage_path is only one field that can guarantee uniqueness. As of December 2018, the key maximum size is 1024 characters. This limit won't be a problem for this training, but the workaround is to reduce the file name length and also the path. This limit is currently under analysis of the product team.
 
   + Mark the **Analyzer** checkbox and all the fields from the last step will be set to **"Standard - Lucene"**. Navigate through the other language options, to see what is available. The Analyzer takes the terms a user enters and works to find the best matching terms in the Index. Azure Search includes analyzers that are used in technologies like Bing and Office that have deep understanding of 56 languages. For the full list, click [here](https://docs.microsoft.com/en-us/rest/api/searchservice/language-support).
 
-  + Click the **Suggester** checkbox and enter any Suggester name you like. Set the **Search Mode** to **"analyzingInfixMatching"** and choose **content** and **metadata_title** to be the fields to look for term suggestions. The Suggester feature helps the user of terms, as you can see in web search engines.
+  + Click the **Suggester** checkbox and enter any Suggester name you like. Set the **Search Mode** to **"analyzingInfixMatching"** and choose **content** and **metadata_title** to be the fields to look for term suggestions. The Suggester feature provides type-ahead suggestions, as you can see in web search engines.
 
 + If your configuration looks like the image below, click the blue **Next: Create an indexer** button. A validation will be made.
 
@@ -173,7 +173,7 @@ Using the Azure Search service created in the previous lab, you will use the "Im
 
 1. To monitor data import, click on the **Indexers** link (it is in the middle of the page and you can also see it in the middle of the image above).
 
-1. You should see the newly created indexer in the list, with status indicating "Failed" or "Warning". If not, click the refresh button in the top-middle of the overview tab. You should see the newly created indexer in the list, with status indicating "in progress" or "Warning", along with the number of documents indexed, "21/21" is expected.
+1. You should see the newly created indexer in the list, with status indicating "in progress" , "Failed", or "Warning". If not, click the refresh button in the top-middle of the overview tab. The final expected status is "Warning", along with the number of documents indexed, "21/21" is the correct number. Warnings are caused by extra long words and big texts. The indexer knows how to deal with them, but warns you.
 
 1. Click on the refresh button, top middle of the page, until the execution is over. The "Warning" status is expected, click on the Indexer name to see the summary. In this page you will see all of the executions this Indexer may have and its details, duration and so on.
 
