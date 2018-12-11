@@ -173,7 +173,7 @@ Using the Azure Search service created in the previous lab, you will use the "Im
 
 1. To monitor data import, click on the **Indexers** link (it is in the middle of the page and you can also see it in the middle of the image above).
 
-1. You should see the newly created indexer in the list, with status indicating "Failed" or "Warning". If not, click the refresh button in the top-middle of the overview tab. You should see the newly created indexer in the list, with status indicating "in progress" or "Warning", along with the number of documents indexed, "20/20" is expected.
+1. You should see the newly created indexer in the list, with status indicating "Failed" or "Warning". If not, click the refresh button in the top-middle of the overview tab. You should see the newly created indexer in the list, with status indicating "in progress" or "Warning", along with the number of documents indexed, "21/21" is expected.
 
 1. Click on the refresh button, top middle of the page, until the execution is over. The "Warning" status is expected, click on the Indexer name to see the summary. In this page you will see all of the executions this Indexer may have and its details, duration and so on.
 
