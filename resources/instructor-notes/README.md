@@ -84,7 +84,7 @@ Expected:
   + Entity Extraction (location, organizations)
   + Important to discuss the order of the transformations
 
-+ Other AI envolved
++ Other AI involved
   + Translation API
   + Recommendation API created with AML and running on AKS
 
