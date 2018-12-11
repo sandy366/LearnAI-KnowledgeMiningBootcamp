@@ -88,7 +88,7 @@ Expected:
   + Translation API
   + Recommendation API created with AML and running on AKS
 
-+ South America means 2 more languages after the orginal docs in English: Portuguese and Spanish. It is expected discussions like:
++ South America means 2 more languages after the original docs in English: Portuguese and Spanish. It is expected discussions like:
   + Save all fields in 3 languages? Storage costs. Write once and read many
   + Translate on the fly? Data out and API usage costs, latency
 
