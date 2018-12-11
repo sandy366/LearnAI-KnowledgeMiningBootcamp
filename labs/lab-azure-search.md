@@ -45,7 +45,7 @@ Azure Search pricing is based on **Search Units** (SU), which formula is listed 
 SU = Partitions x Replicas
 ```
 
-**Partitions** provide index storage and I/O for read/write operations (for example, when rebuilding or refreshing an index). It is a good practice to add partitions to your index for search performance in big data scenarios. The search engine knows what are the required partitions, avoiding IO. This concept is related to performance and depends on your data.  
+**Partitions** provide index storage and I/O for read/write operations (for example, when rebuilding or refreshing an index). It is a good practice to add partitions to your index for search performance in big data scenarios. The search engine knows what the required partitions are, avoiding IO. This concept is related to performance and depends on your data.  
 
 **Replicas**, as mentioned above, are instances of the search service, used primarily to load balance query operations. Each replica always hosts one copy of an index. If you have 12 replicas, you will have 12 copies of every index loaded on the service. This concept is related to availability and performance, since you can balance the load on the replicas.
 
