@@ -23,9 +23,9 @@ While the introduction has a pdf version, this one won't have one. The idea is t
 
 ## Text Skills LAB
 
-+ Important to read the skills been used with the students, explain why pages with 4000 characters is an example of valuable information that teachs how text split is important. It also helps to learn how the output of one skill is input of another one.
++ Important to read the skills been used with the students, explain why pages with 4000 characters is an example of valuable information that teaches how text split is important. It also helps to learn how the output of one skill is input of another one.
 + Some warnings about long words and/or text are expected, Cognitive Search works with the limitations of the Cognitive Services APIs that are used under the hood.
-+ Someone may ask why there are duplicates for `keyPhrases` and `organizations`. It is unique per page, we are creating lots and lots of them, bacause on the Entity Recognition actual (december 2018) 4000 characters limit. All of it may change in the future, the limits and the uniqueness per page.
++ Someone may ask why there are duplicates for `keyPhrases` and `organizations`. It is unique per page, we are creating lots and lots of them, because on the Entity Recognition actual (December 2018) 4000 characters limit. All of it may change in the future, the limits and the uniqueness per page.
 
 ## Image Skills LAB
 
@@ -69,7 +69,7 @@ Expected:
     + Each region demands different fields or ranking or Analyzer or suggester
   + Multiple Indexers
     + Datasources updated in different times
-    + Each product or region requires different schdules
+    + Each product or region requires different schedules
   + Multiple Skillsets
     + VIVINO/CREDIT/Logistics/Other custom skillset with a different schedule update - "runs once a day"
 
