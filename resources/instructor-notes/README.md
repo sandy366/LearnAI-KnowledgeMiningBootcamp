@@ -21,6 +21,14 @@ Use the KMB-Opening.pptx presentation to:
 
 While the introduction has a pdf version, this one won't have one. The idea is to keep on editing this presentation for each delivery.
 
+## Azure Search LAB
+
+Open the page https://alice.unearth.ai/ to show how important is the Analtzer definition. This page shows the different results you can get from Standard Lucene, English Lucene and English Microsoft. Search for:
+
++ "Alice": Standard Lucene gets 10 hits less than the others
++ "Thinking": Now the hits totals are very different. English Lucene returns "think" too. English Microsoft returns even"thought"
++ "Knives": Only Microsoft English returns information, where "knife" was found
+
 ## Text Skills LAB
 
 + Important to read the skills been used with the students, explain why pages with 4000 characters is an example of valuable information that teaches how text split is important. It also helps to learn how the output of one skill is input of another one.

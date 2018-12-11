@@ -4,7 +4,7 @@ In this lab, you will learn how Azure Cognitive Search can be integrated into a 
 
 > While this is a simple bot, this [gif](../resources/images/lab-bot/retrieving-cognitive-attrributes.gif) provides some inspiration for what a solution could look like in a real estate scenario. Hopefully, it gives you some inspiration for what's possible. You could also integrate this into a web app, here is a [WebMD example](http://webmedsearch.azurewebsites.net/) and a [Seismic data example](http://seismicsearch.azurewebsites.net/).
 
-The image belows describes the bot created in this lab. Please notice that:
+The image below describes the bot created in this lab. Please notice that:
 
 + If you click on a chat message, the Bot Emulator will show you the JSON file of that interaction
 + The Log window shows you the status of the interactions
@@ -16,23 +16,23 @@ The image belows describes the bot created in this lab. Please notice that:
 
 ## Bot Framework V4
 
-This lab's bot uses framework V4, a complete re-write of the framework with new concepts, terminology, documentation, and architecture. BFv4 SDK is open source and available for JavaScript, C#, Python and Java.
+This lab's bot uses the Microsoft Bot Framework (V4), an open-source SDK available in Node.js, C#, Python and Java.
 
-The concept of the bot as a single code base which is published to multiple channels (Skype, Cortana, Facebook etc) remains the same. The Azure Bot Service idea also remains the same, an Azure web APP to host the bot server-side service. The code architecture key concepts are:
+You can use the Microsoft Bot Framework to create a single code base to deploy with Azure Bot Service, which allows you to surface your bot on many channels (Skype, Cortana, Facebook, etc). The key concepts to know for this lab includes:
 
-+ **Adapter:** It is the orchestrator for the bot, routing incoming and outgoing communication and authentication. For any interaction, it creates a `TurnContext` object and passes it to he bot application logic.
++ **Adapter:** The Bot orchestrator, routing incoming and outgoing communication and authentication. For any interaction, it creates a `TurnContext` object and passes it to the bot application logic
 
-+ **Middleware:** the pipeline between the adapter and the bot code. It handles the bot state.
++ **Middleware:** The pipeline between the adapter and the bot code. It can be used to manage bot state
 
-+ **Turn:** It is the action of the `TurnContext`been received by the bot. Normally there will be some processing and the bot will answer back to the user.
++ **Turn:** It is the action of the `TurnContext`been received by the bot. Normally there will be some processing and the bot will answer back to the user
 
-+ **Dialog and Conversations:** The way conversation flows through the bot has changed significantly compared to BFv3. Key docs include Manage conversation flow with dialogs and Create modular bot logic with a dialog container. These are some of the key concepts:
++ **Dialog and Conversations:** The way conversation flows through the bot. Some of the key elements are:
 
-  + `Dialog`: simple turn interactions. Dialogs receive input from state or `OnTurn` function
+  + `Dialog`: Simple turn interactions. Dialogs receive input from state or `OnTurn` function
   + `Prompt`: Dialog intent to capture and verify data from the bot user
-  + `DialogContainer`: a collection of dialogs and prompts, executed in `WaterfallStep` sequency
-  + `DialogSet`: Can contain dialogs, prompts and dialog containers. Used for menus. Also kown as "root dialog"
-  + `WaterfallStep`: the most granular action in the conversation.
+  + `DialogContainer`: Collection of dialogs and prompts, executed in `WaterfallStep` sequency
+  + `DialogSet`: Can contain dialogs, prompts and dialog containers. Used for menus
+  + `WaterfallStep`: The most granular action in the conversation.
 
 + **State:** Stores data relating to either the conversation or the user. State is a middleware component. Available storage layers are Memory (data is cleared each time the bot is restarted), Blob Storage and CosmosDB. **State management** automates the reading and writing of your bot's state to the underlying storage layer.
 
