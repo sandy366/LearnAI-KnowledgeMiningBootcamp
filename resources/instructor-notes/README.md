@@ -80,7 +80,7 @@ Expected:
   + OCR (text in images)
   + Image Analysis too (images scenes descriptions)
   + Language detection
-  + Celebrity Detection (famous somelier)
+  + Celebrity Detection (famous Sommelier)
   + Entity Extraction (location, organizations)
   + Important to discuss the order of the transformations
 
