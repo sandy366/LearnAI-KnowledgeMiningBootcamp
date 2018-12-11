@@ -98,7 +98,7 @@ If you are not so familiar with Postman, perform the following detailed steps to
 
       ![Postman Help Image](../resources/images/lab-text-skills/postman-help.png)
 
-+ Validating the request and confirming the data source creation.
++ Validate the request and confirming the data source creation.
   + Send the request. The web test tool should return a status code of **201 Created** confirming success.
   + Check the Azure portal to confirm the data source was created in Azure Search. On the **Search service dashboard page**, verify the **Data Sources** link has a new item. You might need to wait a few minutes for the portal page to refresh.
 
