@@ -23,7 +23,7 @@ namespace Models
                     {
                         Value = h.DocumentUrl,
                         Type = "openUrl",
-                        Title = "Open URL"
+                        Title = "Open Document"
                     } }
                     };
                     if (h.IsImage)
