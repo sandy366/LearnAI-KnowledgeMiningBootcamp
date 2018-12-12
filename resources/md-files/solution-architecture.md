@@ -75,10 +75,15 @@ Prices are estimates and are not intended as actual price quotes. Actual prices 
 |-------|----------|----------|
 | Blob Storage | 20 MB |To store the documents |
 | Azure Search | Basic Tier: Up to 15 skills | To execute all cognitive processing |
-| Azure Functions | Up to 100 executions, billed by execution| To host and execute the custom cognitive service we will create |
-| Cognitive Services | Up to 100 executions, 1000 seconds | To execute the custom cognitive service |
+| Azure Functions | Billed by execution| To host and execute the custom cognitive service we will create |
+| Cognitive Services | Billed by execution| To execute the custom cognitive service |
 
->Note! Starting December 21, 2018, you will be able to associate a Cognitive Services resource with an Azure Search skillset. This will allow us to start charging for skillset execution. On this date, we will also begin charging for image extraction as part of the document-cracking stage. Text extraction from documents will continue to be offered at no additional cost. The execution of built-in skills will be charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/). Image extraction pricing will be charged at preview pricing, and is described on the [Azure Search pricing page](https://azure.microsoft.com/en-us/pricing/details/search/).
+>Note! Starting December 21, 2018, you will be able to associate a Cognitive Services resource with an Azure Search skillset. This will allow us to start charging for skillset execution. 
+On this date, we will also begin charging for image extraction as part of the document-cracking stage. Text extraction from documents will continue to be offered at no additional cost. 
+The execution of built-in skills will be charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/). 
+Image extraction pricing will be charged at preview pricing, and is described on the [Azure Search pricing page](https://azure.microsoft.com/en-us/pricing/details/search/). 
+About images: You pay for the images extracted/normalized (even if it is a pdf), and then pay for any built-in skills you call (including OCR).
+[This](https://docs.microsoft.com/en-us/azure/search/cognitive-search-attach-cognitive-services#example-estimating-the-cost-of-document-cracking-and-enrichment) is an example of how that may work. 
 
 ## Information Delivery - A Bot as User Interface
 
