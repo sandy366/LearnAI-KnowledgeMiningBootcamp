@@ -118,7 +118,9 @@ namespace Microsoft.CognitiveSearchBot
                 // Add Regex below
                 middleware.Add(new RegExpRecognizerMiddleware()
                 .AddIntent("search", new Regex("search(?:)*(.*)", RegexOptions.IgnoreCase))
-                .AddIntent("help", new Regex("help(.*)", RegexOptions.IgnoreCase)));
+                .AddIntent("help", new Regex("help(.*)", RegexOptions.IgnoreCase))
+                .AddIntent("moderated-content", new Regex(".*moderat.*", RegexOptions.IgnoreCase))
+                );
             });
 
             // Create and register state accesssors.

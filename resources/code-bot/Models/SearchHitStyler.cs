@@ -1,8 +1,8 @@
-﻿using Microsoft.Bot.Schema;
-using System;
+﻿using CognitiveSearchBot.Utilities;
+using Microsoft.Bot.Schema;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Net;
 
 namespace Models
 {
@@ -10,42 +10,35 @@ namespace Models
     {
         public void Apply<T>(ref IMessageActivity activity, string prompt, IReadOnlyList<T> options, IReadOnlyList<string> descriptions = null)
         {
-            var hits = options as IList<SearchHit>;
-            if (hits != null)
+            if (options is IList<SearchHit> hits)
             {
-                var urlButton = hits.Select(c => new CardAction()
-                {
-                    Value = c.documentUrl,
-                    Type = "openUrl",
-                    Title = "Open URL"
-                });
-                var searchButton = new CardAction()
-                {
-                    Value = "search",
-                    Type = "imBack",
-                    Title = "Search for something else"
-                };
-                var helpButton = new CardAction()
-                {
-                    Value = "Help",
-                    Type = "imBack",
-                    Title = "Help"
-                };
-
                 List<CardAction> cardButtons = new List<CardAction>();
-                cardButtons.Add(searchButton);
-                cardButtons.Add(helpButton);
-
-                var cards = hits.Select(h => new HeroCard
+                var cards = hits.Select(h =>
                 {
-                    Title = h.documentUrl,
-                    Subtitle = "(click URL to view document)",
-                    Text = h.Description,
-                    Buttons = cardButtons
+                    var card = new HeroCard
+                    {
+                        Title = WebUtility.UrlDecode(h.FileName).Replace(' ', '_'),
+                        Text = h.Description,
+                        Buttons = new List<CardAction> { new CardAction()
+                    {
+                        Value = h.DocumentUrl,
+                        Type = "openUrl",
+                        Title = "Open Document"
+                    } }
+                    };
+                    if (h.IsImage)
+                    {
+                        card.Images = new List<CardImage>
+                        {
+                            new CardImage(h.DocumentUrl)
+                        };
+                    }
+                    return card;
                 });
 
                 activity.AttachmentLayout = AttachmentLayoutTypes.Carousel;
                 activity.Attachments = cards.Select(c => c.ToAttachment()).ToList();
+                activity.SuggestedActions = HeroCardUtility.FollowupSuggestions();
                 activity.Text = prompt;
             }
         }

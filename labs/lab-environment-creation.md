@@ -66,11 +66,11 @@ The enrichment pipeline pulls from Azure data sources. Source data must originat
 
  1. Create a **storage account** in the **same region of your Azure Search service** created in the step above, to avoid latency between the search service and the files.  Use a **general purpose** account and **LRS replication**. For production environments, you may need to use another replication type.
 
- 1. From the storage account **Overview** tab, click the link to **Blobs** and create a **container** named **`basicdemo`**:
+ 1. From the storage account **Overview** tab, click the link to **Blobs** and create a **container** named `basicdemo`:
     - Enter a name for the container.
     - Select **Private** for Access Type. When you set the access to private, the container and blob data can be read by the Windows Azure account owner only.
 
- 1. You can upload the sample **all files** from the **\resources\dataset** folder to the blob storage using [Azure Portal](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal) or [Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). There are other methods to upload data to Azure, but we don't  suggest them for this training.
+ 1. Upload **all files** from the **\resources\dataset** cloned github folder to the `basicdemo` blob storage container. You can do it using [Azure Portal](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal) or [Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). There are other methods to upload data to Azure, but we don't suggest them for this training.
 
 >Tip! If you are using Azure Storage Explorer, in the `basicdemo` container you created, click **Upload** to upload the sample files.
 >

@@ -27,7 +27,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
 ```json
 {
   "description":
-  "Extract entities, detect language and extract key-phrases",
+  "Extract OCR, entities, detect language and extract key-phrases, with MERGE AND SPLITS",
   "skills":
   [
      {
@@ -71,22 +71,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
         }
       ]
     },
-    {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
-      "categories": [ "Organization" ],
-      "defaultLanguageCode": "en",
-      "inputs": [
-        {
-          "name": "text", "source": "/document/mergedText"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "organizations", "targetName": "organizations"
-        }
-      ]
-    },
-    {
+       {
       "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
       "inputs": [
         {
@@ -103,7 +88,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
     {
       "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
       "textSplitMode" : "pages",
-      "maximumPageLength": 50000,
+      "maximumPageLength": 4000,
       "inputs": [
       {
         "name": "text",
@@ -136,6 +121,22 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
         {
           "name": "keyPhrases",
           "targetName": "keyPhrases"
+        }
+      ]
+    },
+     {
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+      "categories": [ "Organization" ],
+      "defaultLanguageCode": "en",
+      "context": "/document/pages/*",
+      "inputs": [
+        {
+          "name": "text", "source": "/document/pages/*"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "organizations", "targetName": "organizations"
         }
       ]
     }
@@ -232,7 +233,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
   "outputFieldMappings" :
   [
         {
-          "sourceFieldName" : "/document/organizations",
+          "sourceFieldName" : "/document/pages/*/organizations/*",
           "targetFieldName" : "organizations"
         },
         {

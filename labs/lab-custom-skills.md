@@ -248,7 +248,7 @@ you have to add an instruction for maximum batch size to be just ```1``` to send
 ### Step 7.1 - Challenge
 
 As you can see, again we are not giving you the body request. One more time you can use the previous lab as a reference.  
-Skipping the services and the data source creation, repeat the other steps of the previous labs, in the same order.
+Skipping the services and the data source creation, repeat the other steps of the previous labs, in the same order. Name the new field of the content moderation process as **moderatedText**. It is case sensitive, so it is important to use the same name formation. If you decide to use a different name, you will need to change the Bot code to make it work.
 
 >Note! Please make sure you will create the new index field for the moderation analysis as boolean. More information [here](https://docs.microsoft.com/en-us/azure/search/search-what-is-an-index).
 

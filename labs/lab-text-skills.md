@@ -20,6 +20,12 @@ The list of activities you will do, using Azure Search REST APIs, is:
 
 >TIP: You can enhance the index with other Azure Search standard capabilities, such as [synonyms](https://docs.microsoft.com/en-us/azure/search/search-synonyms), [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analyzers](https://docs.microsoft.com/en-us/rest/api/searchservice/custom-analyzers-in-azure-search), and [filters](https://docs.microsoft.com/en-us/azure/search/search-filters).
 
+## General initial Information
+
++ You can only have one skillset per indexer
++ A skillset must have at least one skill
++ You can create multiple skills of the same type (for example, variants of an image analysis skill) but each skill can only be used once within the same skillset
+
 ## Step 1 - Create a data source
 
 Now that your services and source files are prepared, you can start assembling the components of your indexing pipeline. We'll begin by creating a [data source object](https://docs.microsoft.com/rest/api/searchservice/create-data-source) that tells Azure Search how to retrieve external source data.  
@@ -36,19 +42,18 @@ api-key: [admin key]
 
 If you are not so familiar with Postman, perform the following detailed steps to define the POST method and Header settings.
 
-1. Define the POST method.
-
-    - Open the Postman application. If a dialog box opens, close it down. You will be presented with a screen that states **"Untitled Request"** , underneath this is a button that shows the word **"GET"**.
-    - Click on the downward pointing arrow next to **"GET"**, and click the option **"POST"**.
-    - In the text box that shows the words "Enter request url" type in the following information, replacing **[service name]** with the name of the Azure Search service you created:
++ Define the POST method.
+  + Open the Postman application. If a dialog box opens, close it down. You will be presented with a screen that states **"Untitled Request"** , underneath this is a button that shows the word **"GET"**.
+  + Click on the downward pointing arrow next to **"GET"**, and click the option **"POST"**.
+  + In the text box that shows the words "Enter request url" type in the following information, replacing **[service name]** with the name of the Azure Search service you created:
       > <<https://[your-service-name].search.windows.net/datasources?api-version=2017-11-11-Preview>  
 
-1. Define header information in the Headers tab
-    - Below the text box where you have defined your url, click on the link that states **"Headers"**.
-    - under Headers, is a table of that has three columns with the titles of KEY, VALUE and DESCRIPTION respectively, and a single row. Under the KEY column, in the first row, type in the following text **"Content-Type"**.
-    - Under the VALUE column, in the first row, type in the following text **"application/json"**.
-    - Under the KEY column, in the second row, type in the following text **"api-key"**.
-    - Under the VALUE column, in the second row, paste in your Azure search key.
++ Define header information in the Headers tab
+  + Below the text box where you have defined your url, click on the link that states **"Headers"**.
+  + under Headers, is a table of that has three columns with the titles of KEY, VALUE and DESCRIPTION respectively, and a single row. Under the KEY column, in the first row, type in the following text **"Content-Type"**.
+  + Under the VALUE column, in the first row, type in the following text **"application/json"**.
+  + Under the KEY column, in the second row, type in the following text **"api-key"**.
+  + Under the VALUE column, in the second row, paste in your Azure search key.
 
 In the **Request body**, you will specify the blob container name and connection string you created earlier to create a data source and load data into the data source as follows:
 
@@ -69,10 +74,10 @@ In the **Request body**, you will specify the blob container name and connection
 
 If you are not so familiar with Postman, perform the following detailed steps to define the Request body.
 
-1. Enter and edit the json request in the Body tab.
-    - Below the text box where you have defined your url, click on the link that states **"Body"**.
-    - Click on the radio button next to the option of **"raw"**.
-    - In the text box, paste in the following request body syntax.
++ Enter and edit the json request in the Body tab.
+  + Below the text box where you have defined your url, click on the link that states **"Body"**.
+  + Click on the radio button next to the option of **"raw"**.
+  + In the text box, paste in the following request body syntax.
 
       ```json
       {
@@ -87,30 +92,30 @@ If you are not so familiar with Postman, perform the following detailed steps to
       }  
       ```
 
-    - Replace the connection string and container with the Azure Blob storage settings you created earlier.
+  + Replace the connection string and container with the Azure Blob storage settings you created earlier.
 
       The following image can be used to confirm the settings you should define.
 
       ![Postman Help Image](../resources/images/lab-text-skills/postman-help.png)
 
-1. Validating the request and confirming the data source creation.
-    - Send the request. The web test tool should return a status code of **201 Created** confirming success.
-    - Check the Azure portal to confirm the data source was created in Azure Search. On the **Search service dashboard page**, verify the **Data Sources** link has a new item. You might need to wait a few minutes for the portal page to refresh.
++ Validate the request and confirming the data source creation.
+  + Send the request. The web test tool should return a status code of **201 Created** confirming success.
+  + Check the Azure portal to confirm the data source was created in Azure Search. On the **Search service dashboard page**, verify the **Data Sources** link has a new item. You might need to wait a few minutes for the portal page to refresh.
 
-      > [TIP]
+    > [TIP]
 If you got a 403 or 404 error, check the request construction: `api-version=2017-11-11-Preview` should be on the endpoint, `api-key` should be in the Header after `Content-Type`, and its value must be valid for a search service. You can reuse the header for the remaining steps in this lab. Verify that the search service is running in one of the supported locations providing the preview feature: South Central US or West Europe.
 
 ## Step 2 - Create a skillset
 
 In this step, you define a set of enrichment steps that you want to apply to your data. Each enrichment step is called a *skill*, and the set of enrichment steps a *skillset*. This tutorial uses the following [predefined cognitive skills](https://docs.microsoft.com/en-us/azure/search/cognitive-search-predefined-skills):
 
-- [Language Detection](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-language-detection) to identify the content's language.
++ [Language Detection](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-language-detection) to identify the content's language. In December 2018 only English and Spanish are supported for all cognitive skills. For the actual Cognitive Search language list and status, click [here](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/language-support). That's why the provided dataset has documents in these two languages. The Azure Search supported language list is something different, a different universe of options. For more information, click [here](https://docs.microsoft.com/en-us/rest/api/searchservice/Language-support?redirectedfrom=MSDN).
 
-- [Text Split](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-textsplit) to break large content into smaller chunks before calling the key phrase extraction skill. Key phrase extraction accepts inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit.
++ [Text Split](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-textsplit) to break large content into smaller chunks before calling the key phrase extraction skill. Key phrase extraction accepts inputs of 50,000 characters or less. In December 2018, entity recognition is accepting only 4000, it will be increased to 50,000 characters in the near future. But to make it work with both actual limits, this training labs will use 4000 characters. It is required, the dataset has files much bigger than that.
 
-- [Named Entity Recognition](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-named-entity-recognition) for extracting the names of organizations from content in the blob container.
++ [Named Entity Recognition](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-named-entity-recognition) for extracting the names of organizations from content in the blob container.
 
-- [Key Phrase Extraction](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-keyphrases) to pull out the top key phrases.
++ [Key Phrase Extraction](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-keyphrases) to pull out the top key phrases.
 
 ### Define the PUT method and Header information
 
@@ -134,22 +139,7 @@ In the **Request body**, you will use JSON to define the Language Detection, Tex
   "Extract entities, detect language and extract key-phrases",
   "skills":
   [
-    {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
-      "categories": [ "Organization" ],
-      "defaultLanguageCode": "en",
-      "inputs": [
-        {
-          "name": "text", "source": "/document/content"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "organizations", "targetName": "organizations"
-        }
-      ]
-    },
-    {
+   {
       "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
       "inputs": [
         {
@@ -166,7 +156,7 @@ In the **Request body**, you will use JSON to define the Language Detection, Tex
     {
       "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
       "textSplitMode" : "pages",
-      "maximumPageLength": 50000,
+      "maximumPageLength": 4000,
       "inputs": [
       {
         "name": "text",
@@ -184,6 +174,22 @@ In the **Request body**, you will use JSON to define the Language Detection, Tex
       }
     ]
   },
+{
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+      "categories": [ "Organization" ],
+      "defaultLanguageCode": "en",
+      "context": "/document/pages/*",
+      "inputs": [
+        {
+          "name": "text", "source": "/document/pages/*"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "organizations", "targetName": "organizations"
+        }
+      ]
+    },
   {
       "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
       "context": "/document/pages/*",
@@ -205,6 +211,8 @@ In the **Request body**, you will use JSON to define the Language Detection, Tex
   ]
 }
 ```
+
+>New! Entity Recognition skill initial types were "Person", "Location" and "Oragnization". Types "Quantity", "Datetime", "URL" and "Email" were added on November 28th, 2018. This means that Entity Recognition Skill can be used 7 times in the same skillset. **But you can't use the same type twice in the same skillset**.
 
 ### Validate that the  Request has been successful
 
@@ -361,7 +369,7 @@ api-key: [api-key]
   "outputFieldMappings" :
   [
         {
-          "sourceFieldName" : "/document/organizations",
+          "sourceFieldName" : "/document/pages/*/organizations/*",
           "targetFieldName" : "organizations"
         },
         {

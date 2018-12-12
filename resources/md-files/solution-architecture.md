@@ -56,7 +56,7 @@ In the [Seventh Lab](../../labs/lab-final-case.md) you are invited to, based on 
 
 We will provide a sample dataset that contains documents with multiple languages and formats including HTML, doc, pdf, ppt, png and jpg. They were selected for a better learning experience, showcasing the technology capabilities.
 
-The dataset has 19 files and 15 MBs. It includes public Microsoft business documents. There is a document in spanish, so you can learn about langauge identification. There is also a document with anonimized Personal Indetifiable Information (PII) for the Content Moderator lab.
+The dataset has 21 files and 15 MBs. It includes public Microsoft business documents. There is a document in spanish, so you can learn about langauge identification. There is also a document with anonimized Personal Identifiable Information (PII) for the Content Moderator lab.
 
 Since we are working with unstructured data, any set of files can be used. In other words, this could be a **Bring Your Own Data** solution; you can test later with any dataset you want.
 
@@ -69,14 +69,16 @@ This demo is public and you can use with clients and partners.
 
 Here you can see a list of the resources used in this training. The [Azure Calculator](https://azure.microsoft.com/en-us/pricing/calculator/) can be used for pricing estimation.
 Prices are estimates and are not intended as actual price quotes. Actual prices may vary depending upon the date of purchase, currency of payment, and type of agreement you enter with Microsoft. Contact a Microsoft sales representative for additional information on pricing.
-**The estimated daily cost of this training, with the provided dataset, is close to US$ 15,00.**  
+**The estimated daily cost of this training, with the provided dataset, is close to US$ 20,00.**  
 
 | Item | Detail | Description
 |-------|----------|----------|
 | Blob Storage | 20 MB |To store the documents |
-| Azure Search | Basic Tier: 16 documents, 1 index | To execute all cognitive processing |
-| Azure Functions | Up to 100 executions| To host and execute the custom cognitive service we will create |
-| Cognitive Services | Up to 100 executions, 1000 seconds | To execute the custom cognitive service |
+| Azure Search | Basic Tier: Up to 15 skills | To execute all cognitive processing |
+| Azure Functions | Billed by execution| To host and execute the custom cognitive service we will create |
+| Cognitive Services | Billed by execution| To execute the custom cognitive service |
+
+>Note! Starting December 21, 2018, you will be able to associate a Cognitive Services resource with an Azure Search skillset. This will allow us to start charging for skillset execution. On this date, we will also begin charging for image extraction as part of the document-cracking stage. Text extraction from documents will continue to be offered at no additional cost. The execution of built-in skills will be charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/). Image extraction pricing will be charged at preview pricing, and is described on the [Azure Search pricing page](https://azure.microsoft.com/en-us/pricing/details/search/). About images: You pay for the images extracted/normalized (even if it is a pdf), and then pay for any built-in skills you call (including OCR). [This](https://docs.microsoft.com/en-us/azure/search/cognitive-search-attach-cognitive-services#example-estimating-the-cost-of-document-cracking-and-enrichment) is an example of how that may work.
 
 ## Information Delivery - A Bot as User Interface
 

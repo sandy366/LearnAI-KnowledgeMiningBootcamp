@@ -1,5 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using CognitiveSearchBot.Utilities;
 using Microsoft.Bot.Builder;
+using Microsoft.Bot.Schema;
 
 namespace Responses
 {
@@ -12,7 +15,10 @@ namespace Responses
         }
         public static async Task ReplyWithHelp(ITurnContext context)
         {
-            await context.SendActivityAsync($"I can retrieve cognitive fields from Azure Search. To start a new search, respond \"search\"");
+            IMessageActivity activity = context.Activity.CreateReply();
+            activity.Text = $"I can retrieve cognitive fields from Azure Search. To start a new search, respond \"search\"";
+            activity.SuggestedActions = HeroCardUtility.InitialSuggestions();
+            await context.SendActivityAsync(activity);
         }
         public static async Task ReplyWithResumeTopic(ITurnContext context)
         {
@@ -22,7 +28,10 @@ namespace Responses
         {
             // Add a response for the user if Regex doesn't know
             // What the user is trying to communicate
-            await context.SendActivityAsync($"I'm sorry, I don't understand.");
+            IMessageActivity activity = context.Activity.CreateReply();
+            activity.Text = $"I'm sorry, I don't understand.";
+            activity.SuggestedActions = HeroCardUtility.InitialSuggestions();
+            await context.SendActivityAsync(activity);
         }
     }
 }
