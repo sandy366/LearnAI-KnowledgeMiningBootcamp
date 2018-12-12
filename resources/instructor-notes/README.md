@@ -60,7 +60,7 @@ Important to comment about the skillset:
 
 ## Bot LAB
 
-+ You can demo searches for linux e LearnAI. Ctrl+click the URL to open the IMAGES, not the other files.
++ You can demo searches for "linux" and "LearnAI". Ctrl+click the URL to open the IMAGES, not the other files.
 + Search for moderated documents
 + Explain details of Framework 4 code
 
