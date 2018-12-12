@@ -69,14 +69,16 @@ This demo is public and you can use with clients and partners.
 
 Here you can see a list of the resources used in this training. The [Azure Calculator](https://azure.microsoft.com/en-us/pricing/calculator/) can be used for pricing estimation.
 Prices are estimates and are not intended as actual price quotes. Actual prices may vary depending upon the date of purchase, currency of payment, and type of agreement you enter with Microsoft. Contact a Microsoft sales representative for additional information on pricing.
-**The estimated daily cost of this training, with the provided dataset, is close to US$ 15,00.**  
+**The estimated daily cost of this training, with the provided dataset, is close to US$ 20,00.**  
 
 | Item | Detail | Description
 |-------|----------|----------|
 | Blob Storage | 20 MB |To store the documents |
-| Azure Search | Basic Tier: 16 documents, 1 index | To execute all cognitive processing |
-| Azure Functions | Up to 100 executions| To host and execute the custom cognitive service we will create |
+| Azure Search | Basic Tier: Up to 15 skills | To execute all cognitive processing |
+| Azure Functions | Up to 100 executions, billed by execution| To host and execute the custom cognitive service we will create |
 | Cognitive Services | Up to 100 executions, 1000 seconds | To execute the custom cognitive service |
+
+>Note! Starting December 21, 2018, you will be able to associate a Cognitive Services resource with an Azure Search skillset. This will allow us to start charging for skillset execution. On this date, we will also begin charging for image extraction as part of the document-cracking stage. Text extraction from documents will continue to be offered at no additional cost. The execution of built-in skills will be charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/). Image extraction pricing will be charged at preview pricing, and is described on the [Azure Search pricing page](https://azure.microsoft.com/en-us/pricing/details/search/).
 
 ## Information Delivery - A Bot as User Interface
 
