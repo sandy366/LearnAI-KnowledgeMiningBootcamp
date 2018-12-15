@@ -50,7 +50,7 @@ Cloning the repo will download all the training materials to your computer, incl
 
 1. In the Cortana search bar, type "git bash" and select "Git Bash Desktop App", or type "cmd" and select "Command Prompt".
 
-1. Next, type `cd c:` then enter. Now, you will be in the root directory of your computer. If you don't have permission to create folders and files here, navigate to a folder where you can download the Bootcamp materials.
+1. Next, type `cd c:\` then enter. Now, you will be in the root directory of your computer. If you don't have permission to create folders and files here, navigate to a folder where you can download the Bootcamp materials.
 
 1. Type and enter `git clone https://github.com/Azure/LearnAI-KnowledgeMiningBootcamp.git`
 
