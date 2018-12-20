@@ -124,6 +124,8 @@ The service limits for this training are listed below. For the complete list, cl
 
 ## Lab Steps
 
+Now let's start the hands-on lab. Since you have finished the [Environment Creation]([Text Skills Lab](../labs/lab-environment-creation.md), you just need to follow the steps below.
+
 ### Step 1 - Import Data
 
 Using the Azure Search service created in the previous lab, you will use the "Import Data" wizard, that helps you with all required steps to ingest and analyze your data: data source and index creation.
