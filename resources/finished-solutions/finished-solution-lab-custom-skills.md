@@ -159,7 +159,12 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
           }
         ]
     }
-  ]
+  ],
+  "cognitiveServices": {
+        "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
+        "description": "my-cog-serv ",
+        "key": "your-api-key-here"
+  }
 }
 ```
 
