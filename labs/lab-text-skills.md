@@ -211,7 +211,7 @@ In the **Request body**, you will use JSON to define the Language Detection, Tex
   ],
   "cognitiveServices": {
         "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
-        "description": "my-cog-serv ",
+        "description": "my-cog-serv",
         "key": "your-api-key-here"
   }
 }
