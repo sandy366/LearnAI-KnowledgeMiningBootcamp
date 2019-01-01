@@ -12,7 +12,7 @@ In this lab, you will create an Azure Search service and a storage account. We r
 
 1. For the **URL**, that is the service name, choose a name that you can easily remember. We will use it dozens of times in the next labs. The name of the service in the screenshots of this lab won't be available, you must create your own service name.
 
-1. For **Resource group**, create a resource group named `kmb` to contain all the resources you will create in this Knowledge Mining Bbootcamp. In addition to facilitating organization and visualization in the portal, using a single resource group helps you, if necessary at the end of the training, remove all services created.
+1. For **Resource group**, create a resource group named `kmb` to contain all the resources you will create in this Knowledge Mining Bbootcamp. In addition to facilitating organization and visualization in the portal, using a single resource group helps you, if necessary at the end of the training, remove all services created. If you want to keep this solution up and running, for demos and POCs in minutes with your own data, this resources cleaning isn't necessary.
 
 1. For **Location**, choose one of the regions below, Cognitive Search is not available in all Azure regions.
 - West Central US
