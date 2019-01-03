@@ -73,4 +73,4 @@
 
 ## Next Step
 
-[Environment Creation](../../labs/lab-environment-creation.md) or [Back to Labs Menu](../../README.md)
+[Solution architecture](./solution-architecture.md) or [Back to Labs Menu](../../README.md)
