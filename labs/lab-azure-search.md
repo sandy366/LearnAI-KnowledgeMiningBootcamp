@@ -128,7 +128,7 @@ Let's start the hands-on lab. Since you have finished the [Environment Creation]
 
 ### Step 1 - Import Data
 
-Using the Azure Search service created in the previous lab, you will use the "Import Data" wizard, that helps you with all required steps to ingest and analyze your data: data source and index creation.
+Using the Azure Search service created in the previous lab, you will use the "Import Data" wizard, that helps you with all required steps to ingest and analyze your data: data source and index creation. 
 
 + From the Overview tab, click on the **Import Data** option
 
@@ -145,8 +145,6 @@ Using the Azure Search service created in the previous lab, you will use the "Im
 
   + **Keep `metada_storage_path` as the key.** This is a unique identifier for each file of the data source. It is a good idea to use the physical path of file, since it is unique by design. Since our dataset is on blob storage, the content of this field is the file URL, that's why it is unique by design. If you check the other options, you will see that metadata_storage_path is only one field that can guarantee uniqueness. As of December 2018, the key maximum size is 1024 characters. This limit won't be a problem for this training, but the workaround is to reduce the file name length and also the path. This limit is currently under analysis of the product team.
 
-  + Mark the **Analyzer** checkbox and all the fields from the last step will be set to **"Standard - Lucene"**. Navigate through the other language options, to see what is available. The Analyzer takes the terms a user enters and works to find the best matching terms in the Index. Azure Search includes analyzers that are used in technologies like Bing and Office that have deep understanding of 56 languages. For the full list, click [here](https://docs.microsoft.com/en-us/rest/api/searchservice/language-support).
-
   + Click the **Suggester** checkbox and enter any Suggester name you like. Set the **Search Mode** to **"analyzingInfixMatching"** and choose **content** and **metadata_title** to be the fields to look for term suggestions. The Suggester feature provides type-ahead suggestions, as you can see in web search engines.
 
 + If your configuration looks like the image below, click the blue **Next: Create an indexer** button. A validation will be made.
@@ -160,6 +158,9 @@ Using the Azure Search service created in the previous lab, you will use the "Im
   + Set **metadata_storage_size**, **metadata_storage_name**, and **metadata_language** as **Facetable**, so you can use this categorization for fast searching.
 
   + Set **content**, **metadata_content_type**, **metadata_language** and **metadata_title** as **Searchable**, you want to be able to search on all of them.
+  
+  + Set **content**, **metadata_content_type**, **metadata_language** and **metadata_title** with **Analyzer**. Use **"Standard - Lucene"**. Navigate through the other language options, to see what is available. The Analyzer takes the terms a user enters and works to find the best matching terms in the Index. Azure Search includes analyzers that are used in technologies like Bing and Office that have deep understanding of 56 languages. For the full list, click [here](https://docs.microsoft.com/en-us/rest/api/searchservice/language-support).
+
 
 ![Index Configuration](../resources/images/lab-azure-search/index-settings.png)
 
