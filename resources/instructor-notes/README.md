@@ -15,7 +15,7 @@ Use the KMB-Opening.pptx presentation to:
 1. CSW x KMB difference (slide 4)
 1. Breaking News
 1. Spektra Instructions
-1. Github link - <http://aka.ms/kmb>
+1. Github link - <http://aka.ms/kmb> or <http://aka.ms/LearnAI-kmb>
 1. Survey URL
 1. Talk about environment cleaning, to avoid costs.
 
@@ -79,9 +79,10 @@ Expected:
     + Datasources updated in different times
     + Each product or region requires different schedules
   + Multiple Skillsets
+    + Partition the data in 2: images and not images, to save processing time and money with specific skillset for each type of data.
     + VIVINO/CREDIT/Logistics/Other custom skillset with a different schedule update - "runs once a day"
 
-+ Sizing discussion: [Tier](https://azure.microsoft.com/en-us/pricing/details/search/) x [SLA](https://azure.microsoft.com/en-us/support/legal/sla/search/v1_0/), Units. For SLA is required 2 or more copies. Basic tear limit is 2 GB, Standard has 300 GB total.
++ Sizing discussion: [Tier](https://azure.microsoft.com/en-us/pricing/details/search/) x [SLA](https://azure.microsoft.com/en-us/support/legal/sla/search/v1_0/), Units. For SLA is required 2 or more copies. Basic tear limit is 2 GB, Standard has 300 GB total. **Also, it is required at least Basic tear to have replicas. And the replica can be located in the Brazil South region, reducing latency for South America clients.**
 
 + Skills
   + Text Skills
@@ -94,7 +95,9 @@ Expected:
 
 + Other AI involved
   + Translation API
-  + Recommendation API created with AML and running on AKS
+  + Recommendation API (Preview in Jan 2018)
+  + Entity Linking API for the detected entities
+  + Bing Search in the Bot to improve the search experience
 
 + South America means 2 more languages after the original docs in English: Portuguese and Spanish. It is expected discussions like:
   + Save all fields in 3 languages? Storage costs. Write once and read many
