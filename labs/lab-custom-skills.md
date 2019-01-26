@@ -1,4 +1,4 @@
-# Lab 3: Create a Cognitive Search Skillset with **Custom** Skills
+# Create a Cognitive Search Skillset with **Custom** Skills
 
 In this lab, you will learn [how to create a Custom Skill](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-interface)
 and integrate it into the enrichment pipeline. Custom skills allow you to add any REST API transformation to the dataset, also feeding other transformations within the pipeline, if required.
