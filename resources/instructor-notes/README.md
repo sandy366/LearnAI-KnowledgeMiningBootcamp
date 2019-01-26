@@ -103,4 +103,4 @@ Expected:
   + Save all fields in 3 languages? Storage costs. Write once and read many
   + Translate on the fly? Data out and API usage costs, latency
 
-+ Other Technologies: CosmosDB for the product catalog? Blob Storage? Bot Services? Batch AI to train the recommendation API?
++ Other Technologies: CosmosDB for the product catalog? AML/Containers for extra AI capabilities?
