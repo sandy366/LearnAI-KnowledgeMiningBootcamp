@@ -53,13 +53,17 @@ Image skills, like OCR and Image Analysis, are heavier than text skills. Behind 
 
 You need to prepare the environment to add the image analysis you will create. The most practical approach is to delete the objects from Azure Search and rebuild them. This also avoids redundancy of similar information. This cleaning also reduces cost, two replicated/similar indexes will use space os the service. Last, but not least: to teach about DELETES is also an objective of this training. With the exception of the data source, you will delete everything else. Resource names are unique, so by deleting an object, you can recreate it using the same name.
 
- Save all the scripts (API calls) you've done up until this point, including the definition json files you used in the "body" field. Let's start deleting the index and the indexer. You can use Azure Portal or API calls:
+ Save all the scripts (API calls) you've done up until this point, including the definition json files you used in the "body" field. 
+ Let's start deleting the index and the indexer. You can use Azure Portal or API calls:
 
-1. [Deleting the indexer - API call](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-indexer) - Just use your service, key and indexer name
-1. [Deleting the index](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-index) - Just use your service, key and indexer name
-1. [Deleting the Skillset](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-skillset) - Just use your service, key and skillset name
+1. [Deleting the indexer](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-indexer)
+1. [Deleting the index](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-index)
+1. [Deleting the Skillset](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-skillset)
 
 Status code 204 is returned on a successful deletion.
+
+>Tip: It was possible to update the index instead of delete and recreate it. The addition of a new field is one of the situations where you can use this method. 
+Click [here](https://docs.microsoft.com/en-us/rest/api/searchservice/update-index) to learn more about it.
 
 ### Step 5 - Recreating the environment - Challenge
 
@@ -93,7 +97,9 @@ Skipping the services and the data source creation, repeat the other steps of th
 
 **TIP 2:** Your new field in the Index must have the [Collection Data Type](https://docs.microsoft.com/en-us/rest/api/searchservice/Supported-data-types?redirectedfrom=MSDN).
 
-**TIP 3:** Your indexer sourceFieldName for the OCR text field has to be /document/normalized_images/*/myOcrText if your field is named myOcrText.  
+**TIP 3:** Your indexer sourceFieldName for the OCR text field has to be /document/normalized_images/*/myOcrText if your field is named myOcrText.
+
+**TIP 4:** Now your skillset has image skills. The indexer processing time will be bigger than what you saw in the last lab, up to 10 minutes is expected.
 
 #### Step 5.3 - Validation
 
