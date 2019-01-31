@@ -60,7 +60,7 @@ You need to prepare the environment to add the image analysis you will create. T
 1. [Deleting the index](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-index)
 1. [Deleting the Skillset](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-skillset)
 
-Status code 204 is returned on a successful deletion.
+Status code 204 is returned on a successful deletion. The deletion order doesn't matter, while when creating those objects, the indexer must be the last one, since it has references to the others.
 
 >Tip: It was possible to update the index instead of delete and recreate it. The addition of a new field is one of the situations where you can use this method. 
 Click [here](https://docs.microsoft.com/en-us/rest/api/searchservice/update-index) to learn more about it.
