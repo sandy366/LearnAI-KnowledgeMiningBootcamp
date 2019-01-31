@@ -22,6 +22,12 @@ and then lists in which document each word appears.
 
 ![Inverted Index](../resources/images/lab-azure-search/inverted.png)
 
+### Concurrency
+
+When managing Azure Search resources such as indexes and data sources, it's important to update resources safely, especially if resources are accessed concurrently by different components of your application. When two clients concurrently update a resource without coordination, race conditions are possible. To prevent this, Azure Search offers an optimistic concurrency model. There are no locks on a resource. 
+Instead, there is an ETag for every resource that identifies the resource version so that you can craft requests that avoid accidental overwrites.
+For more information, click [here](https://docs.microsoft.com/en-us/azure/search/search-howto-concurrency).
+
 ### Competitors
 
 The table below is an independent analysis of the biggest competitors.
