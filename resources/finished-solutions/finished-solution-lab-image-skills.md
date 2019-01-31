@@ -222,7 +222,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
   "fieldMappings" : [
         {
           "sourceFieldName" : "metadata_storage_path",
-          "targetFieldName" : "metadata_storage_path",
+          "targetFieldName" : "id",
           "mappingFunction" :
             { "name" : "base64Encode" }
         },
