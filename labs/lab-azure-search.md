@@ -103,7 +103,7 @@ When you have 2 instances of the same indexer running at the same time, each exe
 
 The service limits for this training are listed below. For the complete list, click [here](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity).
 
-| Resource | Free Tier | Basic Tiar | S1 Tiar | S2 Tier | S3 Tier |
+| Resource | Free Tier | Basic Tier | S1 Tier | S2 Tier | S3 Tier |
 |-------|----------|----------|----------|----------|----------|
 | SLA | No | Yes| Yes | Yes | Yes | Yes |
 | Storage per Partition | 50 MB | 2 GB | 25 GB | 100 GB | 200 GB |
