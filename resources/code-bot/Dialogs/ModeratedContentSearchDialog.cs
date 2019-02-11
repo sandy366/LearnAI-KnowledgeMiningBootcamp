@@ -23,7 +23,7 @@ namespace CognitiveSearchBot.Dialogs
         {
             await SearchResponses.ReplyWithSearchForModeratedContentConfirmation(stepContext.Context);
 
-            await ExecuteSearchAsync(stepContext.Context, "*", "moderatedText eq true");
+            await ExecuteSearchAsync(stepContext.Context, "*", "needsModeration eq true");
             return await stepContext.EndDialogAsync();
         }
     }

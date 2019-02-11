@@ -53,7 +53,7 @@ Image skills, like OCR and Image Analysis, are heavier than text skills. Behind 
 
 You need to prepare the environment to add the image analysis you will create. The most practical approach is to delete the objects from Azure Search and rebuild them. This also avoids redundancy of similar information. This cleaning also reduces cost, two replicated/similar indexes will use space os the service. Last, but not least: to teach about DELETES is also an objective of this training. With the exception of the data source, you will delete everything else. Resource names are unique, so by deleting an object, you can recreate it using the same name.
 
- Save all the scripts (API calls) you've done up until this point, including the definition json files you used in the "body" field. 
+ Save all the scripts (API calls) you've done up until this point, including the definition json files you used in the "body" field.
  Let's start deleting the index and the indexer. You can use Azure Portal or API calls:
 
 1. [Deleting the indexer](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-indexer)
@@ -62,7 +62,7 @@ You need to prepare the environment to add the image analysis you will create. T
 
 Status code 204 is returned on a successful deletion. The deletion order doesn't matter, while when creating those objects, the indexer must be the last one, since it has references to the others.
 
->Tip: It was possible to update the index instead of delete and recreate it. The addition of a new field is one of the situations where you can use this method. 
+>Tip: It was possible to update the index instead of delete and recreate it. The addition of a new field is one of the situations where you can use this method.
 Click [here](https://docs.microsoft.com/en-us/rest/api/searchservice/update-index) to learn more about it.
 
 ### Step 5 - Recreating the environment - Challenge
