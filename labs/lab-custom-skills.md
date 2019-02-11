@@ -56,7 +56,7 @@ Visual Studio has [Tools for AI](https://visualstudio.microsoft.com/downloads/ai
 Open your Visual Studio and click "Help / About Microsoft Visual Studio" on the main menu. You can try to use different versions, especially newer versions. But this training was created using the environment below and It is strongly recommended that you use the same versions. Please check if your system matches this versions:
 
 + Visual Studio version 15.8.9
-+ Microsoft .Net Framework version 4.7.03190
++ Microsoft .Net Framework version 4.7.03056
 + Azure Functions and Web Jobs Tools - 15.9.02046.0
 
 ![Versions](../resources/images/lab-custom-skills/versions.png)
@@ -190,15 +190,6 @@ POST https://[your-function-name].azurewebsites.net/api/ContentModerator?code=[e
 
 This should produce a similar result to the one you saw previously when running the function in the local environment.
 
-### Step 5.1 - Update SSL Settings
-
-All Azure Functions created after June 30th, 2018 have disabled TLS 1.0, which is not currently compatible with custom skills. Today, August 2018, Azure Functions default TLS is 1.2, which is causing issues. This is a **required workaround**:
-
-1. In the Azure portal, navigate to the Resource Group, and look for the Content Moderator Function you published. Under the Platform features section, you should see SSL.
-2. After selecting SSL, you should change the **Minimum TLS version** to 1.0 (TLS 1.2 functions are not yet supported as custom skills).
-
-For more information, click [here](https://docs.microsoft.com/en-us/azure/search/cognitive-search-create-custom-skill-example#update-ssl-settings ) .
-
 ## Step 6 - Cleaning the environment again
 
 Let's do the same cleaning process of the previous lab. Save all scripts (API calls) you did until here, including the definition json files you used in the "body" field.
@@ -238,7 +229,7 @@ you have to add an instruction for maximum batch size to be just ```1``` to send
         "outputs": [
           {
             "name": "text",
-            "targetName": "ModeratedText"
+            "targetName": "needsModeration"
           }
         ]
       }
@@ -248,7 +239,7 @@ you have to add an instruction for maximum batch size to be just ```1``` to send
 ### Step 7.1 - Challenge
 
 As you can see, again we are not giving you the body request. One more time you can use the previous lab as a reference.  
-Skipping the services and the data source creation, repeat the other steps of the previous labs, in the same order. Name the new field of the content moderation process as **moderatedText**. It is case sensitive, so it is important to use the same name formation. If you decide to use a different name, you will need to change the Bot code to make it work.
+Skipping the services and the data source creation, repeat the other steps of the previous labs, in the same order. Name the new field of the content moderation process as **needsModeration**. It is case sensitive, so it is important to use the same name formation. If you decide to use a different name, you will need to change the Bot code to make it work.
 
 >Note! Please make sure you will create the new index field for the moderation analysis as boolean. More information [here](https://docs.microsoft.com/en-us/azure/search/search-what-is-an-index).
 
@@ -259,7 +250,7 @@ Skipping the services and the data source creation, repeat the other steps of th
 5. Recreate the Indexer
 6. Check Indexer Status - Check the moderation results.  
 7. Check the Index Fields - Check the moderated text new field.
-8. Check the data - If you don't see the moderated data, something went wrong. Select only the moderatedText and the blob_uri fields
+8. Check the data - If you don't see the moderated data, something went wrong. Select only the needsModeration and the blob_uri fields
 
 ## Step 8
 
@@ -267,9 +258,19 @@ Now we have our data enriched with pre-defined and custom skills. Use the Search
 
 ![Checking for Moderation problems](../resources/images/lab-custom-skills/moderatedtex-query-portal.png)
 
+## Step 9 - Optional
+
+Here is another challenge for you. Use [this](https://docs.microsoft.com/en-us/azure/search/cognitive-search-create-custom-skill-example) documentation as a reference and:
+
+1. Create and publish another Azure Function, for the Translation API
+1. Connect this new API into your Enrichment Pipeline skillset
+1. Create a new skill field for the translated text into the index
+1. Create another mapping in your indexer
+1. Use Postman or Azure Search Explorer to check the translated data.
+
 ## Finished Solution
 
-If you could not make it, [here](../resources/finished-solutions/finished-solution-lab-custom-skills.md) is the challenge solution. You just need to follow the steps.
+If you could not make it, [here](../resources/finished-solutions/finished-solution-lab-custom-skills.md) is the challenge solution. You just need to follow the steps. **Step 9 isn't included.**
 
 ## Next Step
 

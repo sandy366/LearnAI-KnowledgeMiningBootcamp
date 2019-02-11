@@ -15,6 +15,7 @@ In this lab, you will create an Azure Search service and a storage account. We r
 1. For **Resource group**, create a resource group named `kmb` to contain all the resources you will create in this Knowledge Mining Bbootcamp. In addition to facilitating organization and visualization in the portal, using a single resource group helps you, if necessary at the end of the training, remove all services created. If you want to keep this solution up and running, for demos and POCs in minutes with your own data, this resources cleaning isn't necessary.
 
 1. For **Location**, choose one of the regions below, Cognitive Search is not available in all Azure regions.
+
 - West Central US
 - South Central US
 - East US
@@ -66,7 +67,7 @@ The enrichment pipeline pulls from Azure data sources. Source data must originat
 
  1. From the storage account **Overview** tab, click the link to **Blobs** and create a **container** named `basicdemo`:
     - Enter a name for the container.
-    - Select **Private** for Access Type. When you set the access to private, the container and blob data can be read by the Windows Azure account owner only.
+    - Select **Container** for Access Type.
 
  1. Upload **all files** from the **\resources\dataset** cloned github folder to the `basicdemo` blob storage container. You can do it using [Azure Portal](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal) or [Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). There are other methods to upload data to Azure, but we don't suggest them for this training.
 

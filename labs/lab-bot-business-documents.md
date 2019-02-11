@@ -69,7 +69,7 @@ There is a lot of "stuff" in this solution. If you've worked with bots before, y
 
 Near the bottom of the Solution Explorer menu, you will see the Constants.cs file. Open it with a double click. You'll notice that you need to fill in your search service name, search service key, and index name. Since you've created and tested the index in Postman, you should have these readily available. If not, you can open the Azure portal and locate your Azure Search service to get the needed information. Fill in your information and save the file (you can use `CTRL` + `S`).
 
->Note! The Bot code has many references to the index fields. If you did not named the content moderator field as **moderatedText** or the OCR field as **myOcrText**, you will need to change the code to use your fields names. The files to be changed are: /Dialogs/ModeratedContentSearchDialog.cs and /Models/SearchHit.cs .
+>Note! The Bot code has many references to the index fields. If you did not named the content moderator field as **needsModeration** or the OCR field as **myOcrText**, you will need to change the code to use your fields names. The files to be changed are: /Dialogs/ModeratedContentSearchDialog.cs and /Models/SearchHit.cs .
 
 ## Step 3 - Interacting with your Cognitive Search Bot
 

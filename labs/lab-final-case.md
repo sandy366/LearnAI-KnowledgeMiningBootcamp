@@ -35,7 +35,6 @@ The diagrams below explain some of the scenarios for Cognitive Search
 ![Simple Scenario](../resources/images/lab-final-case/simple.png)
 ![Complex Scenario 1](../resources/images/lab-final-case/complex1.png)
 ![Complex Scenario 2](../resources/images/lab-final-case/complex2.png)
-![Complex Scenario 3](../resources/images/lab-final-case/complex3.png)
 ![Complex Scenario 4](../resources/images/lab-final-case/complex4.png)
 
 ## Case Study

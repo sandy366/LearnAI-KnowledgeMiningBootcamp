@@ -49,11 +49,15 @@ Image skills, like OCR and Image Analysis, are heavier than text skills. Behind 
 
 >Note! Currently OCR only works with "/document/normalized_images" field, produced by the Azure Blob indexer when imageAction is set to generateNormalizedImages. As part of document cracking, there are a new set of indexer configuration parameters for handling image files or images embedded in files. These parameters are used to normalize images for further downstream processing. Normalizing images makes them more uniform. Large images are resized to a maximum height and width to make them consumable. For images providing metadata on orientation, image rotation is adjusted for vertical loading. Metadata adjustments are captured in a complex type created for each image.
 
+### Step 3.1 - Review how the Enrichment Pipeline Works
+
+Click [here](../resources/md-files/enrichment-pipeline-details.md) and review how the Enrichment Pipeline works. This content will help you with the challenge below. At the end of the page there is a link to return to this lab.
+
 ### Step 4 - Cleaning the environment
 
 You need to prepare the environment to add the image analysis you will create. The most practical approach is to delete the objects from Azure Search and rebuild them. This also avoids redundancy of similar information. This cleaning also reduces cost, two replicated/similar indexes will use space os the service. Last, but not least: to teach about DELETES is also an objective of this training. With the exception of the data source, you will delete everything else. Resource names are unique, so by deleting an object, you can recreate it using the same name.
 
- Save all the scripts (API calls) you've done up until this point, including the definition json files you used in the "body" field. 
+ Save all the scripts (API calls) you've done up until this point, including the definition json files you used in the "body" field.
  Let's start deleting the index and the indexer. You can use Azure Portal or API calls:
 
 1. [Deleting the indexer](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-indexer)
@@ -62,7 +66,7 @@ You need to prepare the environment to add the image analysis you will create. T
 
 Status code 204 is returned on a successful deletion. The deletion order doesn't matter, while when creating those objects, the indexer must be the last one, since it has references to the others.
 
->Tip: It was possible to update the index instead of delete and recreate it. The addition of a new field is one of the situations where you can use this method. 
+>Tip: It was possible to update the index instead of delete and recreate it. The addition of a new field is one of the situations where you can use this method.
 Click [here](https://docs.microsoft.com/en-us/rest/api/searchservice/update-index) to learn more about it.
 
 ### Step 5 - Recreating the environment - Challenge

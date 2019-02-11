@@ -31,7 +31,7 @@ namespace Models
             get
             {
                 object result = string.Empty;
-                var results = PropertyBag.TryGetValue("moderatedText", out result);
+                var results = PropertyBag.TryGetValue("needsModeration", out result);
                 return bool.Parse(result.ToString());
             }
         }
