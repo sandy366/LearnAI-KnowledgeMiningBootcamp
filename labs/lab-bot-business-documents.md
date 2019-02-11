@@ -18,7 +18,8 @@ The image below describes the bot created in this lab. Please notice that:
 
 This lab's bot uses the Microsoft Bot Framework (V4), an open-source SDK available in Node.js, C#, Python and Java.
 
-You can use the Microsoft Bot Framework to create a single code base to deploy with Azure Bot Service, which allows you to surface your bot on many channels (Skype, Cortana, Facebook, etc). The key concepts to know for this lab includes:
+You can use the Microsoft Bot Framework to create a single code base to deploy with Azure Bot Service, which allows you to surface your bot on many 
+channels (Skype, Cortana, Facebook, etc). The key concepts to know for this lab includes:
 
 + **Adapter:** The Bot orchestrator, routing incoming and outgoing communication and authentication. For any interaction, it creates a `TurnContext` object and passes it to the bot application logic
 
@@ -35,6 +36,11 @@ You can use the Microsoft Bot Framework to create a single code base to deploy w
 ![Dialogs hierarchy](../resources/images/lab-bot/diagram.png)
 
 + **State:** Stores data relating to either the conversation or the user. State is a middleware component. Available storage layers are Memory (data is cleared each time the bot is restarted), Blob Storage and CosmosDB. **State management** automates the reading and writing of your bot's state to the underlying storage layer.
+
+Using the image below, check how all those concepts are integrated in the internal architecture of a bot application.
+
+![Bots Concepts](../resources/images/lab-bot/bots-concepts-middleware.png)
+
 
 ## Step 1 - Download and install the Bot Framework Emulator
 
