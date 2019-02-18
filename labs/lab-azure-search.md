@@ -130,7 +130,8 @@ The service limits for this training are listed below. For the complete list, cl
 
 ## Lab Steps
 
-Let's start the hands-on lab. Since you have finished the [Environment Creation]([Text Skills Lab](../labs/lab-environment-creation.md), you just need to follow the steps below.
+Let's start the hands-on lab. Since you have finished the [Environment Creation](../labs/lab-environment-creation.md), you just need to follow the steps below. 
+**Please note that the product team is always optimizing the portal. If you find any difference, please report to the LearnAI Team and try to understand what has changed to move forward with the lab.**
 
 ### Step 1 - Import Data
 
