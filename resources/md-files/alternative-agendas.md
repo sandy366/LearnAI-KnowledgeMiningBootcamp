@@ -14,7 +14,7 @@ You can create your own agenda, based on your objectives and audience.
 
 1. [Lab 1](../../labs/lab-environment-creation.md) - Azure - **Environment Creation**
 
-1. [Lab 2](../../labs/lab-azure-search) - Azure Search - **Indexing Blob Storage**
+1. [Lab 2](../../labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**
 
 1. [Lab 3](../../labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
 
@@ -36,7 +36,7 @@ If the audience is familiar with Azure Search, but not with Cognitive Search.
 
 1. [Lab 1](../../labs/lab-environment-creation.md) - Azure - **Environment Creation**
 
-1. ~~[Lab 2](../../labs/lab-azure-search) - Azure Search - **Indexing Blob Storage**~~
+1. ~~[Lab 2](../../labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**~~
 
 1. [Lab 3](../../labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
 
@@ -58,7 +58,7 @@ If the audience is familiar with Bots or Web Developments using APIs
 
 1. [Lab 1](../../labs/lab-environment-creation.md) - Azure - **Environment Creation**
 
-1. [Lab 2](../../labs/lab-azure-search) - Azure Search - **Indexing Blob Storage**
+1. [Lab 2](../../labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**
 
 1. [Lab 3](../../labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
 
@@ -80,7 +80,7 @@ If the audience just need Azure Search and Azure Cognitive Search basic knowledg
 
 1. [Lab 1](../../labs/lab-environment-creation.md) - Azure - **Environment Creation**
 
-1. [Lab 2](../../labs/lab-azure-search) - Azure Search - **Indexing Blob Storage**
+1. [Lab 2](../../labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**
 
 1. [Lab 3](../../labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
 
@@ -102,7 +102,7 @@ Same agenda of the [first version of this training](http://aka.ms/LearnAI-csw)
 
 1. [Lab 1](../../labs/lab-environment-creation.md) - Azure - **Environment Creation**
 
-1. ~~[Lab 2](../../labs/lab-azure-search) - Azure Search - **Indexing Blob Storage**~~
+1. ~~[Lab 2](../../labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**~~
 
 1. [Lab 3](../../labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
 
@@ -124,7 +124,7 @@ To do this in half day you need a qualified audience and all pre-reqs and enviro
 
 1. ~~[Lab 1](../../labs/lab-environment-creation.md) - Azure - **Environment Creation**~~
 
-1. [Lab 2](../../labs/lab-azure-search) - Azure Search - **Indexing Blob Storage**
+1. [Lab 2](../../labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**
 
 1. [Lab 3](../../labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
 
@@ -146,7 +146,7 @@ To do this in half day you need a qualified audience and all pre-reqs and enviro
 
 1. ~~[Lab 1](../../labs/lab-environment-creation.md) - Azure - **Environment Creation**~~
 
-1. ~~[Lab 2](../../labs/lab-azure-search) - Azure Search - **Indexing Blob Storage**~~
+1. ~~[Lab 2](../../labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**~~
 
 1. [Lab 3](../../labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
 
@@ -168,7 +168,7 @@ To do this in half day you need a qualified audience and all pre-reqs and enviro
 
 1. ~~[Lab 1](../../labs/lab-environment-creation.md) - Azure - **Environment Creation**~~
 
-1. ~~[Lab 2](../../labs/lab-azure-search) - Azure Search - **Indexing Blob Storage**~~
+1. ~~[Lab 2](../../labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**~~
 
 1. [Lab 3](../../labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
 
@@ -190,7 +190,7 @@ To do this in half day you need a qualified audience and all pre-reqs and enviro
 
 1. ~~[Lab 1](../../labs/lab-environment-creation.md) - Azure - **Environment Creation**~~
 
-1. ~~[Lab 2](../../labs/lab-azure-search) - Azure Search - **Indexing Blob Storage**~~
+1. ~~[Lab 2](../../labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**~~
 
 1. [Lab 3](../../labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
 
@@ -212,7 +212,7 @@ If you just want to teach what Cognitive Search is, since it is a brand new prod
 
 1. ~~[Lab 1](../../labs/lab-environment-creation.md) - Azure - **Environment Creation**~~
 
-1. ~~[Lab 2](../../labs/lab-azure-search) - Azure Search - **Indexing Blob Storage**~~
+1. ~~[Lab 2](../../labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**~~
 
 1. ~~[Lab 3](../../labs/lab-text-skills.md) - Cognitive Search – **Text Skills**~~
 
@@ -234,7 +234,7 @@ For express deliveries with some knowledge and some code. It is expected a quali
 
 1. ~~[Lab 1](../../labs/lab-environment-creation.md) - Azure - **Environment Creation**~~
 
-1. ~~[Lab 2](../../labs/lab-azure-search) - Azure Search - **Indexing Blob Storage**~~
+1. ~~[Lab 2](../../labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**~~
 
 1. [Lab 3](../../labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
 
