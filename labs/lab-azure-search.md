@@ -267,7 +267,7 @@ Using [Azure Search Simple Query Syntax](https://docs.microsoft.com/en-us/rest/a
 1. Search for documents about Cloud, ordering the results by the score
 1. Search for documents about Cloud, but filtering those with mentions to Oracle
 1. Search for documents about Cognitive Services and Bots
-1. Search for all celebrities, returning only this field
+1. Search for all celebrities, returning this field only
 
 ## Finished Solution
 
