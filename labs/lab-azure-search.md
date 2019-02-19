@@ -1,6 +1,6 @@
 # Azure Search Fundamentals
 
-In this lab, you will learn the basics of the Azure Search service and how to ingest and index a provided dataset using the built-in tools. This lab will teach you how to use the **Azure Portal** to ingest and search the business documents of a provided dataset.
+In this lab, you will learn the basics of the Azure Search service and how to ingest and index a provided dataset using the built-in tools. This lab will teach you how to use the **Azure Portal** to ingest and search the business documents of the [provided dataset](../resources/dataset/readme.md). For more details on the required environment for this lab, including the dataset and the Azure Service, click [here](../labs/lab-environment-creation.md).
 
 ## What is Azure Search
 
@@ -24,7 +24,7 @@ and then lists in which document each word appears.
 
 ### Concurrency
 
-When managing Azure Search resources such as indexes and data sources, it's important to update resources safely, especially if resources are accessed concurrently by different components of your application. When two clients concurrently update a resource without coordination, race conditions are possible. To prevent this, Azure Search offers an optimistic concurrency model. There are no locks on a resource. 
+When managing Azure Search resources such as indexes and data sources, it's important to update resources safely, especially if resources are accessed concurrently by different components of your application. When two clients concurrently update a resource without coordination, race conditions are possible. To prevent this, Azure Search offers an optimistic concurrency model. There are no locks on a resource.
 Instead, there is an ETag for every resource that identifies the resource version so that you can craft requests that avoid accidental overwrites.
 For more information, click [here](https://docs.microsoft.com/en-us/azure/search/search-howto-concurrency).
 
@@ -67,7 +67,7 @@ General recommendations for large datasets:
 + Partition your data into multiple blob containers or virtual folders
 + Set up several Azure Search data sources, one per container or folder
 + Create a corresponding indexer for each data source. All the indexers can point to the same target search index
-+ One search unit in your service can run one indexer at any given time. Creating multiple indexers as described above is only useful if they actually run in parallel. To run them in parallel, you need one SU for each indexer.
++ One search unit in your service can run one indexer at any given time. Creating multiple indexers as described above is only useful if they really run in parallel. To run them in parallel, you need one SU for each indexer.
 
 Another important feature is Search traffic analytics. It lets you gain visibility into your search service and unlock insights about your users and their behavior. By having data about what your users choose, it's possible to make decisions that further improve your search experience, and to back off when the results are not what expected. For more information, click [here](https://docs.microsoft.com/en-us/azure/search/search-traffic-analytics).
 
@@ -126,16 +126,16 @@ The service limits for this training are listed below. For the complete list, cl
 
 1. **Index your data:** There are two ways to [populate an index with your data](https://docs.microsoft.com/en-us/azure/search/search-what-is-data-import). The first option is to manually push your data into the index using the Azure Search [REST API](https://docs.microsoft.com/en-us/azure/search/search-import-data-rest-api) or [.NET SDK](https://docs.microsoft.com/en-us/azure/search/search-import-data-dotnet). The second option is to point a [supported data source](https://docs.microsoft.com/en-us/azure/search/search-import-data-portal) to your index and let Azure Search automatically pull in the data on a schedule.
 
-1. **Search an index:** When submitting search requests to Azure Search, you can use simple search options, you can [filter](https://docs.microsoft.com/en-us/azure/search/search-filters), [sort](https://docs.microsoft.com/en-us/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [project](https://docs.microsoft.com/en-us/azure/search/search-faceted-navigation), and [page over results](https://docs.microsoft.com/en-us/azure/search/search-pagination-page-layout). You have the ability to address spelling mistakes, phonetics, and Regex, and there are options for working with search and [suggest](https://docs.microsoft.com/en-us/rest/api/searchservice/suggesters). These query parameters allow you to achieve deeper control of the [full-text search experience](https://docs.microsoft.com/en-us/azure/search/search-query-overview).
+1. **Search an index:** When submitting search requests to Azure Search, you can use simple search options, you can [filter](https://docs.microsoft.com/en-us/azure/search/search-filters), [sort](https://docs.microsoft.com/en-us/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [project](https://docs.microsoft.com/en-us/azure/search/search-faceted-navigation), and [page over results](https://docs.microsoft.com/en-us/azure/search/search-pagination-page-layout). You can address spelling mistakes, phonetics, and Regex, and there are options for working with search and [suggest](https://docs.microsoft.com/en-us/rest/api/searchservice/suggesters). These query parameters allow you to achieve deeper control of the [full-text search experience](https://docs.microsoft.com/en-us/azure/search/search-query-overview).
 
 ## Lab Steps
 
-Let's start the hands-on lab. Since you have finished the [Environment Creation](../labs/lab-environment-creation.md), you just need to follow the steps below. 
+Let's start the hands-on lab. Since you have finished the [Environment Creation](../labs/lab-environment-creation.md), you just need to follow the steps below.
 **Please note that the product team is always optimizing the portal. If you find any difference, please report to the LearnAI Team and try to understand what has changed to move forward with the lab.**
 
 ### Step 1 - Import Data
 
-Using the Azure Search service created in the previous lab, you will use the "Import Data" wizard, that helps you with all required steps to ingest and analyze your data: data source and index creation. 
+Using the Azure Search service created in the previous lab, you will use the "Import Data" wizard, that helps you with all required steps to ingest and analyze your data: data source and index creation.
 
 + From the Overview tab, click on the **Import Data** option
 
@@ -145,37 +145,64 @@ Using the Azure Search service created in the previous lab, you will use the "Im
 
 ![Data Source Graphic](../resources/images/lab-azure-search/data-source-2.png)
 
-+ **Don't add anything for Cognitive Search for now**, we will do it in the next lab, using Postman and Azure Search APIs. Just click the blue **Next: Customize target index** button.
++ Now you will learn how to apply AI to business documents using the Azure Portal, using Cognitive Search. Click on the **Attach Cognitive Services** link and use the Cognitive Services account you created in the last step of the [previous lab](../labs/lab-environment-creation.md). If you don't see it listed for you, click on **Create new Cognitive Services resource** and follow the tutorial. It will open the Azure Portal in a new browser window. After you have finished, return to the previous window where we are using the Azure Search wizard to import data. Click on **Add Enrichments** and you will see a tutorial for Cognitive Search.
+  + Name your skillset as `myportalskillset` and click on the OCR checkbox, since we want to submit both content and images texts to the cognitive skills
+  + Check if the `Source data field` now is merged_content
+  + Mark all options. Please notice that you can name the outputs as you want, but keep the default names
+  + Click the **Next: Customize target index** button.
 
 + In the index tab, we will define the index structure and features as follows:
-  + **Name your index as you want**, but we will use this information later so you should use an easy to type name.
+
+  + Name your index as `myportalindex`
 
   + **Keep `metada_storage_path` as the key.** This is a unique identifier for each file of the data source. It is a good idea to use the physical path of file, since it is unique by design. Since our dataset is on blob storage, the content of this field is the file URL, that's why it is unique by design. If you check the other options, you will see that metadata_storage_path is only one field that can guarantee uniqueness. As of December 2018, the key maximum size is 1024 characters. This limit won't be a problem for this training, but the workaround is to reduce the file name length and also the path. This limit is currently under analysis of the product team.
 
-  + Name the **Suggester** as you like. Set the **Search Mode** to **"analyzingInfixMatching"** and choose **content** and **metadata_title** to be the fields to look for term suggestions. The Suggester feature provides type-ahead suggestions, as you can see in web search engines.
+  + Name the **Suggester** as `myportalsuggester` and set the **Search Mode** to **"analyzingInfixMatching".** The Suggester feature provides type-ahead suggestions, as you can see in web search engines like [Bing](www.bing.com).
 
-  + **Set all fields to be Retrievable**. This allows the application to retrieve these fields when searched. Please notice they are all strings and among them we have interesting things like metadata_storage_size, metadata_content type, metadata_language, and **the content itself**.
+  + Please notice the 3 types of fields available:
+    + content: all text from the documents that exists when they are cracked (opened) by Azure Search
+    + metadata*: all physical information Azure Search can retrieve from the filesystem, or database
+    + AI: created in the Cognitive Search blade of the Wizard
 
-  + Set **metadata_storage_size**, **metadata_content_type**, and **metadata_language** as **Filterable**, so you can filter on these fields.
+  + This are the options available:
 
-  + Set **metadata_storage_size**, **metadata_language**, and **metadata_title** as **Sortable**. It doesn't make sense to sort for the content since it is a free text.
+    + **Retrievable:** Fields returned to the application by default. It is possible to specify a field, by if it is not retrievable, there will be no data for it. Please notice the datatypes: strings, Integer, Datetime, and collection of strings, as an array that allow you the manipulate individual values. In a parallel with the SQL language, this is the `SELECT clause`
 
-  + Set **metadata_storage_size**, **metadata_storage_name**, and **metadata_language** as **Facetable**, so you can use this categorization for fast searching.
+    + **Filterable:** For filtering on these fields. In a parallel with the SQL language, this is the `WHERE clause`
 
-  + Set **content**, **metadata_content_type**, **metadata_language** and **metadata_title** as **Searchable**, you want to be able to search on all of them.
+    + **Sortable:** For sorting on these fields. In a parallel with the SQL language, this is the `ORDER BY clause`
+
+    + **Facetable:** For grouping results on these fields. In a parallel with the SQL language, this is the `GROUP BY clause`
+
+    + **Searchable** For searching on these fields. In a parallel with the SQL language, this is the `HAVING clause`
   
-  + Set **content**, **metadata_content_type**, **metadata_language** and **metadata_title** with **Analyzer**. Use **"Standard - Lucene"**. Navigate through the other language options, to see what is available. The Analyzer takes the terms a user enters and works to find the best matching terms in the Index. Azure Search includes analyzers that are used in technologies like Bing and Office that have deep understanding of 56 languages. For the full list, click [here](https://docs.microsoft.com/en-us/rest/api/searchservice/language-support).
+    + **Analyzer:** For dictionary matching. The Analyzer takes the terms a user enters and works to find the best matching terms in the Index. Azure Search includes analyzers that are used in technologies like Bing and Office that have deep understanding of 56 languages. For the full list, click [here](https://docs.microsoft.com/en-us/rest/api/searchservice/language-support). It is a good idea to add analyzer for the **searchchable** fields, for a better user experience
 
+    + **Suggester:** For suggestions while the user is typing. It is a good idea to add suggester for string **filterable** fields, for a better user experience
 
-If your configuration looks like the image below, click the blue **Next: Create an indexer** button. A validation will be made.
+As you can see, not all fields should be retrievable or filterable and son on. We are setting all fields as retrievable so you can analyze what they mean, at the end of this lab. Also, every single click on those checkboxes represent more processing (and time) required to ingest data. And before any best practice, there are the business rules. Set your configuration like the image below, click the blue **Next: Create an indexer** button. A validation will be made.
 
 ![Index Configuration](../resources/images/lab-azure-search/index-settings.png)
 
 >Note! Using the portal you can't map the source fields more than once (i.e. to change you have to start over). In the next labs, you will create the index and the indexer using API calls, and that **does** allow you to do it. It is also important to realize that you only have the file's metadata to work with. In the next labs you will use Cognitive Search to create metadata from your data, and, as a result, your index will be completely different.
 
-+ **Name** your indexer as you want,  keep the schedule as **once**. The indexer is the job that connects the data source, the index and the schedule
++ Name your indexer as `myportalindexer` and set the schedule as **once**. The indexer is the job that connects the data source, the index and the schedule.
 
-+ Click the blue **OK** button, and you will be redirected to the overview tab, where now you can see 1 index, 1 indexer and 1 data source (you may have to refresh your page).
++ Click the **Advanced Options** link and:
+
+  + Set **Max failed items** to `-1`, we don't want the indexer to stop processing a document even when any cognitive skill has an error
+  + Set **Max failed items per batch** to `-1`, we don't want the indexer batch job to stop at any reason
+  + Set **Data to extract** to `Content and metadata`, since we are using both as you can see above
+  + Set **Parsing mode** to Default, we have both text and image skills
+
++ Click the blue **Submit** button, and you will be redirected to the overview tab, where now you can see 1 index, 1 indexer and 1 data source (you may have to refresh your page).
+
++ Click on the Indexes, Indexers, Data sources, and Skillsets tabs to see the objects you just created using the portal. In the next lab, you will learn how to create them with REST API calls
+
++ Click the **Indexers** link and check the status of your indexer. It should be **In progress**. Wait until you get the **Warning** status, it is expected to have some warnings. Please notice that:
+  + You may need to click the `Refresh` link in the top of the **Overview** tab
+  + If you got any error, review the lab steps
+  + If your indexer has a status showing that is not running or have never ran before, click on the indexer and run it manually.
 
 ![Overview tab](../resources/images/lab-azure-search/redirect.png)
 
@@ -185,7 +212,7 @@ If your configuration looks like the image below, click the blue **Next: Create 
 
 1. You should see the newly created indexer in the list, with status indicating "in progress" , "Failed", or "Warning". If not, click the refresh button in the top-middle of the overview tab. The final expected status is "Warning", along with the number of documents indexed, "21/21" is the correct number. Warnings are caused by extra long words and big texts. The indexer knows how to deal with them, but warns you.
 
-1. Click on the refresh button, top middle of the page, until the execution is over. The "Warning" status is expected, click on the Indexer name to see the summary. In this page you will see all of the executions this Indexer may have and its details, duration and so on.
+1. Click on the refresh button, top middle of the page, until the execution is over. The "Warning" status is expected, click on the Indexer name to see the summary. In this page you will see all the executions this Indexer may have and its details, duration and so on.
 
 1. Click on the "Execution Details" to see the warning messages, you should find problems related to data truncation and unsupported content type. The first message is caused by long texts and the second is very clear on what is going on. Both problems will be addressed in the Cognitive Search labs, helping you to understand the value of this capability.
 
@@ -215,13 +242,17 @@ The image below explains how Azure Search executes a query. The process has four
 
 At this point of the lab, we can try searching the index. Let's keep on using the Azure Portal for this.
 
-1. Navigate back to the **Overview Tab** and click the **Indexes** link, the second from the left to the right. You should see the "Document Count" and the Storage Size. The expected count is 21 and the size should be close to 2.19 MiB. As you can see, Azure Search doesn't store all of the document, just part of it: key words, metadata, tags.
+1. Navigate back to the **Overview Tab** and click the **Indexes** link, the second from the left to the right. You should see the "Document Count" and the Storage Size. The expected count is 21 and the size should be close to 2.19 MiB. As you can see, Azure Search doesn't store all the document, just part of it: key words, metadata, tags.
 
 1. Click **Search Explorer** and in the Overview Tab select your Index in the **"Change Index"** button.
 
-1. Click **Search** to search for all documents. You can use any valid simple or full Lucene query syntax to create the request. The * character is equivalent to an empty or unspecified search that returns all documents in no particular order. You should see information returned for all of the 21 documents.
+1. Click **Search** to search for all documents. You can use any valid simple or full Lucene query syntax to create the request. The * character is equivalent to an empty or unspecified search that returns all documents in no particular order.
 
-1. Try searching for "Microsoft", a different result set is expected. In the resulting json, you'll see a number after `@search.score`. Scoring refers to the computation of a search score for every item returned in search results. The score is an indicator of an item's relevance in the context of the current search operation. The higher the score, the more relevant the item. In search results, items are rank ordered from high to low, based on the search scores calculated for each item.
+   + You should see information returned for all the 21 documents
+   + Analyze all the fields and try to understand what they mean, what information they have
+   + The score is an indicator of an item's relevance in the context of the current search operation. The higher the score, the more relevant the item. In search results, items are rank ordered from high to low, based on the search scores calculated for each item
+
+1. Try searching for "Microsoft", a different result set is expected. In the resulting json, you'll see a number after `@search.score`. Scoring refers to the computation of a search score for every item returned in search results.
 
 1. You will probably see results like the image below. Scroll down until you see all meta information available.
 
@@ -236,6 +267,7 @@ Using [Azure Search Simple Query Syntax](https://docs.microsoft.com/en-us/rest/a
 1. Search for documents about Cloud, ordering the results by the score
 1. Search for documents about Cloud, but filtering those with mentions to Oracle
 1. Search for documents about Cognitive Services and Bots
+1. Search for all celebrities, returning only this field
 
 ## Finished Solution
 

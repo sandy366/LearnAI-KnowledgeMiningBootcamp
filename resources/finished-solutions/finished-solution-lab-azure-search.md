@@ -16,6 +16,8 @@ The commands below should be types in the Search Explorer **Query string** bar. 
 
 1. Search for documents about Cognitive Services and Bots: `"Cognitive Services", Bots`
 
+1. Search for all celebrities: `$select=celebrities`
+
 ## Next Step
 
 [Text Skills Lab](../../labs/lab-text-skills.md) or

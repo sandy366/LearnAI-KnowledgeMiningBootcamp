@@ -92,14 +92,14 @@ Expected:
   + Entity Extraction (location, organizations)
   + Important to discuss the order of the transformations
 
-+ Other AI involved
++ Other Data & AI that could be used
   + Translation API
-  + Recommendation API (Preview in Jan 2018)
+  + Personalization API (Preview in Jan 2018)
   + Entity Linking API for the detected entities
   + Bing Search in the Bot to improve the search experience
+  + CosmosDB as a data source for the product catalog
+  + AML for custom AI for published as an API for: price optimization, campaign optimization, etc
 
 + South America means 2 more languages after the original docs in English: Portuguese and Spanish. It is expected discussions like:
   + Save all fields in 3 languages? Storage costs. Write once and read many
   + Translate on the fly? Data out and API usage costs, latency
-
-+ Other Technologies: CosmosDB for the product catalog? AML/Containers for extra AI capabilities?
