@@ -44,7 +44,7 @@
 
 ![Slide](../../resources/slides/22.png)
 
-![Slide](../../resources/slides/23.png)
+![Slide](../../resources/slides/23_new.png)
 
 ![Slide](../../resources/slides/24.png)
 
