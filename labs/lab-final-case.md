@@ -54,7 +54,7 @@ Using what you've learned throughout the course, develop a potential Cognitive S
 1. List of the predefined and custom skills
 1. The skills sequence and how they are integrated
 1. The necessary Azure Search tier for this solution
-1. List of other Data & AI Azure services that could improve the search experience
+1. List other Data & AI Azure services that could improve the search experience, including all labs, experiments, demos, and breaking news you saw in this training. Also including everything you know about Azure, AI, Data Science, and Analytics.
 
 ## Cleaning your environment - Again
 
