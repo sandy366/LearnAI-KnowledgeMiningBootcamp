@@ -148,8 +148,10 @@ Using the Azure Search service created in the previous lab, you will use the "Im
 + Now you will learn how to apply AI to business documents using the Azure Portal, using Cognitive Search. Click on the **Attach Cognitive Services** link and use the Cognitive Services account you created in the last step of the [previous lab](../labs/lab-environment-creation.md). If you don't see it listed for you, click on **Create new Cognitive Services resource** and follow the tutorial. It will open the Azure Portal in a new browser window. After you have finished, return to the previous window where we are using the Azure Search wizard to import data. Click on **Add Enrichments** and you will see a tutorial for Cognitive Search.
   + Name your skillset as `myportalskillset` and click on the OCR checkbox, since we want to submit both content and images texts to the cognitive skills
   + Check if the `Source data field` now is merged_content
-  + Mark all options. Please notice that you can name the outputs as you want, but keep the default names
-  + Click the **Next: Customize target index** button.
+  + Mark the same options of the image below. Please notice that you can name the outputs as you want, but keep for now the default names. Then, click the **Next: Customize target index** button.
+
+![Cognitive Search](../resources/images/lab-azure-search/cog-search.png)
+
 
 + In the index tab, we will define the index structure and features as follows:
 
