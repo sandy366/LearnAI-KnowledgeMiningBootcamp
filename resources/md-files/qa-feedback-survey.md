@@ -6,7 +6,7 @@ If you are attending an ILT (Instructor Lead Training), now it is time for your 
 
 ## Feedback
 
-Every feedback is welcome, please write to learnanalytics@microsoft.com .
+Every feedback is welcome, please write to learnai@microsoft.com .
 
 ## Links
 
