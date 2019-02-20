@@ -89,7 +89,7 @@ This should open a chat window with your bot. You can start by saying some sort 
 
 You should now be able to submit search requests, and your results should be returned. Try searching for various items and inspecting your results. If you're unsure what to search for, here are a few suggestions: "satya nadella", "financial reporting", "security issues", "Azure", "cognitive services", "cloud", "sql server", "learnai", "reports". Try to search using both the menu button and typing search + enter + the term you want to search for.
 
-## Step 4 (optional) - Using break points to understand the search flow
+## Step 4 - Using break points to understand the search flow
 
 If you want to dive slightly deeper into calling the Azure Cognitive Search API and processing the results, we have provided some guidance on how to do so with break points.  
 
@@ -108,6 +108,10 @@ Next, run the bot (select `F5`) and on the Bot Emulator, search for something. A
 Using break points for debugging and seeing how calls are made and processed is a very valuable tool. If you'd like to learn more, [start here](https://docs.microsoft.com/en-us/visualstudio/debugger/getting-started-with-the-debugger?view=vs-2017).  
 
 > Want to dive deeper into bot development? Check out the [LearnAI: Azure Cognitive Services Bootcamp](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp) which integrates multiple Cognitive Services to create an intelligent agent.
+
+## Step 5 - Optional - Deploy your Bot
+
+This step is optional. Folllow [this](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-deploy-az-cli?view=azure-bot-service-4.0) tutorial and deploy your Bot to Azure. After the deployment, test your bot using the Azure Portal.
 
 ## Cleaning your environment
 
