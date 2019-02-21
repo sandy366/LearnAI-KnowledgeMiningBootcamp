@@ -50,6 +50,9 @@ Each bot is different, but there are some common patterns, workflows, and techno
 
 [This](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/conversational-bot) reference architecture describes how to build an enterprise-grade conversational bot (chatbot) using the Azure Bot Framework. 
 
+## Responsible Bots
+
+In order for people and society to realize the full potential of bots, they need to be designed in such a way that they earn the trust of others. [These](https://www.microsoft.com/en-us/research/publication/responsible-bots/) guidelines are aimed at helping you to design a bot that builds trust in the company and service that the bot represents. 
 
 ## Step 1 - Download and install the Bot Framework Emulator
 
