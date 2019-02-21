@@ -1,6 +1,7 @@
 # Creating the Business Documents Bot
 
-In this lab, you will learn how Azure Cognitive Search can be integrated into a bot using the Microsoft Bot Framework (SDK V4, .NET Core). Since this is not a bot course, the creation has been taken care of for you. However, you'll get the chance to interact with your search service via the bot and use debugging to follow the processes to call the Azure Cognitive Search API and format results. If you're interested in diving deeper into bot development, check out the [LearnAI: Azure Cognitive Services Bootcamp](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp) which integrates multiple Cognitive Services to create an intelligent agent.
+In this lab, you will learn how Azure Cognitive Search can be integrated into a bot using the Microsoft Bot Framework (SDK V4, .NET Core).
+Since this is not a bot course, the creation has been taken care of for you. However, you'll get the chance to interact with your search service via the bot and use debugging to follow the processes to call the Azure Cognitive Search API and format results. If you're interested in diving deeper into bot development, check out the [LearnAI: Azure Cognitive Services Bootcamp](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp) which integrates multiple Cognitive Services to create an intelligent agent.
 
 > While this is a simple bot, this [gif](../resources/images/lab-bot/retrieving-cognitive-attrributes.gif) provides some inspiration for what a solution could look like in a real estate scenario. Hopefully, it gives you some inspiration for what's possible. You could also integrate this into a web app, here is a [WebMD example](http://webmedsearch.azurewebsites.net/) and a [Seismic data example](http://seismicsearch.azurewebsites.net/).
 
@@ -13,6 +14,8 @@ The image below describes the bot created in this lab. Please notice that:
 + There is a menu to help your search experience, you will be able to find moderated documents with one click
 
 ![Finished Bot](../resources/images/lab-bot/expected.png)
+
+Let's start with an overview about Bots.
 
 ## Bot Framework V4
 
@@ -40,6 +43,12 @@ channels (Skype, Cortana, Facebook, etc). The key concepts to know for this lab 
 Using the image below, check how all those concepts are integrated in the internal architecture of a bot application.
 
 ![Bots Concepts](../resources/images/lab-bot/bots-concepts-middleware.png)
+
+## Enterprise Grade Bots
+
+Each bot is different, but there are some common patterns, workflows, and technologies to be aware of. Especially for a bot to serve enterprise workloads, there are many design considerations beyond just the core functionality.
+
+[This](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/conversational-bot) reference architecture describes how to build an enterprise-grade conversational bot (chatbot) using the Azure Bot Framework. 
 
 
 ## Step 1 - Download and install the Bot Framework Emulator
