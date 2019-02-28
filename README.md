@@ -1,6 +1,8 @@
-![Technology](./resources/images/readme/header.png)
+# Knowledge Mining
 
-# Knowledge Mining Bootcamp - Azure Cognitive Search Solution for business documents
+![Logo](./resources/images/readme/header.png)
+
+## Knowledge Mining Bootcamp - Azure Cognitive Search Solution for business documents
 
 ## Build an intelligent search solution using the Microsoft Azure AI Platform
 
@@ -124,7 +126,7 @@ Full Course classroom training:  16 hours
 
 ## Contact
 
-Contact us: LearnAI@microsoft.com and http://aka.ms/LearnAI-GitHub
+Contact us: LearnAI@microsoft.com and <http://aka.ms/LearnAI-GitHub>
 
 ## Certifications
 
