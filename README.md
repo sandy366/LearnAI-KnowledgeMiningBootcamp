@@ -2,9 +2,7 @@
 
 ![Logo](./resources/images/readme/header.png)
 
-## Knowledge Mining Bootcamp - Azure Cognitive Search Solution for business documents
-
-## Build an intelligent search solution using the Microsoft Azure AI Platform
+## Knowledge Mining Bootcamp - Build a Cognitive Search Solution for business documents using Microsoft AI Platform
 
 ## About this Course
 
