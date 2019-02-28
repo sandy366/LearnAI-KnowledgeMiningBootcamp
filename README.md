@@ -4,7 +4,7 @@
 
 ## Knowledge Mining Bootcamp - Build a Cognitive Search Solution for business documents using Microsoft AI Platform
 
-## About this Course
+## About this course
 
 In this course, you will create an enterprise search solution by applying knowledge mining to business documents like contracts, memos, presentations and images. You will use Microsoft Azure AI technology to extract insights from unstructured data and expose the results in a Bot interface. This training is two days, but you can compress the duration with [alternative agendas](./resources/md-files/alternative-agendas.md).
 
