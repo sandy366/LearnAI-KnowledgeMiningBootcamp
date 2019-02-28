@@ -1,4 +1,6 @@
-# LearnAI: Knowledge Mining Bootcamp - Azure Cognitive Search Solution for business documents
+![Technology](./resources/images/readme/header.png)
+
+# Knowledge Mining Bootcamp - Azure Cognitive Search Solution for business documents
 
 ## Build an intelligent search solution using the Microsoft Azure AI Platform
 
