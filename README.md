@@ -6,7 +6,10 @@
 
 ## About this course
 
-In this course, you will create an enterprise search solution by applying knowledge mining to business documents like contracts, memos, presentations and images. You will use Microsoft Azure AI technology to extract insights from unstructured data and expose the results in a Bot interface. This training is two days, but you can compress the duration with [alternative agendas](./resources/md-files/alternative-agendas.md).
+In this course, you will create an enterprise search solution by applying knowledge mining to business documents like contracts, memos, presentations and images. 
+You will use Microsoft Azure AI technology to extract insights from unstructured data and expose the results in a Bot interface. 
+
+This training is two days long, but you can compress the duration with [alternative agendas](./resources/md-files/alternative-agendas.md).
 
 ## Goals
 
