@@ -82,7 +82,7 @@ Microsoft Azure Search provides an API for web or mobile applications, creating 
 
 Although this is not a training on bots, you will learn how to integrate one with the  [Azure Search Rest API](https://docs.microsoft.com/en-us/azure/search/search-query-rest-api). This Bot will be as simple as possible, runninng locally with the [Bot Emulator](https://github.com/Microsoft/BotFramework-Emulator).
 
-This [gif](../../resources/images/sol-arch/retrieving-cognitive-attrributes.gif) has the expected finished solution, but with a different dataset. Now you have idea of what we will be created by the end of the training.
+This [gif](../../resources/images/lab-bot/retrieving-cognitive-attrributes.gif) has the expected finished solution, but with a different dataset. Now you have idea of what we will be created by the end of the training.
 
 The Microsoft Learn AI Team has a 2 day [Computer Vision Bot Bootcamp](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp) that shows you how to create an intelligent bot using Azure Search, CosmosDB and Cognitive Services.
 
