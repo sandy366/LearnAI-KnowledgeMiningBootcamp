@@ -79,7 +79,7 @@ Expected:
   + Multiple Skillsets
     + Each product or region requires different schedules
     + Partition the data in 2: images and not images, to save processing time and money with specific skillset for each type of data.
-    + VIVINO/CREDIT/Logistics/Other custom skillset with a different schedule update - "runs once a day"
+    + External data coming from VIVINO/Logistics/Other custom skillset with a different schedule update - "runs once a day"
 
 + Sizing discussion: [Tier](https://azure.microsoft.com/en-us/pricing/details/search/) x [SLA](https://azure.microsoft.com/en-us/support/legal/sla/search/v1_0/), Units. For SLA is required 2 or more copies. Basic tiar limit is 2 GB, Standard has 300 GB total. **Also, it is required at least Basic tiar to have replicas. And the replica can be located in the Brazil South region, reducing latency for South America clients.**
 
