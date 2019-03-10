@@ -86,9 +86,8 @@ Expected:
 + Skills
   + Text Skills
   + OCR (text in images)
-  + Image Analysis too (images scenes descriptions)
+  + Image Analysis too (images scenes descriptions, Celebrity Detection)
   + Language detection
-  + Celebrity Detection (famous Sommelier)
   + Entity Extraction (location, organizations)
   + Important to discuss the order of the transformations
 
@@ -102,4 +101,5 @@ Expected:
 
 + South America means 2 more languages after the original docs in English: Portuguese and Spanish. It is expected discussions like:
   + Save all fields in 3 languages? Storage costs. Write once and read many
+  + 1 index in BR South Region with fileds in Portuguese and Spanish + 1 index in the US in English
   + Translate on the fly? Data out and API usage costs, latency
