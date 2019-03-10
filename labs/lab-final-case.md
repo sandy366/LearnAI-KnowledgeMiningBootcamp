@@ -47,10 +47,10 @@ The diagrams below explain some of the scenarios for Cognitive Search
 
 ## Case Study
 
-Contoso Vineyard is a relatively new vineyard that is gaining popularity quickly due to several factors. One reason is that Contoso Vineyard operates on a monthly subscription model, with progressive discounts.
+**Contoso Total Wines** is a relatively new wine dealership that is gaining popularity quickly due to several factors. One reason is the monthly subscription model, with progressive discounts.
 The company has an  award-winning customer service, what helped the business growth in South America countries. While Gold subscribers can chat with sommeliers to customize the next wine delivery, Silver clients can chat with intelligent bots to customize their options.
 
-Now the company needs to increase their search capabilities, for channels like chat, web portal and mobile Application. Contoso Vineyard needs to enrich and index their product catalog to increase accuracy of clients and sommeliers searches. The product catalog is a series of HTML, Microsoft Word and PDFs documents. Some of them have images and they are all written in English, which is a problem for their Latin America clients.
+Now the company needs to increase their search capabilities, for channels like chat, web portal and mobile Application. They decided to enrich and index their product catalog to increase accuracy of clients and sommeliers searches. The product catalog is a series of HTML, Microsoft Word and PDFs documents. Some of them have images and they are all written in English, which is a problem for their Latin America clients.
 
 They also want to provide links for places, grapes and other entities their data has. The company owner and the Master Sommelier are famous figures and the marketing department wants to highlight this as well.
 
