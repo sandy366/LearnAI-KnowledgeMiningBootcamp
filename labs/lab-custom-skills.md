@@ -5,18 +5,31 @@ and integrate it into the enrichment pipeline. Custom skills allow you to add an
 
 You will use an [Azure Function](https://azure.microsoft.com/services/functions/) to wrap the [Content Moderator API](https://azure.microsoft.com/en-us/services/cognitive-services/content-moderator/) and detect incompliant documents in the dataset.
 
-The Azure Content Moderator API is a cognitive service that checks text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable. When such material is found, the service applies appropriate labels (flags) to the content. Your app can then handle flagged content in order to comply with regulations or maintain the intended environment for users. See the [Content Moderator APIs](https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/overview#content-moderator-apis) section to learn more about what the different content flags indicate.
+The Azure Content Moderator API is a cognitive service that checks **text, image, and video** content for material that is potentially offensive, risky, or otherwise undesirable. 
+When such material is found, the service applies appropriate labels (flags) to the content. Your app can then handle flagged content in order to comply with regulations or maintain the intended environment for users. 
+See the [Content Moderator APIs](https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/overview#content-moderator-apis) section to learn more about what the different content flags indicate.
 
-The text moderation responses include:
+This API offers:
+
++ Text moderation: Scans text for offensive content, sexually explicit or suggestive content, profanity, and personally identifiable information (PII). **That's what you will use in this lab**.
++ Custom term lists: Scans text against a custom list of terms in addition to the built-in terms. Use custom lists to block or allow content according to your own content policies.
++ Image moderation: Scans images for adult or racy content, detects text in images with the Optical Character Recognition (OCR) capability, and detects faces.
++ Custom image lists: Scans images against a custom list of images. Use custom image lists to filter out instances of commonly recurring content that you don't want to classify again.
++ Video moderation: Scans videos for adult or racy content and returns time markers for said content.
++ Review: Use the Jobs, Reviews, and Workflow operations to create and automate human-in-the-loop workflows with the human review tool. The Workflow API is not yet available through the .NET SDK.
+
+Content Moderator’s machine-assisted **text moderation** response includes the following information:
 
 + Profanity: term-based matching with built-in list of profane terms in various languages
 + Classification: machine-assisted classification into three categories
 + Personally Identifiable Information (PII)
 + Auto-corrected text
 + Original text
-+ Language
+ 
+>IMPORTANT: This Azure Function output is **Edm.String**, but we this lab converts it to a boolen information: if the document has moderated content or not.
 
->IMPORTANT: This Azure Function output is **Edm.String**, so we need to use the same type in the index definition.  
+Content Moderator API also has a tool for human review of the moderation. For more information, click [here](https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/review-tool-user-guide/human-in-the-loop
+).
 
 ## Step 1 - Content Moderator API
 
