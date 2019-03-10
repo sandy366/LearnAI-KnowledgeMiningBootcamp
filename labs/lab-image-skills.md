@@ -91,12 +91,12 @@ Use the same skillset definition from Lab 1,  add in the [OCR image analysis ski
 
 #### Step 5.2 - Recreating the index and indexer
 
-Skipping the services and the data source creation, repeat the other steps of the Lab 1, in the same order. Use the previous lab as a reference.
+Skipping the services and the data source creation, repeat the other steps of the previous lab, in the same order. Use the same scripts as a reference.
 
 **TIP 1:** What you need to do:
 
-1. Create a new index exactly like the one we did in Lab 1 but with an extra field for the OCR text from the images. Name the new field as **myOcrText**. You can use the same json body field and add the new OCR field in the end. If you decide to use a different name, you will need to change the Bot code to make it work.
-1. Create a new indexer exactly like the one we did in Lab 1, but with and extra mapping for the new skill and the new field listed above. You can use the same json body field and add the new OCR mapping in the end
+1. Create a new index exactly like the one we did in the previous lab, but with an extra field for the OCR text from the images. Name the new field as **myOcrText**. You can use the same json body field and add the new OCR field in the end. If you decide to use a different name, you will need to change the Bot code to make it work.
+1. Create a new indexer exactly like the one we did in the previous, but with and extra mapping for the new skill and the new field listed above. You can use the same json body field and add the new OCR mapping in the end
 1. Check the indexer execution status as you did in the previous lab
 
 **TIP 2:** Your new field in the Index must have the [Collection Data Type](https://docs.microsoft.com/en-us/rest/api/searchservice/Supported-data-types?redirectedfrom=MSDN).
