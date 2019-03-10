@@ -23,14 +23,22 @@ For more information on sizing, click [here](https://docs.microsoft.com/en-us/az
 The diagrams below explain some of the scenarios for Cognitive Search
 
 1. **Simple Scenario**: Visual representation of the scenario addressed in this training.
+
 1. **Multiple Data Sources Scenario**: It is the situation explained in the section above, about parallel processing: Big data volume requires parallel processing, what demands data partitioning and one indexer per partition.
+   
    + If the data was partitioned per timestamp, you should the same indexer definition for all indexers.
    + If the data was partitioned by business rules or file types, you can see different indexers definitions. Image skills are heavier than text ones. If your images are separated in a partition, you can increase performance not applying image skills on text documents.
-1. **Multiple Indexes Scenario**: The third scenario is used when you need to physically isolate the created metadata.
-1. **Multiple Indexers Scenario**: Typically used when you need to use multiple schedules and skillsets to index the data. Example: The data source has files updated every 15 minutes and other files updated every hour and other files updated when a new file arrives in a folder.
+
+1. **Multiple Indexes Scenario**: This scenario is used when you need to:
+
+  + Physically isolate the created metadata
+  + Different index properties of the index: facetable, searchable, filterable, etc
+
 1. **Multiple Skisets Scenario**: This scenario is used when you have one of the following situations:
+
    + A Custom Skill that has different update times. So, you don't need to call that API for all of your executions.
    + Your data has multiple updates periods. Example: images are updated in the morning, text documents in the afternoon.
+
 
 ![Simple Scenario](../resources/images/lab-final-case/simple.png)
 ![Complex Scenario 1](../resources/images/lab-final-case/complex1.png)
