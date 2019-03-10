@@ -124,7 +124,7 @@ Using break points for debugging and seeing how calls are made and processed is 
 ## Step 5 - Deploy your Bot
 
 Folllow [this](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-deploy-az-cli?view=azure-bot-service-4.0) tutorial and deploy your Bot to Azure. 
-After the deployment performa the following activities:
+After the deployment, execute the following activities:
 
 + Test your bot using the Azure Portal
 + Test your bot using the Bot Emulator, creating a new endpoint. Open this [link](https://github.com/Microsoft/BotFramework-Emulator/wiki/Getting-Started) 
