@@ -84,7 +84,7 @@ In this challenge, you will perform the following steps:
 
 #### Step 5.1 Creating the skillset for images
 
-Use the same skillset definition from Lab 1,  add in the [OCR image analysis skill](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-ocr) to your skillset. The objectives are:
+Use the same skillset definition from the previous lab,  adding the [OCR image analysis skill](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-ocr) to your skillset. The objectives are:
 
 1. Save the text extracted from OCR into the index
 1. Submit the text extracted from OCR and also the `content`, extracted by default from all text documents, to language detection, key phrases, and entity detection. You will  need to use another pre defined skill to merge the text, since you can't use the same skill twice in the same skillset. It is part of the challenge to find the correct skill and how to use it
