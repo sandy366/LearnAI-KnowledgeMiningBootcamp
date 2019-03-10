@@ -121,10 +121,15 @@ Using break points for debugging and seeing how calls are made and processed is 
 
 > Want to dive deeper into bot development? Check out the [LearnAI: Azure Cognitive Services Bootcamp](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp) which integrates multiple Cognitive Services to create an intelligent agent.
 
-## Step 5 - Optional - Deploy your Bot
+## Step 5 - Deploy your Bot
 
-This step is optional. Folllow [this](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-deploy-az-cli?view=azure-bot-service-4.0) tutorial and deploy your Bot to Azure. 
-After the deployment, test your bot using the Azure Portal. You can also try to [add your bot to Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/bots/bots-overview).
+Folllow [this](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-deploy-az-cli?view=azure-bot-service-4.0) tutorial and deploy your Bot to Azure. 
+After the deployment performa the following activities:
+
++ Test your bot using the Azure Portal
++ Test your bot using the Bot Emulator, creating a new endpoint. Open this [link](https://github.com/Microsoft/BotFramework-Emulator/wiki/Getting-Started) 
+and follow the instructions to **Connecting to bots hosted remotely**
++ Optional: You can also try to [add your bot to Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/bots/bots-overview).
 
 ## Cleaning your environment
 
