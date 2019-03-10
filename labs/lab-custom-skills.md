@@ -26,7 +26,7 @@ Content Moderator’s machine-assisted **text moderation** response includes the
 + Auto-corrected text
 + Original text
  
->IMPORTANT: This Azure Function output is **Edm.String**, but we this lab converts it to a boolen information: if the document has moderated content or not.
+>IMPORTANT: This Azure Function output is **Edm.String**, but this lab converts it to a boolen information: if the document has moderated content or not.
 
 Content Moderator API also has a tool for human review of the moderation. For more information, click [here](https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/review-tool-user-guide/human-in-the-loop
 ).
