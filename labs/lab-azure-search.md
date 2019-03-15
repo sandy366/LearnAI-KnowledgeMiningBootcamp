@@ -73,6 +73,8 @@ Another important feature is Search traffic analytics. It lets you gain visibili
 
 >Note! After an Azure Search service is provisioned, it cannot be upgraded to a higher SKU. You must create a search service at the new tier and reload your indexes.
 
+For more information about Partitions and Replicas, click [here](https://docs.microsoft.com/en-us/azure/search/search-capacity-planning).
+
 ### Security
 
 Azure Search has the following security features:
