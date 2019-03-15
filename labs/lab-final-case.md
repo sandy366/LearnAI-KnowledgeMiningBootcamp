@@ -69,7 +69,7 @@ Using what you've learned throughout the course, develop a potential Cognitive S
 Create an Azure Cognitive Search Solution for the Case Study above, using everything you learned in this training. The instructions are:
 
 1. Use one of the complex scenarios above.
-2. Use the Hackathon data set: **./resources/dataset-hackathon ** folder of this repo.
+2. Use the Hackathon data set: **/resources/dataset-hackathon** folder of this repo.
 3. Apply the following Cognitive skills
 
     + OCR
