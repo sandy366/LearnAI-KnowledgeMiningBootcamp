@@ -64,6 +64,12 @@ Using what you've learned throughout the course, develop a potential Cognitive S
 1. The necessary Azure Search tier for this solution
 1. List other Data & AI Azure services that could improve the search experience, including all labs, experiments, demos, and breaking news you saw in this training. Also including everything you know about Azure, AI, Data Science, and Analytics.
 
+## Hackathon - Challenge - Optional
+
+Create an Azure Cognitive Search Solution for the Case Study above, using 
+
+
+
 ## Cleaning your environment - Again
 
 You have completed all of the hands-on portions of the course. We recommend deleting the resource group (and all of the resources in it) to avoid incurring extra charges.
