@@ -56,7 +56,7 @@ In the [Seventh Lab](../../labs/lab-final-case.md) you are invited to, based on 
 
 We will provide a sample dataset that contains documents with multiple languages and formats including HTML, doc, pdf, ppt, png and jpg. They were selected for a better learning experience, showcasing the technology capabilities.
 
-The dataset has 21 files and 15 MBs. It includes public Microsoft business documents. There is a document in spanish, so you can learn about langauge identification. There is also a document with anonimized Personal Identifiable Information (PII) for the Content Moderator lab.
+The dataset has 21 files and 15 MBs. It includes public Microsoft business documents. There is a document in spanish, so you can learn about language identification. There is also a document with anonimized Personal Identifiable Information (PII) for the Content Moderator lab.
 
 Since we are working with unstructured data, any set of files can be used. In other words, this could be a **Bring Your Own Data** solution; you can test later with any dataset you want.
 
@@ -69,10 +69,9 @@ This demo is public and you can use with clients and partners.
 
 Here you can see a list of the resources used in this training. The [Azure Calculator](https://azure.microsoft.com/en-us/pricing/calculator/) can be used for pricing estimation.
 Prices are estimates and are not intended as actual price quotes. Actual prices may vary depending upon the date of purchase, currency of payment, and type of agreement you enter with Microsoft. Contact a Microsoft sales representative for additional information on pricing.
-**The estimated monthly cost of this solution, with the provided dataset, is close to US$ 76.18 or US$2.54 per day.** 
+**The estimated monthly cost of this solution, with the provided dataset, is close to US$ 76.18 or US$2.54 per day.**
 
 ![Monthly Cost](../../resources/images/sol-arch/cost.png)
-
 
 >Note! Starting December 21, 2018, you will be able to associate a Cognitive Services resource with an Azure Search skillset. This will allow us to start charging for skillset execution. On this date, we will also begin charging for image extraction as part of the document-cracking stage. Text extraction from documents will continue to be offered at no additional cost. The execution of built-in skills will be charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/). Image extraction pricing will be charged at preview pricing, and is described on the [Azure Search pricing page](https://azure.microsoft.com/en-us/pricing/details/search/). About images: You pay for the images extracted/normalized (even if it is a pdf), and then pay for any built-in skills you call (including OCR). [This](https://docs.microsoft.com/en-us/azure/search/cognitive-search-attach-cognitive-services#example-estimating-the-cost-of-document-cracking-and-enrichment) is an example of how that may work.
 
@@ -93,6 +92,7 @@ Labs 3, 4, and 5 will use Postman for [REST API calls](https://docs.microsoft.co
 ![Postman Example](../../resources/images/sol-arch/postman.png)
 
 > Tip! Important details about Postman:
+>
 > + You can save your commands, which is useful for reuse, not only within this workshop, but also in your future projects.
 > + You need to create a free account. A confirmation message is emailed to you.
 > + You can export all your commands into json format. This file can then be saved into the storage account of the lab, into a cloud storage like OneDrive, or anywhere you like. This process helps you save, share, and reuse your work.

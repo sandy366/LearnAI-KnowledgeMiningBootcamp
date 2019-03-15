@@ -37,6 +37,20 @@ Support for data sources including MySQL, CosmosDB, and Azure SQL is also a comp
 
 ![Battlecard](../resources/images/lab-azure-search/compete.png)
 
+### Other Microsoft Search Options
+
+Here are other Microsoft Search products or features. Use the table below as a reference, but always check the products specs for more detailed information.
+
+![Search Options](../resources/images/lab-azure-search/search-options.png)
+
++ For the Azure Search documentation, click [here](https://azure.microsoft.com/en-us/services/search/)
+
++ For the SharePoint Search documentation, click [here](https://docs.microsoft.com/en-us/sharepoint/dev/general-development/search-in-sharepoint)
+
++ For SQL Server Full Text Search documentation, click [here](https://docs.microsoft.com/en-us/sql/relational-databases/search/full-text-search?view=sql-server-2017)
+
++ For the Windows Search documentation, click [here](https://docs.microsoft.com/en-us/windows/desktop/search/windows-search)
+
 ### SLA
 
 Azure Search SLA is 99.9% availability for index query requests when an Azure Search Service Instance is configured with two or more replicas, and index update requests when an Azure Search Service Instance is configured with three or more replicas. No SLA is provided for the Free tier. **Search Service Instance** is an Azure Search service instance containing one or more search indexes. **Replica** is a copy of a search index within a Search Service Instance. **This is a key point to be addressed with clients**.
@@ -153,7 +167,6 @@ Using the Azure Search service created in the previous lab, you will use the "Im
   + Mark the same options of the image below. Please notice that you can name the outputs as you want, but keep for now the default names. Then, click the **Next: Customize target index** button.
 
 ![Cognitive Search](../resources/images/lab-azure-search/cog-search.png)
-
 
 + In the index tab, we will define the index structure and features as follows:
 
