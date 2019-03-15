@@ -1,8 +1,8 @@
-# LearnAI Team - Knowledge Mining Dataset
+# LearnAI Team - Knowledge Mining Bootcamp - Azure Cognitive Search - Dataset
 
-This is the dataset we will for the trainining. It was created with these objectives:
+This is the dataset we will for the trainining. Details:
 
-+ Public Microsoft documents and images
-+ Multiple languages
-+ Multiple formats
-+ Multiple challenges for the workshop
+1. Public Microsoft documents and images
+1. Multiple languages
+1. Multiple formats
+1. Multiple challenges for the Hackathon
