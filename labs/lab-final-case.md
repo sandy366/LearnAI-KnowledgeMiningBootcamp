@@ -66,7 +66,25 @@ Using what you've learned throughout the course, develop a potential Cognitive S
 
 ## Hackathon - Challenge - Optional
 
-Create an Azure Cognitive Search Solution for the Case Study above, using 
+Create an Azure Cognitive Search Solution for the Case Study above, using everything you learned in this training. The instructions are:
+
+1. Use one of the complex scenarios above.
+2. Use the Hackathon data set: **./resources/dataset-hackathon ** folder of this repo.
+3. Apply the following Cognitive skills
+
+    + OCR
+    + Image Analysis, saving the caption and the celebrities detected into different index fields
+    + Sentiment analysys for all text (content + extracted from the images skills)
+    + Entity Extraction: Organizations, names and locations
+    + Save all the text information into the index with the original language but also in portuguese
+
+4. Using Postman or Azure Portal, find:
+
+    + Who are the celebrities of the dataset?
+    + What are the wine regions detected?
+    + What are the best wines according to the reviews?
+    + Search for Terrazas and report which data was found.
+    + What are the wines from Uruguai and Argentina?
 
 
 
