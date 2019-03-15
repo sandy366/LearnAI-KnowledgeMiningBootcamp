@@ -123,7 +123,7 @@ Full Course classroom training:  16 hours
 
 1. [Lab 6](./labs/lab-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API
 
-1. [Lab 7](./labs/lab-final-case.md) - **Architecture Design Session**
+1. [Lab 7](./labs/lab-final-case.md) - **Architecture Design Session + Hackathon** 
 
 > Note: Once you've completed the labs, we recommend deleting the resource group (and all the resources in it) to avoid incurring extra charges.
 
