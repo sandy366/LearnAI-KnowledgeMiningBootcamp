@@ -129,7 +129,7 @@ Full Course classroom training:  16 hours
 
 ## Contact
 
-Contact us: LearnAI@microsoft.com and <http://aka.ms/LearnAI-GitHub>
+Contact us: <LearnAI@microsoft.com> and <http://aka.ms/LearnAI-GitHub>
 
 ## Certifications
 
