@@ -115,6 +115,22 @@ When using indexers that crawl external data sources, change-tracking mechanisms
 
 When you have 2 instances of the same indexer running at the same time, each execution will process the existing delta in the execution start moment. There is no overlap, the system blocks for each execution the work to be done.
 
+### Add, Update or Delete Documents
+
+You can upload, merge or delete documents from a specified index using HTTP POST. You can combine actions, such as an upload and a delete, in the same batch.
+
++ **upload**: Similar to an "upsert" where the document will be inserted if it is new and updated/replaced if it exists. Note that all fields are replaced in the update case
+
++ **merge**: Updates an existing document with the specified fields. If the document doesn't exist, the merge will fail. Any field you specify in a merge will replace the existing field in the document
+
++ **mergeOrUpload**: This action behaves like merge if a document with the given key already exists in the index. If the document does not exist, it behaves like upload with a new document
+
++ **delete**: Delete removes the specified document from the index. Note that any field you specify in a delete operation, other than the key field, will be ignored. If you want to remove an individual field from a document, use merge instead and simply set the field explicitly to null
+
+For more information, click [here](https://docs.microsoft.com/en-us/azure/search/search-what-is-data-import).
+
+All indexers support scheduling so that you can specify how frequently the data is to be refreshed. Most indexers provide change tracking if the data source supports it. By tracking changes and deletes to existing documents in addition to recognizing new documents, indexers remove the need to actively manage the data in your index.
+
 ### Service Limits
 
 The service limits for this training are listed below. For the complete list, click [here](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity).

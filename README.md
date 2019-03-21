@@ -6,8 +6,8 @@
 
 ## About this course
 
-In this course, you will create an enterprise search solution by applying knowledge mining to business documents like contracts, memos, presentations and images. 
-You will use Microsoft Azure AI technology to extract insights from unstructured data and expose the results in a Bot interface. 
+In this course, you will create an enterprise search solution by applying knowledge mining to business documents like contracts, memos, presentations and images.
+You will use Microsoft Azure AI technology to extract insights from unstructured data and expose the results in a Bot interface.
 
 This training is two days long, but you can compress the duration with [alternative agendas](./resources/md-files/alternative-agendas.md).
 
@@ -123,7 +123,7 @@ Full Course classroom training:  16 hours
 
 1. [Lab 6](./labs/lab-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API
 
-1. [Lab 7](./labs/lab-final-case.md) - **Architecture Design Session + Hackathon** 
+1. [Lab 7](./labs/lab-final-case.md) - **Architecture Design Session + Hackathon**
 
 > Note: Once you've completed the labs, we recommend deleting the resource group (and all the resources in it) to avoid incurring extra charges.
 
@@ -135,19 +135,15 @@ Contact us: <LearnAI@microsoft.com> and <http://aka.ms/LearnAI-GitHub>
 
 The LearnAI team had intense participation in the creation of the following new Microsoft certifications:
 
-- Azure Data Engineer​
-  - DP-200: Implementing an Azure Data Solution ​
-  - 80% off discount code thru Mar 12, 2019: DP200BigTrips​
-  - DP-201: Designing an Azure Data Solutions​
-  - 80% off discount code thru Mar 12, 2019: DP201Walks​
++ Azure Data Engineer​
+  + DP-200: Implementing an Azure Data Solution ​
+  + DP-201: Designing an Azure Data Solutions​
 
-- Azure AI Engineer​
-  - AI-100: Designing and Implementing an Azure AI Solution ​
-  - 80% off discount code thru Mar 5, 2019: AI100Goals​
++ Azure AI Engineer​
+  + AI-100: Designing and Implementing an Azure AI Solution ​
 
-- Azure Data Scientist ​
-  - DP-100: Designing and Implementing a Data Science Solution on Azure​
-  - 80% off discount code thru Mar 7, 2010: DP100KLS​
++ Azure Data Scientist ​
+  + DP-100: Designing and Implementing a Data Science Solution on Azure​
 
 ### Q&A and Survey
 

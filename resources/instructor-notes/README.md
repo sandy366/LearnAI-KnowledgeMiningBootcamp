@@ -93,7 +93,7 @@ Expected:
 
 + Other Data & AI that could be used
   + Translation API
-  + Personalization API (Preview in Jan 2018)
+  + Personalization API (Private Preview in Jan 2019)
   + Entity Linking API for the detected entities
   + Bing Search in the Bot to improve the search experience
   + CosmosDB as a data source for the product catalog
