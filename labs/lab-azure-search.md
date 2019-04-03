@@ -139,13 +139,13 @@ The service limits for this training are listed below. For the complete list, cl
 |-------|----------|----------|----------|----------|----------|----------|----------|
 | SLA | No | Yes| Yes | Yes | Yes | Yes | Yes |
 | Storage per Partition | 50 MB | 2 GB | 25 GB | 100 GB | 200 GB | 1 TB | 2 TB | 
-| Partitions | 1 | 1 | 12 | 12 | 12 | 12 | 12 | 12 |
-| Replicas | N/A | 3 | 12 | 12 | 12 | 12 | 12 | 12 |
+| Partitions | 1 | 1 | 12 | 12 | 12 | 12 | 12 |
+| Replicas | N/A | 3 | 12 | 12 | 12 | 12 | 12 |
 | Maximum Indexes | 3 | 15 | 50 | 200 | 200 or 1000/pertition in HD mode | 10 | 10 | 
 | Maximum Indexers | 3 | 15 | 50 | 200 | 200 | 10 |10 |
 | Maximum fields per Index | 1000 | 100 | 1000 | 1000 | 1000 |1000 |1000 |
 | Total Documents | 10,000 | 1 million | 15 million per partition | 60 million per partition | 120 million per partition | TBD | TBD | 
-| Maximum Skillsets | 3 | 15 | 50 | 200 | 200 || 10 |10 | 10 |
+| Maximum Skillsets | 3 | 15 | 50 | 200 | 200 | 10 |10 | 
 | Maximum File size | 16 MB | 16 MB | 128 MB|  256 | 256 |256 | 256 |
 
 >Note 1: Azure Search also offers the **S3 High Density (S3 HD) tier**, engineered for specific workloads: multi-tenancy and large quantities of small indexes (one million documents per index, three thousand indexes per service). This tier does not provide the indexer feature, can't be used for Cognitive Search. On S3 HD, data ingestion must leverage the push approach, using API calls to push data from source to index.
