@@ -182,7 +182,7 @@ When you are satisfied with the function behavior, you can publish it.
 Now that you have the default host key, use Postman to test your function as follows:
 
 ```http
-POST https://[your-function-name].azurewebsites.net/api/ContentModerator?code=[enter your Azure Functions key here]
+POST https://[your-function-url].azurewebsites.net/api/ContentModerator?code=[enter your Azure Functions key here]
 ```
 
 ### Request Body
