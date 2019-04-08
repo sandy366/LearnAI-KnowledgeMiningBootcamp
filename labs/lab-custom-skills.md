@@ -66,7 +66,8 @@ Visual Studio has [Tools for AI](https://visualstudio.microsoft.com/downloads/ai
 
 ### Step 2.1 - Checking Versions
 
-Open your Visual Studio and click "Help / About Microsoft Visual Studio" on the main menu. You can try to use different versions, especially newer versions. But this training was created using the environment below and It is strongly recommended that you use the same versions. Please check if your system matches this versions:
+Open your Visual Studio and click "Help / About Microsoft Visual Studio" on the main menu. You can try to use different versions, especially newer versions. 
+But this training was created using the environment below and It is strongly recommended that you use al least the same versions. Please check if your system matches these versions:
 
 + Visual Studio version 15.8.9
 + Microsoft .Net Framework version 4.7.03056
