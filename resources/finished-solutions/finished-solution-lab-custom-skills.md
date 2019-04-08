@@ -143,7 +143,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
     {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
         "description": "Our new moderator custom skill",
-        "uri": "https://[your-content-moderator-api-url].azurewebsites.net/api/ContentModerator?code=[your-content-moderator-api-key]",
+        "uri": "https://[your-function-urll].azurewebsites.net/api/ContentModerator?code=[your-content-moderator-api-key]",
         "batchSize":1,
         "context": "/document",
         "inputs": [
