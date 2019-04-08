@@ -173,7 +173,7 @@ When you are satisfied with the function behavior, you can publish it.
 
 3. Follow the on-screen prompts. You are asked to specify the Azure account, the resource group, the hosting plan, and the storage account you want to use. You will have the option to create a new resource group (or use the one you've already created for these labs), a new hosting plan, and a storage account if you don't already have one in your Azure Account. When finished, select **Create**.
 
-4. After the deployment is complete, note the Site URL. It is the address of your function app in Azure. You can always get this URL from the overview tab of you function within Azure Portal.
+4. After the deployment is complete, note the Site URL. It is the address of your function app in Azure. You can always get this URL from the Azure Portal using [this](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function#test-the-function) simple steps.
 
 5. In the [Azure portal](https://portal.azure.com), navigate to the Resource Group, and look for the Content Moderator Function you published. Under the **Manage** section, you should see Host Keys. Select the **Copy** icon for the *default* host key.  
 
