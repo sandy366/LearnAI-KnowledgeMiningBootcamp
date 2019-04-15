@@ -64,7 +64,7 @@ In the **Request body**, you will specify the blob container name and connection
     "type" : "azureblob",
     "credentials" :
     { "connectionString" :
-      "DefaultEndpointsProtocol=https;AccountName=<your account name>;AccountKey=<your account key>;"
+      "DefaultEndpointsProtocol=https;AccountName=<your account name>;AccountKey=<your account key>"
     },  
     "container" : { "name" : "basicdemo" }
 }  
