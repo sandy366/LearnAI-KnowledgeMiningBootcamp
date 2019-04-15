@@ -83,7 +83,13 @@ Also in the portal, find the storage account tab called **Access keys**, it has 
 
 As explained in the [introduction](../resources/md-files/introduction.md) and in the [Solution Architecture](../resources/md-files/solution-architecture.md): Starting December 21, 2018, you will need to [associate](https://docs.microsoft.com/en-us/azure/search/cognitive-search-attach-cognitive-services) a Cognitive Services resource to your Azure Cognitive Search solution, in order to enrich more than 20 documents per day. This is the case of this training.
 
+### Step 4.1 - Create the Account
+
 Follow [this](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account) process to create a Cognitive Account **in the same region and resource group** you choose in the previous steps. Name your resource as `my-cog-serv` and use the `S0` pricing tier. It will give you access to Vision, Language and Search capabilities, exactly what is required for this training.
+
+### Step 4.2 - Cognitive Services Compliance
+
+Click [here](https://azure.microsoft.com/en-us/support/legal/cognitive-services-compliance-and-privacy/) to check the brand new information about Cognitive Services compliance details.
 
 ## Next Step
 
