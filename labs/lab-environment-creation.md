@@ -87,10 +87,6 @@ As explained in the [introduction](../resources/md-files/introduction.md) and in
 
 Follow [this](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account) process to create a Cognitive Account **in the same region and resource group** you choose in the previous steps. Name your resource as `my-cog-serv` and use the `S0` pricing tier. It will give you access to Vision, Language and Search capabilities, exactly what is required for this training.
 
-### Step 4.2 - Cognitive Services Compliance
-
-Click [here](https://azure.microsoft.com/en-us/support/legal/cognitive-services-compliance-and-privacy/) to check the brand new information about Cognitive Services compliance details.
-
 ## Next Step
 
 [Azure Search Lab](../labs/lab-azure-search.md) or
