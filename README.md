@@ -145,6 +145,10 @@ The LearnAI team had intense participation in the creation of the following new 
 + [Azure Data Scientist](https://www.microsoft.com/en-us/learning/azure-data-scientist.aspx)
   + DP-100: Designing and Implementing a Data Science Solution on Azure​
 
+## Cognitive Services Compliance
+
+Click [here](https://azure.microsoft.com/en-us/support/legal/cognitive-services-compliance-and-privacy/) to learn how Microsoft Cognitive Services handle your data.
+
 ### Q&A and Survey
 
 Please help the LearnAI Team with [questions and feedback](./resources/md-files/qa-feedback-survey.md) about this training.
