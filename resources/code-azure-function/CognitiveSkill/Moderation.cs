@@ -37,14 +37,18 @@ namespace CognitiveSkill
             ContentModerator mod = JsonConvert.DeserializeObject<ContentModerator>(val);
 
             bool requiresModeration = false;
-            if (mod.PII.Email.Length > 0)
-                requiresModeration = true;
-            if (mod.PII.Address.Length > 0)
-                requiresModeration = true;
-            if (mod.PII.IPA.Length > 0)
-                requiresModeration = true;
-            if (mod.PII.Phone.Length > 0)
-                requiresModeration = true;
+            //Jon Dobrzeniecki helped with the code below, since may 2019 the CM API isn't returning the PII section if there is no data for it
+            if (mod.PII != null)
+            {
+                if (mod.PII.Email.Length > 0)
+                    requiresModeration = true;
+                if (mod.PII.Address.Length > 0)
+                    requiresModeration = true;
+                if (mod.PII.IPA.Length > 0)
+                    requiresModeration = true;
+                if (mod.PII.Phone.Length > 0)
+                    requiresModeration = true;
+            }
             WebApiResponseRecord output = new WebApiResponseRecord();
             output.RecordId = requestRecords.First().RecordId;
             output.Data["text"] = requiresModeration;
