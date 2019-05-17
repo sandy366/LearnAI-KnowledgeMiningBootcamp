@@ -11,7 +11,7 @@ There are png and jpg images within the provided dataset. If you decided to brin
 Let's check the indexer status again, it has valuable information about our "images problem". You can use the same command we used in the previous lab (pasted below for convenience). If you used another indexer name, just change it in the URL.
 
 ```http
-GET https://[your-service-name].search.windows.net/indexers/demoindexer/status?api-version=2017-11-11-Preview
+GET https://[your-service-name].search.windows.net/indexers/demoindexer/status?api-version=2019-05-06
 Content-Type: application/json
 api-key: [api-key]
 ```
@@ -23,7 +23,7 @@ If you check the response messages for any of the png or jpg files in the result
 Let's again repeat a previous lab request, but with another analysis. you will re-execute the step to verify content.  
 
 ```http
-GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,organizations,languageCode,keyPhrases&api-version=2017-11-11-Preview
+GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,organizations,languageCode,keyPhrases&api-version=2019-05-06
 api-key: [api-key]
 ```
 
@@ -110,7 +110,7 @@ Skipping the services and the data source creation, repeat the other steps of th
 Run the same query of the Step 2, the URL is pasted below. Now you should see organizations, languageCode and keyPhrases for most of the images.
 
 ```http
-GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,organizations,languageCode,keyPhrases&api-version=2017-11-11-Preview
+GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,organizations,languageCode,keyPhrases&api-version=2019-05-06
 Content-Type: application/json
 api-key: [api-key]
 ```
@@ -118,7 +118,7 @@ api-key: [api-key]
 Now run the query below to check the OCR text extracted from the images. You Should see text for most of the images.
 
 ```http
-GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,myOcrText&api-version=2017-11-11-Preview
+GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,myOcrText&api-version=2019-05-06
 Content-Type: application/json
 api-key: [api-key]
 ```

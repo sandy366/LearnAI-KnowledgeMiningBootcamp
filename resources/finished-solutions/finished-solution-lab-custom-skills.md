@@ -7,19 +7,19 @@ Here are the body requests for the custom skills lab. Don't forget to adjust the
 ## Delete Skillset
 
 ```http
-https://[your-service-name].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
+https://[your-service-name].search.windows.net/skillsets/demoskillset?api-version=2019-05-06
 ```
 
 ## Delete Index
 
 ```http
-https://[your-service-name].search.windows.net/indexes/demoindex?api-version=2017-11-11-Preview
+https://[your-service-name].search.windows.net/indexes/demoindex?api-version=2019-05-06
 ```
 
 ## Delete Indexer
 
 ```http
-https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=2017-11-11-Preview
+https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=2019-05-06
 ```
 
 ## Skillset
@@ -302,7 +302,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
 ## Check Status
 
 ```http
-GET https://[your-service-name].search.windows.net/indexers/demoindexer/status?api-version=2017-11-11-Preview
+GET https://[your-service-name].search.windows.net/indexers/demoindexer/status?api-version=2019-05-06
 Content-Type: application/json
 api-key: [api-key]
 ```
@@ -310,7 +310,7 @@ api-key: [api-key]
 ## Check files and the moderated text indicator
 
 ```http
-GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,needsModeration,organizations&api-version=2017-11-11-Preview
+GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,needsModeration,organizations&api-version=2019-05-06
 Content-Type: application/json
 api-key: [api-key]
 ```

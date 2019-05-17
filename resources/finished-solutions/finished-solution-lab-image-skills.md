@@ -7,19 +7,19 @@ Here are the body requests for the Image Skills lab. Don't forget to adjust the 
 ## Delete Skillset
 
 ```http
-https://[your-service-name].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
+https://[your-service-name].search.windows.net/skillsets/demoskillset?api-version=2019-05-06
 ```
 
 ## Delete Index
 
 ```http
-https://[your-service-name].search.windows.net/indexes/demoindex?api-version=2017-11-11-Preview
+https://[your-service-name].search.windows.net/indexes/demoindex?api-version=2019-05-06
 ```
 
 ## Delete Indexer
 
 ```http
-https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=2017-11-11-Preview
+https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=2019-05-06
 ```
 
 ## Skillset
@@ -270,7 +270,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
 ## Check Status
 
 ```http
-GET https://[your-service-name].search.windows.net/indexers/demoindexer/status?api-version=2017-11-11-Preview
+GET https://[your-service-name].search.windows.net/indexers/demoindexer/status?api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -278,7 +278,7 @@ Content-Type: application/json
 ## Check organizations, languageCode and keyPhrases
 
 ```http
-https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,organizations,languageCode,keyPhrases&api-version=2017-11-11-Preview
+https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,organizations,languageCode,keyPhrases&api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -286,7 +286,7 @@ Content-Type: application/json
 ## Check the OCR Content extracted
 
 ```http
-GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,myOcrText&api-version=2017-11-11-Preview
+GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,myOcrText&api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
