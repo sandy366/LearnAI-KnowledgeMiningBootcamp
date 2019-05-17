@@ -94,7 +94,7 @@ If you are not so familiar with Postman, perform the following detailed steps to
 
   + Replace the connection string and container with the Azure Blob storage settings you created earlier.
 
-      The following image can be used to confirm the settings you should define.
+      The following image can be used to confirm the settings you should define. Please take a look on all red boxes.
 
       ![Postman Help Image](../resources/images/lab-text-skills/postman-help.png)
 
