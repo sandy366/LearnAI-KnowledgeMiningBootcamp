@@ -1,6 +1,6 @@
 # LearnAI Team - Knowledge Mining Bootcamp - Azure Cognitive Search - Hackathon Dataset
 
-This is the dataset we will for the trainining. Details:
+This is the dataset we will use for the trainining Hackathon. Details:
 
 1. Public Microsoft documents and images
 1. Multiple languages
