@@ -180,7 +180,7 @@ To do this in half day you need a qualified audience and all pre-reqs and enviro
 
 1. ~~[Lab 7](../../labs/lab-final-case.md) - **Architecture Design Session**~~
 
-## Alternative Agenda - 2 hours - Basic Cognitive Search with Bot
+## Alternative Agenda - 3 hours - Basic Cognitive Search with Bot
 
 To do this in half day you need a qualified audience and all pre-reqs and environment creation done before the start of the training. Introduction will be express or the audience will learn about the technology before the training.
 
@@ -196,7 +196,7 @@ To do this in half day you need a qualified audience and all pre-reqs and enviro
 
 1. ~~[Lab 4](../../labs/lab-image-skills.md) - Cognitive Search – **Image Skills**~~
 
-1. ~~[Lab 5](../../labs/lab-custom-skills.md) - Cognitive Search – **Custom Skills**~~
+1. [Lab 5](../../labs/lab-custom-skills.md) - Cognitive Search – **Custom Skills**
 
 1. [Lab 6](../../labs/lab-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API
 
