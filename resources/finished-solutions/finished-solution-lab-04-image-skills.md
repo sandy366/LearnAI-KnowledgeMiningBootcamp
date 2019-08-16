@@ -1,33 +1,45 @@
-# Finished Solution - Custom Skills Lab
+# Finished Solution - Image Skills Lab
 
 Hello!
 
-Here are the body requests for the custom skills lab. Don't forget to adjust the URLs to use your Azure Search service name.
+Here are the body requests for the Image Skills lab. Don't forget to adjust the URLs to use your Azure Search service name.
 
 ## Delete Skillset
 
 ```http
-https://[your-service-name].search.windows.net/skillsets/demoskillset?api-version=2019-05-06
+DELETE https://[your-service-name].search.windows.net/skillsets/demoskillset?api-version=2019-05-06
+Content-Type: application/json
+api-key: [api-key]
 ```
 
 ## Delete Index
 
 ```http
-https://[your-service-name].search.windows.net/indexes/demoindex?api-version=2019-05-06
+DELETE https://[your-service-name].search.windows.net/indexes/demoindex?api-version=2019-05-06
+Content-Type: application/json
+api-key: [api-key]
 ```
 
 ## Delete Indexer
 
 ```http
-https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=2019-05-06
+DELETE https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=2019-05-06
+Content-Type: application/json
+api-key: [api-key]
 ```
 
 ## Skillset
 
+```http
+PUT https://[your-service-name].search.windows.net/skillset/demoskillset?api-version=2019-05-06
+Content-Type: application/json
+api-key: [api-key]
+```
+
 ```json
 {
   "description":
-  "Extract entities, detect language and extract key-phrases. Also does OCR and submit everything to Content Moderator",
+  "Extract OCR, entities, detect language and extract key-phrases, with MERGE AND SPLITS",
   "skills":
   [
      {
@@ -71,7 +83,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
         }
       ]
     },
-    {
+       {
       "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
       "inputs": [
         {
@@ -124,7 +136,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
         }
       ]
     },
-    {
+     {
       "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
@@ -139,25 +151,6 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
           "name": "organizations", "targetName": "organizations"
         }
       ]
-    },
-    {
-        "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "description": "Our new moderator custom skill",
-        "uri": "https://[your-function-urll].azurewebsites.net/api/ContentModerator?code=[your-content-moderator-api-key]",
-        "batchSize":1,
-        "context": "/document",
-        "inputs": [
-          {
-            "name": "text",
-            "source": "/document/mergedText"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "text",
-            "targetName": "needsModeration"
-          }
-        ]
     }
   ],
   "cognitiveServices": {
@@ -169,6 +162,12 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
 ```
 
 ## Index
+
+```http
+PUT https://[your-service-name].search.windows.net/indexes/demoindex?api-version=2019-05-06
+Content-Type: application/json
+api-key: [api-key]
+```
 
 ```json
 {
@@ -226,20 +225,18 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
       "searchable": true,
       "filterable": false,
       "facetable": false
-    } ,
-   {
-      "name": "needsModeration",
-      "type": "Edm.Boolean",
-      "searchable": false,
-      "sortable": false,
-      "filterable": true,
-      "facetable": false
     }
   ]
 }
 ```
 
 ## Indexer
+
+```http
+PUT https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=2019-05-06
+Content-Type: application/json
+api-key: [api-key]
+```
 
 ```json
 {
@@ -257,7 +254,7 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
           "sourceFieldName" : "content",
           "targetFieldName" : "content"
         },
-         {
+        {
           "sourceFieldName" : "metadata_storage_path",
           "targetFieldName" : "blob_uri"
         }
@@ -276,52 +273,49 @@ https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=
             "sourceFieldName": "/document/languageCode",
             "targetFieldName": "languageCode"
         },
-         {
+        {
             "sourceFieldName": "/document/normalized_images/*/myOcrText",
             "targetFieldName": "myOcrText"
-        },
-        {
-            "sourceFieldName": "/document/needsModeration",
-            "targetFieldName": "needsModeration"
         }
   ],
   "parameters":
   {
-      "maxFailedItems":-1,
-      "maxFailedItemsPerBatch":-1,
-      "configuration":
+    "maxFailedItems":-1,
+    "maxFailedItemsPerBatch":-1,
+    "configuration":
     {
-        "dataToExtract": "contentAndMetadata",
-         "imageAction": "generateNormalizedImages"
-        }
+      "dataToExtract": "contentAndMetadata",
+       "imageAction": "generateNormalizedImages"
+    }
   }
 }
-
 ```
 
 ## Check Status
 
 ```http
 GET https://[your-service-name].search.windows.net/indexers/demoindexer/status?api-version=2019-05-06
-Content-Type: application/json
 api-key: [api-key]
+Content-Type: application/json
 ```
 
-## Check files and the moderated text indicator
+## Check organizations, languageCode and keyPhrases
 
 ```http
-GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,needsModeration,organizations&api-version=2019-05-06
-Content-Type: application/json
+https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,organizations,languageCode,keyPhrases&api-version=2019-05-06
 api-key: [api-key]
+Content-Type: application/json
 ```
 
-## Filter moderated content using Azure Search Explorer
+## Check the OCR Content extracted
 
 ```http
-$select=blob_uri,needsModeration,content&$filter=needsModeration eq true
+GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,myOcrText&api-version=2019-05-06
+api-key: [api-key]
+Content-Type: application/json
 ```
 
 ## Next Step
 
-[Bots Lab](../../labs/lab-bot-business-documents.md) or
+[Custom Skills Lab](../../labs/lab-05-custom-skills.md) or
 [Back to Read Me](../../README.md)

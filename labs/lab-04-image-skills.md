@@ -43,11 +43,11 @@ Two of the nine [predefined skills](https://docs.microsoft.com/en-us/azure/searc
 
 You will add OCR to the cognitive search pipeline, this skill set will read text from the images within our dataset. Here is a [link](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-ocr) where you can read more details.
 
->Note! For now, Cognitive Search uses [OCR V2](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) (preview), for english. And uses V1 for other languages. This may change in the future.
+>**Note** For now, Cognitive Search uses [OCR V2](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) (preview), for english. And uses V1 for other languages. This may change in the future.
 
 Image skills, like OCR and Image Analysis, are heavier than text skills. Behind the scenes, Microsoft is running deep learning algorithms on your data. Expect to have the indexer running longer than the text only skillset.
 
->Note! Currently OCR only works with "/document/normalized_images" field, produced by the Azure Blob indexer when imageAction is set to generateNormalizedImages. As part of document cracking, there are a new set of indexer configuration parameters for handling image files or images embedded in files. These parameters are used to normalize images for further downstream processing. Normalizing images makes them more uniform. Large images are resized to a maximum height and width to make them consumable. For images providing metadata on orientation, image rotation is adjusted for vertical loading. Metadata adjustments are captured in a complex type created for each image.
+>**Note** Currently OCR only works with "/document/normalized_images" field, produced by the Azure Blob indexer when imageAction is set to generateNormalizedImages. As part of document cracking, there are a new set of indexer configuration parameters for handling image files or images embedded in files. These parameters are used to normalize images for further downstream processing. Normalizing images makes them more uniform. Large images are resized to a maximum height and width to make them consumable. For images providing metadata on orientation, image rotation is adjusted for vertical loading. Metadata adjustments are captured in a complex type created for each image.
 
 ### Step 3.1 - Review how the Enrichment Pipeline Works
 
@@ -87,7 +87,8 @@ In this challenge, you will perform the following steps:
 Use the same skillset definition from the previous lab,  adding the [OCR image analysis skill](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-ocr) to your skillset. The objectives are:
 
 1. Save the text extracted from OCR into the index
-1. Submit the text extracted from OCR and also the `content`, extracted by default from all text documents, to language detection, key phrases, and entity detection. You will  need to use another pre defined skill to merge the text, since you can't use the same skill twice in the same skillset. It is part of the challenge to find the correct skill and how to use it
+
+1. Submit the text extracted from OCR and also the `content`, extracted by default from all text documents, to language detection, key phrases, and entity detection. You will need to use another pre-defined skill to merge the text, since you can't use the same skill twice in the same skillset. It is part of the challenge to find the correct skill and how to use it
 
 #### Step 5.2 - Recreating the index and indexer
 
@@ -96,7 +97,9 @@ Skipping the services and the data source creation, repeat the other steps of th
 **TIP 1:** What you need to do:
 
 1. Create a new index exactly like the one we did in the previous lab, but with an extra field for the OCR text from the images. Name the new field as **myOcrText**. You can use the same json body field and add the new OCR field in the end. If you decide to use a different name, you will need to change the Bot code to make it work.
+
 1. Create a new indexer exactly like the one we did in the previous, but with and extra mapping for the new skill and the new field listed above. You can use the same json body field and add the new OCR mapping in the end
+
 1. Check the indexer execution status as you did in the previous lab
 
 **TIP 2:** Your new field in the Index must have the [Collection Data Type](https://docs.microsoft.com/en-us/rest/api/searchservice/Supported-data-types?redirectedfrom=MSDN).
@@ -147,8 +150,8 @@ search=myOcrText:Learning&querytype=full
 
 ## Finished Solution
 
-If you could not make it, [here](../resources/finished-solutions/finished-solution-lab-image-skills.md) is the challenge solution. You just need to follow the steps.
+If you could not make it, [here](../resources/finished-solutions/finished-solution-lab-04-image-skills.md) is the challenge solution. You just need to follow the steps.
 
 ## Next Step
 
-+ [Custom Skills Lab](../labs/lab-custom-skills.md) or [Back to Read Me](../README.md)
++ [Custom Skills Lab](../labs/lab-05-custom-skills.md) or [Back to Read Me](../README.md)

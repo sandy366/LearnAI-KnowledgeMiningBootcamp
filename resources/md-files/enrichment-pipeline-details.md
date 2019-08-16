@@ -30,5 +30,5 @@ Details on how the Enrichment Pipeline works.
 
 ## Next Step
 
-[Return to the Image Skills Lab](../../labs/lab-image-skills.md) or
+[Return to the Image Skills Lab](../../labs/lab-04-image-skills.md) or
 [Back to Read Me](../../README.md)

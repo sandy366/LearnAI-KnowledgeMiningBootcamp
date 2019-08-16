@@ -22,7 +22,7 @@ At the end of this training you will have learned:
 
 The hands-on labs will teach you how to use Microsoft Azure Search combined with Microsoft Cognitive Services for entity recognition, image analysis, text translation and indexed search on enterprise business documents. This approach uses Artificial Intelligence to create an advanced search experience.
 
-While this course focuses on Azure Cognitive Search capabilities, an in-depth course on building Bots and integrating various Azure Cognitive Services is available here - [Azure Cognitive Services Bootcamp](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp).
+While this course focuses on Azure Cognitive Search capabilities, an in-depth course on building Bots and integrating various Azure Cognitive Services is available here - [Azure Cognitive Services Bootcamp](https://github.com/Azure/LearnAI-Bootcamp).
 
 In this course we will cover these key concepts:
 
@@ -77,7 +77,7 @@ If you do not have any of the above pre-requisites, please find below links
 ### Pre-Setup before you attend the class Mandatory
 
 1. *To Create:* You need a Microsoft Azure account to create the services we use in our solution. You can create a [free account](https://azure.microsoft.com/en-us/free/), use your MSDN account or any other subscription where you have permission to create services
-1. *To Install:* [Visual Studio 2017](https://www.visualstudio.com/vs/) version 15.5 or later, *including the Azure development workload*
+1. *To Install:* [Visual Studio 2019](https://www.visualstudio.com/vs/) or later, *including the Azure development workload*
 1. *To Install:* [Postman](https://www.getpostman.com/). To call the labs APIs
 1. *To Install:* [Bot Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases), use the '.exe' file from release 4.1.0 or newer
 1. *To Install:* [Git for Windows](https://gitforwindows.org/) or any other git app you prefer
@@ -101,7 +101,7 @@ Full Course classroom training:  16 hours
 
 ### Related LearnAI Courses
 
-[Azure Cognitive Services Bootcamp](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp)  
+[Azure Cognitive Services Bootcamp](https://github.com/Azure/LearnAI-Bootcamp)  
 [Cognitive Search Workshop](https://azure.github.io/LearnAI-Cognitive-Search/)  
 [Designing and Architecting Intelligent Agents](https://azure.github.io/LearnAI-DesigningandArchitectingIntelligentAgents/)  
 
@@ -109,23 +109,23 @@ Full Course classroom training:  16 hours
 
 1. [Introduction](./resources/md-files/introduction.md) – **Presentation** overview of Azure Search, Cognitive Search, business scenarios and industry specific applications.
 
-1. [Architecture](./resources/md-files/solution-architecture.md) – **Solution Architecture** for building enterprise search solution.
+2. [Architecture](./resources/md-files/solution-architecture.md) – **Solution Architecture** for building enterprise search solution.
 
-1. [Lab 1](./labs/lab-environment-creation.md) - Azure - **Environment Creation**
+3. [Lab 1](./labs/lab-01-environment-creation.md) - Azure - **Environment Creation**
 
-1. [Lab 2](./labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**
+4. [Lab 2](./labs/lab-02-azure-search.md) - Azure Search - **Indexing Blob Storage**
 
-1. [Lab 3](./labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
+5. [Lab 3](./labs/lab-03-text-skills.md) - Cognitive Search – **Text Skills**
 
-1. [Lab 4](./labs/lab-image-skills.md) - Cognitive Search – **Image Skills**
+6. [Lab 4](./labs/lab-04-image-skills.md) - Cognitive Search – **Image Skills**
 
-1. [Lab 5](./labs/lab-custom-skills.md) - Cognitive Search – **Custom Skills**
+7. [Lab 5](./labs/lab-05-custom-skills.md) - Cognitive Search – **Custom Skills**
 
-1. [Lab 6](./labs/lab-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API
+8. [Lab 6](./labs/lab-06-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API
 
-1. [Lab 7](./labs/lab-final-case.md) - **Architecture Design Session + Hackathon**
+9. [Lab 7](./labs/lab-final-case.md) - **Architecture Design Session + Hackathon**
 
-> Note: Once you've completed the labs, we recommend deleting the resource group (and all the resources in it) to avoid incurring extra charges.
+> **Note**: Once you've completed the labs, we recommend deleting the resource group (and all the resources in it) to avoid incurring extra charges.
 
 ## Contact
 

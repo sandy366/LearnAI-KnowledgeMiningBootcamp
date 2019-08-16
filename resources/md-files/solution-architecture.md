@@ -8,11 +8,11 @@ The labs have a progressive level of complexity and they will help you to unders
 
 ## Use Case
 
-Every company has business documents: contracts, memos, presentations, images, spreadsheets, business plans and so on. Usually these documents doesn't have the metadata necessary to be searchable, **as you can see in the image below**. Since documents don't have tags, cetegories and comments, they only can be found by name. This creates a poor search experiece, slowing down busiess process and reducing productivity.
+Every company has business documents: contracts, memos, presentations, images, spreadsheets, business plans and so on. Usually these documents doesn't have the metadata necessary to be searchable, **as you can see in the image below**. Since documents don't have tags, categories and comments, they only can be found by name. This creates a poor search experience, slowing down business process and reducing productivity.
 
 ![Lack of Metadata](../../resources/images/sol-arch/no-meta.png)
 
-Azure Cognitive Search, the Microsoft product for Knowledge Mining, uses the most advanced cognitive capabilities, based on Microsoft's Azure AI Platform, to extract and create enriched metadata about your documents, vastly improving the overall search experience. This process also allow companies to enforce complaince, detect risks and detect policies violations.
+Azure Cognitive Search, the Microsoft product for Knowledge Mining, uses the most advanced cognitive capabilities, based on Microsoft's Azure AI Platform, to extract and create enriched metadata about your documents, vastly improving the overall search experience. This process also allow companies to enforce compliance, detect risks and detect policies violations.
 
 Enterprises may need to search for:
 
@@ -40,15 +40,15 @@ This Cognitive Search solution addresses these problems, extracting insights fro
 
 In the [First Lab](../../labs/lab-environment-creation.md) you will learn how to create the required environment for this training, including the business documents dataset upload into Azure Blob Storage.
 
-In the [Second Lab](../../labs/lab-azure-search.md) you will learn how index the business documents with "basic" Azure Search. The objective is teach how the standard features adds sophisticated search capabilities to your documents: natural language search, ranking, paging, suggestions and so on. This lab will use the Azure Portal only, no coding is required.
+In the [Second Lab](../../labs/lab-02-azure-search.md) you will learn how index the business documents with "basic" Azure Search. The objective is teach how the standard features adds sophisticated search capabilities to your documents: natural language search, ranking, paging, suggestions and so on. This lab will use the Azure Portal only, no coding is required.
 
-In the [Third Lab](../../labs/lab-text-skills.md) you will learn the next level of data enrichment, using Cognitive Search. It will be clear for you how AI can **extend** the metadata created, enabling an advanced search experience. In this lab you will do some coding with Postman.
+In the [Third Lab](../../labs/lab-03-text-skills.md) you will learn the next level of data enrichment, using Cognitive Search. It will be clear for you how AI can **extend** the metadata created, enabling an advanced search experience. In this lab you will do some coding with Postman.
 
-In the [Fourth Lab](../../labs/lab-image-skills.md) you will learn how text skills don't work for images. You will detect and fix this situation, making your images queryable too. For this lab you will do some coding with Postman.
+In the [Fourth Lab](../../labs/lab-04-image-skills.md) you will learn how text skills don't work for images. You will detect and fix this situation, making your images queryable too. For this lab you will do some coding with Postman.
 
-In the [Fifth Lab](../../labs/lab-custom-skills.md) you will learn how to create a custom skill using Azure Content Moderator API and Azure Functions, connection this transformation into the enrichment pipeline. You will detect documents with incompliant content. For this lab you will do some coding with Postman and Visual Studio. The Azure Portal is also used, to create the Azure Function instance.
+In the [Fifth Lab](../../labs/lab-05-custom-skills.md) you will learn how to create a custom skill using Azure Content Moderator API and Azure Functions, connection this transformation into the enrichment pipeline. You will detect documents with incompliant content. For this lab you will do some coding with Postman and Visual Studio. The Azure Portal is also used, to create the Azure Function instance.
 
-In the [Sixth Lab](../../labs/lab-bot-business-documents.md) you will learn how to use a Bot to interact with the Azure Search Index, the Business Documents Bot. This lab uses the Bot Emulator and Visual Studio.
+In the [Sixth Lab](../../labs/lab-06-bot-business-documents.md) you will learn how to use a Bot to interact with the Azure Search Index, the Business Documents Bot. This lab uses the Bot Emulator and Visual Studio.
 
 In the [Seventh Lab](../../labs/lab-final-case.md) you are invited to, based on what you have learned, create the architecture of a Knowledge Mining solution for another use case.
 
@@ -56,7 +56,7 @@ In the [Seventh Lab](../../labs/lab-final-case.md) you are invited to, based on 
 
 We will provide a sample dataset that contains documents with multiple languages and formats including HTML, doc, pdf, ppt, png and jpg. They were selected for a better learning experience, showcasing the technology capabilities.
 
-The dataset has 21 files and 15 MBs. It includes public Microsoft business documents. There is a document in spanish, so you can learn about language identification. There is also a document with anonimized Personal Identifiable Information (PII) for the Content Moderator lab.
+The dataset has 21 files and 15 MBs. It includes public Microsoft business documents. There is a document in spanish, so you can learn about language identification. There is also a document with anonymized Personal Identifiable Information (PII) for the Content Moderator lab.
 
 Since we are working with unstructured data, any set of files can be used. In other words, this could be a **Bring Your Own Data** solution; you can test later with any dataset you want.
 
@@ -77,21 +77,21 @@ Prices are estimates and are not intended as actual price quotes. Actual prices 
 
 ## Information Delivery - A Bot as User Interface
 
-Microsoft Azure Search provides an API for web or mobile applications, creating great search experieces for users. Another type of application that can benefit from Azure Search is a Bot, a trending technology from Microsoft.
+Microsoft Azure Search provides an API for web or mobile applications, creating great search experiences for users. Another type of application that can benefit from Azure Search is a Bot, a trending technology from Microsoft.
 
-Although this is not a training on bots, you will learn how to integrate one with the  [Azure Search Rest API](https://docs.microsoft.com/en-us/azure/search/search-query-rest-api). This Bot will be as simple as possible, runninng locally with the [Bot Emulator](https://github.com/Microsoft/BotFramework-Emulator).
+Although this is not a training on bots, you will learn how to integrate one with the  [Azure Search Rest API](https://docs.microsoft.com/en-us/azure/search/search-query-rest-api). This Bot will be as simple as possible, running locally with the [Bot Emulator](https://github.com/Microsoft/BotFramework-Emulator).
 
 This [gif](../../resources/images/lab-bot/retrieving-cognitive-attrributes.gif) has the expected finished solution, but with a different dataset. Now you have idea of what we will be created by the end of the training.
 
-The Microsoft Learn AI Team has a 2 day [Computer Vision Bot Bootcamp](https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp) that shows you how to create an intelligent bot using Azure Search, CosmosDB and Cognitive Services.
+The Microsoft Learn AI Team has a 2 day [Computer Vision Bot Bootcamp](https://github.com/Azure/LearnAI-Bootcamp) that shows you how to create an intelligent bot using Azure Search, CosmosDB and Cognitive Services.
 
 ## Lab Tools for APIs
 
-Labs 3, 4, and 5 will use Postman for [REST API calls](https://docs.microsoft.com/en-us/azure/search/search-fiddler). You can use any other REST API tool that can formulate and send HTTP requests, but we suggest you to use Postman since the training was created with/for it. The image below shows a visual example of Postman being used for Cognitive Search. Please check the suggested Postman tutoral on [Pre-Reqs section of the initial page](./readme.md).
+Labs 3, 4, and 5 will use Postman for [REST API calls](https://docs.microsoft.com/en-us/azure/search/search-fiddler). You can use any other REST API tool that can formulate and send HTTP requests, but we suggest you to use Postman since the training was created with/for it. The image below shows a visual example of Postman being used for Cognitive Search. Please check the suggested Postman tutorial on [Pre-Reqs section of the initial page](./readme.md).
 
 ![Postman Example](../../resources/images/sol-arch/postman.png)
 
-> Tip! Important details about Postman:
+> **Tip** Important details about Postman:
 >
 > + You can save your commands, which is useful for reuse, not only within this workshop, but also in your future projects.
 > + You need to create a free account. A confirmation message is emailed to you.

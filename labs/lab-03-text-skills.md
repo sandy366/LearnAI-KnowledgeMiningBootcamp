@@ -18,7 +18,7 @@ The list of activities you will do, using Azure Search REST APIs, is:
 1. Check the enriched metadata
 1. Query the metadata
 
->TIP: You can enhance the index with other Azure Search standard capabilities, such as [synonyms](https://docs.microsoft.com/en-us/azure/search/search-synonyms), [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analyzers](https://docs.microsoft.com/en-us/rest/api/searchservice/custom-analyzers-in-azure-search), and [filters](https://docs.microsoft.com/en-us/azure/search/search-filters).
+>**Tip** You can enhance the index with other Azure Search standard capabilities, such as [synonyms](https://docs.microsoft.com/en-us/azure/search/search-synonyms), [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analyzers](https://docs.microsoft.com/en-us/rest/api/searchservice/custom-analyzers-in-azure-search), and [filters](https://docs.microsoft.com/en-us/azure/search/search-filters).
 
 ## General initial Information
 
@@ -30,7 +30,7 @@ The list of activities you will do, using Azure Search REST APIs, is:
 
 Now that your services and source files are prepared, you can start assembling the components of your indexing pipeline. We'll begin by creating a [data source object](https://docs.microsoft.com/rest/api/searchservice/create-data-source) that tells Azure Search how to retrieve external source data.  
 
-  >NOTE: In this step, you will provide detailed steps on where you should define settings in the Postman application so that you can become familiar with it. Later steps will not provide as detailed steps, just parameter information that you will fill into the Postman application. We recommend that you create a new **Collection** (Folder) for each lab and a new **Request** (API CALL command) for each step. And save your work so that you can reuse your commands. You can use "save as" command to reuse one Request from one lab into another lab. This will save you lots of time. Just be careful to don't overwrite previous work.
+  >**Note** In this step, you will provide detailed steps on where you should define settings in the Postman application so that you can become familiar with it. Later steps will not provide as detailed steps, just parameter information that you will fill into the Postman application. We recommend that you create a new **Collection** (Folder) for each lab and a new **Request** (API CALL command) for each step. And save your work so that you can reuse your commands. You can use "save as" command to reuse one Request from one lab into another lab. This will save you lots of time. Just be careful to don't overwrite previous work.
 
 For this tutorial, you will use Postman to call Azure Search service APIs. Using the **POST** method and **Header** of the Postman application, you will provide the service name and the api-key you used while creating the Azure Search service, and you will define the content-type as JSON. This information is summarized as follows:
 
@@ -42,20 +42,36 @@ api-key: [admin key]
 
 If you are not so familiar with Postman, perform the following detailed steps to define the POST method and Header settings.
 
-+ Define the POST method.
-  + Open the Postman application. If a dialog box opens, close it down. You will be presented with a screen that states **"Untitled Request"** , underneath this is a button that shows the word **"GET"**.
-  + Click on the downward pointing arrow next to **"GET"**, and click the option **"POST"**.
-  + In the text box that shows the words "Enter request url" type in the following information, replacing **[service name]** with the name of the Azure Search service you created:
-      > <<https://[your-service-name].search.windows.net/datasources?api-version=2019-05-06>  
+>**Note** You can find all of these Postman requests in the finished solutions directory in the collection export called **Azure Search.postman_collection.json**
 
-+ Define header information in the Headers tab
-  + Below the text box where you have defined your url, click on the link that states **"Headers"**.
-  + under Headers, is a table of that has three columns with the titles of KEY, VALUE and DESCRIPTION respectively, and a single row. Under the KEY column, in the first row, type in the following text **"Content-Type"**.
-  + Under the VALUE column, in the first row, type in the following text **"application/json"**.
-  + Under the KEY column, in the second row, type in the following text **"api-key"**.
-  + Under the VALUE column, in the second row, paste in your Azure search key.
+### Define the POST method.
 
-In the **Request body**, you will specify the blob container name and connection string you created earlier to create a data source and load data into the data source as follows:
+1.  Open the [Postman](https://www.getpostman.com/) application. If a dialog box opens, close it down. 
+
+1.  Click the **New** button, then select **Request**.
+
+1.  For the name, type **Azure Search**
+
+1.  For the collection, create a new collection called **Azure Search**, then click **Save to Azure Search**
+
+1.  In the new request, for the request type, click on the downward pointing arrow next to **"GET"**, and change it to select **"POST"**.
+
+1.  In the text box that shows the words "Enter request url" type in the following information, replacing **[service name]** with the name of the Azure Search service you created:
+      > <<https://[your-service-name].search.windows.net/datasources?api-version=2019-05-06-Preview>  
+
+1.  Click the **Headers** tab.  On this tab is a table of that has three columns with the titles of KEY, VALUE and DESCRIPTION respectively, and a single row. 
+
+1.  Under the KEY column, in the first row, type in the following text **"Content-Type"**.
+
+1.  Under the VALUE column, in the first row, type in the following text **"application/json"**.
+
+1.  Under the KEY column, in the second row, type in the following text **"api-key"**.
+
+1.  Under the VALUE column, in the second row, paste in your Azure search key.
+
+1.  Click the **Body** tab.  For the body type, select **Raw**
+
+1.  In the **Request body**, you will specify the blob container name and connection string you created earlier to create a data source and load data into the data source as follows:
 
 ```json
 {
@@ -69,41 +85,17 @@ In the **Request body**, you will specify the blob container name and connection
     "container" : { "name" : "basicdemo" }
 }  
 ```
+>**Note** Double check you have used the all connection string, it is very long and sometimes you may have not copied it all.
 
->Note! Double check you have used the all connection string, it is very long and sometimes you may have not copied it all.
-
-If you are not so familiar with Postman, perform the following detailed steps to define the Request body.
-
-+ Enter and edit the json request in the Body tab.
-  + Below the text box where you have defined your url, click on the link that states **"Body"**.
-  + Click on the radio button next to the option of **"raw"**.
-  + In the text box, paste in the following request body syntax.
-
-      ```json
-      {
-          "name" : "demodata",  
-          "description" : "Demo files to demonstrate cognitive search capabilities.",  
-          "type" : "azureblob",
-          "credentials" :
-          { "connectionString" :
-            "DefaultEndpointsProtocol=https;AccountName=<your account name>;AccountKey=<your account key>;"
-          },  
-          "container" : { "name" : "<your blob container name>" }
-      }  
-      ```
-
-  + Replace the connection string and container with the Azure Blob storage settings you created earlier.
-
-      The following image can be used to confirm the settings you should define. Please take a look on all red boxes.
+1.  Replace the connection string and container with the Azure Blob storage settings you created earlier. The following image can be used to confirm the settings you should define. Please take a look on all red boxes.
 
       ![Postman Help Image](../resources/images/lab-text-skills/postman-help.png)
 
-+ Validate the request and confirming the data source creation.
-  + Send the request. The web test tool should return a status code of **201 Created** confirming success.
-  + Check the Azure portal to confirm the data source was created in Azure Search. On the **Search service dashboard page**, verify the **Data Sources** link has a new item. You might need to wait a few minutes for the portal page to refresh.
+1.  Click **Send**.  The web test tool should return a status code of **201 Created** confirming success.
 
-    > [TIP]
-If you got a 403 or 404 error, check the request construction: `api-version=2019-05-06` should be on the endpoint, `api-key` should be in the Header after `Content-Type`, and its value must be valid for a search service. You can reuse the header for the remaining steps in this lab. Verify that the search service is running in one of the supported locations providing the preview feature: South Central US or West Europe.
+1.  Switch back to the Azure portal. Confirm the data source was created in Azure Search. On the **Search service dashboard page**, verify the **Data Sources** link has a new item. You might need to wait a few minutes for the portal page to refresh.
+
+> **Tip** If you got a 403 or 404 error, check the request construction: `api-version=2019-05-06-Preview` should be on the endpoint, `api-key` should be in the Header after `Content-Type`, and its value must be valid for a search service. You can reuse the header for the remaining steps in this lab. Verify that the search service is running in one of the supported locations providing the preview feature: South Central US or West Europe.
 
 ## Step 2 - Create a skillset
 
@@ -117,21 +109,21 @@ In this step, you define a set of enrichment steps that you want to apply to you
 
 + [Key Phrase Extraction](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-keyphrases) to pull out the top key phrases.
 
-### Define the PUT method and Header information
+### Create a skillset
 
   In this step, you are going to use Postman to issue a PUT method that will create a skillset named ```demoskillset```. Note that in the url section the PUT method, and that the url contains the location of skillsets to define the skillset named ```demoskillset```. Before you make this REST call, remember to replace the service name and the admin key in the request below with your information if your tool does not preserve the request header between calls.
 
   Reference the skillset name ```demoskillset``` for the rest of this lab.
 
-  ```http
-  PUT https://[your-service-name].search.windows.net/skillsets/demoskillset?api-version=2019-05-06
-  Content-Type: application/json
-  api-key: [admin key]
-  ```
+  1.  Click the **+** to create a new request
 
-### Skillset Request Body Syntax
+  1.  Change the request type to **PUT**
 
-In the **Request body**, you will use JSON to define the Language Detection, Text Split, Named Entity Recognition and Key Phrase Extraction Skills  as follows:
+  1.  Set the url to **https://[your-service-name].search.windows.net/skillsets/demoskillset?api-version=2019-05-06-Preview**
+
+  1.  Again set the content-type and api-key as you did above.
+  
+1.  In the **Request body**, you will use JSON to define the Language Detection, Text Split, Named Entity Recognition and Key Phrase Extraction Skills as follows.  Be sure to replace the cognitive services key with your service key:
 
 ```json
 {
@@ -219,9 +211,7 @@ In the **Request body**, you will use JSON to define the Language Detection, Tex
 
 >New! Entity Recognition skill initial types were "Person", "Location" and "Oragnization". Types "Quantity", "Datetime", "URL" and "Email" were added on November 28th, 2018. This means that Entity Recognition Skill can be used 7 times in the same skillset. **But you can't use the same type twice in the same skillset**.
 
-### Validate that the  Request has been successful
-
-Send the request. The web test tool should return a status code of **201 Created** confirming success.
+1.  Click **Send**.  The web test tool should return a status code of **201 Created** confirming success.
 
 #### About the request
 
@@ -255,15 +245,15 @@ Before you make this REST call, remember to replace the service name and the adm
 
 This request creates an index. Use the index name ```demoindex``` for the rest of this tutorial.
 
-```http
-PUT https://[your-service-name].search.windows.net/indexes/demoindex?api-version=2019-05-06
-Content-Type: application/json
-api-key: [api-key]
-```
+1.  Click the **+** to create a new request
 
-#### Index Request Body Syntax
+1.  Change the request type to **PUT**
 
->Note! In the Index Body JSON instructions below, you are defining the same properties of the previous lab, but through the API instead of the Azure Portal.
+1.  Set the url to **https://[your-service-name].search.windows.net/indexes/demoindex?api-version=2019-05-06-Preview**
+
+1.  Again set the content-type and api-key as you did above.
+  
+1.  In the **Request body**, in the json below you are defining the same properties of the previous lab, but through the API instead of the Azure Portal:
 
 ```json
 {
@@ -319,8 +309,7 @@ api-key: [api-key]
   ]
 }
 ```
-
-Send the request. The web test tool should return a status code of **201 Created** confirming success.
+1.  Click **Send**.  The web test tool should return a status code of **201 Created** confirming success.
 
 Check the Azure portal to confirm the index was created in Azure Search. On the **Search service dashboard page**, verify the **Indexes** tile has a 2 items. You might need to wait a few minutes for the portal page to refresh. Click on **Indexes** to confirm that the ```demoindex``` appears.
 
@@ -342,13 +331,15 @@ Before you make this REST call, remember to replace the service name and the adm
 
 Also, provide the name of your indexer. You can reference it as ```demoindexer``` for the rest of this lab.
 
-```http
-PUT https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=2019-05-06
-Content-Type: application/json
-api-key: [api-key]
-```
+1.  Click the **+** to create a new request
 
-#### Indexer Request Body Syntax
+1.  Change the request type to **PUT**
+
+1.  Set the url to **https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=2019-05-06-Preview**
+
+1.  Again set the content-type and api-key as you did above.
+
+1.  Set the body to the following:
 
 ```json
 {
@@ -399,16 +390,15 @@ api-key: [api-key]
 }
 ```
 
-Send the request. The web test tool should return a status code of 201 confirming successful processing.
+1.  Click **Send**.  The web test tool should return a status code of **201 Created** confirming success.
 
-Expect this step to take several minutes to complete. Even though the data set is small, analytical skills are computation-intensive. Some skills, such as image analysis, are long-running.
+Expect this step to take a minute or two to complete. Even though the data set is small, analytical skills are computation-intensive. Some skills, such as image analysis, are long-running.
 
-Check the Azure portal to confirm the index was created in Azure Search. On the **Search service dashboard page**, verify if the **Indexers** tile has a 2 items. You might need to wait a few minutes for the portal page to refresh. Click on **Indexers** to confirm that the ```demoindexer``` appears.
+Check the Azure portal to confirm the index was created in Azure Search. On the **Search service dashboard page**, verify if the **Indexers** tile has 2 indexes (one from your previous lab). You might need to wait a few minutes for the portal page to refresh. Click on **Indexers** to confirm that the ```demoindexer``` appears.
 
 While it is running, check this detail: The "blob_uri" was defined as the second field of the index. But it is the third mapping in the indexer. It is a good example on how they work independent. You should scroll up to see these two body requests and compare them.
 
-> [TIP]
-> Creating an indexer invokes the pipeline. If there are problems reaching the data, mapping inputs and outputs, or order of operations, they appear at this stage. To re-run the pipeline with code or script changes, you might need to drop objects first. For more information, see [Reset and re-run](https://docs.microsoft.com/en-us/azure/search/cognitive-search-tutorial-blob#reset).
+> **Tip** Creating an indexer invokes the pipeline. If there are problems reaching the data, mapping inputs and outputs, or order of operations, they appear at this stage. To re-run the pipeline with code or script changes, you might need to drop objects first. For more information, see [Reset and re-run](https://docs.microsoft.com/en-us/azure/search/cognitive-search-tutorial-blob#reset).
 
 ### Exploring the request body
 
@@ -424,15 +414,19 @@ In this preview, ```"generateNormalizedImages"``` is the only valid value for ``
 
 Once the indexer is defined, it runs automatically when you submit the request. Depending on which cognitive skills you defined, indexing can take longer than you expect. To find out whether the indexer is still running, send the following request to check the indexer status.
 
-```http
-GET https://[your-service-name].search.windows.net/indexers/demoindexer/status?api-version=2019-05-06
-Content-Type: application/json
-api-key: [api-key]
-```
+1.  Click the **+** to create a new request
+
+1.  Ensure the request type is **GET**
+
+1.  Set the url to **https://[your-service-name].search.windows.net/indexers/demoindexer?api-version=2019-05-06-Preview**
+
+1.  Again set the content-type and api-key as you did above.
 
 The response tells you whether the indexer is running. Once indexing is finished, the response to the same call (as above) will result in a report of any errors and warnings that occurred during enrichment.  
 
 Warnings are common with some source file and skill combinations and do not always indicate a problem. In this lab, the warnings are benign (for example, no text inputs from the JPEG files). You can review the status response for verbose information about warnings emitted during indexing. You can also expect warnings about text been truncated or long words. **If the status field has "success", we don't need to worry about any of the warnings.**
+
+Since the index columns and skillsets are smaller than in the previous lab, you will also notice the index size is smaller for the same set of indexed documents.
 
 ## Step 6 - Verify content
 
@@ -440,27 +434,31 @@ After indexing is finished, run queries that return the contents of individual f
 
 As a verification step, query the index for all of the fields.
 
-```http
-GET https://[your-service-name].search.windows.net/indexes/demoindex?api-version=2019-05-06
-api-key: [api-key]
-Content-Type: application/json
-```
+1.  Click the **+** to create a new request
+
+1.  Ensure the request type is **GET**
+
+1.  Set the url to **https://[your-service-name].search.windows.net/indexes/demoindex?api-version=2019-05-06-Preview**
+
+1.  Again set the content-type and api-key as you did above.
 
 The output is the index schema, with the name, type, and attributes of each field.
 
 Submit the second query below, to verify the metadata created with AI. Please notice that API calls are case sensitive, so it is mandatory to use exactly the same field names of the index definition.
 
-```http
-GET https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&$select=blob_uri,organizations,languageCode,keyPhrases&api-version=2019-05-06
-api-key: [api-key]
-Content-Type: application/json
-```
+1.  Click the **+** to create a new request
 
->Note! As you can see, it is possible to return multiple fields via `$select` using a comma-delimited list.
+1.  Ensure the request type is **GET**
+
+1.  Set the url to **https://[your-service-name].search.windows.net/indexes/demoindex/docs?search=*&api-version=2019-05-06-Preview**
+
+1.  Again set the content-type and api-key as you did above.
+
+>**Note** As you can see, it is possible to return multiple fields via `$select` using a comma-delimited list.
 
 You can use GET or POST, depending on query string complexity and length. For more information, see [Query using the REST API](https://docs.microsoft.com/azure/search/search-query-rest-api).
 
 ## Next Step
 
-[Image Skills Lab](../labs/lab-image-skills.md) or
+[Image Skills Lab](../labs/lab-04-image-skills.md) or
 [Back to Read Me](../README.md)

@@ -2,7 +2,7 @@
 
 ## Objective
 
-> Note: This activity was designed as a group exercise for in-classroom ILTs (Instructor Lead Trainings), the idea is a final discussion after the exercise. But you also can do it if by yourself.
+> **Note** This activity was designed as a group exercise for in-classroom ILTs (Instructor Lead Trainings), the idea is a final discussion after the exercise. But you also can do it if by yourself.
 
 ## Complex Scenarios
 
@@ -73,9 +73,9 @@ Create an Azure Cognitive Search Solution for the Case Study above, using everyt
 
     + OCR
     + Image Analysis, saving the caption and the celebrities detected into different index fields
-    + Sentiment analysys for all text (content + extracted from the images skills)
+    + Sentiment analysis for all text (content + extracted from the images skills)
     + Entity Extraction: Organizations, names and locations
-    + Save all the text information into the index with the original language but also in portuguese
+    + Save all the text information into the index with the original language but also in Portuguese
 
 4. Using Postman or Azure Portal, find:
 
@@ -83,7 +83,7 @@ Create an Azure Cognitive Search Solution for the Case Study above, using everyt
     + What are the wine regions detected?
     + What are the best wines according to the reviews?
     + Search for Terrazas and report which data was found.
-    + What are the wines from Uruguai and Argentina?
+    + What are the wines from Uruguay and Argentina?
 
 ## Cleaning your environment - Again
 

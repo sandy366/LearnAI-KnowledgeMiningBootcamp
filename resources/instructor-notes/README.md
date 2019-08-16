@@ -23,7 +23,7 @@ While the introduction has a pdf version, this one won't have one. The idea is t
 
 ## Azure Search LAB
 
-Open the page <https://alice.unearth.ai/> to show how important is the Analtzer definition. This page shows the different results you can get from Standard Lucene, English Lucene and English Microsoft. Search for:
+Open the page <https://alice.unearth.ai/> to show how important is the Analyzer definition. This page shows the different results you can get from Standard Lucene, English Lucene and English Microsoft. Search for:
 
 + "Alice": Standard Lucene gets 10 hits less than the others
 + "Thinking": Now the hits totals are very different. English Lucene returns "think" too. English Microsoft returns even"thought"
@@ -37,7 +37,7 @@ Open the page <https://alice.unearth.ai/> to show how important is the Analtzer 
 
 ## Image Skills LAB
 
-+ OCR: Expected performance is 3 seconds per image.  For documents with multiple images, you can apply those 3 seconds for every one of them. The product performance is under constant optimizations and improvements are expexted soon
++ OCR: Expected performance is 3 seconds per image.  For documents with multiple images, you can apply those 3 seconds for every one of them. The product performance is under constant optimizations and improvements are expected soon
 + Talk about normalized images. The lab has a "Note!" for that. All info you need is there
 + Highlight that now the skillset is merging and splitting the content
 
@@ -101,5 +101,5 @@ Expected:
 
 + South America means 2 more languages after the original docs in English: Portuguese and Spanish. It is expected discussions like:
   + Save all fields in 3 languages? Storage costs. Write once and read many
-  + 1 index in BR South Region with fileds in Portuguese and Spanish + 1 index in the US in English
+  + 1 index in BR South Region with fields in Portuguese and Spanish + 1 index in the US in English
   + Translate on the fly? Data out and API usage costs, latency

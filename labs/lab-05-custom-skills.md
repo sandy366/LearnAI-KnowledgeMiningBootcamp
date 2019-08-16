@@ -25,106 +25,100 @@ Content Moderator’s machine-assisted **text moderation** response includes the
 + Personally Identifiable Information (PII)
 + Auto-corrected text
 + Original text
- 
->IMPORTANT: This Azure Function output is **Edm.String**, but this lab converts it to a boolen information: if the document has moderated content or not.
 
 Content Moderator API also has a tool for human review of the moderation. For more information, click [here](https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/review-tool-user-guide/human-in-the-loop
 ).
 
 ## Step 1 - Content Moderator API
 
-Use the [Azure Portal](https://ms.portal.azure.com) to create a Content Moderator API, using the name you want, the same location of the Azure Search service and the S0 pricing tier. We can't use the free tier since it only allows 1 TPS (transaction per second). You should also save the keys and the endpoint, for later use in this lab.
+1.  Open the [Azure Portal](https://portal.azure.com) to your resource group.
 
-To see how the API works, and also to learn how to demo this technology in minutes, navigate to the [Content Moderator Text API console](https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/try-text-api). Read the whole page, it should take you about four minutes. When you are done, scroll all the way up and click the first link on the page, [Text Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). It will open a control panel for Cognitive Services, as you can see in the image below.
+1.   Click **+Add**, search for **content moderator** then click **Create**
+
+1.  Set the name, select your subscription, then choose the same location of the Azure Search service
+
+1.  Select the **S0** pricing tier. 
+
+> **Note** We can't use the free tier since it only allows 1 TPS (transaction per second). 
+
+1.  Click **Create**, once created, navigate to the new resource.
+
+1.  Copy the key and url to notepad or similar for later use in this lab.
+
+1.  To test your new resource, navigate to the [Content Moderator Text API console](https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/try-text-api). Read the whole page, it should take you about four minutes. When you are done, scroll all the way up and click the first link on the page, [Text Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). It will open a control panel for Cognitive Services, as you can see in the image below.
 
 ![Cognitive Services Panel](../resources/images/lab-custom-skills/panel.png)
 
-Now, clicking the blue buttons, choose the region where you created your Content Moderator API, that should be the same region you are using for all services in this training. Now set the values as listed below:
+1.  Now, clicking the blue buttons, choose the region where you created your Content Moderator API, that should be the same region you are using for all services in this training. Now set the values as listed below:
 
-### Query parameters
++ Query parameters
+  + autocorrect = true
+  + PII = true
+  + listId = remove parameter (we don't have a list of prohibited terms to work with at this point)
+  + classify = true
+  + language = eng (The default example is in English)
 
-+ autocorrect = true
-+ PII = true
-+ listId = remove parameter (we don't have a list of prohibited terms to work with at this point)
-+ classify = true
-+ language = eng (The default example is in English)
++ Headers
+  + Keep Content-Type as "text/plain"
+  + Paste in your Content Moderator API key
 
-### Headers
-
-+ Keep Content-Type as "text/plain"
-+ Paste in your Content Moderator API key
-
-Now you are ready to test the API you created on Azure Portal. Scroll down and check the suggested text in "Request body" section. It has PIIs like email, phone number, physical and IP addresses. It also has a profanity word. Scroll until the end of the page and click the blue "Send" button. The expected results are:
+1.  Scroll down and check the suggested text in "Request body" section. It has PIIs like email, phone number, physical and IP addresses. It also has a profanity word. Scroll until the end of the page and click the blue "Send" button. The expected results are:
 
 + Response Status = 200 OK
 + Response Latency <= 1000 ms
-+ Response content with a json file where you can read all of the detected problems. The "Index" field indicates the position of the term within the submitted text.
++ Response content with a json file where you can read all of the detected problems. 
+
+> **Note** The "Index" field indicates the position of the term within the submitted text.
 
 ## Step 2 - Visual Studio
 
-Visual Studio has [Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vs/) but you don't need it for this training since they are used to **create** custom AI projects, while in this training you are **using** AI through Azure Cognitive Search and Services.
+Visual Studio 2019 has [Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vs/) but you don't need it for this training since they are used to **create** custom AI projects, while in this training you are **using** AI through Azure Cognitive Search and Services.
 
-### Step 2.1 - Checking Versions
+### Preparing the solution
 
-Open your Visual Studio and click "Help / About Microsoft Visual Studio" on the main menu. You can try to use different versions, especially newer versions. 
-But this training was created using the environment below and It is strongly recommended that you use al least the same versions. Please check if your system matches these versions:
+1.  Open the Windows Explorer and find the folder **resources/code-azure-function** where you cloned this repository. You need to locate the file CognitiveSkill.sln. There should be a CognitiveSkill folder in the same folder where you found the .sln file.
 
-+ Visual Studio version 15.8.9
-+ Microsoft .Net Framework version 4.7.03056
-+ Azure Functions and Web Jobs Tools - 15.9.02046.0
-
-![Versions](../resources/images/lab-custom-skills/versions.png)
-
-If your Azure Functions Tools don't match, follow [this](https://docs.microsoft.com/en-us/visualstudio/extensibility/how-to-update-a-visual-studio-extension?view=vs-2017) procedure to update it.
-
-If your Visual Studio version doesn't match, click "Help / Check for Updates" and follow the instructions.
-
-If your .Net Framework version doesn't match, [download](https://www.microsoft.com/net/download) and install the last version.
-
-There is another method to find the required Visual Studio and Azure Functions updates: Just click the yellow flag on the upper right corner of your Visual Studio, as you can see in the image below.
-
-![Yellow Flag](../resources/images/lab-custom-skills/yellow-flag.png)
-
-### Step 2.2 - Preparing the solution
-
-Open the Windows Explorer and find the folder **resources/code-azure-function** where you cloned this repository. You need to locate the file CognitiveSkill.sln. There should be a CognitiveSkill folder in the same folder where you found the .sln file.
-
-Double click, or hit enter, on the .sln file to open it in Visual Studio. Check your Solution Explorer on the right and confirm that you can see the same structure of the image below.
+1.  Double click, or hit enter, on the .sln file to open it in Visual Studio 2019. Check your Solution Explorer on the right and confirm that you can see the same structure of the image below.
 
 ![Solution Structure](../resources/images/lab-custom-skills/structure.png)
 
 In the image below you can see very important aspects of the code you are about to edit:
 
-1. In the first red square you can see the code testing the return of the Content Moderator API for Personal Identifiable Information (PII). The code will return if the documents of the dataset have PII or not.
-
-1. The second red area highlights the "text" label. You will need to use this label in the skillset definition of this lab, in one of the next steps.
-
-1. The other 3 read areas indicate where you need to edit the code, what will be explained right after the image, within this step of the lab.
++ In the first red square you can see the code testing the return of the Content Moderator API for Personal Identifiable Information (PII). The code will return if the documents of the dataset have PII or not.
++ The second red area highlights the "text" label. You will need to use this label in the skillset definition of this lab, in one of the next steps.
++ The other 3 read areas indicate where you need to edit the code, what will be explained right after the image, within this step of the lab.
 
 ![C# code](../resources/images/lab-custom-skills/code.png)
 
->Note! This is not a C# training and this Azure Function application is a way to add the custom skill to the enrichment pipeline. Please note that good practices are not 100% used in the code (e.g. the key wide open and fixed in the code). For enterprise grade solutions, this code should be adapted to all good practices, business and security requirements.
+>**Note** This Azure Function application is a way to add the custom skill to the enrichment pipeline. Please note that good practices are not 100% used in the code (e.g. the key wide open and fixed in the code). For enterprise grade solutions, this code should be adapted to all good practices, business and security requirements.
 
-Click on the Moderation.cs file on the Solution Explorer, it should open in the main window of your Visual Studio. Get familiar with the "using session", to learn which packages are used. Scroll down until the three "TO DO - Action Required" sessions of the code.
+1.  Click on the **Moderation.cs** file on the Solution Explorer, it should open in the main window of your Visual Studio. Get familiar with the "using session", to learn which packages are used. Scroll down until the three "TO DO - Action Required" sessions of the code.
 
-Follow the instructions of the three "TO-DO" sections:
+1.  Follow the instructions of the three "TO-DO" sections:
 
 + If necessary change "southcentralus" in the uriPrefix URL. This is the same endpoint of the first step of this lab
 + Add your key. This is the same key of the first step of this lab
 + If necessary, change the host url with the same endpoint of the first step of this lab, but without `https://` and without `/contentmoderator`
 
->Note! Our dataset has a text file with PII, in english. That's why we are only testing this capability, to enforce this regulation within the business documents. This simple usage was defined to keep the training simple. For advanced scenarios, you can use all other Content Moderator capabilities.
+>**Note** Our dataset has a text file with PII, in english. That's why we are only testing this capability, to enforce this regulation within the business documents. This simple usage was defined to keep the training simple. For advanced scenarios, you can use all other Content Moderator capabilities.
+
+>**Note**: This Azure Function output is **Edm.String**, but this lab converts it to a boolen information: if the document has moderated content or not.
 
 ## Step 3 - Test the function from Visual Studio
 
-Press **F5** or click the green arrow on the "ContentModerator" button to run the solution. you should expect a "cmd" window with some information and the local URL of the endpoint in the end of the log, like you can see in the image below.
+1.  Press **F5** or click the green arrow on the "ContentModerator" button to run the solution. 
+
+1.  If prompted, click **Allow access**
+
+1.  You should expect a "cmd" window with some information and the local URL of the endpoint in the end of the log, like you can see in the image below.
 
 ![Cmd window](../resources/images/lab-custom-skills/cmd.png)
 
-Now use Postman, without any information in headers tab, to issue a call like the one shown below:
+1.  Now use Postman, without any information in headers tab, to issue a call like the one shown below:
 
 ```http
 POST http://localhost:7071/api/ContentModerator
+Content-Type: application/json
 ```
 
 ### Request body
@@ -162,7 +156,7 @@ You should see a response similar to the following example:
 }
 ```
 
-Close down the Azure Function CLI window to stop debugging.
+1.  Close down the Azure Function CLI window to stop debugging.
 
 ## Step 4 - Publish the function to Azure
 
@@ -174,9 +168,9 @@ When you are satisfied with the function behavior, you can publish it.
 
 3. Follow the on-screen prompts. You are asked to specify the Azure account, the resource group, the hosting plan, and the storage account you want to use. You will have the option to create a new resource group (or use the one you've already created for these labs), a new hosting plan, and a storage account if you don't already have one in your Azure Account. When finished, select **Create**.
 
-4. After the deployment is complete, note the Site URL. It is the address of your function app in Azure. You can always get this URL from the Azure Portal using [this](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function#test-the-function) simple steps.
+4. After the deployment is complete, copy the Site URL to notepad or similar. It is the address of your function app in Azure. You can always get this URL from the Azure Portal using [this](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function#test-the-function) simple steps.
 
-5. In the [Azure portal](https://portal.azure.com), navigate to the Resource Group, and look for the Content Moderator Function you published. Under the **Manage** section, you should see Host Keys. Select the **Copy** icon for the *default* host key.  
+5. In the [Azure portal](https://portal.azure.com), navigate to the Resource Group, and look for the Content Moderator Function you published. Under the **Manage** section, you should see Host Keys. Select the **Copy** icon for the *default* host key and copy to notepad or similar.
 
 ## Step 5 - Test the function in Azure
 
@@ -210,7 +204,7 @@ Let's do the same cleaning process of the previous lab. Save all scripts (API ca
 
 You can use Azure Portal or API calls to do the required deletes:
 
-1. [Deleting the indexer - API call](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-indexer) - Just use your service, key and indexer name
+1. [Deleting the indexer](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-indexer) - Just use your service, key and indexer name
 1. [Deleting the index](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-index) - Just use your service, key and indexer name
 1. [Deleting the Skillset](https://docs.microsoft.com/en-us/rest/api/searchservice/delete-skillset) - Just use your service, key and skillset name
 
@@ -224,7 +218,9 @@ As you can see, the custom skill works like all other predefined skills, but the
 you have to add an instruction for maximum batch size to be just ```1``` to send documents one at a time. The objectives are:
 
 1. Save the extracted boolean value for moderation in a new index field
+
 1. Also submit the OCR text to the content moderator API
+
 1. Keep the OCR text been submited to Entity, Language and Key Phrases extractions
 
 ```json
@@ -253,9 +249,10 @@ you have to add an instruction for maximum batch size to be just ```1``` to send
 ### Step 7.1 - Challenge
 
 As you can see, again we are not giving you the body request. One more time you can use the previous lab as a reference.  
+
 Skipping the services and the data source creation, repeat the other steps of the previous labs, in the same order. Name the new field of the content moderation process as **needsModeration**. It is case sensitive, so it is important to use the same name formation. If you decide to use a different name, you will need to change the Bot code to make it work.
 
->Note! Please make sure you will create the new index field for the moderation analysis as boolean. More information [here](https://docs.microsoft.com/en-us/azure/search/search-what-is-an-index).
+>**Note** Please make sure you will create the new index field for the moderation analysis as boolean. More information [here](https://docs.microsoft.com/en-us/azure/search/search-what-is-an-index).
 
 1. ~~Create the services at the portal~~ **Not required, we did not delete it**.
 2. ~~Create the Data Source~~ **Not required, we did not delete it**.
@@ -277,16 +274,20 @@ Now we have our data enriched with pre-defined and custom skills. Use the Search
 Here is another challenge for you. Use [this](https://docs.microsoft.com/en-us/azure/search/cognitive-search-create-custom-skill-example) documentation as a reference and:
 
 1. Create and publish another Azure Function, for the Translation API
+
 1. Connect this new API into your Enrichment Pipeline skillset
+
 1. Create a new skill field for the translated text into the index
+
 1. Create another mapping in your indexer
+
 1. Use Postman or Azure Search Explorer to check the translated data.
 
 ## Finished Solution
 
-If you could not make it, [here](../resources/finished-solutions/finished-solution-lab-custom-skills.md) is the challenge solution. You just need to follow the steps. **Step 9 isn't included.**
+If you could not make it, [here](../resources/finished-solutions/finished-solution-lab-05-custom-skills.md) is the challenge solution. You just need to follow the steps. **Step 9 isn't included.**
 
 ## Next Step
 
-[Business Documents Bot Lab](../labs/lab-bot-business-documents.md) or
+[Business Documents Bot Lab](../labs/lab-06-bot-business-documents.md) or
 [Back to Read Me](../README.md)

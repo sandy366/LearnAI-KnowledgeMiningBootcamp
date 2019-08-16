@@ -1,6 +1,6 @@
 # Alternative Agendas
 
-You may want to do or redelivery this course in less than 2 days, the origianl agenda. Here are some alternatives for you.
+You may want to do or redelivery this course in less than 2 days, the original agenda. Here are some alternatives for you.
 
 Keep in mind that this training will always be public on Github, so you can use parts of the content and finish the other labs later, as a call to action.
 
@@ -12,17 +12,17 @@ You can create your own agenda, based on your objectives and audience.
 
 1. [Architecture](../../resources/md-files/solution-architecture.md) – **Solution Architecture** for building enterprise search solution.
 
-1. [Lab 1](../../labs/lab-environment-creation.md) - Azure - **Environment Creation**
+1. [Lab 1](../../labs/lab-01-environment-creation.md) - Azure - **Environment Creation**
 
-1. [Lab 2](../../labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**
+1. [Lab 2](../../labs/lab-02-azure-search.md) - Azure Search - **Indexing Blob Storage**
 
-1. [Lab 3](../../labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
+1. [Lab 3](../../labs/lab-03-text-skills.md) - Cognitive Search – **Text Skills**
 
-1. [Lab 4](../../labs/lab-image-skills.md) - Cognitive Search – **Image Skills**
+1. [Lab 4](../../labs/lab-04-image-skills.md) - Cognitive Search – **Image Skills**
 
-1. [Lab 5](../../labs/lab-custom-skills.md) - Cognitive Search – **Custom Skills**
+1. [Lab 5](../../labs/lab-05-custom-skills.md) - Cognitive Search – **Custom Skills**
 
-1. [Lab 6](../../labs/lab-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API
+1. [Lab 6](../../labs/lab-06-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API
 
 1. [Lab 7](../../labs/lab-final-case.md) - **Architecture Design Session**
 
@@ -34,17 +34,17 @@ If the audience is familiar with Azure Search, but not with Cognitive Search.
 
 1. [Architecture](../../resources/md-files/solution-architecture.md) – **Solution Architecture** for building enterprise search solution.
 
-1. [Lab 1](../../labs/lab-environment-creation.md) - Azure - **Environment Creation**
+1. [Lab 1](../../labs/lab-01-environment-creation.md) - Azure - **Environment Creation**
 
-1. ~~[Lab 2](../../labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**~~
+1. ~~[Lab 2](../../labs/lab-02-azure-search.md) - Azure Search - **Indexing Blob Storage**~~
 
-1. [Lab 3](../../labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
+1. [Lab 3](../../labs/lab-03-text-skills.md) - Cognitive Search – **Text Skills**
 
-1. [Lab 4](../../labs/lab-image-skills.md) - Cognitive Search – **Image Skills**
+1. [Lab 4](../../labs/lab-04-image-skills.md) - Cognitive Search – **Image Skills**
 
-1. [Lab 5](../../labs/lab-custom-skills.md) - Cognitive Search – **Custom Skills**
+1. [Lab 5](../../labs/lab-05-custom-skills.md) - Cognitive Search – **Custom Skills**
 
-1. [Lab 6](../../labs/lab-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API
+1. [Lab 6](../../labs/lab-06-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API
 
 1. [Lab 7](../../labs/lab-final-case.md) - **Architecture Design Session**
 
@@ -56,17 +56,17 @@ If the audience is familiar with Bots or Web Developments using APIs
 
 1. [Architecture](../../resources/md-files/solution-architecture.md) – **Solution Architecture** for building enterprise search solution.
 
-1. [Lab 1](../../labs/lab-environment-creation.md) - Azure - **Environment Creation**
+1. [Lab 1](../../labs/lab-01-environment-creation.md) - Azure - **Environment Creation**
 
-1. [Lab 2](../../labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**
+1. [Lab 2](../../labs/lab-02-azure-search.md) - Azure Search - **Indexing Blob Storage**
 
-1. [Lab 3](../../labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
+1. [Lab 3](../../labs/lab-03-text-skills.md) - Cognitive Search – **Text Skills**
 
-1. [Lab 4](../../labs/lab-image-skills.md) - Cognitive Search – **Image Skills**
+1. [Lab 4](../../labs/lab-04-image-skills.md) - Cognitive Search – **Image Skills**
 
-1. [Lab 5](../../labs/lab-custom-skills.md) - Cognitive Search – **Custom Skills**
+1. [Lab 5](../../labs/lab-05-custom-skills.md) - Cognitive Search – **Custom Skills**
 
-1. ~~[Lab 6](../../labs/lab-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API~~
+1. ~~[Lab 6](../../labs/lab-06-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API~~
 
 1. [Lab 7](../../labs/lab-final-case.md) - **Architecture Design Session**
 
@@ -78,17 +78,17 @@ If the audience just need Azure Search and Azure Cognitive Search basic knowledg
 
 1. [Architecture](../../resources/md-files/solution-architecture.md) – **Solution Architecture** for building enterprise search solution.
 
-1. [Lab 1](../../labs/lab-environment-creation.md) - Azure - **Environment Creation**
+1. [Lab 1](../../labs/lab-01-environment-creation.md) - Azure - **Environment Creation**
 
-1. [Lab 2](../../labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**
+1. [Lab 2](../../labs/lab-02-azure-search.md) - Azure Search - **Indexing Blob Storage**
 
-1. [Lab 3](../../labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
+1. [Lab 3](../../labs/lab-03-text-skills.md) - Cognitive Search – **Text Skills**
 
-1. [Lab 4](../../labs/lab-image-skills.md) - Cognitive Search – **Image Skills**
+1. [Lab 4](../../labs/lab-04-image-skills.md) - Cognitive Search – **Image Skills**
 
-1. ~~[Lab 5](../../labs/lab-custom-skills.md) - Cognitive Search – **Custom Skills**~~
+1. ~~[Lab 5](../../labs/lab-05-custom-skills.md) - Cognitive Search – **Custom Skills**~~
 
-1. ~~[Lab 6](../../labs/lab-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API~~
+1. ~~[Lab 6](../../labs/lab-06-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API~~
 
 1. ~~[Lab 7](../../labs/lab-final-case.md) - **Architecture Design Session**~~
 
@@ -100,17 +100,17 @@ Same agenda of the [first version of this training](http://aka.ms/LearnAI-csw)
 
 1. [Architecture](../../resources/md-files/solution-architecture.md) – **Solution Architecture** for building enterprise search solution.
 
-1. [Lab 1](../../labs/lab-environment-creation.md) - Azure - **Environment Creation**
+1. [Lab 1](../../labs/lab-01-environment-creation.md) - Azure - **Environment Creation**
 
-1. ~~[Lab 2](../../labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**~~
+1. ~~[Lab 2](../../labs/lab-02-azure-search.md) - Azure Search - **Indexing Blob Storage**~~
 
-1. [Lab 3](../../labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
+1. [Lab 3](../../labs/lab-03-text-skills.md) - Cognitive Search – **Text Skills**
 
-1. [Lab 4](../../labs/lab-image-skills.md) - Cognitive Search – **Image Skills**
+1. [Lab 4](../../labs/lab-04-image-skills.md) - Cognitive Search – **Image Skills**
 
-1. [Lab 5](../../labs/lab-custom-skills.md) - Cognitive Search – **Custom Skills**
+1. [Lab 5](../../labs/lab-05-custom-skills.md) - Cognitive Search – **Custom Skills**
 
-1. ~~[Lab 6](../../labs/lab-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API~~
+1. ~~[Lab 6](../../labs/lab-06-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API~~
 
 1. [Lab 7](../../labs/lab-final-case.md) - **Architecture Design Session**
 
@@ -122,17 +122,17 @@ To do this in half day you need a qualified audience and all pre-reqs and enviro
 
 1. [Architecture](../../resources/md-files/solution-architecture.md) – **Solution Architecture** for building enterprise search solution.
 
-1. ~~[Lab 1](../../labs/lab-environment-creation.md) - Azure - **Environment Creation**~~
+1. ~~[Lab 1](../../labs/lab-01-environment-creation.md) - Azure - **Environment Creation**~~
 
-1. [Lab 2](../../labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**
+1. [Lab 2](../../labs/lab-02-azure-search.md) - Azure Search - **Indexing Blob Storage**
 
-1. [Lab 3](../../labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
+1. [Lab 3](../../labs/lab-03-text-skills.md) - Cognitive Search – **Text Skills**
 
-1. ~~[Lab 4](../../labs/lab-image-skills.md) - Cognitive Search – **Image Skills**~~
+1. ~~[Lab 4](../../labs/lab-04-image-skills.md) - Cognitive Search – **Image Skills**~~
 
-1. ~~[Lab 5](../../labs/lab-custom-skills.md) - Cognitive Search – **Custom Skills**~~
+1. ~~[Lab 5](../../labs/lab-05-custom-skills.md) - Cognitive Search – **Custom Skills**~~
 
-1. ~~[Lab 6](../../labs/lab-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API~~
+1. ~~[Lab 6](../../labs/lab-06-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API~~
 
 1. ~~[Lab 7](../../labs/lab-final-case.md) - **Architecture Design Session**~~
 
@@ -144,17 +144,17 @@ To do this in half day you need a qualified audience and all pre-reqs and enviro
 
 1. [Architecture](../../resources/md-files/solution-architecture.md) – **Solution Architecture** for building enterprise search solution.
 
-1. ~~[Lab 1](../../labs/lab-environment-creation.md) - Azure - **Environment Creation**~~
+1. ~~[Lab 1](../../labs/lab-01-environment-creation.md) - Azure - **Environment Creation**~~
 
-1. ~~[Lab 2](../../labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**~~
+1. ~~[Lab 2](../../labs/lab-02-azure-search.md) - Azure Search - **Indexing Blob Storage**~~
 
-1. [Lab 3](../../labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
+1. [Lab 3](../../labs/lab-03-text-skills.md) - Cognitive Search – **Text Skills**
 
-1. [Lab 4](../../labs/lab-image-skills.md) - Cognitive Search – **Image Skills**
+1. [Lab 4](../../labs/lab-04-image-skills.md) - Cognitive Search – **Image Skills**
 
-1. [Lab 5](../../labs/lab-custom-skills.md) - Cognitive Search – **Custom Skills**
+1. [Lab 5](../../labs/lab-05-custom-skills.md) - Cognitive Search – **Custom Skills**
 
-1. ~~[Lab 6](../../labs/lab-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API~~
+1. ~~[Lab 6](../../labs/lab-06-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API~~
 
 1. ~~[Lab 7](../../labs/lab-final-case.md) - **Architecture Design Session**~~
 
@@ -166,17 +166,17 @@ To do this in half day you need a qualified audience and all pre-reqs and enviro
 
 1. [Architecture](../../resources/md-files/solution-architecture.md) – **Solution Architecture** for building enterprise search solution.
 
-1. ~~[Lab 1](../../labs/lab-environment-creation.md) - Azure - **Environment Creation**~~
+1. ~~[Lab 1](../../labs/lab-01-environment-creation.md) - Azure - **Environment Creation**~~
 
-1. ~~[Lab 2](../../labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**~~
+1. ~~[Lab 2](../../labs/lab-02-azure-search.md) - Azure Search - **Indexing Blob Storage**~~
 
-1. [Lab 3](../../labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
+1. [Lab 3](../../labs/lab-03-text-skills.md) - Cognitive Search – **Text Skills**
 
-1. ~~[Lab 4](../../labs/lab-image-skills.md) - Cognitive Search – **Image Skills**~~
+1. ~~[Lab 4](../../labs/lab-04-image-skills.md) - Cognitive Search – **Image Skills**~~
 
-1. ~~[Lab 5](../../labs/lab-custom-skills.md) - Cognitive Search – **Custom Skills**~~
+1. ~~[Lab 5](../../labs/lab-05-custom-skills.md) - Cognitive Search – **Custom Skills**~~
 
-1. [Lab 6](../../labs/lab-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API
+1. [Lab 6](../../labs/lab-06-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API
 
 1. ~~[Lab 7](../../labs/lab-final-case.md) - **Architecture Design Session**~~
 
@@ -188,17 +188,17 @@ To do this in half day you need a qualified audience and all pre-reqs and enviro
 
 1. ~~[Architecture](../../resources/md-files/solution-architecture.md) – **Solution Architecture** for building enterprise search solution.~~
 
-1. ~~[Lab 1](../../labs/lab-environment-creation.md) - Azure - **Environment Creation**~~
+1. ~~[Lab 1](../../labs/lab-01-environment-creation.md) - Azure - **Environment Creation**~~
 
-1. ~~[Lab 2](../../labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**~~
+1. ~~[Lab 2](../../labs/lab-02-azure-search.md) - Azure Search - **Indexing Blob Storage**~~
 
-1. [Lab 3](../../labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
+1. [Lab 3](../../labs/lab-03-text-skills.md) - Cognitive Search – **Text Skills**
 
-1. ~~[Lab 4](../../labs/lab-image-skills.md) - Cognitive Search – **Image Skills**~~
+1. ~~[Lab 4](../../labs/lab-04-image-skills.md) - Cognitive Search – **Image Skills**~~
 
-1. [Lab 5](../../labs/lab-custom-skills.md) - Cognitive Search – **Custom Skills**
+1. [Lab 5](../../labs/lab-05-custom-skills.md) - Cognitive Search – **Custom Skills**
 
-1. [Lab 6](../../labs/lab-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API
+1. [Lab 6](../../labs/lab-06-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API
 
 1. ~~[Lab 7](../../labs/lab-final-case.md) - **Architecture Design Session**~~
 
@@ -210,17 +210,17 @@ If you just want to teach what Cognitive Search is, since it is a brand new prod
 
 1. [Architecture](../../resources/md-files/solution-architecture.md) – **Solution Architecture** for building enterprise search solution.
 
-1. ~~[Lab 1](../../labs/lab-environment-creation.md) - Azure - **Environment Creation**~~
+1. ~~[Lab 1](../../labs/lab-01-environment-creation.md) - Azure - **Environment Creation**~~
 
-1. ~~[Lab 2](../../labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**~~
+1. ~~[Lab 2](../../labs/lab-02-azure-search.md) - Azure Search - **Indexing Blob Storage**~~
 
-1. ~~[Lab 3](../../labs/lab-text-skills.md) - Cognitive Search – **Text Skills**~~
+1. ~~[Lab 3](../../labs/lab-03-text-skills.md) - Cognitive Search – **Text Skills**~~
 
-1. ~~[Lab 4](../../labs/lab-image-skills.md) - Cognitive Search – **Image Skills**~~
+1. ~~[Lab 4](../../labs/lab-04-image-skills.md) - Cognitive Search – **Image Skills**~~
 
-1. ~~[Lab 5](../../labs/lab-custom-skills.md) - Cognitive Search – **Custom Skills**~~
+1. ~~[Lab 5](../../labs/lab-05-custom-skills.md) - Cognitive Search – **Custom Skills**~~
 
-1. ~~[Lab 6](../../labs/lab-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API~~
+1. ~~[Lab 6](../../labs/lab-06-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API~~
 
 1. ~~[Lab 7](../../labs/lab-final-case.md) - **Architecture Design Session**~~
 
@@ -232,16 +232,16 @@ For express deliveries with some knowledge and some code. It is expected a quali
 
 1. [Architecture](../../resources/md-files/solution-architecture.md) – **Solution Architecture** for building enterprise search solution.
 
-1. ~~[Lab 1](../../labs/lab-environment-creation.md) - Azure - **Environment Creation**~~
+1. ~~[Lab 1](../../labs/lab-01-environment-creation.md) - Azure - **Environment Creation**~~
 
-1. ~~[Lab 2](../../labs/lab-azure-search.md) - Azure Search - **Indexing Blob Storage**~~
+1. ~~[Lab 2](../../labs/lab-02-azure-search.md) - Azure Search - **Indexing Blob Storage**~~
 
-1. [Lab 3](../../labs/lab-text-skills.md) - Cognitive Search – **Text Skills**
+1. [Lab 3](../../labs/lab-03-text-skills.md) - Cognitive Search – **Text Skills**
 
-1. [Lab 4](../../labs/lab-image-skills.md) - Cognitive Search – **Image Skills**
+1. [Lab 4](../../labs/lab-04-image-skills.md) - Cognitive Search – **Image Skills**
 
-1. ~~[Lab 5](../../labs/lab-custom-skills.md) - Cognitive Search – **Custom Skills**~~
+1. ~~[Lab 5](../../labs/lab-05-custom-skills.md) - Cognitive Search – **Custom Skills**~~
 
-1. ~~[Lab 6](../../labs/lab-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API~~
+1. ~~[Lab 6](../../labs/lab-06-bot-business-documents.md) - Build and Integrate a **Bot** with Cognitive Search API~~
 
 1. ~~[Lab 7](../../labs/lab-final-case.md) - **Architecture Design Session**~~

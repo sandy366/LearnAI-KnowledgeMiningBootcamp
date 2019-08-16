@@ -2,7 +2,7 @@
 
 Hello!
 
-Here are suggestions for the challenge at the end of the [Azure Search Lab](../../labs/lab-azure-search.md)
+Here are suggestions for the challenge at the end of the [Azure Search Lab](../../labs/lab-02-azure-search.md)
 
 The commands below should be types in the Search Explorer **Query string** bar. Use `Ctrl+F` to make sure your queries are working as expected.
 
@@ -20,5 +20,5 @@ The commands below should be types in the Search Explorer **Query string** bar. 
 
 ## Next Step
 
-[Text Skills Lab](../../labs/lab-text-skills.md) or
+[Text Skills Lab](../../labs/lab-03-text-skills.md) or
 [Back to Read Me](../../README.md)
